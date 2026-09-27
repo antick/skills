@@ -79,18 +79,23 @@ Restart the coding agent or open a new session after installing.
 | `--cwd <directory>` | Set the target project directory. Defaults to the current directory. |
 | `--global`, `-g` | Install under the home directory instead of a project. |
 | `--copy` | Use independent copies for agent-specific destinations. |
-| `--yes`, `-y` | Skip interactive prompts. |
+| `--yes`, `-y` | Skip prompts; required for installation without an interactive terminal. |
 | `--all` | Install all skills for all configured agents and skip prompts. |
 
 Quote `'*'` so your shell does not expand it into filenames. Always provide a
 value for `--skill`, `--agent`, and `--cwd`.
 
 **Existing files:** installation replaces the entire directory of each selected
-skill, including local edits. Back up customized skills first. There is no
-rollback if copying fails. When input or output is not a terminal, the installer
-does not prompt, even without `--yes`; omitted skills select all skills, and
-omitted agents select detected agents or the built-in defaults. Use explicit
-selections in scripts.
+skill, including local edits. Back up customized skills first. The installer
+prepares every destination for a skill before replacing existing copies. A copy
+failure leaves those copies intact; a failed swap restores them. If restoration
+also fails, the error identifies the retained recovery directory. Skills that
+finished installing before another skill fails remain installed.
+
+When input or output is not a terminal, installation requires `--yes` or `--all`.
+With that confirmation, omitted skills select all skills, and omitted agents
+select detected agents or the built-in defaults. Use explicit selections in
+scripts. `--list` and `--help` work without confirmation.
 
 ### Agent destinations
 
@@ -121,6 +126,12 @@ while global Codex skills also go into `~/.codex/skills`. See
 [install-agents.json](scripts/install-agents.json) for every path and detection
 marker. Detection checks whether configured paths exist; it does not verify that
 the agent can load the skill.
+
+Destination parents must resolve inside the selected project, or inside the home
+directory for a global installation. Links that redirect those parents outside
+that scope are rejected before installation. The selected project itself may be
+accessed through a symlink. Existing links at the individual skill location are
+replaced without changing their targets.
 
 ### Manual installation
 

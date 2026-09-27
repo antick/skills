@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-import { cp, mkdir, readFile, readdir, rm, symlink } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { readFile, readdir } from "node:fs/promises";
+import { existsSync, realpathSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import readline from "node:readline";
 import { fileURLToPath } from "node:url";
+import { installSkill, resolveDirectory, resolveDestinations } from "./install-files.mjs";
 
 const PACKAGE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const RESET = "\x1b[0m";
@@ -36,6 +37,12 @@ const LOGO_LINES = [
 ];
 
 export function parseArgs(argv) {
+  const valueFor = (option, value) => {
+    if (!value?.trim() || value.startsWith("-")) {
+      throw new Error(`Missing value for ${option}`);
+    }
+    return value;
+  };
   const options = {
     list: false,
     help: false,
@@ -56,12 +63,12 @@ export function parseArgs(argv) {
     else if (arg === "--global" || arg === "-g") options.global = true;
     else if (arg === "--copy") options.copy = true;
     else if (arg === "--all") options.all = true;
-    else if (arg === "--cwd") options.cwd = path.resolve(argv[++index] ?? "");
-    else if (arg === "--skill" || arg === "-s") options.skills.push(argv[++index] ?? "");
-    else if (arg === "--agent" || arg === "-a") options.agents.push(argv[++index] ?? "");
-    else if (arg.startsWith("--skill=")) options.skills.push(arg.slice("--skill=".length));
-    else if (arg.startsWith("--agent=")) options.agents.push(arg.slice("--agent=".length));
-    else if (arg.startsWith("--cwd=")) options.cwd = path.resolve(arg.slice("--cwd=".length));
+    else if (arg === "--cwd") options.cwd = path.resolve(valueFor(arg, argv[++index]));
+    else if (arg === "--skill" || arg === "-s") options.skills.push(valueFor(arg, argv[++index]));
+    else if (arg === "--agent" || arg === "-a") options.agents.push(valueFor(arg, argv[++index]));
+    else if (arg.startsWith("--skill=")) options.skills.push(valueFor("--skill", arg.slice("--skill=".length)));
+    else if (arg.startsWith("--agent=")) options.agents.push(valueFor("--agent", arg.slice("--agent=".length)));
+    else if (arg.startsWith("--cwd=")) options.cwd = path.resolve(valueFor("--cwd", arg.slice("--cwd=".length)));
     else throw new Error(`Unknown argument: ${arg}`);
   }
 
@@ -71,8 +78,6 @@ export function parseArgs(argv) {
     options.yes = true;
   }
 
-  options.skills = options.skills.filter(Boolean);
-  options.agents = options.agents.filter(Boolean);
   return options;
 }
 
@@ -174,7 +179,7 @@ function printHelp() {
   console.log(`  --agent, -a <name>   Target a harness (* for all)`);
   console.log(`  --global, -g         Install in the home directory`);
   console.log(`  --copy               Copy files instead of symlinking`);
-  console.log(`  --yes, -y            Skip prompts`);
+  console.log(`  --yes, -y            Skip prompts (required without a terminal)`);
   console.log(`  --all                All skills, all harnesses, skip prompts`);
   console.log(`  --cwd <dir>          Install relative to this directory`);
 }
@@ -271,34 +276,16 @@ async function promptChoice(title, choices) {
   throw new Error(`Unknown choice: ${answer}`);
 }
 
-async function installSkill(skill, destinations, { copy }) {
-  const unique = [...new Set(destinations)];
-  const [primary, ...others] = unique;
-  await rm(primary, { recursive: true, force: true });
-  await mkdir(path.dirname(primary), { recursive: true });
-  await cp(skill.directory, primary, { recursive: true, dereference: true });
-
-  for (const destination of others) {
-    await rm(destination, { recursive: true, force: true });
-    await mkdir(path.dirname(destination), { recursive: true });
-    if (copy) {
-      await cp(primary, destination, { recursive: true, dereference: true });
-      continue;
-    }
-    const relative = path.relative(path.dirname(destination), primary);
-    try {
-      await symlink(relative, destination, process.platform === "win32" ? "junction" : undefined);
-    } catch {
-      await cp(primary, destination, { recursive: true, dereference: true });
-    }
-  }
-}
-
 export async function installSelection({ skills, agents, cwd, global, copy }) {
   const canonical = canonicalSkillsDir({ global, cwd });
+  const boundary = await resolveDirectory(global ? os.homedir() : cwd);
+  const plan = [];
   const installed = [];
 
   for (const skill of skills) {
+    if (!/^[a-z0-9][a-z0-9-]*$/.test(skill.name)) {
+      throw new Error(`Invalid skill name: ${skill.name}`);
+    }
     const destinations = [];
     const canonicalDir = path.join(canonical, skill.name);
     destinations.push(canonicalDir);
@@ -308,10 +295,14 @@ export async function installSelection({ skills, agents, cwd, global, copy }) {
       const target = path.join(base, skill.name);
       if (path.resolve(target) !== path.resolve(canonicalDir)) destinations.push(target);
     }
-    await installSkill(skill, destinations, { copy });
+    plan.push({ skill, destinations: await resolveDestinations(destinations, boundary) });
+  }
+
+  for (const { skill, destinations } of plan) {
+    await installSkill(skill, destinations, { copy, boundary });
     installed.push({
       name: skill.name,
-      path: path.relative(cwd, canonicalDir) || canonicalDir,
+      path: path.relative(cwd, destinations[0]) || destinations[0],
     });
   }
 
@@ -351,6 +342,9 @@ async function main(argv = process.argv.slice(2)) {
   }
 
   const interactive = process.stdin.isTTY && process.stdout.isTTY && !options.yes;
+  if (!interactive && !options.yes) {
+    throw new Error("Non-interactive installation requires --yes (or --all). Use --list to preview skills.");
+  }
   const detected = detectInstalledAgents(catalog.agents);
 
   printLogo();
@@ -467,7 +461,8 @@ async function main(argv = process.argv.slice(2)) {
   console.log(`${DIM}Restart the host or open a new session so it rediscovers skills.${RESET}`);
 }
 
-const isDirectRun = path.resolve(process.argv[1] ?? "") === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && existsSync(process.argv[1]) &&
+  realpathSync(process.argv[1]) === realpathSync(fileURLToPath(import.meta.url));
 if (isDirectRun) {
   main().catch((error) => {
     console.error(`${RED}${error.message}${RESET}`);

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Build"
+  short_description: "Build simple, complete solutions for the project's stack"
+  default_prompt: "Use $code-build to identify the project's stack and implement the simplest safe solution that fully meets this request."

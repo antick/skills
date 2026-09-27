@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skills",
+  "description": "Personal AI agent skills",
+  "owner": {
+    "name": "Pankaj"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Code review, simple implementation, and clear communication skills",
+      "version": "0.3.1",
+      "skills": [
+        "./skills/code-review",
+        "./skills/concise",
+        "./skills/make-sense",
+        "./skills/code-build",
+        "./skills/code-audit"
+      ]
+    }
+  ]
+}

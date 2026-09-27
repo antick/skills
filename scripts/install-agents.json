@@ -1,0 +1,130 @@
+{
+  "agents": [
+    {
+      "id": "amp",
+      "displayName": "Amp",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.config/agents/skills",
+      "detect": ["~/.config/amp"]
+    },
+    {
+      "id": "antigravity",
+      "displayName": "Antigravity",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.gemini/antigravity/skills",
+      "detect": ["~/.gemini/antigravity"]
+    },
+    {
+      "id": "claude-code",
+      "displayName": "Claude Code",
+      "projectDir": ".claude/skills",
+      "globalDir": "~/.claude/skills",
+      "detect": ["~/.claude"]
+    },
+    {
+      "id": "cline",
+      "displayName": "Cline",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.agents/skills",
+      "detect": ["~/.cline"]
+    },
+    {
+      "id": "codex",
+      "displayName": "Codex",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.codex/skills",
+      "detect": ["~/.codex"]
+    },
+    {
+      "id": "continue",
+      "displayName": "Continue",
+      "projectDir": ".continue/skills",
+      "globalDir": "~/.continue/skills",
+      "detect": ["~/.continue"]
+    },
+    {
+      "id": "crush",
+      "displayName": "Crush",
+      "projectDir": ".crush/skills",
+      "globalDir": "~/.config/crush/skills",
+      "detect": ["~/.config/crush"]
+    },
+    {
+      "id": "cursor",
+      "displayName": "Cursor",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.cursor/skills",
+      "detect": ["~/.cursor"]
+    },
+    {
+      "id": "droid",
+      "displayName": "Droid",
+      "projectDir": ".factory/skills",
+      "globalDir": "~/.factory/skills",
+      "detect": ["~/.factory"]
+    },
+    {
+      "id": "gemini-cli",
+      "displayName": "Gemini CLI",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.gemini/skills",
+      "detect": ["~/.gemini"]
+    },
+    {
+      "id": "github-copilot",
+      "displayName": "GitHub Copilot",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.copilot/skills",
+      "detect": ["~/.copilot"]
+    },
+    {
+      "id": "goose",
+      "displayName": "Goose",
+      "projectDir": ".goose/skills",
+      "globalDir": "~/.config/goose/skills",
+      "detect": ["~/.config/goose"]
+    },
+    {
+      "id": "kilo",
+      "displayName": "Kilo Code",
+      "projectDir": ".kilocode/skills",
+      "globalDir": "~/.kilocode/skills",
+      "detect": ["~/.kilocode"]
+    },
+    {
+      "id": "opencode",
+      "displayName": "OpenCode",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.config/opencode/skills",
+      "detect": ["~/.config/opencode"]
+    },
+    {
+      "id": "pi",
+      "displayName": "Pi",
+      "projectDir": ".pi/skills",
+      "globalDir": "~/.pi/agent/skills",
+      "detect": ["~/.pi/agent"]
+    },
+    {
+      "id": "roo",
+      "displayName": "Roo Code",
+      "projectDir": ".roo/skills",
+      "globalDir": "~/.roo/skills",
+      "detect": ["~/.roo"]
+    },
+    {
+      "id": "windsurf",
+      "displayName": "Windsurf",
+      "projectDir": ".windsurf/skills",
+      "globalDir": "~/.codeium/windsurf/skills",
+      "detect": ["~/.codeium/windsurf"]
+    },
+    {
+      "id": "zed",
+      "displayName": "Zed",
+      "projectDir": ".agents/skills",
+      "globalDir": "~/.agents/skills",
+      "detect": ["~/.config/zed"]
+    }
+  ]
+}

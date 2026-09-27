@@ -1,0 +1,4 @@
+interface:
+  display_name: "Concise"
+  short_description: "Short, natural answers that keep the meaning"
+  default_prompt: "Use $concise to answer this concisely without losing important meaning."

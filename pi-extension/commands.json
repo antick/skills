@@ -1,0 +1,7 @@
+{
+  "code-review": "Review code and PRs for requirements, risk, and complexity",
+  "code-audit": "Rank repository-wide opportunities to remove complexity",
+  "make-sense": "Explain clearly without forcing brevity",
+  "code-build": "Build apps and features with the simplest solution for the project's stack",
+  "concise": "Answer briefly without losing important meaning"
+}

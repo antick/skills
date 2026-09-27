@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Audit"
+  short_description: "Rank repository-wide opportunities to remove bloat"
+  default_prompt: "Use $code-audit to audit this repository for unnecessary complexity."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make Sense"
+  short_description: "Clear, natural explanations without forced brevity"
+  default_prompt: "Use $make-sense to make this easy to understand without unnecessarily shortening it."

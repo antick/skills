@@ -1,0 +1,49 @@
+{
+  "name": "@antick/skills",
+  "version": "0.3.1",
+  "description": "Portable skills for code review, simple implementation, and clear communication.",
+  "keywords": ["codex-plugin", "claude-code", "opencode-plugin", "pi-package", "code-review", "code-simplicity", "writing"],
+  "license": "MIT",
+  "author": {
+    "name": "Pankaj",
+    "url": "https://github.com/antick"
+  },
+  "homepage": "https://github.com/antick/skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antick/skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antick/skills/issues"
+  },
+  "type": "module",
+  "main": "./.opencode/plugins/skills.mjs",
+  "exports": {
+    ".": "./.opencode/plugins/skills.mjs",
+    "./plugin": "./.opencode/plugins/skills.mjs"
+  },
+  "bin": {
+    "skills": "./scripts/install.mjs"
+  },
+  "files": [
+    ".opencode/",
+    "pi-extension/",
+    "scripts/",
+    "skills/",
+    "LICENSE",
+    "README.md",
+    "SKILLS.md",
+    "packs.json"
+  ],
+  "scripts": {
+    "test": "node --test test/*.js",
+    "install-skills": "node ./scripts/install.mjs"
+  },
+  "pi": {
+    "extensions": ["./pi-extension/index.js"],
+    "skills": ["./skills"]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

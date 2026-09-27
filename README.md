@@ -3,6 +3,8 @@
 Five portable AI agent skills for reviewing code, building with the project's
 existing stack, simplifying a codebase, and communicating clearly.
 
+[Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
+
 Each skill is a folder containing a `SKILL.md` and any supporting guides. The
 installer copies those folders into your coding agent's skill directory. The
 repository also includes adapters for OpenCode and Pi, plus plugin manifests
@@ -38,8 +40,8 @@ cd skills
 node scripts/install.mjs --list
 ```
 
-Until the repository is public, cloning requires access. The npm package name is
-`@antick/skills`, but the checkout instructions do not depend on an npm release.
+The npm package name is `@antick/skills`, but the checkout instructions do not
+depend on an npm release.
 
 Install one skill into a target project, replacing `/path/to/project` with that
 project's directory:
@@ -201,7 +203,39 @@ npm pack --dry-run
 Tests cover catalogue consistency, skill metadata, local installation, and
 adapter registration/dispatch. They do not run every coding agent. The package
 check previews the files npm would ship; it does not publish anything. This
-repository has no third-party runtime or development dependencies.
+skills package has no third-party runtime or development dependencies. The
+website has its own dependencies and lockfile.
+
+## Website
+
+The landing page at [skills.potion.sh](https://skills.potion.sh) lives in
+`website/`. It uses Astro, Tailwind CSS, and shadcn/ui React components. Its
+skill names and agent options come from the same catalogues as the installer.
+The website and its dependencies are excluded from the published skills package.
+
+Use Node.js 24 from the repository root:
+
+```sh
+npm ci --prefix website
+npm run dev --prefix website
+npm test --prefix website
+npm run build --prefix website
+```
+
+Site copy and links live in `website/src/lib/site.ts`; skill descriptions live
+in `website/src/lib/catalog.ts`. The social preview source is
+`website/public/og.svg`, with `og.png` used by link previews.
+
+Vercel project `antick-skills` builds from the **repository root**, using the
+checked-in `vercel.json`. Do not set the root directory to `website`: the build
+also reads the repository's catalogues. Output is `website/dist`. Cloudflare
+manages DNS for `skills.potion.sh`. No environment variables are required.
+
+Deploy from the repository root after running the checks:
+
+```sh
+npx vercel@60.0.1 deploy --prod --yes --project antick-skills --scope pankajsanam
+```
 
 ## License
 

@@ -12,6 +12,8 @@ out/
 .cache/
 .parcel-cache/
 .turbo/
+.astro/
+.vercel/
 *.tsbuildinfo
 *.tgz
 

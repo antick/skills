@@ -1,0 +1,73 @@
+---
+import { ArrowRight, ArrowUpRight, Check, FileText, GitBranch, Code2, MoveUpRight, Sparkles, Terminal, ShieldCheck } from "lucide-react";
+import Layout from "../layouts/Layout.astro";
+import Mark from "../components/Mark.astro";
+import SkillExplorer from "../components/SkillExplorer";
+import InstallBuilder from "../components/InstallBuilder";
+import Faq from "../components/Faq";
+import { skills, agents } from "../lib/catalog";
+import { site } from "../lib/site";
+
+const principles = [
+  { icon: FileText, label: "Readable by design", text: "Plain Markdown, from the first instruction to the last. See exactly what you’re asking your agent to do." },
+  { icon: GitBranch, label: "Your project comes first", text: "Work with your stack, your conventions, and the patterns already doing their job." },
+  { icon: ShieldCheck, label: "Evidence over confidence", text: "Trace the behavior. Run the checks. Say what’s verified and what still needs a look." },
+];
+---
+<Layout>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="Antick Skills home"><Mark /><span>antick<span class="brand-slash">/</span><strong>skills</strong></span></a>
+    <nav aria-label="Main navigation"><a href="#skills">The skills</a><a href="#approach">The approach</a><a href="#install" class="nav-install">Get started <ArrowUpRight size={14} /></a></nav>
+    <a href={site.repository} class="github-link" aria-label="Antick Skills on GitHub" target="_blank" rel="noreferrer"><Code2 size={19} /><span>GitHub</span><ArrowUpRight size={13} /></a>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span>A SMALL TOOLKIT FOR BETTER AGENT WORK</p>
+        <h1 id="hero-title">A little more<br /><span class="hero-emphasis">judgment.</span></h1>
+        <p class="hero-description">Your agent can write code.<br />Give it a better way to think about it.</p>
+        <p class="hero-support">{skills.length} focused skills to build thoughtfully, review carefully, and make things make sense.</p>
+        <div class="hero-actions"><a href="#skills" class="button-primary">Meet your new toolkit <ArrowRight size={17} /></a><a href="#install" class="button-text">Get set up <MoveUpRight size={16} /></a></div>
+        <div class="hero-footnote"><span><Check size={13} /> Yours to customize</span><span><Check size={13} /> MIT licensed</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Example of the code-review skill in use">
+        <div class="visual-grid"></div>
+        <div class="orbit-label mono-label">LESS GUESSWORK. MORE INTENT.</div>
+        <div class="file-stack stack-back"><span>make-sense.md</span></div>
+        <div class="file-stack stack-mid"><span>code-build.md</span></div>
+        <div class="review-window">
+          <div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>your agent, with a little direction</span><Terminal size={14} /></div>
+          <div class="window-content">
+            <div class="example-request"><span class="prompt-chevron">›</span><p><strong>$code-review</strong><br />Take a look at these changes.</p><span class="enter-key">↵</span></div>
+            <div class="example-answer"><span class="answer-icon"><Sparkles size={17} /></span><div><span class="mono-label">CODE REVIEW</span><h2>One useful finding.<br />Not twenty guesses.</h2><p>Start with the requirements. Follow the real flow. Report what the evidence supports.</p><div class="review-checks"><span><Check size={12} /> Context first</span><span><Check size={12} /> Actionable fixes</span></div></div></div>
+            <div class="window-bottom"><span class="status-dot"></span><span>Clear instructions. Better starting point.</span></div>
+          </div>
+        </div>
+        <div class="hand-note"><svg viewBox="0 0 59 37" fill="none" aria-hidden="true"><path d="M3 3c6 21 23 26 48 20m-7-8 9 7-6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Same agent. A little more intention.</span></div>
+      </div>
+    </section>
+
+    <section class="compatibility wrap" aria-label="Agent compatibility"><p>AT HOME IN YOUR WORKFLOW</p><div><span>Codex</span><span>Claude Code</span><span>Cursor</span><span>OpenCode</span><span>Pi</span><a href="#install">+ {agents.length - 5} more <ArrowUpRight size={13} /></a></div></section>
+
+    <section id="skills" class="section wrap" aria-labelledby="skills-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-index">01 /</span> THE COLLECTION</p><h2 id="skills-title">Small skills.<br /><span class="muted-heading">A meaningful difference.</span></h2></div><p>Pick the right mindset for the moment.<br />Each skill does one thing, with intent.</p></div>
+      <SkillExplorer client:load />
+      <noscript><div class="no-script-skills">{skills.map((skill) => <a href={skill.source}>{skill.name} — {skill.summary}</a>)}</div></noscript>
+    </section>
+
+    <section id="approach" class="approach-section" aria-labelledby="approach-title"><div class="wrap">
+      <div class="approach-heading"><p class="eyebrow"><span class="section-index">02 /</span> A FEW GOOD PRINCIPLES</p><h2 id="approach-title">Better habits.<br />Built into the conversation.</h2><p>No elaborate rituals. Just clear instructions that keep the work grounded in your project.</p></div>
+      <div class="principles">{principles.map(({ icon: Icon, label, text }, index) => <article><div class="principle-icon"><Icon size={24} strokeWidth={1.4} /><span>0{index + 1}</span></div><h3>{label}</h3><p>{text}</p></article>)}</div>
+      <div class="approach-footer"><span class="small-asterisk">✳</span><p>The simplest solution that fully works.<br /><strong>That’s the whole idea.</strong></p></div>
+    </div></section>
+
+    <section id="install" class="section wrap install-section" aria-labelledby="install-title"><div class="section-heading"><div><p class="eyebrow"><span class="section-index">03 /</span> MAKE YOURSELF AT HOME</p><h2 id="install-title">Your agent.<br /><span class="muted-heading">Your new toolkit.</span></h2></div><p>Choose your agent. Pick your skills.<br />A few commands, and you’re ready.</p></div><InstallBuilder client:visible /><noscript><p>JavaScript is required for the command picker. Follow the <a href={`${site.repository}#install-from-a-checkout`}>installation instructions on GitHub</a> instead.</p></noscript></section>
+
+    <section class="faq-section wrap section" aria-labelledby="faq-title"><div><p class="eyebrow"><span class="section-index">04 /</span> GOOD QUESTIONS</p><h2 id="faq-title">A little more<br />context.</h2><p>Simple tools should be<br />simple to understand.</p></div><Faq client:visible /></section>
+
+    <section class="closing-section wrap"><Mark /><h2>Make good work<br /><span>a little more natural.</span></h2><a href="#install" class="button-primary">Add a little judgment <ArrowUpRight size={17} /></a><p>Five skills. Plenty of room to make them yours.</p></section>
+  </main>
+
+  <footer class="site-footer wrap"><a href="/" class="footer-brand">antick / skills</a><p>A small collection, made with intention.</p><div><a href={`${site.repository}/blob/main/LICENSE`} target="_blank" rel="noreferrer">MIT License <ArrowUpRight size={12} /></a><a href={site.repository} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} /></a></div></footer>
+</Layout>

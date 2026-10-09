@@ -27,6 +27,14 @@ const details = {
     steps: ["Inspect the architecture and actual consumers", "Find duplication and unnecessary layers", "Rank concrete simplifications by their value"],
     mode: "Reports without changing files",
   },
+  "upgrade-dependencies": {
+    category: "Keep your project current",
+    heading: "Update the packages.\nKeep things working.",
+    description: "Upgrade to stable releases at least 48 hours old, apply required code and configuration migrations, and check that the project still works. Clear evidence of what passed and what needs more checking.",
+    prompt: "$upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.",
+    steps: ["Check release age and package compatibility", "Upgrade together and apply required migrations", "Run tests, build, and verify affected behavior"],
+    mode: "Implementation",
+  },
   concise: {
     category: "Every word earns its place",
     heading: "Get to the point.\nKeep the meaning.",

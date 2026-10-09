@@ -6,7 +6,7 @@
     <text x="124" y="94" font-size="30">antick / <tspan font-weight="700">skills</tspan></text>
     <text x="60" y="272" font-size="100" font-weight="700" letter-spacing="-5">A little more</text>
     <text x="60" y="378" font-size="100" font-weight="700" letter-spacing="-5" fill="#b94e2e">judgment.</text>
-    <text x="64" y="446" font-size="25">Five focused skills for better AI agent work.</text>
+    <text x="64" y="446" font-size="25">Focused skills for better AI agent work.</text>
     <path d="M64 521h1072" stroke="#d8d7cd"/>
     <text x="64" y="565" font-size="20">Build thoughtfully. Review carefully. Make things make sense.</text>
     <text x="1136" y="565" font-size="18" text-anchor="end" fill="#75776a">skills.potion.sh</text>

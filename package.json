@@ -1,7 +1,7 @@
 {
   "name": "@antick/skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, simple implementation, and clear communication.",
+  "description": "Portable skills for code review, simple implementation, dependency upgrades, and clear communication.",
   "keywords": ["codex-plugin", "claude-code", "opencode-plugin", "pi-package", "code-review", "code-simplicity", "writing"],
   "license": "MIT",
   "author": {

@@ -2,7 +2,7 @@ export const site = {
   name: "Antick Skills",
   url: "https://skills.potion.sh",
   repository: "https://github.com/antick/skills",
-  description: "Five focused skills for AI agents. Build thoughtfully, review carefully, and make things make sense.",
+  description: "Focused skills for AI agents. Build thoughtfully, review carefully, upgrade dependencies, and make things make sense.",
   cloneCommand: "git clone https://github.com/antick/skills.git\ncd skills",
 };
 

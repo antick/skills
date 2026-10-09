@@ -1,0 +1,4 @@
+interface:
+  display_name: "Upgrade Dependencies"
+  short_description: "Upgrade dependencies, migrate code, and verify behavior"
+  default_prompt: "Use $upgrade-dependencies to update this project's package.json dependencies to the latest stable versions at least 48 hours old, apply required migrations, and verify the result."

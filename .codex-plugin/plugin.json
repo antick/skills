@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, simple implementation, and clear communication.",
+  "description": "Portable skills for code review, simple implementation, dependency upgrades, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"
@@ -14,14 +14,15 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, remove unnecessary complexity, and communicate clearly at the requested level of detail.",
+    "longDescription": "Review code with evidence, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Code simplification", "Clear communication"],
+    "capabilities": ["Code review", "Code simplification", "Dependency upgrades", "Clear communication"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
       "Implement this with the code-build skill.",
+      "Update dependencies and apply required migrations with the upgrade-dependencies skill.",
       "Explain this with the make-sense skill."
     ],
     "brandColor": "#7C3AED"

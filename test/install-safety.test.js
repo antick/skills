@@ -6,7 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { installSelection, parseArgs } from "../scripts/install.mjs";
+import { installSelection, loadCatalog, parseArgs } from "../scripts/install.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const installer = path.join(root, "scripts/install.mjs");
@@ -180,7 +180,9 @@ test("packed executable works through a symlink for listing and installing", asy
   await fs.symlink(path.join(temporary, "package/scripts/install.mjs"), binary);
   const listed = spawnSync(binary, ["--list"], { cwd: temporary, encoding: "utf8" });
   assert.equal(listed.status, 0, listed.stderr);
-  assert.match(listed.stdout, /Found .*5/);
+  const catalog = await loadCatalog(root);
+  const plain = listed.stdout.replace(/\x1b\[[0-9;]*m/g, "");
+  assert.match(plain, new RegExp(`Found ${catalog.skills.length} skills`));
   const project = path.join(temporary, "fresh-project");
   const installed = spawnSync(binary, ["--skill", "code-build", "--agent", "codex", "--cwd", project, "--copy", "--yes"], {
     cwd: temporary, encoding: "utf8",

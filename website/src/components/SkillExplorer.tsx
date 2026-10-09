@@ -1,9 +1,9 @@
-import { ArrowDownRight, ArrowUpRight, Check, Code2, ScanLine, Scissors, MessageCircle, AlignLeft } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, Code2, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills } from "@/lib/catalog";
 
-const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, concise: AlignLeft, "make-sense": MessageCircle };
+const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw };
 
 export default function SkillExplorer() {
   return (

@@ -1,7 +1,8 @@
 # Antick Skills
 
-Five portable AI agent skills for reviewing code, building with the project's
-existing stack, simplifying a codebase, and communicating clearly.
+Six portable AI agent skills for reviewing code, building with the project's
+existing stack, simplifying a codebase, upgrading dependencies, and communicating
+clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -17,6 +18,7 @@ for Codex and Claude Code.
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
+| [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
 | [make-sense](skills/make-sense/SKILL.md) | Get a clear, natural explanation with as much detail as the subject needs. |
 
@@ -150,13 +152,14 @@ For example, in Codex:
 $code-review Review my uncommitted changes against the requested behavior.
 $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
+$upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.
 ```
 
 Skills provide instructions to the agent. Its tools, permissions, and your
 project's instructions still determine what it can do. Review and audit skills
-report findings; `code-build` performs implementation work.
+report findings; `code-build` and `upgrade-dependencies` perform implementation work.
 
 ### Host integrations
 

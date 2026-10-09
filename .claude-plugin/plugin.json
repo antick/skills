@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, simple implementation, and clear communication.",
+  "description": "Portable skills for code review, simple implementation, dependency upgrades, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"

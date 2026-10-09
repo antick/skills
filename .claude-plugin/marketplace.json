@@ -17,7 +17,8 @@
         "./skills/make-sense",
         "./skills/code-build",
         "./skills/code-audit",
-        "./skills/upgrade-dependencies"
+        "./skills/upgrade-dependencies",
+        "./skills/simplified-technical-english"
       ]
     }
   ]

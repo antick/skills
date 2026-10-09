@@ -5,7 +5,8 @@
     "make-sense": "Explain clearly without forcing brevity",
     "code-build": "Build apps and features with the simplest solution for the project's stack",
     "concise": "Answer briefly without losing important meaning",
-    "upgrade-dependencies": "Upgrade dependencies, apply migrations, and verify behavior"
+    "upgrade-dependencies": "Upgrade dependencies, apply migrations, and verify behavior",
+    "simplified-technical-english": "Apply ASD-STE100 to explanations, instructions, and reports"
   },
   "packs": [
     {
@@ -17,7 +18,8 @@
         "make-sense",
         "code-build",
         "code-audit",
-        "upgrade-dependencies"
+        "upgrade-dependencies",
+        "simplified-technical-english"
       ]
     }
   ]

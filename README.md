@@ -1,8 +1,8 @@
 # Antick Skills
 
-Seven portable AI agent skills for reviewing code, building with the project's
-existing stack, simplifying a codebase, upgrading dependencies, and communicating
-clearly.
+Eight portable AI agent skills for reviewing code, building with the project's
+existing stack, auditing security, simplifying a codebase, upgrading dependencies,
+and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -17,6 +17,7 @@ for Codex and Claude Code.
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
+| [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
@@ -153,6 +154,7 @@ For example, in Codex:
 $code-review Review my uncommitted changes against the requested behavior.
 $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
+$code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.

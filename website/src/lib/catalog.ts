@@ -19,6 +19,14 @@ const details = {
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",
   },
+  "code-security": {
+    category: "Security backed by evidence",
+    heading: "Trace the risk.\nJustify the severity.",
+    description: "Audit application code, dependencies, GitHub Actions, and public-repository controls. Get a security report that separates confirmed vulnerabilities from hardening advice and unknowns.",
+    prompt: "$code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.",
+    steps: ["Map exposed inputs, assets, and trust boundaries", "Verify attack paths and calibrate their impact", "Report evidence, fixes, and coverage limitations"],
+    mode: "Read-only security report",
+  },
   "code-audit": {
     category: "Less code. Less to carry.",
     heading: "Make room for\nwhat matters.",

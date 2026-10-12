@@ -10,4 +10,4 @@
 | `code-build` | Build apps and features with the simplest solution for the project's stack |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
 | `upgrade-dependencies` | Upgrade dependencies, apply migrations, and verify behavior |
-| `simplified-technical-english` | Apply ASD-STE100 to explanations, instructions, and reports |
+| `simplify` | Apply ASD-STE100 to explanations, instructions, and reports |

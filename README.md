@@ -21,7 +21,7 @@ for Codex and Claude Code.
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
 | [make-sense](skills/make-sense/SKILL.md) | Get a clear, natural explanation with as much detail as the subject needs. |
-| [simplified-technical-english](skills/simplified-technical-english/SKILL.md) | Apply ASD-STE100 to explanations, instructions, and reports while preserving technical accuracy and exact code identifiers. |
+| [simplify](skills/simplify/SKILL.md) | Apply ASD-STE100 to explanations, instructions, and reports while preserving technical accuracy and exact code identifiers. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
@@ -156,7 +156,7 @@ $code-audit Find the largest safe simplifications in this repository.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.
-$simplified-technical-english Write these instructions in ASD-STE100 Simplified Technical English. Keep code identifiers exact.
+$simplify Write these instructions in ASD-STE100 Simplified Technical English. Keep code identifiers exact.
 ```
 
 Skills provide instructions to the agent. Its tools, permissions, and your

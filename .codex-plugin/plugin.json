@@ -24,7 +24,7 @@
       "Implement this with the code-build skill.",
       "Update dependencies and apply required migrations with the upgrade-dependencies skill.",
       "Explain this with the make-sense skill.",
-      "Write explanations, instructions, and reports with the simplified-technical-english skill."
+      "Write explanations, instructions, and reports with the simplify skill."
     ],
     "brandColor": "#7C3AED"
   }

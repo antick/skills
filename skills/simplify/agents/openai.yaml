@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simplify"
+  short_description: "ASD-STE100 prose with exact technical details"
+  default_prompt: "Use $simplify for explanations, instructions, and reports. Preserve technical accuracy and exact code identifiers."

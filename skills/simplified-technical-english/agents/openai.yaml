@@ -1,4 +1,0 @@
-interface:
-  display_name: "Simplified Technical English"
-  short_description: "ASD-STE100 prose with exact technical details"
-  default_prompt: "Use $simplified-technical-english for explanations, instructions, and reports. Preserve technical accuracy and exact code identifiers."

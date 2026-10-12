@@ -51,11 +51,11 @@ const details = {
     steps: ["Start with the main point", "Connect the cause, the effect, and the next step", "Explain technical terms when they are needed"],
     mode: "Communication",
   },
-  "simplified-technical-english": {
+  simplify: {
     category: "Simplified Technical English",
     heading: "Clear instructions.\nExact technical details.",
     description: "Apply ASD-STE100 to explanations, instructions, and reports. Use clear sentences and consistent terms while preserving technical accuracy and exact code identifiers.",
-    prompt: "$simplified-technical-english Write these instructions in ASD-STE100 Simplified Technical English. Keep code identifiers exact.",
+    prompt: "$simplify Write these instructions in ASD-STE100 Simplified Technical English. Keep code identifiers exact.",
     steps: ["Use STE writing rules and approved word meanings", "Keep technical facts and code identifiers exact", "Review sentence length, terms, and technical accuracy"],
     mode: "Communication",
   },

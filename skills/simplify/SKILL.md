@@ -1,9 +1,9 @@
 ---
-name: simplified-technical-english
+name: simplify
 description: Apply ASD-STE100 Simplified Technical English to explanations, instructions, and reports. Use when writing these texts or when the user requests STE or ASD-STE100. Preserve technical accuracy and exact code identifiers.
 ---
 
-# Simplified Technical English
+# Simplify
 
 Follow ASD-STE100 Simplified Technical English in all explanations, instructions, and reports. Preserve technical accuracy and exact code identifiers.
 

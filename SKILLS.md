@@ -1,6 +1,6 @@
 # Antick Skills
 
-7 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+8 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -9,5 +9,6 @@
 | `make-sense` | Explain clearly without forcing brevity |
 | `code-build` | Build apps and features with the simplest solution for the project's stack |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
+| `code-security` | Audit code, CI, and repository security with evidence-based severity |
 | `upgrade-dependencies` | Upgrade dependencies, apply migrations, and verify behavior |
 | `simplify` | Apply ASD-STE100 to explanations, instructions, and reports |

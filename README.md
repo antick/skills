@@ -1,8 +1,8 @@
 # Antick Skills
 
-Seven portable AI agent skills for reviewing code, building with the project's
-existing stack, simplifying a codebase, upgrading dependencies, and communicating
-clearly.
+Eight portable AI agent skills for reviewing code, building with the project's
+existing stack, auditing security, simplifying a codebase, upgrading dependencies,
+and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -17,6 +17,7 @@ for Codex and Claude Code.
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
+| [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
@@ -153,6 +154,7 @@ For example, in Codex:
 $code-review Review my uncommitted changes against the requested behavior.
 $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
+$code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.
@@ -234,13 +236,46 @@ in `website/src/lib/catalog.ts`. The social preview source is
 Vercel project `antick-skills` builds from the **repository root**, using the
 checked-in `vercel.json`. Do not set the root directory to `website`: the build
 also reads the repository's catalogues. Output is `website/dist`. Cloudflare
-manages DNS for `skills.potion.sh`. No environment variables are required.
+manages DNS for `skills.potion.sh`. The website needs no application environment
+variables.
 
-Deploy from the repository root after running the checks:
+### Release deployments
 
-```sh
-npx vercel@60.0.1 deploy --prod --yes --project antick-skills --scope pankajsanam
-```
+Automatic Git deployments are disabled with `git.deploymentEnabled: false` in
+`vercel.json`. PR updates and merges to `main` do not deploy once their commits
+contain this configuration. Update older branches too if they still have the
+previous configuration.
+
+The [release workflow](.github/workflows/deploy-release.yml) deploys only when a
+**stable GitHub Release** is published, including a prerelease promoted to stable.
+Pushing a tag alone, saving a draft, publishing a prerelease, or editing release
+notes does not deploy. The workflow checks out the release's commit, runs tests,
+builds in GitHub Actions, and uploads prebuilt output to production. Vercel does
+not run a second build. Release jobs are serialized; a running deployment is not
+cancelled by another release.
+
+Before the first release, add a `VERCEL_TOKEN` secret to the repository's existing
+**Production** GitHub environment. Create a Vercel token with access to the team
+owning `antick-skills`; never commit the token. The workflow already contains the
+non-secret team and project IDs. Keep environment deployment rules compatible
+with release tags and restrict who can create or move release tags.
+
+Merge the workflow and configuration before creating the release tag, then
+publish a non-prerelease release for that tag in GitHub Releases. Check the
+`Deploy website release` Actions run for the result. Publishing a release for
+an older commit without this workflow will not install the workflow retroactively.
+To retry a failed deployment, rerun that release's failed Actions job. Automated
+release creation must use an identity that can trigger subsequent workflows;
+events created with the workflow's default `GITHUB_TOKEN` generally do not.
+
+The existing production site stays live between releases. Manual CLI/dashboard
+deployments remain possible for recovery; they are not automatic release triggers.
+For immediate coverage of old branches without the new configuration, disconnect
+the project's Git integration in Vercel after configuring the release credentials;
+CLI deployments still work.
+
+References: [Vercel Git configuration](https://vercel.com/docs/project-configuration/git-configuration)
+and [GitHub Actions deployment guide](https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel).
 
 ## License
 

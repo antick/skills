@@ -5,5 +5,6 @@
   "code-build": "Build apps and features with the simplest solution for the project's stack",
   "concise": "Answer briefly without losing important meaning",
   "upgrade-dependencies": "Upgrade dependencies, apply migrations, and verify behavior",
-  "simplify": "Apply ASD-STE100 to explanations, instructions, and reports"
+  "simplify": "Apply ASD-STE100 to explanations, instructions, and reports",
+  "code-security": "Audit code, CI, and repository security with evidence-based severity"
 }

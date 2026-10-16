@@ -1,6 +1,6 @@
 # Antick Skills
 
-8 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+9 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -12,3 +12,4 @@
 | `code-security` | Audit code, CI, and repository security with evidence-based severity |
 | `upgrade-dependencies` | Upgrade dependencies, apply migrations, and verify behavior |
 | `simplify` | Apply ASD-STE100 to explanations, instructions, and reports |
+| `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |

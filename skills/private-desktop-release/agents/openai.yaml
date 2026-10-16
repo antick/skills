@@ -1,0 +1,4 @@
+interface:
+  display_name: "Private Desktop Release"
+  short_description: "Set up signed private desktop releases and updates"
+  default_prompt: "Use $private-desktop-release to set up this app's private macOS distribution, Apple signing and notarization, licensed updates, device administration, and release workflow, preserving its existing stack."

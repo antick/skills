@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills } from "@/lib/catalog";
 
-const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft };
+const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "private-desktop-release": ShieldCheck };
 
 export default function SkillExplorer() {
   return (

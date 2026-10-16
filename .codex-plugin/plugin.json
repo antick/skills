@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, security audits, simple implementation, dependency upgrades, and clear communication.",
+  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, private desktop releases, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"
@@ -14,10 +14,10 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail.",
+    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed private desktop releases, licensed updates, and device administration.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English"],
+    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
@@ -25,7 +25,8 @@
       "Audit this repository and its GitHub Actions with the code-security skill.",
       "Update dependencies and apply required migrations with the upgrade-dependencies skill.",
       "Explain this with the make-sense skill.",
-      "Write explanations, instructions, and reports with the simplify skill."
+      "Write explanations, instructions, and reports with the simplify skill.",
+      "Set up private desktop distribution with the private-desktop-release skill."
     ],
     "brandColor": "#7C3AED"
   }

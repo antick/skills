@@ -43,6 +43,14 @@ const details = {
     steps: ["Check release age and package compatibility", "Upgrade together and apply required migrations", "Run tests, build, and verify affected behavior"],
     mode: "Implementation",
   },
+  "private-desktop-release": {
+    category: "From build to private release",
+    heading: "Sign the app.\nShip the update.",
+    description: "Set up Apple signing and notarization, private installers, licensed updates, device controls, and a repeatable release workflow using your app's existing stack.",
+    prompt: "$private-desktop-release Set up private macOS releases for this app using its existing stack.",
+    steps: ["Inspect the app, licensing, and signing setup", "Build private distribution and release automation", "Verify the signed installer and actual installed update"],
+    mode: "Setup and release operations",
+  },
   concise: {
     category: "Every word earns its place",
     heading: "Get to the point.\nKeep the meaning.",

@@ -9,7 +9,7 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Code review, security audits, simple implementation, dependency upgrades, and clear communication skills",
+      "description": "Portable skills for code review, security audits, implementation, dependency upgrades, private desktop releases, and clear communication.",
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
@@ -19,7 +19,8 @@
         "./skills/code-audit",
         "./skills/code-security",
         "./skills/upgrade-dependencies",
-        "./skills/simplify"
+        "./skills/simplify",
+        "./skills/private-desktop-release"
       ]
     }
   ]

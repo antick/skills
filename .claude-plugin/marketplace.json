@@ -18,6 +18,7 @@
         "./skills/code-build",
         "./skills/code-audit",
         "./skills/code-security",
+        "./skills/github-actions-security-audit",
         "./skills/upgrade-dependencies",
         "./skills/simplify",
         "./skills/private-desktop-release",

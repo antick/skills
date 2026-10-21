@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Actions Security Audit"
+  short_description: "Audit CI and Actions security across every repo of an account"
+  default_prompt: "Use $github-actions-security-audit to audit GitHub Actions, CI settings, environments, and secrets across every public and private repository of this account, and write a per-repo severity report."

@@ -43,6 +43,14 @@ const details = {
     steps: ["Check release age and package compatibility", "Upgrade together and apply required migrations", "Run tests, build, and verify affected behavior"],
     mode: "Implementation",
   },
+  "public-desktop-release": {
+    category: "From source to installed app",
+    heading: "Publish the app.\nKeep developing.",
+    description: "Set up signed Apple Silicon installers, public GitHub releases, automatic updates, and a separate development app using your project’s existing stack.",
+    prompt: "$public-desktop-release Set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup.",
+    steps: ["Inspect app identity, signing, and release setup", "Build public installers and GitHub release automation", "Verify installation, dev isolation, and installed updates"],
+    mode: "Setup and release operations",
+  },
   "private-desktop-release": {
     category: "From build to private release",
     heading: "Sign the app.\nShip the update.",

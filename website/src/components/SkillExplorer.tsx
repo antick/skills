@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills } from "@/lib/catalog";
 
-const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "private-desktop-release": ShieldCheck };
+const icons = { "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
 
 export default function SkillExplorer() {
   return (
@@ -13,7 +13,7 @@ export default function SkillExplorer() {
           const Icon = icons[skill.name as keyof typeof icons];
           return (
             <TabsTrigger key={skill.name} value={skill.name} className="skill-tab">
-              <span className="skill-tab-number">0{index + 1}</span>
+              <span className="skill-tab-number">{String(index + 1).padStart(2, "0")}</span>
               <span className="skill-tab-icon"><Icon size={20} strokeWidth={1.5} /></span>
               <span className="skill-tab-text"><strong>{skill.name}</strong><span>{skill.category}</span></span>
               <ArrowDownRight className="skill-tab-arrow" size={20} />

@@ -1,8 +1,8 @@
 # Antick Skills
 
-Nine portable AI agent skills for reviewing code, building with the project's
+Ten portable AI agent skills for reviewing code, building with the project's
 existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up private desktop releases, and communicating clearly.
+setting up public and private desktop releases, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -23,6 +23,7 @@ for Codex and Claude Code.
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
 | [make-sense](skills/make-sense/SKILL.md) | Get a clear, natural explanation with as much detail as the subject needs. |
 | [simplify](skills/simplify/SKILL.md) | Apply ASD-STE100 to explanations, instructions, and reports while preserving technical accuracy and exact code identifiers. |
+| [public-desktop-release](skills/public-desktop-release/SKILL.md) | Publish signed Apple Silicon apps through GitHub with installers, automatic updates, and a separate dev app. |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
@@ -157,6 +158,7 @@ $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
 $code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
+$public-desktop-release Set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup.
 $private-desktop-release Set up private macOS releases for this app using its existing stack.
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.

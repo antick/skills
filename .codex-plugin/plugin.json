@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, private desktop releases, and clear communication.",
+  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, public and private desktop releases, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"
@@ -14,10 +14,10 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed private desktop releases, licensed updates, and device administration.",
+    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases"],
+    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
@@ -26,7 +26,8 @@
       "Update dependencies and apply required migrations with the upgrade-dependencies skill.",
       "Explain this with the make-sense skill.",
       "Write explanations, instructions, and reports with the simplify skill.",
-      "Set up private desktop distribution with the private-desktop-release skill."
+      "Set up private desktop distribution with the private-desktop-release skill.",
+      "Set up and publish this app with the public-desktop-release skill."
     ],
     "brandColor": "#7C3AED"
   }

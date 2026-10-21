@@ -1,0 +1,4 @@
+interface:
+  display_name: "Public Desktop Release"
+  short_description: "Ship signed public apps with updates and dev isolation"
+  default_prompt: "Use $public-desktop-release to set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup."

@@ -7,5 +7,6 @@
   "upgrade-dependencies": "Upgrade dependencies, apply migrations, and verify behavior",
   "simplify": "Apply ASD-STE100 to explanations, instructions, and reports",
   "code-security": "Audit code, CI, and repository security with evidence-based severity",
-  "private-desktop-release": "Set up signed private desktop releases, licensed updates, and device controls"
+  "private-desktop-release": "Set up signed private desktop releases, licensed updates, and device controls",
+  "public-desktop-release": "Set up signed public GitHub releases, automatic updates, and a separate dev app"
 }

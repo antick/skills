@@ -27,6 +27,14 @@ const details = {
     steps: ["Map exposed inputs, assets, and trust boundaries", "Verify attack paths and calibrate their impact", "Report evidence, fixes, and coverage limitations"],
     mode: "Read-only security report",
   },
+  "github-actions-security-audit": {
+    category: "CI you can trust",
+    heading: "Every workflow.\nEvery repo.",
+    description: "Audit GitHub Actions across a whole account: triggers, token permissions, action pinning, secrets, environments, and deploy gates. Get a per-repo report, grouped by public and private, with severities and fixes.",
+    prompt: "$github-actions-security-audit Audit GitHub Actions and CI security across all my repositories and report findings by repo.",
+    steps: ["Enumerate repos and fetch workflows and settings", "Run zizmor and actionlint, then trace each finding", "Report per-repo severities, fixes, and coverage limits"],
+    mode: "Read-only security report",
+  },
   "code-audit": {
     category: "Less code. Less to carry.",
     heading: "Make room for\nwhat matters.",

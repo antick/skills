@@ -3,6 +3,14 @@ import agentCatalogue from "../../../scripts/install-agents.json" with { type: "
 import { site } from "./site.ts";
 
 const details = {
+  "vercel-domain-cleanup": {
+    category: "Every address reaches home",
+    heading: "Fix the redirects.\nClear the DNS warnings.",
+    description: "Make default Vercel and www addresses redirect permanently to the main non-www domains. Reconcile Cloudflare DNS and check every website and redirect.",
+    prompt: "$vercel-domain-cleanup Fix redirects and DNS warnings across my Vercel projects. Use my existing Chrome session for Cloudflare if needed.",
+    steps: ["List every project, domain, and current redirect", "Fix redirects and reconcile provider DNS recommendations", "Verify DNS, HTTPS, paths, queries, and rendered websites"],
+    mode: "Domain and DNS repair",
+  },
   "code-review": {
     category: "A second pair of eyes",
     heading: "Find the issue.\nShow the evidence.",

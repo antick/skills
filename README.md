@@ -1,8 +1,9 @@
 # Antick Skills
 
-Eleven portable AI agent skills for reviewing code, building with the project's
+Twelve portable AI agent skills for reviewing code, building with the project's
 existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up public and private desktop releases, and communicating clearly.
+setting up public and private desktop releases, fixing Vercel domains, and
+communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -26,6 +27,7 @@ for Codex and Claude Code.
 | [simplify](skills/simplify/SKILL.md) | Apply ASD-STE100 to explanations, instructions, and reports while preserving technical accuracy and exact code identifiers. |
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Publish signed Apple Silicon apps through GitHub with installers, automatic updates, and a separate dev app. |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
+| [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance

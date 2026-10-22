@@ -10,7 +10,8 @@
     "code-security": "Audit code, CI, and repository security with evidence-based severity",
     "private-desktop-release": "Set up signed private desktop releases, licensed updates, and device controls",
     "public-desktop-release": "Set up signed public GitHub releases, automatic updates, and a separate dev app",
-    "github-actions-security-audit": "Audit GitHub Actions and CI security across every repo of an account"
+    "github-actions-security-audit": "Audit GitHub Actions and CI security across every repo of an account",
+    "vercel-domain-cleanup": "Fix permanent Vercel and www redirects, DNS warnings, and verify websites"
   },
   "packs": [
     {
@@ -27,7 +28,8 @@
         "upgrade-dependencies",
         "simplify",
         "private-desktop-release",
-        "public-desktop-release"
+        "public-desktop-release",
+        "vercel-domain-cleanup"
       ]
     }
   ]

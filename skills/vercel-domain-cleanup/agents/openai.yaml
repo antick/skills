@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vercel Domain Cleanup"
+  short_description: "Fix permanent redirects and Vercel DNS warnings"
+  default_prompt: "Use $vercel-domain-cleanup to fix default Vercel and www redirects to main non-www domains across my projects, clear DNS warnings, and verify every website. Reuse my existing Chrome session for Cloudflare if needed."

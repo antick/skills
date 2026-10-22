@@ -1,6 +1,6 @@
 # Antick Skills
 
-11 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+12 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -15,3 +15,4 @@
 | `simplify` | Apply ASD-STE100 to explanations, instructions, and reports |
 | `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
+| `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |

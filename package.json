@@ -1,7 +1,7 @@
 {
   "name": "@antick/skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, public and private desktop releases, and clear communication.",
+  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
   "keywords": ["codex-plugin", "claude-code", "opencode-plugin", "pi-package", "code-review", "code-simplicity", "writing"],
   "license": "MIT",
   "author": {

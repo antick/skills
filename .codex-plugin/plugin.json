@@ -30,7 +30,7 @@
       "Set up and publish this app with the public-desktop-release skill.",
       "Fix production redirects and DNS warnings with the vercel-domain-cleanup skill.",
       "Inventory generated artifacts with the repo-disk-cleanup skill.",
-      "Save my Omarchy window layout with the save-window-layout skill.",
+      "Save my Omarchy window layout with the save-omarchy-window-layout skill.",
       "Set up missing AI tools with confirmation and update existing tools with the ai-harness-setup skill."
     ],
     "brandColor": "#7C3AED"

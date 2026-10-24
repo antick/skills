@@ -30,7 +30,7 @@ for Codex and Claude Code.
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
 | [repo-disk-cleanup](skills/repo-disk-cleanup/SKILL.md) | Inventory generated repository artifacts, stale worktrees, Docker caches, and Playwright downloads; clean only authorized categories while preserving database containers and volumes. |
-| [save-window-layout](skills/save-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
+| [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
 | [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
@@ -39,12 +39,16 @@ covers web clients, APIs, storage, authentication, and billing. It follows an
 existing project's stack; the listed guides do not limit which projects it can
 work on.
 
-`save-window-layout` and `ai-harness-setup` retain explicit-only invocation.
-Use your host's skill syntax, such as `$save-window-layout` in Codex,
-`/save-window-layout` in Claude Code or OpenCode, or `/skill:save-window-layout`
+`save-omarchy-window-layout` and `ai-harness-setup` retain explicit-only invocation.
+Use your host's skill syntax, such as `$save-omarchy-window-layout` in Codex,
+`/save-omarchy-window-layout` in Claude Code or OpenCode, or `/skill:save-omarchy-window-layout`
 in Pi. Hosts without invocation-policy support should follow the explicit-use
 boundary in the instructions. `repo-disk-cleanup` inventories by default and
 requires authorization for destructive cleanup.
+
+The window-layout skill was renamed from `save-window-layout` to
+`save-omarchy-window-layout`. When reinstalling, preserve local customizations
+before removing the old installed folder; retired names are not removed automatically.
 
 These skills can be installed for every supported harness, but runtime
 requirements still apply: window capture requires the existing Omarchy/Hyprland

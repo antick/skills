@@ -25,7 +25,7 @@
         "./skills/public-desktop-release",
         "./skills/vercel-domain-cleanup",
         "./skills/repo-disk-cleanup",
-        "./skills/save-window-layout",
+        "./skills/save-omarchy-window-layout",
         "./skills/ai-harness-setup"
       ]
     }

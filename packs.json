@@ -13,7 +13,7 @@
     "github-actions-security-audit": "Audit GitHub Actions and CI security across every repo of an account",
     "vercel-domain-cleanup": "Fix permanent Vercel and www redirects, DNS warnings, and verify websites",
     "repo-disk-cleanup": "Inventory and clean generated repository artifacts while preserving databases",
-    "save-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
+    "save-omarchy-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
     "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results"
   },
   "packs": [
@@ -34,7 +34,7 @@
         "public-desktop-release",
         "vercel-domain-cleanup",
         "repo-disk-cleanup",
-        "save-window-layout",
+        "save-omarchy-window-layout",
         "ai-harness-setup"
       ]
     }

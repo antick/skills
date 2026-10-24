@@ -6,7 +6,7 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-const script = fileURLToPath(new URL("../skills/save-window-layout/scripts/save-layout.py", import.meta.url));
+const script = fileURLToPath(new URL("../skills/save-omarchy-window-layout/scripts/save-layout.py", import.meta.url));
 
 async function fixture(context, overrides = {}) {
   const home = await mkdtemp(path.join(os.tmpdir(), "skills-layout-"));

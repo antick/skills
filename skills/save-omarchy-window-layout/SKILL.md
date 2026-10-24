@@ -1,14 +1,14 @@
 ---
-name: save-window-layout
-description: Save the current Hyprland/Omarchy app-to-workspace assignments, tiled window order and sizes, and active workspace for restoration at login. Use only when the user explicitly requests the save-window-layout skill.
+name: save-omarchy-window-layout
+description: Save the current Hyprland/Omarchy app-to-workspace assignments, tiled window order and sizes, and active workspace for restoration at login. Use only when the user explicitly requests the save-omarchy-window-layout skill.
 disable-model-invocation: true
 compatibility: Omarchy/Hyprland with jq, Python 3, and the configured workspace startup script.
 ---
 
-# Save window layout
+# Save Omarchy window layout
 
-Accept the host's explicit skill invocation (for example `$save-window-layout`,
-`/save-window-layout`, or Pi's `/skill:save-window-layout`) or an explicit request
+Accept the host's explicit skill invocation (for example `$save-omarchy-window-layout`,
+`/save-omarchy-window-layout`, or Pi's `/skill:save-omarchy-window-layout`) or an explicit request
 to use this skill. Loading the skill for review or installation does not authorize
 capturing or changing the desktop.
 

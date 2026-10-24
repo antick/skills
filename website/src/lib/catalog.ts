@@ -11,11 +11,11 @@ const details = {
     steps: ["Inventory artifacts and identify protected data", "Remove only authorized cleanup categories", "Verify retained databases and report disk usage"],
     mode: "Inventory first; cleanup when authorized",
   },
-  "save-window-layout": {
+  "save-omarchy-window-layout": {
     category: "Your workspace, ready at login",
     heading: "Save the layout.\nRestore your workspace.",
     description: "Save managed app workspaces, tiled window order and sizes, and the active workspace for login restoration. Requires an existing Omarchy/Hyprland setup with Lua configuration and startup integration.",
-    prompt: "$save-window-layout Save my current managed Omarchy window layout for restoration at login.",
+    prompt: "$save-omarchy-window-layout Save my current managed Omarchy window layout for restoration at login.",
     steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
     mode: "Explicit invocation; Omarchy/Hyprland",
   },

@@ -17,5 +17,5 @@
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
 | `repo-disk-cleanup` | Inventory and clean generated repository artifacts while preserving databases |
-| `save-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
+| `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 | `ai-harness-setup` | Set up missing AI tools with confirmation, update existing tools, and report OS-aware results |

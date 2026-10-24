@@ -19,11 +19,11 @@ const details = {
     steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
     mode: "Explicit invocation; Omarchy/Hyprland",
   },
-  "manage-ai-tools": {
+  "ai-harness-setup": {
     category: "Set up the tools. Keep them current.",
     heading: "Build your toolkit.\nKeep it ready.",
     description: "Manage 18 AI tools and JavaScript runtimes with OS-aware installation and updates. Confirm missing installs, preserve supported update mechanisms, and report every result, skip, or failure.",
-    prompt: "$manage-ai-tools Check all tools for this OS, update existing installations, ask before installing missing tools, and report versions, results, and future update methods.",
+    prompt: "$ai-harness-setup Check all tools for this OS, update existing installations, ask before installing missing tools, and report versions, results, and future update methods.",
     steps: ["Detect the OS, architecture, installations, and update routes", "Confirm missing installs and update existing tools", "Report all 18 tools, verified versions, skips, and blockers"],
     mode: "Explicit invocation; local workstation",
   },

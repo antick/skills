@@ -26,7 +26,7 @@
         "./skills/vercel-domain-cleanup",
         "./skills/repo-disk-cleanup",
         "./skills/save-window-layout",
-        "./skills/manage-ai-tools"
+        "./skills/ai-harness-setup"
       ]
     }
   ]

@@ -1,14 +1,14 @@
 ---
-name: manage-ai-tools
-description: Set up missing AI tools and JavaScript runtimes with user confirmation, update existing installations, and report every result using OS-appropriate installation and update methods. Use only when the user explicitly requests the manage-ai-tools skill.
+name: ai-harness-setup
+description: Set up missing AI tools and JavaScript runtimes with user confirmation, update existing installations, and report every result using OS-appropriate installation and update methods. Use only when the user explicitly requests the ai-harness-setup skill.
 disable-model-invocation: true
 compatibility: Local shell and network access on the target machine; desktop applications also require a supported graphical OS and architecture.
 ---
 
-# Manage AI tools
+# AI harness setup
 
-Use on an explicit request, including `$manage-ai-tools`, `/manage-ai-tools`, or
-Pi's `/skill:manage-ai-tools`. Reviewing or installing this skill does not
+Use on an explicit request, including `$ai-harness-setup`, `/ai-harness-setup`, or
+Pi's `/skill:ai-harness-setup`. Reviewing or installing this skill does not
 authorize changing the machine. An invocation authorizes updating existing tools;
 installing a missing tool requires the user's confirmation of the concrete plan.
 

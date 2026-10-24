@@ -1,6 +1,6 @@
 # Antick Skills
 
-12 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+15 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -16,3 +16,6 @@
 | `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
+| `repo-disk-cleanup` | Inventory and clean generated repository artifacts while preserving databases |
+| `save-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
+| `update-ai-tools` | Update installed AI tools using their actual installation methods and verify versions |

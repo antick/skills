@@ -1,8 +1,9 @@
 # Antick Skills
 
-Twelve portable AI agent skills for reviewing code, building with the project's
+Fifteen portable AI agent skills for reviewing code, building with the project's
 existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up public and private desktop releases, fixing Vercel domains, and
+setting up public and private desktop releases, fixing Vercel domains, cleaning
+repository artifacts, maintaining an Omarchy workstation, updating AI tools, and
 communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
@@ -28,12 +29,28 @@ for Codex and Claude Code.
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Publish signed Apple Silicon apps through GitHub with installers, automatic updates, and a separate dev app. |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
+| [repo-disk-cleanup](skills/repo-disk-cleanup/SKILL.md) | Inventory generated repository artifacts, stale worktrees, Docker caches, and Playwright downloads; clean only authorized categories while preserving database containers and volumes. |
+| [save-window-layout](skills/save-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
+| [update-ai-tools](skills/update-ai-tools/SKILL.md) | Explicitly update installed AI coding tools and desktop apps through their existing installation methods, preserving active sessions and verifying versions. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
 covers web clients, APIs, storage, authentication, and billing. It follows an
 existing project's stack; the listed guides do not limit which projects it can
 work on.
+
+`save-window-layout` and `update-ai-tools` retain explicit-only invocation.
+Use your host's skill syntax, such as `$save-window-layout` in Codex,
+`/save-window-layout` in Claude Code or OpenCode, or `/skill:save-window-layout`
+in Pi. Hosts without invocation-policy support should follow the explicit-use
+boundary in the instructions. `repo-disk-cleanup` inventories by default and
+requires authorization for destructive cleanup.
+
+These skills can be installed for every supported harness, but runtime
+requirements still apply: window capture requires the existing Omarchy/Hyprland
+Lua configuration and startup integration. The tool updater includes the owner's
+Arch/Omarchy workstation profile and checks installation methods before using it
+on another machine. Installation alone does not run scripts or update tools.
 
 The [catalogue](SKILLS.md) lists the current skills. Each linked `SKILL.md` is the
 source of truth for its behavior.
@@ -214,8 +231,10 @@ npm test
 npm pack --dry-run
 ```
 
-Tests cover catalogue consistency, skill metadata, local installation, and
-adapter registration/dispatch. They do not run every coding agent. The package
+Tests cover catalogue consistency, skill metadata, installation into every
+configured harness directory, adapter registration/dispatch, and window-layout
+capture with simulated Hyprland responses. The layout tests require Python 3
+and Bash; they do not change the host desktop or run every coding agent. The package
 check previews the files npm would ship; it does not publish anything. This
 skills package has no third-party runtime or development dependencies. The
 website has its own dependencies and lockfile.

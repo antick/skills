@@ -3,6 +3,30 @@ import agentCatalogue from "../../../scripts/install-agents.json" with { type: "
 import { site } from "./site.ts";
 
 const details = {
+  "repo-disk-cleanup": {
+    category: "Room for the next build",
+    heading: "Find the artifacts.\nProtect the data.",
+    description: "Inventory generated build artifacts, stale worktrees, Docker caches, and browser downloads. Clean authorized categories while preserving primary databases and volumes.",
+    prompt: "$repo-disk-cleanup Inventory disk cleanup candidates in this repository and propose what can be safely removed.",
+    steps: ["Inventory artifacts and identify protected data", "Remove only authorized cleanup categories", "Verify retained databases and report disk usage"],
+    mode: "Inventory first; cleanup when authorized",
+  },
+  "save-window-layout": {
+    category: "Your workspace, ready at login",
+    heading: "Save the layout.\nRestore your workspace.",
+    description: "Save managed app workspaces, tiled window order and sizes, and the active workspace for login restoration. Requires an existing Omarchy/Hyprland setup with Lua configuration and startup integration.",
+    prompt: "$save-window-layout Save my current managed Omarchy window layout for restoration at login.",
+    steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
+    mode: "Explicit invocation; Omarchy/Hyprland",
+  },
+  "update-ai-tools": {
+    category: "Keep the tools current",
+    heading: "Update the tools.\nKeep your sessions.",
+    description: "Update installed AI coding tools, desktop apps, Bun, and pnpm through their actual installation methods. Includes the owner's Arch/Omarchy workstation profile and preserves active sessions.",
+    prompt: "$update-ai-tools Update my installed AI tools using their existing installation methods and report verified versions.",
+    steps: ["Identify installations and current release versions", "Update safely or stage changes for active sessions", "Verify selected versions and report pending restarts"],
+    mode: "Explicit invocation; local workstation",
+  },
   "vercel-domain-cleanup": {
     category: "Every address reaches home",
     heading: "Fix the redirects.\nClear the DNS warnings.",
@@ -105,7 +129,7 @@ export const skills = catalogue.packs.flatMap((pack) => pack.skills).map((name) 
   const key = name as keyof typeof details;
   if (!details[key]) throw new Error(`Missing website details for skill: ${name}`);
   return {
-    name,
+    name: key,
     summary: catalogue.summaries[key],
     source: `${site.repository}/tree/main/skills/${name}`,
     ...details[key],

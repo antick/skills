@@ -1,0 +1,6 @@
+interface:
+  display_name: "Update AI Tools"
+  short_description: "Update installed AI tools and verify their versions"
+  default_prompt: "Use $update-ai-tools to update my installed AI tools using their existing installation methods and report verified versions."
+policy:
+  allow_implicit_invocation: false

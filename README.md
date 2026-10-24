@@ -3,8 +3,8 @@
 Fifteen portable AI agent skills for reviewing code, building with the project's
 existing stack, auditing security, simplifying a codebase, upgrading dependencies,
 setting up public and private desktop releases, fixing Vercel domains, cleaning
-repository artifacts, maintaining an Omarchy workstation, updating AI tools, and
-communicating clearly.
+repository artifacts, maintaining an Omarchy workstation, setting up and updating
+AI tools, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -31,7 +31,7 @@ for Codex and Claude Code.
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
 | [repo-disk-cleanup](skills/repo-disk-cleanup/SKILL.md) | Inventory generated repository artifacts, stale worktrees, Docker caches, and Playwright downloads; clean only authorized categories while preserving database containers and volumes. |
 | [save-window-layout](skills/save-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
-| [update-ai-tools](skills/update-ai-tools/SKILL.md) | Explicitly update installed AI coding tools and desktop apps through their existing installation methods, preserving active sessions and verifying versions. |
+| [manage-ai-tools](skills/manage-ai-tools/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
@@ -39,7 +39,7 @@ covers web clients, APIs, storage, authentication, and billing. It follows an
 existing project's stack; the listed guides do not limit which projects it can
 work on.
 
-`save-window-layout` and `update-ai-tools` retain explicit-only invocation.
+`save-window-layout` and `manage-ai-tools` retain explicit-only invocation.
 Use your host's skill syntax, such as `$save-window-layout` in Codex,
 `/save-window-layout` in Claude Code or OpenCode, or `/skill:save-window-layout`
 in Pi. Hosts without invocation-policy support should follow the explicit-use
@@ -48,9 +48,25 @@ requires authorization for destructive cleanup.
 
 These skills can be installed for every supported harness, but runtime
 requirements still apply: window capture requires the existing Omarchy/Hyprland
-Lua configuration and startup integration. The tool updater includes the owner's
-Arch/Omarchy workstation profile and checks installation methods before using it
-on another machine. Installation alone does not run scripts or update tools.
+Lua configuration and startup integration. `manage-ai-tools` detects the target
+OS, architecture, installed tools, and update ownership before acting. It prefers
+supported native updaters or signed package feeds, asks before installing missing
+tools and dependencies, and reports manual-update limitations and unsupported
+platforms. Installation of the skill alone does not run scripts or update tools.
+
+`manage-ai-tools` covers Pi, OMP, Codex CLI/Desktop, Claude Code CLI/Desktop,
+Orca CLI/Desktop, Peekaboo, Grok CLI and Grok Bot Desktop, Hermes CLI/Desktop,
+OpenCode CLI/Desktop, Node.js latest LTS, Deno, and Bun. Each run ends with a table
+for all 18 entries, including installed, updated, current, skipped, unsupported,
+blocked, failed, or staged outcomes. See its [tool registry](skills/manage-ai-tools/references/tools.md)
+for official sources and platform caveats. The owner's Omarchy exceptions remain
+in a separate profile; they do not override OS support or install confirmation.
+
+The skill was renamed from `update-ai-tools` to `manage-ai-tools`. Reinstall the
+new folder for each harness and remove the old installed folder only after
+preserving any local customizations; the installer does not remove retired names.
+Invoke it as `$manage-ai-tools`, `/manage-ai-tools`, or Pi's
+`/skill:manage-ai-tools`, according to your host.
 
 The [catalogue](SKILLS.md) lists the current skills. Each linked `SKILL.md` is the
 source of truth for its behavior.

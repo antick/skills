@@ -101,7 +101,7 @@ test("workstation skills and their resources install for every configured harnes
   const project = await mkdtemp(path.join(os.tmpdir(), "skills-workstation-"));
   context.after(() => rm(project, { recursive: true, force: true }));
   const catalog = await loadCatalog(root);
-  const names = ["repo-disk-cleanup", "save-window-layout", "update-ai-tools"];
+  const names = ["repo-disk-cleanup", "save-window-layout", "manage-ai-tools"];
   const result = spawnSync(process.execPath, [
     installer, ...names.flatMap((name) => ["--skill", name]),
     "--agent", "*", "--copy", "--yes", "--cwd", project,
@@ -120,7 +120,8 @@ test("workstation skills and their resources install for every configured harnes
     }
     for (const [name, resource] of [
       ["save-window-layout", "scripts/save-layout.py"],
-      ["update-ai-tools", "references/omarchy-workstation.md"],
+      ["manage-ai-tools", "references/omarchy-workstation.md"],
+      ["manage-ai-tools", "references/tools.md"],
     ]) {
       assert.equal(
         await readFile(path.join(project, directory, name, resource), "utf8"),

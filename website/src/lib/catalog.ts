@@ -19,12 +19,12 @@ const details = {
     steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
     mode: "Explicit invocation; Omarchy/Hyprland",
   },
-  "update-ai-tools": {
-    category: "Keep the tools current",
-    heading: "Update the tools.\nKeep your sessions.",
-    description: "Update installed AI coding tools, desktop apps, Bun, and pnpm through their actual installation methods. Includes the owner's Arch/Omarchy workstation profile and preserves active sessions.",
-    prompt: "$update-ai-tools Update my installed AI tools using their existing installation methods and report verified versions.",
-    steps: ["Identify installations and current release versions", "Update safely or stage changes for active sessions", "Verify selected versions and report pending restarts"],
+  "manage-ai-tools": {
+    category: "Set up the tools. Keep them current.",
+    heading: "Build your toolkit.\nKeep it ready.",
+    description: "Manage 18 AI tools and JavaScript runtimes with OS-aware installation and updates. Confirm missing installs, preserve supported update mechanisms, and report every result, skip, or failure.",
+    prompt: "$manage-ai-tools Check all tools for this OS, update existing installations, ask before installing missing tools, and report versions, results, and future update methods.",
+    steps: ["Detect the OS, architecture, installations, and update routes", "Confirm missing installs and update existing tools", "Report all 18 tools, verified versions, skips, and blockers"],
     mode: "Explicit invocation; local workstation",
   },
   "vercel-domain-cleanup": {

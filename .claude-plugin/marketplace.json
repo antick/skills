@@ -9,7 +9,7 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Portable skills for code review, security audits, implementation, dependency upgrades, desktop releases, Vercel domains, repository cleanup, workstation maintenance, and clear communication.",
+      "description": "Portable skills for code review, security audits, implementation, dependency upgrades, desktop releases, Vercel domains, repository cleanup, AI tool setup and maintenance, and clear communication.",
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
@@ -26,7 +26,7 @@
         "./skills/vercel-domain-cleanup",
         "./skills/repo-disk-cleanup",
         "./skills/save-window-layout",
-        "./skills/update-ai-tools"
+        "./skills/manage-ai-tools"
       ]
     }
   ]

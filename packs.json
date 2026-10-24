@@ -14,7 +14,7 @@
     "vercel-domain-cleanup": "Fix permanent Vercel and www redirects, DNS warnings, and verify websites",
     "repo-disk-cleanup": "Inventory and clean generated repository artifacts while preserving databases",
     "save-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
-    "update-ai-tools": "Update installed AI tools using their actual installation methods and verify versions"
+    "manage-ai-tools": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results"
   },
   "packs": [
     {
@@ -35,7 +35,7 @@
         "vercel-domain-cleanup",
         "repo-disk-cleanup",
         "save-window-layout",
-        "update-ai-tools"
+        "manage-ai-tools"
       ]
     }
   ]

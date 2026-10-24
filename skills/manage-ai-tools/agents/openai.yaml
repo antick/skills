@@ -1,0 +1,6 @@
+interface:
+  display_name: "Manage AI Tools"
+  short_description: "Set up and update AI tools with OS-aware reporting"
+  default_prompt: "Use $manage-ai-tools to inventory all supported tools, update existing installations, ask before installing missing tools, and report every outcome and future update method."
+policy:
+  allow_implicit_invocation: false

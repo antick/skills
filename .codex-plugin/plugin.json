@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, desktop releases, Vercel domains, repository cleanup, workstation maintenance, and clear communication.",
+  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, desktop releases, Vercel domains, repository cleanup, AI tool setup and maintenance, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"
@@ -14,10 +14,10 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Inventory and clean generated repository artifacts, save Omarchy window layouts, and update installed AI tools using their existing installation methods.",
+    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Inventory and clean generated repository artifacts, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup", "Repository disk cleanup", "Omarchy window layouts", "AI tool updates"],
+    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup", "Repository disk cleanup", "Omarchy window layouts", "AI tool setup and updates"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
@@ -31,7 +31,7 @@
       "Fix production redirects and DNS warnings with the vercel-domain-cleanup skill.",
       "Inventory generated artifacts with the repo-disk-cleanup skill.",
       "Save my Omarchy window layout with the save-window-layout skill.",
-      "Update my installed AI tools with the update-ai-tools skill."
+      "Set up missing AI tools with confirmation and update existing tools with the manage-ai-tools skill."
     ],
     "brandColor": "#7C3AED"
   }

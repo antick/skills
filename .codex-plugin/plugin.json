@@ -14,10 +14,10 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Inventory and clean generated repository artifacts, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report.",
+    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup", "Repository disk cleanup", "Omarchy window layouts", "AI tool setup and updates"],
+    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup", "Development space reclamation", "Omarchy window layouts", "AI tool setup and updates"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
@@ -29,7 +29,7 @@
       "Set up private desktop distribution with the private-desktop-release skill.",
       "Set up and publish this app with the public-desktop-release skill.",
       "Fix production redirects and DNS warnings with the vercel-domain-cleanup skill.",
-      "Inventory generated artifacts with the repo-disk-cleanup skill.",
+      "Report dev-space cleanup candidates and protected resources in chat with reclaim-dev-space, then wait for my confirmation.",
       "Save my Omarchy window layout with the save-omarchy-window-layout skill.",
       "Set up missing AI tools with confirmation and update existing tools with the ai-harness-setup skill."
     ],

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Repository Disk Cleanup"
-  short_description: "Inventory and clean repository artifacts safely"
-  default_prompt: "Use $repo-disk-cleanup to inventory cleanup candidates and remove only authorized artifacts while preserving database containers and volumes."

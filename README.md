@@ -29,7 +29,7 @@ for Codex and Claude Code.
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Publish signed Apple Silicon apps through GitHub with installers, automatic updates, and a separate dev app. |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
-| [repo-disk-cleanup](skills/repo-disk-cleanup/SKILL.md) | Inventory generated repository artifacts, stale worktrees, Docker caches, and Playwright downloads; clean only authorized categories while preserving database containers and volumes. |
+| [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts in chat; highlight protected resources and clean only items confirmed after the report. |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
 | [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
 
@@ -43,8 +43,17 @@ work on.
 Use your host's skill syntax, such as `$save-omarchy-window-layout` in Codex,
 `/save-omarchy-window-layout` in Claude Code or OpenCode, or `/skill:save-omarchy-window-layout`
 in Pi. Hosts without invocation-policy support should follow the explicit-use
-boundary in the instructions. `repo-disk-cleanup` inventories by default and
-requires authorization for destructive cleanup.
+boundary in the instructions. `reclaim-dev-space` first reports the inventory
+directly in chat, using an inline UI when supported or Markdown tables otherwise.
+It creates no report file. The
+report identifies cleanup candidates, important resources to keep, uncertain
+items, provenance, estimated space, and proposed actions. Cleanup waits for the
+user's confirmation of specific reported items, with explicit acknowledgement of
+data loss for disposable test databases and storage. Every item is rechecked
+before removal, then retained resources and actual space changes are verified.
+
+`reclaim-dev-space` replaces `repo-disk-cleanup`. Preserve any customized old
+installation before replacing it; the installer does not remove retired names.
 
 The window-layout skill was renamed from `save-window-layout` to
 `save-omarchy-window-layout`. When reinstalling, preserve local customizations

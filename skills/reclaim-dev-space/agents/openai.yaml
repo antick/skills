@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reclaim Dev Space"
+  short_description: "Report dev artifacts and clean only confirmed items"
+  default_prompt: "Use $reclaim-dev-space to report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, highlight what must be kept, and wait for my confirmation before cleanup."

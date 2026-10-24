@@ -24,7 +24,7 @@
         "./skills/private-desktop-release",
         "./skills/public-desktop-release",
         "./skills/vercel-domain-cleanup",
-        "./skills/repo-disk-cleanup",
+        "./skills/reclaim-dev-space",
         "./skills/save-omarchy-window-layout",
         "./skills/ai-harness-setup"
       ]

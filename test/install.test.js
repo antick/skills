@@ -101,7 +101,7 @@ test("workstation skills and their resources install for every configured harnes
   const project = await mkdtemp(path.join(os.tmpdir(), "skills-workstation-"));
   context.after(() => rm(project, { recursive: true, force: true }));
   const catalog = await loadCatalog(root);
-  const names = ["repo-disk-cleanup", "save-omarchy-window-layout", "ai-harness-setup"];
+  const names = ["reclaim-dev-space", "save-omarchy-window-layout", "ai-harness-setup"];
   const result = spawnSync(process.execPath, [
     installer, ...names.flatMap((name) => ["--skill", name]),
     "--agent", "*", "--copy", "--yes", "--cwd", project,
@@ -119,6 +119,7 @@ test("workstation skills and their resources install for every configured harnes
       }
     }
     for (const [name, resource] of [
+      ["reclaim-dev-space", "references/resource-checks.md"],
       ["save-omarchy-window-layout", "scripts/save-layout.py"],
       ["ai-harness-setup", "references/omarchy-workstation.md"],
       ["ai-harness-setup", "references/tools.md"],

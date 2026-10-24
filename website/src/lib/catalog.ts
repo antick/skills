@@ -3,13 +3,13 @@ import agentCatalogue from "../../../scripts/install-agents.json" with { type: "
 import { site } from "./site.ts";
 
 const details = {
-  "repo-disk-cleanup": {
+  "reclaim-dev-space": {
     category: "Room for the next build",
-    heading: "Find the artifacts.\nProtect the data.",
-    description: "Inventory generated build artifacts, stale worktrees, Docker caches, and browser downloads. Clean authorized categories while preserving primary databases and volumes.",
-    prompt: "$repo-disk-cleanup Inventory disk cleanup candidates in this repository and propose what can be safely removed.",
-    steps: ["Inventory artifacts and identify protected data", "Remove only authorized cleanup categories", "Verify retained databases and report disk usage"],
-    mode: "Inventory first; cleanup when authorized",
+    heading: "See what can go.\nKeep what matters.",
+    description: "Report in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat. Highlight protected resources and reclaim space only after confirmation of the reported items.",
+    prompt: "$reclaim-dev-space Report dev-space cleanup candidates and important resources to keep directly in chat. Show estimated space and risks, then wait for my confirmation before removing anything.",
+    steps: ["Report candidates, protected resources, and uncertain items in chat", "Confirm specific items and recheck their safety", "Clean carefully and verify retained data and reclaimed space"],
+    mode: "Chat report first; cleanup after confirmation",
   },
   "save-omarchy-window-layout": {
     category: "Your workspace, ready at login",

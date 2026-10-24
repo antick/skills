@@ -1,9 +1,10 @@
 # Antick Skills
 
-Twelve portable AI agent skills for reviewing code, building with the project's
+Fifteen portable AI agent skills for reviewing code, building with the project's
 existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up public and private desktop releases, fixing Vercel domains, and
-communicating clearly.
+setting up public and private desktop releases, fixing Vercel domains, cleaning
+repository artifacts, maintaining an Omarchy workstation, setting up and updating
+AI tools, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -28,12 +29,58 @@ for Codex and Claude Code.
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Publish signed Apple Silicon apps through GitHub with installers, automatic updates, and a separate dev app. |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up Apple signing, notarization, private installers, licensed updates, device controls, and repeatable releases. |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
+| [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts in chat; highlight protected resources and clean only items confirmed after the report. |
+| [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
+| [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
 covers web clients, APIs, storage, authentication, and billing. It follows an
 existing project's stack; the listed guides do not limit which projects it can
 work on.
+
+`save-omarchy-window-layout` and `ai-harness-setup` retain explicit-only invocation.
+Use your host's skill syntax, such as `$save-omarchy-window-layout` in Codex,
+`/save-omarchy-window-layout` in Claude Code or OpenCode, or `/skill:save-omarchy-window-layout`
+in Pi. Hosts without invocation-policy support should follow the explicit-use
+boundary in the instructions. `reclaim-dev-space` first reports the inventory
+directly in chat, using an inline UI when supported or Markdown tables otherwise.
+It creates no report file. The
+report identifies cleanup candidates, important resources to keep, uncertain
+items, provenance, estimated space, and proposed actions. Cleanup waits for the
+user's confirmation of specific reported items, with explicit acknowledgement of
+data loss for disposable test databases and storage. Every item is rechecked
+before removal, then retained resources and actual space changes are verified.
+
+`reclaim-dev-space` replaces `repo-disk-cleanup`. Preserve any customized old
+installation before replacing it; the installer does not remove retired names.
+
+The window-layout skill was renamed from `save-window-layout` to
+`save-omarchy-window-layout`. When reinstalling, preserve local customizations
+before removing the old installed folder; retired names are not removed automatically.
+
+These skills can be installed for every supported harness, but runtime
+requirements still apply: window capture requires the existing Omarchy/Hyprland
+Lua configuration and startup integration. `ai-harness-setup` detects the target
+OS, architecture, installed tools, and update ownership before acting. It prefers
+supported native updaters or signed package feeds, asks before installing missing
+tools and dependencies, and reports manual-update limitations and unsupported
+platforms. Installation of the skill alone does not run scripts or update tools.
+
+`ai-harness-setup` covers Pi, OMP, Codex CLI/Desktop, Claude Code CLI/Desktop,
+Orca CLI/Desktop, Peekaboo, Grok CLI and Grok Bot Desktop, Hermes CLI/Desktop,
+OpenCode CLI/Desktop, Node.js latest LTS, Deno, and Bun. Each run ends with a table
+for all 18 entries, including installed, updated, current, skipped, unsupported,
+blocked, failed, or staged outcomes. See its [tool registry](skills/ai-harness-setup/references/tools.md)
+for official sources and platform caveats. The owner's Omarchy exceptions remain
+in a separate profile; they do not override OS support or install confirmation.
+
+The skill was renamed from `update-ai-tools` and `manage-ai-tools` to
+`ai-harness-setup`. Reinstall the new folder for each harness and remove old
+installed folders only after preserving any local customizations; the installer
+does not remove retired names.
+Invoke it as `$ai-harness-setup`, `/ai-harness-setup`, or Pi's
+`/skill:ai-harness-setup`, according to your host.
 
 The [catalogue](SKILLS.md) lists the current skills. Each linked `SKILL.md` is the
 source of truth for its behavior.
@@ -214,8 +261,10 @@ npm test
 npm pack --dry-run
 ```
 
-Tests cover catalogue consistency, skill metadata, local installation, and
-adapter registration/dispatch. They do not run every coding agent. The package
+Tests cover catalogue consistency, skill metadata, installation into every
+configured harness directory, adapter registration/dispatch, and window-layout
+capture with simulated Hyprland responses. The layout tests require Python 3
+and Bash; they do not change the host desktop or run every coding agent. The package
 check previews the files npm would ship; it does not publish anything. This
 skills package has no third-party runtime or development dependencies. The
 website has its own dependencies and lockfile.

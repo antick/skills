@@ -96,3 +96,38 @@ test("argument parsing and selection stay strict", async () => {
   );
   assert.deepEqual(detectInstalledAgents(catalog.agents, () => false), []);
 });
+
+test("workstation skills and their resources install for every configured harness", async (context) => {
+  const project = await mkdtemp(path.join(os.tmpdir(), "skills-workstation-"));
+  context.after(() => rm(project, { recursive: true, force: true }));
+  const catalog = await loadCatalog(root);
+  const names = ["reclaim-dev-space", "save-omarchy-window-layout", "ai-harness-setup"];
+  const result = spawnSync(process.execPath, [
+    installer, ...names.flatMap((name) => ["--skill", name]),
+    "--agent", "*", "--copy", "--yes", "--cwd", project,
+  ], { cwd: root, encoding: "utf8" });
+  assert.equal(result.status, 0, result.stderr);
+
+  const destinations = new Set([".agents/skills", ...catalog.agents.map((agent) => agent.projectDir)]);
+  for (const directory of destinations) {
+    for (const name of names) {
+      for (const relative of ["SKILL.md", "agents/openai.yaml"]) {
+        assert.equal(
+          await readFile(path.join(project, directory, name, relative), "utf8"),
+          await readFile(path.join(root, "skills", name, relative), "utf8"),
+        );
+      }
+    }
+    for (const [name, resource] of [
+      ["reclaim-dev-space", "references/resource-checks.md"],
+      ["save-omarchy-window-layout", "scripts/save-layout.py"],
+      ["ai-harness-setup", "references/omarchy-workstation.md"],
+      ["ai-harness-setup", "references/tools.md"],
+    ]) {
+      assert.equal(
+        await readFile(path.join(project, directory, name, resource), "utf8"),
+        await readFile(path.join(root, "skills", name, resource), "utf8"),
+      );
+    }
+  }
+});

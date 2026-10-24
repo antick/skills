@@ -1,0 +1,6 @@
+interface:
+  display_name: "Save Omarchy Window Layout"
+  short_description: "Save Omarchy workspaces and tiled window sizes"
+  default_prompt: "Use $save-omarchy-window-layout to save my current managed Omarchy window layout for restoration at login."
+policy:
+  allow_implicit_invocation: false

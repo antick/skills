@@ -43,6 +43,14 @@ const details = {
     steps: ["Enumerate repos and fetch workflows and settings", "Run zizmor and actionlint, then trace each finding", "Report per-repo severities, fixes, and coverage limits"],
     mode: "Read-only security report",
   },
+  "code-refactor": {
+    category: "Improve code with confidence",
+    heading: "Use current guidance.\nProtect the behavior.",
+    description: "Find compatible improvements in current official docs, strengthen existing regression tests, and refactor in small verified steps. Ask before creating a missing test suite.",
+    prompt: "$code-refactor Refactor this code using current official docs and compatible features. Strengthen existing tests first; ask before creating a missing suite.",
+    steps: ["Check installed versions and current official guidance", "Protect affected behavior with regression tests", "Refactor incrementally and verify the result"],
+    mode: "Implementation with regression tests",
+  },
   "code-audit": {
     category: "Less code. Less to carry.",
     heading: "Make room for\nwhat matters.",

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Refactor"
+  short_description: "Refactor with current docs and regression protection"
+  default_prompt: "Use $code-refactor to inspect this project's versions, check current official docs for useful refactoring opportunities, strengthen existing tests before changing code, and verify behavior. If no test suite exists, ask for approval before setting one up or refactoring."

@@ -1,6 +1,6 @@
 # Antick Skills
 
-12 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+13 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -8,6 +8,7 @@
 | `concise` | Answer briefly without losing important meaning |
 | `make-sense` | Explain clearly without forcing brevity |
 | `code-build` | Build apps and features with the simplest solution for the project's stack |
+| `code-refactor` | Refactor with current official docs, compatible features, and regression tests |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
 | `code-security` | Audit code, CI, and repository security with evidence-based severity |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |

@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, security audits, implementation, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
+  "description": "Portable skills for code review, security audits, SOC 2 readiness, implementation, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"
@@ -14,13 +14,14 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit code and repository security, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites.",
+    "longDescription": "Review code with evidence, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
-    "capabilities": ["Code review", "Security audits", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup"],
+    "capabilities": ["Code review", "Security audits", "SOC 2 readiness", "Code simplification", "Dependency upgrades", "Clear communication", "Simplified Technical English", "Private desktop releases", "Public desktop releases", "Vercel domain cleanup"],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
+      "Assess this project with the soc2-readiness skill and report findings in chat.",
       "Implement this with the code-build skill.",
       "Audit this repository and its GitHub Actions with the code-security skill.",
       "Update dependencies and apply required migrations with the upgrade-dependencies skill.",

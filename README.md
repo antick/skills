@@ -1,9 +1,9 @@
 # Antick Skills
 
-Twelve portable AI agent skills for reviewing code, building with the project's
-existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up public and private desktop releases, fixing Vercel domains, and
-communicating clearly.
+Thirteen portable AI agent skills for reviewing code, building with the project's
+existing stack, auditing security and SOC 2 readiness, simplifying a codebase,
+upgrading dependencies, setting up public and private desktop releases, fixing
+Vercel domains, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -20,6 +20,7 @@ for Codex and Claude Code.
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
 | [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
+| [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness across code, infrastructure, and organizational controls; report findings, missing evidence, and remediation directly in chat. Read-only. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
@@ -160,6 +161,7 @@ $code-review Review my uncommitted changes against the requested behavior.
 $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
 $code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
+$soc2-readiness Assess this project for SOC 2 Type II readiness and report findings and missing evidence directly in chat.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $public-desktop-release Set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup.
 $private-desktop-release Set up private macOS releases for this app using its existing stack.

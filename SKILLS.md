@@ -1,6 +1,6 @@
 # Antick Skills
 
-13 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+14 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -17,3 +17,4 @@
 | `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
+| `soc2-readiness` | Assess SOC 2 readiness and report evidence-backed gaps in chat |

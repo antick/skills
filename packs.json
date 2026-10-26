@@ -12,7 +12,8 @@
     "public-desktop-release": "Set up signed public GitHub releases, automatic updates, and a separate dev app",
     "github-actions-security-audit": "Audit GitHub Actions and CI security across every repo of an account",
     "vercel-domain-cleanup": "Fix permanent Vercel and www redirects, DNS warnings, and verify websites",
-    "code-refactor": "Refactor with current official docs, compatible features, and regression tests"
+    "code-refactor": "Refactor with current official docs, compatible features, and regression tests",
+    "soc2-readiness": "Assess SOC 2 readiness and report evidence-backed gaps in chat"
   },
   "packs": [
     {
@@ -31,7 +32,8 @@
         "simplify",
         "private-desktop-release",
         "public-desktop-release",
-        "vercel-domain-cleanup"
+        "vercel-domain-cleanup",
+        "soc2-readiness"
       ]
     }
   ]

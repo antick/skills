@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills } from "@/lib/catalog";
 
-const icons = { "database-audit": Database, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
+const icons = { "database-audit": Database, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
 
 export default function SkillExplorer() {
   return (

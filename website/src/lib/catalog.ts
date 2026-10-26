@@ -3,6 +3,14 @@ import agentCatalogue from "../../../scripts/install-agents.json" with { type: "
 import { site } from "./site.ts";
 
 const details = {
+  "soc2-readiness": {
+    category: "Evidence for audit readiness",
+    heading: "Find the gaps.\nShow what supports them.",
+    description: "Assess SOC 2 readiness across code, infrastructure, people, and operations. Get findings, missing evidence, and practical remediation directly in chat, with clear scope and limits.",
+    prompt: "$soc2-readiness Assess this project for SOC 2 Type II readiness and report findings and missing evidence directly in chat.",
+    steps: ["Establish scope, criteria, and evidence access", "Inspect technical and organizational controls", "Report prioritized gaps, evidence requests, and verification steps"],
+    mode: "Read-only readiness report in chat",
+  },
   "vercel-domain-cleanup": {
     category: "Every address reaches home",
     heading: "Fix the redirects.\nClear the DNS warnings.",

@@ -9,7 +9,7 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Portable skills for code review, database and security audits, implementation, refactoring, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
+      "description": "Portable skills for code review, database and security audits, SOC 2 readiness, implementation, refactoring, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
@@ -25,7 +25,8 @@
         "./skills/simplify",
         "./skills/private-desktop-release",
         "./skills/public-desktop-release",
-        "./skills/vercel-domain-cleanup"
+        "./skills/vercel-domain-cleanup",
+        "./skills/soc2-readiness"
       ]
     }
   ]

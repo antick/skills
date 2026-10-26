@@ -1,9 +1,9 @@
 # Antick Skills
 
-Twelve portable AI agent skills for reviewing code, building with the project's
-existing stack, auditing security, simplifying a codebase, upgrading dependencies,
-setting up public and private desktop releases, fixing Vercel domains, and
-communicating clearly.
+Thirteen portable AI agent skills for reviewing code, building with the project's
+existing stack, auditing security, refactoring with current docs and regression
+tests, upgrading dependencies, setting up public and private desktop releases,
+fixing Vercel domains, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -20,6 +20,7 @@ for Codex and Claude Code.
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
 | [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
+| [code-refactor](skills/code-refactor/SKILL.md) | Refactor using current official docs and compatible features; strengthen existing tests first, or ask approval to create a missing suite. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |

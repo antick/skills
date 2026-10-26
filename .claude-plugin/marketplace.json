@@ -9,13 +9,14 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Portable skills for code review, security audits, SOC 2 readiness, implementation, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
+      "description": "Portable skills for code review, security audits, SOC 2 readiness, implementation, refactoring, dependency upgrades, public and private desktop releases, Vercel domain cleanup, and clear communication.",
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
         "./skills/concise",
         "./skills/make-sense",
         "./skills/code-build",
+        "./skills/code-refactor",
         "./skills/code-audit",
         "./skills/code-security",
         "./skills/github-actions-security-audit",

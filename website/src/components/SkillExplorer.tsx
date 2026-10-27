@@ -1,16 +1,16 @@
-import { ArrowDownRight, ArrowUpRight, Check, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, type LucideIcon } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
-import { skills } from "@/lib/catalog";
+import { skills, type Skill } from "@/lib/catalog";
 
-const icons = { "database-audit": Database, "soc2-readiness": ShieldCheck, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
+const icons = { "database-audit": Database, "soc2-readiness": ShieldCheck, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck, "reclaim-dev-space": HardDrive, "save-omarchy-window-layout": PanelsTopLeft, "ai-harness-setup": RefreshCw } satisfies Record<Skill["name"], LucideIcon>;
 
 export default function SkillExplorer() {
   return (
     <Tabs defaultValue="code-review" orientation="vertical" className="skill-explorer">
       <TabsList aria-label="Explore the skills" className="skill-list">
         {skills.map((skill, index) => {
-          const Icon = icons[skill.name as keyof typeof icons];
+          const Icon = icons[skill.name];
           return (
             <TabsTrigger key={skill.name} value={skill.name} className="skill-tab">
               <span className="skill-tab-number">{String(index + 1).padStart(2, "0")}</span>

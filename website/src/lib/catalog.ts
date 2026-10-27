@@ -3,6 +3,30 @@ import agentCatalogue from "../../../scripts/install-agents.json" with { type: "
 import { site } from "./site.ts";
 
 const details = {
+  "reclaim-dev-space": {
+    category: "Room for the next build",
+    heading: "See what can go.\nKeep what matters.",
+    description: "Report in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat. Highlight protected resources and reclaim space only after confirmation of the reported items.",
+    prompt: "$reclaim-dev-space Report dev-space cleanup candidates and important resources to keep directly in chat. Show estimated space and risks, then wait for my confirmation before removing anything.",
+    steps: ["Report candidates, protected resources, and uncertain items in chat", "Confirm specific items and recheck their safety", "Clean carefully and verify retained data and reclaimed space"],
+    mode: "Chat report first; cleanup after confirmation",
+  },
+  "save-omarchy-window-layout": {
+    category: "Your workspace, ready at login",
+    heading: "Save the layout.\nRestore your workspace.",
+    description: "Save managed app workspaces, tiled window order and sizes, and the active workspace for login restoration. Requires an existing Omarchy/Hyprland setup with Lua configuration and startup integration.",
+    prompt: "$save-omarchy-window-layout Save my current managed Omarchy window layout for restoration at login.",
+    steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
+    mode: "Explicit invocation; Omarchy/Hyprland",
+  },
+  "ai-harness-setup": {
+    category: "Set up the tools. Keep them current.",
+    heading: "Build your toolkit.\nKeep it ready.",
+    description: "Manage 18 AI tools and JavaScript runtimes with OS-aware installation and updates. Confirm missing installs, preserve supported update mechanisms, and report every result, skip, or failure.",
+    prompt: "$ai-harness-setup Check all tools for this OS, update existing installations, ask before installing missing tools, and report versions, results, and future update methods.",
+    steps: ["Detect the OS, architecture, installations, and update routes", "Confirm missing installs and update existing tools", "Report all 18 tools, verified versions, skips, and blockers"],
+    mode: "Explicit invocation; local workstation",
+  },
   "soc2-readiness": {
     category: "Evidence for audit readiness",
     heading: "Find the gaps.\nShow what supports them.",
@@ -129,7 +153,7 @@ export const skills = catalogue.packs.flatMap((pack) => pack.skills).map((name) 
   const key = name as keyof typeof details;
   if (!details[key]) throw new Error(`Missing website details for skill: ${name}`);
   return {
-    name,
+    name: key,
     summary: catalogue.summaries[key],
     source: `${site.repository}/tree/main/skills/${name}`,
     ...details[key],

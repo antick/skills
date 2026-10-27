@@ -1,6 +1,6 @@
 # Antick Skills
 
-14 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+15 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -11,6 +11,7 @@
 | `code-refactor` | Refactor with current official docs, compatible features, and regression tests |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
 | `code-security` | Audit code, CI, and repository security with evidence-based severity |
+| `database-audit` | Audit database schemas, queries, migrations, and access with evidence |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
 | `upgrade-dependencies` | Upgrade dependencies, apply migrations, and verify behavior |
 | `simplify` | Apply ASD-STE100 to explanations, instructions, and reports |

@@ -35,6 +35,14 @@ const details = {
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",
   },
+  "database-audit": {
+    category: "Data integrity and query performance",
+    heading: "Follow the query.\nProtect the data.",
+    description: "Review schemas, migrations, SQL and ORM queries, indexes, transactions, and access controls. Get evidence-backed findings with practical fixes and clear measurement limits.",
+    prompt: "$database-audit Review my database schema, migrations, queries, and access controls; report findings without applying changes.",
+    steps: ["Map the schema, migrations, and actual workloads", "Trace integrity, performance, concurrency, and access risks", "Report verified findings, practical fixes, and coverage limits"],
+    mode: "Read-only database report",
+  },
   "code-security": {
     category: "Security backed by evidence",
     heading: "Trace the risk.\nJustify the severity.",

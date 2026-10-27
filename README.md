@@ -1,9 +1,9 @@
 # Antick Skills
 
-Fourteen portable AI agent skills for reviewing code, building with the project's
-existing stack, auditing security and SOC 2 readiness, refactoring with current
-docs and regression tests, upgrading dependencies, setting up public and private
-desktop releases, fixing Vercel domains, and communicating clearly.
+Fifteen portable AI agent skills for reviewing code, building with the project's
+existing stack, auditing databases, security, and SOC 2 readiness, refactoring
+with current docs and regression tests, upgrading dependencies, setting up public
+and private desktop releases, fixing Vercel domains, and communicating clearly.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -19,6 +19,7 @@ for Codex and Claude Code.
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
 | [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
 | [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
+| [database-audit](skills/database-audit/SKILL.md) | Review schemas, migrations, SQL and ORM queries, indexes, transactions, and database access controls; report evidence-backed findings without applying changes. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
 | [code-refactor](skills/code-refactor/SKILL.md) | Refactor using current official docs and compatible features; strengthen existing tests first, or ask approval to create a missing suite. |
 | [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness across code, infrastructure, and organizational controls; report findings, missing evidence, and remediation directly in chat. Read-only. |
@@ -162,6 +163,7 @@ $code-review Review my uncommitted changes against the requested behavior.
 $code-build Add search to this Astro site using its existing conventions.
 $code-audit Find the largest safe simplifications in this repository.
 $code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
+$database-audit Review my database schema, migrations, queries, and access controls; report findings without applying changes.
 $soc2-readiness Assess this project for SOC 2 Type II readiness and report findings and missing evidence directly in chat.
 $upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
 $public-desktop-release Set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup.

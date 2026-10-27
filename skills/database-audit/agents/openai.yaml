@@ -1,0 +1,4 @@
+interface:
+  display_name: "Database Audit"
+  short_description: "Audit schemas, queries, migrations, and database access"
+  default_prompt: "Use $database-audit to review this project's database schema, migrations, queries, indexes, transactions, and access controls; report evidence-backed findings and practical fixes without applying changes."

@@ -1,9 +1,9 @@
-import { ArrowDownRight, ArrowUpRight, Check, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills } from "@/lib/catalog";
 
-const icons = { "soc2-readiness": ShieldCheck, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
+const icons = { "database-audit": Database, "soc2-readiness": ShieldCheck, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck };
 
 export default function SkillExplorer() {
   return (

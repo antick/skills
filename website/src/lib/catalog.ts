@@ -27,6 +27,14 @@ const details = {
     steps: ["Detect the OS, architecture, installations, and update routes", "Confirm missing installs and update existing tools", "Report all 18 tools, verified versions, skips, and blockers"],
     mode: "Explicit invocation; local workstation",
   },
+  "soc2-readiness": {
+    category: "Evidence for audit readiness",
+    heading: "Find the gaps.\nShow what supports them.",
+    description: "Assess SOC 2 readiness across code, infrastructure, people, and operations. Get findings, missing evidence, and practical remediation directly in chat, with clear scope and limits.",
+    prompt: "$soc2-readiness Assess this project for SOC 2 Type II readiness and report findings and missing evidence directly in chat.",
+    steps: ["Establish scope, criteria, and evidence access", "Inspect technical and organizational controls", "Report prioritized gaps, evidence requests, and verification steps"],
+    mode: "Read-only readiness report in chat",
+  },
   "vercel-domain-cleanup": {
     category: "Every address reaches home",
     heading: "Fix the redirects.\nClear the DNS warnings.",
@@ -51,6 +59,14 @@ const details = {
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",
   },
+  "database-audit": {
+    category: "Data integrity and query performance",
+    heading: "Follow the query.\nProtect the data.",
+    description: "Review schemas, migrations, SQL and ORM queries, indexes, transactions, and access controls. Get evidence-backed findings with practical fixes and clear measurement limits.",
+    prompt: "$database-audit Review my database schema, migrations, queries, and access controls; report findings without applying changes.",
+    steps: ["Map the schema, migrations, and actual workloads", "Trace integrity, performance, concurrency, and access risks", "Report verified findings, practical fixes, and coverage limits"],
+    mode: "Read-only database report",
+  },
   "code-security": {
     category: "Security backed by evidence",
     heading: "Trace the risk.\nJustify the severity.",
@@ -66,6 +82,14 @@ const details = {
     prompt: "$github-actions-security-audit Audit GitHub Actions and CI security across all my repositories and report findings by repo.",
     steps: ["Enumerate repos and fetch workflows and settings", "Run zizmor and actionlint, then trace each finding", "Report per-repo severities, fixes, and coverage limits"],
     mode: "Read-only security report",
+  },
+  "code-refactor": {
+    category: "Improve code with confidence",
+    heading: "Use current guidance.\nProtect the behavior.",
+    description: "Find compatible improvements in current official docs, strengthen existing regression tests, and refactor in small verified steps. Ask before creating a missing test suite.",
+    prompt: "$code-refactor Refactor this code using current official docs and compatible features. Strengthen existing tests first; ask before creating a missing suite.",
+    steps: ["Check installed versions and current official guidance", "Protect affected behavior with regression tests", "Refactor incrementally and verify the result"],
+    mode: "Implementation with regression tests",
   },
   "code-audit": {
     category: "Less code. Less to carry.",

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SOC 2 Readiness"
+  short_description: "Find SOC 2 readiness gaps with evidence in chat"
+  default_prompt: "Use $soc2-readiness to assess this project's SOC 2 readiness and report evidence-backed findings, missing evidence, priorities, and verification steps directly in chat."

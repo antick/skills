@@ -1,9 +1,9 @@
-import { ArrowDownRight, ArrowUpRight, Check, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, type LucideIcon } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, type LucideIcon } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { CopyButton } from "./CopyButton";
 import { skills, type Skill } from "@/lib/catalog";
 
-const icons = { "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck, "reclaim-dev-space": HardDrive, "save-omarchy-window-layout": PanelsTopLeft, "ai-harness-setup": RefreshCw } satisfies Record<Skill["name"], LucideIcon>;
+const icons = { "database-audit": Database, "soc2-readiness": ShieldCheck, "vercel-domain-cleanup": ArrowUpRight, "github-actions-security-audit": ShieldCheck, "code-review": ScanLine, "code-build": Code2, "code-refactor": RefreshCw, "code-audit": Scissors, "code-security": ShieldCheck, concise: AlignLeft, "make-sense": MessageCircle, "upgrade-dependencies": RefreshCw, simplify: AlignLeft, "public-desktop-release": ShieldCheck, "private-desktop-release": ShieldCheck, "reclaim-dev-space": HardDrive, "save-omarchy-window-layout": PanelsTopLeft, "ai-harness-setup": RefreshCw } satisfies Record<Skill["name"], LucideIcon>;
 
 export default function SkillExplorer() {
   return (

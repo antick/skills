@@ -1,8 +1,10 @@
 import catalogue from "../../../packs.json" with { type: "json" };
 import agentCatalogue from "../../../scripts/install-agents.json" with { type: "json" };
 import { site } from "./site.ts";
+import { engineeringDetails } from "./engineering-catalog.ts";
 
 const details = {
+  ...engineeringDetails,
   "reclaim-dev-space": {
     category: "Room for the next build",
     heading: "See what can go.\nKeep what matters.",

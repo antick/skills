@@ -1,0 +1,4 @@
+interface:
+  display_name: "npm Supply Chain Hardening"
+  short_description: "Harden dependency installs and npm publishing paths"
+  default_prompt: "Use $npm-supply-chain-hardening. Harden dependency installation and publishing configuration; verify clean builds and report any account changes needed."

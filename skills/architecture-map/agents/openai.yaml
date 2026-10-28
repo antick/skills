@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture Map"
+  short_description: "Map architecture and create practical onboarding guides"
+  default_prompt: "Use $architecture-map. Map this codebase and create an onboarding guide with traced flows, module ownership, and verified setup steps."

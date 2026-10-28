@@ -17,7 +17,27 @@
     "database-audit": "Audit database schemas, queries, migrations, and access with evidence",
     "reclaim-dev-space": "Report reclaimable dev resources in chat, protect important data, and clean confirmed items",
     "save-omarchy-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
-    "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results"
+    "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results",
+    "auth-consolidation": "Unify auth and sessions without weakening access rules",
+    "state-consolidation": "Give application state one clear owner and lifecycle",
+    "sdk-consolidation": "Unify SDK clients while preserving service contracts",
+    "npm-supply-chain-hardening": "Harden dependency installs and npm publishing paths",
+    "design-system-enforcement": "Enforce shared design tokens and approved UI rules",
+    "component-library-standardization": "Standardize reusable component APIs and consumers",
+    "typescript-strictness": "Strengthen TypeScript checks without unsafe shortcuts",
+    "test-suite-hardening": "Fix flaky tests and strengthen behavior coverage",
+    "ci-cd-triage": "Diagnose and repair failing builds and pipelines",
+    "routing-refactor": "Refactor routes while preserving links and navigation",
+    "performance-optimization": "Optimize measured bottlenecks with repeatable evidence",
+    "accessibility-audit": "Find accessibility barriers and fix them when requested",
+    "security-remediation": "Fix confirmed vulnerabilities with regression evidence",
+    "error-handling-standardization": "Unify errors, recovery, retries, and safe diagnostics",
+    "i18n-localization": "Wire locales, messages, formatting, and RTL behavior",
+    "platform-migration": "Migrate web and mobile flows with explicit parity checks",
+    "documentation-generation": "Write project docs from source and verified examples",
+    "architecture-map": "Map architecture and create practical onboarding guides",
+    "monorepo-restructure": "Move workspace boundaries without breaking consumers",
+    "interview": "Learn personal context and save authorized memories"
   },
   "packs": [
     {
@@ -41,7 +61,27 @@
         "soc2-readiness",
         "reclaim-dev-space",
         "save-omarchy-window-layout",
-        "ai-harness-setup"
+        "ai-harness-setup",
+        "auth-consolidation",
+        "state-consolidation",
+        "sdk-consolidation",
+        "npm-supply-chain-hardening",
+        "design-system-enforcement",
+        "component-library-standardization",
+        "typescript-strictness",
+        "test-suite-hardening",
+        "ci-cd-triage",
+        "routing-refactor",
+        "performance-optimization",
+        "accessibility-audit",
+        "security-remediation",
+        "error-handling-standardization",
+        "i18n-localization",
+        "platform-migration",
+        "documentation-generation",
+        "architecture-map",
+        "monorepo-restructure",
+        "interview"
       ]
     }
   ]

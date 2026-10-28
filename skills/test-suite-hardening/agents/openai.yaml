@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Suite Hardening"
+  short_description: "Fix flaky tests and strengthen behavior coverage"
+  default_prompt: "Use $test-suite-hardening. Harden this test suite against flakes, weak assertions, and missing critical behavior coverage."

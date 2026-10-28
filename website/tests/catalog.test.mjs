@@ -2,6 +2,17 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { agents, skills, installCommand } from '../src/lib/catalog.ts';
 
+test('every skill has complete presentation metadata and its own invocation', () => {
+  for (const skill of skills) {
+    for (const key of ['summary', 'category', 'heading', 'description', 'prompt', 'mode', 'source']) {
+      assert.ok(typeof skill[key] === 'string' && skill[key].trim(), `${skill.name}: missing ${key}`);
+    }
+    assert.ok(skill.prompt.includes(`$${skill.name} `), `${skill.name}: incorrect invocation`);
+    assert.ok(skill.steps.length > 0 && skill.steps.every(step => step.trim()));
+    assert.ok(skill.source.endsWith(`/skills/${skill.name}`));
+  }
+});
+
 test('install commands cover every catalogue entry and reject invalid inputs', () => {
   assert.equal(new Set(skills.map(skill => skill.name)).size, skills.length);
   assert.ok(agents.length > 0);

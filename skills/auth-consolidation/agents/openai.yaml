@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auth Consolidation"
+  short_description: "Unify auth and sessions without weakening access rules"
+  default_prompt: "Use $auth-consolidation. Consolidate duplicated auth flows while preserving sessions, tenant isolation, and permission checks."

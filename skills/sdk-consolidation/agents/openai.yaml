@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDK Consolidation"
+  short_description: "Unify SDK clients while preserving service contracts"
+  default_prompt: "Use $sdk-consolidation. Consolidate duplicated SDK wrappers and verify retries, cancellation, credentials, and provider behavior."

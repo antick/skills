@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interview"
+  short_description: "Learn personal context and save authorized memories"
+  default_prompt: "Use $interview. Interview me in depth about relevant parts of my life you do not know yet, and save useful answers through the supported memory system."

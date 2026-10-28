@@ -1,0 +1,4 @@
+interface:
+  display_name: "Documentation Generation"
+  short_description: "Write project docs from source and verified examples"
+  default_prompt: "Use $documentation-generation. Generate accurate project documentation from the code and verify safe setup commands, examples, and links."

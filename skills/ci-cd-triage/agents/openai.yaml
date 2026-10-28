@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI/CD Triage"
+  short_description: "Diagnose and repair failing builds and pipelines"
+  default_prompt: "Use $ci-cd-triage. Diagnose this failing pipeline, fix the root cause, and distinguish local verification from hosted results."

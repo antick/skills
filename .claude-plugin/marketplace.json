@@ -9,7 +9,7 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Portable skills for code review, database and security audits, SOC 2 readiness, implementation, refactoring, dependency upgrades, public and private desktop releases, Vercel domain cleanup, development space reclamation, Omarchy window layouts, AI harness setup, and clear communication.",
+      "description": "Portable skills for engineering refactors, security and supply-chain hardening, tests and CI, accessible UI systems, platform and data migrations, documentation, releases, personal interviews, and clear communication.",
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
@@ -29,7 +29,27 @@
         "./skills/soc2-readiness",
         "./skills/reclaim-dev-space",
         "./skills/save-omarchy-window-layout",
-        "./skills/ai-harness-setup"
+        "./skills/ai-harness-setup",
+        "./skills/auth-consolidation",
+        "./skills/state-consolidation",
+        "./skills/sdk-consolidation",
+        "./skills/npm-supply-chain-hardening",
+        "./skills/design-system-enforcement",
+        "./skills/component-library-standardization",
+        "./skills/typescript-strictness",
+        "./skills/test-suite-hardening",
+        "./skills/ci-cd-triage",
+        "./skills/routing-refactor",
+        "./skills/performance-optimization",
+        "./skills/accessibility-audit",
+        "./skills/security-remediation",
+        "./skills/error-handling-standardization",
+        "./skills/i18n-localization",
+        "./skills/platform-migration",
+        "./skills/documentation-generation",
+        "./skills/architecture-map",
+        "./skills/monorepo-restructure",
+        "./skills/interview"
       ]
     }
   ]

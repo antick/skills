@@ -13,6 +13,9 @@ Passing checks reduce regression risk; they cannot guarantee that nothing breaks
 
 Read repository instructions, check Git status, and preserve unrelated changes.
 Identify the requested code, callers, public contracts, and observable behavior.
+For complex refactors spanning module boundaries or architecture cleanup, read
+[architecture migration](references/architecture-migration.md). It adds dependency
+mapping, staged cutover, compatibility, and deletion checks to this workflow.
 Inspect manifests, lockfiles, runtime, framework, compiler, and relevant configuration
 to determine actual installed versions, rather than relying on declared ranges.
 

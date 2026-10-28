@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Audit"
+  short_description: "Find accessibility barriers and fix them when requested"
+  default_prompt: "Use $accessibility-audit. Audit and fix accessibility barriers in the main user journeys; report manual and automated coverage separately."

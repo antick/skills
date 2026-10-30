@@ -1,13 +1,26 @@
 ---
 name: code-security
-description: Audit repository security across application code, dependencies, secrets, GitHub Actions, releases, and public-repository controls. Use for a security audit, public-repo exposure review, or a severity-ranked security report. Produces evidence-based findings without applying fixes.
+description: Audit repository security across application code, dependencies, secrets, CI, and releases. Use for security reports or requested vulnerability remediation and npm supply-chain hardening. Audits are read-only by default; apply fixes only when requested.
 ---
 
 # Code Security
 
-Produce a security report a maintainer can act on. Review the whole requested
-surface, but never promise to find every vulnerability or certify a repository
+Produce an actionable security report or implement the requested security fix.
+Review the whole requested surface, but never promise to find every vulnerability or certify a repository
 as secure. A short report with proven findings beats a long speculative list.
+
+## Select the operating mode
+
+For an audit or review, follow the read-only audit workflow below and report findings.
+For a request to fix vulnerabilities or harden the supply chain, use the matching
+guide below and implement the authorized repository changes. Audit authorization
+alone does not authorize fixes. Account changes, credential rotation, publication,
+and production operations remain subject to the user's explicit scope.
+
+| Requested work | Guide |
+| --- | --- |
+| npm Supply Chain Hardening | [Workflow](references/npm-supply-chain-hardening.md) |
+| Security Remediation | [Workflow](references/security-remediation.md) |
 
 ## Scope and operating boundaries
 

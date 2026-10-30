@@ -1,6 +1,6 @@
 ---
 name: code-refactor
-description: Use when refactoring or modernizing existing code, replacing legacy patterns with current framework or library features, or improving maintainability or performance while preserving behavior. Applies across stacks, including React.
+description: Refactor or modernize existing code, including auth, state, SDK, routing, error handling, TypeScript strictness, architecture, monorepo boundaries, and measured performance improvements. Use for behavior-preserving cleanup or explicitly requested migrations with regression protection.
 ---
 
 # Code Refactor
@@ -9,10 +9,29 @@ Refactor with current official guidance and a tested behavior baseline. Adopt ne
 features only when they solve a concrete problem and fit the project's versions.
 Passing checks reduce regression risk; they cannot guarantee that nothing breaks.
 
+## Focused workflows
+
+Read only the guide that matches the requested work. These guides supplement
+the core workflow and preserve its scope and verification requirements.
+
+| Requested work | Guide |
+| --- | --- |
+| Auth Consolidation | [Workflow](references/auth-consolidation.md) |
+| State Consolidation | [Workflow](references/state-consolidation.md) |
+| SDK Consolidation | [Workflow](references/sdk-consolidation.md) |
+| Routing Refactor | [Workflow](references/routing-refactor.md) |
+| Error Handling Standardization | [Workflow](references/error-handling-standardization.md) |
+| TypeScript Strictness | [Workflow](references/typescript-strictness.md) |
+| Monorepo Restructure | [Workflow](references/monorepo-restructure.md) |
+| Performance Optimization | [Workflow](references/performance-optimization.md) |
+
 ## 1. Inspect the scope and baseline
 
 Read repository instructions, check Git status, and preserve unrelated changes.
 Identify the requested code, callers, public contracts, and observable behavior.
+For complex refactors spanning module boundaries or architecture cleanup, read
+[architecture migration](references/architecture-migration.md). It adds dependency
+mapping, staged cutover, compatibility, and deletion checks to this workflow.
 Inspect manifests, lockfiles, runtime, framework, compiler, and relevant configuration
 to determine actual installed versions, rather than relying on declared ranges.
 

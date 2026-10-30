@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "version": "0.3.1",
-  "description": "Portable skills for code review, database and security audits, SOC 2 readiness, implementation, refactoring, dependency upgrades, public and private desktop releases, Vercel domain cleanup, development space reclamation, Omarchy window layouts, AI harness setup, and clear communication.",
+  "description": "Portable skills for engineering refactors, security and supply-chain hardening, tests and CI, accessible UI systems, platform and data migrations, documentation, releases, personal interviews, and clear communication.",
   "author": {
     "name": "Pankaj",
     "url": "https://github.com/antick"

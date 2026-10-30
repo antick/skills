@@ -1,11 +1,8 @@
 # Antick Skills
 
-Eighteen portable AI agent skills for reviewing code, building with the project's
-existing stack, auditing databases, security, and SOC 2 readiness, refactoring
-with current docs and regression tests, upgrading dependencies, setting up public
-and private desktop releases, fixing Vercel domains, reclaiming development space,
-saving Omarchy window layouts, setting up and updating AI tools, and communicating
-clearly.
+Twenty-three portable AI agent skills for engineering refactors, security and
+supply-chain hardening, tests and CI, accessible UI systems, platform and data
+migrations, documentation, releases, personal interviews, and clear communication.
 
 [Explore the website](https://skills.potion.sh) · [Get started](#install-from-a-checkout)
 
@@ -19,11 +16,11 @@ for Codex and Claude Code.
 | Skill | Use it when you want to… |
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
-| [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
-| [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
+| [code-build](skills/code-build/SKILL.md) | Build features, standardize UI, wire localization, and migrate platforms. |
+| [code-security](skills/code-security/SKILL.md) | Audit security; remediate vulnerabilities and harden supply chains when requested. |
 | [database-audit](skills/database-audit/SKILL.md) | Review schemas, migrations, SQL and ORM queries, indexes, transactions, and database access controls; report evidence-backed findings without applying changes. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
-| [code-refactor](skills/code-refactor/SKILL.md) | Refactor using current official docs and compatible features; strengthen existing tests first, or ask approval to create a missing suite. |
+| [code-refactor](skills/code-refactor/SKILL.md) | Refactor shared flows, types, architecture, and performance with regression protection. |
 | [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness across code, infrastructure, and organizational controls; report findings, missing evidence, and remediation directly in chat. Read-only. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
@@ -36,6 +33,20 @@ for Codex and Claude Code.
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts in chat; highlight protected resources and clean only items confirmed after the report. |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
 | [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
+| [test-suite-hardening](skills/test-suite-hardening/SKILL.md) | Fix flaky tests and strengthen behavior coverage. |
+| [ci-cd-triage](skills/ci-cd-triage/SKILL.md) | Diagnose and repair failing builds and pipelines. |
+| [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers and fix them when requested. |
+| [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides. |
+| [interview](skills/interview/SKILL.md) | Learn personal context and save authorized memories. |
+
+`code-refactor` includes task-specific consolidation, strictness, workspace, and
+performance guides. `code-security` includes remediation and supply-chain guides.
+`documentation-generation` includes architecture mapping and contributor onboarding.
+
+If you installed an earlier version of this PR, reinstall the parent skill folders
+and preserve any custom edits before removing the superseded standalone folders.
+The workflow coverage map links each consolidated capability to its new guide;
+the installer does not automatically remove retired skill names.
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
@@ -86,8 +97,9 @@ does not remove retired names.
 Invoke it as `$ai-harness-setup`, `/ai-harness-setup`, or Pi's
 `/skill:ai-harness-setup`, according to your host.
 
-The [catalogue](SKILLS.md) lists the current skills. Each linked `SKILL.md` is the
-source of truth for its behavior.
+The [catalogue](SKILLS.md) lists the current skills, with a
+[workflow coverage map](SKILLS.md#workflow-coverage) for the engineering and
+interview workflows. Each linked `SKILL.md` is the source of truth for its behavior.
 
 ## Install from a checkout
 
@@ -222,8 +234,12 @@ $simplify Write these instructions in ASD-STE100 Simplified Technical English. K
 ```
 
 Skills provide instructions to the agent. Its tools, permissions, and your
-project's instructions still determine what it can do. Review and audit skills
-report findings; `code-build` and `upgrade-dependencies` perform implementation work.
+project's instructions still determine what it can do. Review and audit requests report findings by default; implementation requests
+authorize the relevant changes. `code-security` separates read-only audits from
+requested remediation and supply-chain hardening. `accessibility-audit` fixes findings only when fixes are requested.
+`interview` uses the host's supported memory system only with save authorization;
+installing it does not start an interview or save personal information. It never
+uses a source repository as the default destination for personal notes.
 
 ### Host integrations
 
@@ -268,7 +284,8 @@ npm pack --dry-run
 ```
 
 Tests cover catalogue consistency, skill metadata, installation into every
-configured harness directory, adapter registration/dispatch, and window-layout
+configured harness directory, standalone skill resource integrity and local links,
+adapter registration/dispatch, and window-layout
 capture with simulated Hyprland responses. The layout tests require Python 3
 and Bash; they do not change the host desktop or run every coding agent. The package
 check previews the files npm would ship; it does not publish anything. This
@@ -292,8 +309,8 @@ npm run build --prefix website
 ```
 
 Site copy and links live in `website/src/lib/site.ts`; skill descriptions live
-in `website/src/lib/catalog.ts`. The social preview source is
-`website/public/og.svg`, with `og.png` used by link previews.
+in `website/src/lib/catalog.ts` and `website/src/lib/engineering-catalog.ts`.
+The social preview source is `website/public/og.svg`, with `og.png` used by link previews.
 
 Vercel project `antick-skills` builds from the **repository root**, using the
 checked-in `vercel.json`. Do not set the root directory to `website`: the build

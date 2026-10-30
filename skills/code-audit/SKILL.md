@@ -14,6 +14,13 @@ Scan the repository for complexity that can be removed without losing required b
 3. Find duplicated implementations, needless dependencies, single-use layers, dead flags, speculative configuration, and custom code covered by standard or native features.
 4. Rank findings by the largest safe reduction in maintenance cost.
 
+For architecture cleanup, trace dependency direction, cycles, shared ownership,
+and runtime entry points before recommending a boundary change. Distinguish
+intentional platform or trust boundaries from duplicated business behavior.
+Describe a staged migration and compatibility risks for cross-module findings.
+If implementation is requested, perform it with regression protection using the
+available refactoring workflow; this report-only audit does not apply changes.
+
 Use these tags: `delete`, `reuse`, `stdlib`, `native`, `yagni`, and `shrink`.
 
 ## Output

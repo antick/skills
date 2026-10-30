@@ -3,21 +3,26 @@
     "code-review": "Review code and PRs for requirements, risk, and complexity",
     "code-audit": "Rank repository-wide opportunities to remove complexity",
     "make-sense": "Explain clearly without forcing brevity",
-    "code-build": "Build apps and features with the simplest solution for the project's stack",
+    "code-build": "Build features, standardize UI, wire localization, and migrate platforms",
     "concise": "Answer briefly without losing important meaning",
     "upgrade-dependencies": "Upgrade dependencies, apply migrations, and verify behavior",
     "simplify": "Apply ASD-STE100 to explanations, instructions, and reports",
-    "code-security": "Audit code, CI, and repository security with evidence-based severity",
+    "code-security": "Audit security; remediate vulnerabilities and harden supply chains when requested",
     "private-desktop-release": "Set up signed private desktop releases, licensed updates, and device controls",
     "public-desktop-release": "Set up signed public GitHub releases, automatic updates, and a separate dev app",
     "github-actions-security-audit": "Audit GitHub Actions and CI security across every repo of an account",
     "vercel-domain-cleanup": "Fix permanent Vercel and www redirects, DNS warnings, and verify websites",
-    "code-refactor": "Refactor with current official docs, compatible features, and regression tests",
+    "code-refactor": "Refactor shared flows, types, architecture, and performance with regression protection",
     "soc2-readiness": "Assess SOC 2 readiness and report evidence-backed gaps in chat",
     "database-audit": "Audit database schemas, queries, migrations, and access with evidence",
     "reclaim-dev-space": "Report reclaimable dev resources in chat, protect important data, and clean confirmed items",
     "save-omarchy-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
-    "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results"
+    "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results",
+    "test-suite-hardening": "Fix flaky tests and strengthen behavior coverage",
+    "ci-cd-triage": "Diagnose and repair failing builds and pipelines",
+    "accessibility-audit": "Find accessibility barriers and fix them when requested",
+    "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
+    "interview": "Learn personal context and save authorized memories"
   },
   "packs": [
     {
@@ -41,7 +46,12 @@
         "soc2-readiness",
         "reclaim-dev-space",
         "save-omarchy-window-layout",
-        "ai-harness-setup"
+        "ai-harness-setup",
+        "test-suite-hardening",
+        "ci-cd-triage",
+        "accessibility-audit",
+        "documentation-generation",
+        "interview"
       ]
     }
   ]

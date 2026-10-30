@@ -1,8 +1,3 @@
----
-name: security-remediation
-description: Fix confirmed security vulnerabilities with regression evidence and a bounded rollout plan. Use to remediate audit findings, authorization flaws, injection, unsafe data handling, or vulnerable dependencies; not for a report-only audit.
----
-
 # Security Remediation
 
 Close a reachable vulnerability while preserving legitimate use. Treat scanner

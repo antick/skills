@@ -1,8 +1,3 @@
----
-name: performance-optimization
-description: Profile and optimize measured application performance bottlenecks. Use for slow user flows, excessive rendering, large bundles, latency, throughput, memory growth, or startup costs with before-and-after verification.
----
-
 # Performance Optimization
 
 Optimize an observed bottleneck under a representative workload. Do not replace

@@ -1,8 +1,3 @@
----
-name: typescript-strictness
-description: Enable or strengthen TypeScript checking and fix resulting errors without hiding unsafe behavior. Use for strict-mode migrations, nullability, unchecked indexing, implicit any, or unsafe assertion cleanup.
----
-
 # TypeScript Strictness
 
 Make the type system describe real behavior. A smaller error count achieved with

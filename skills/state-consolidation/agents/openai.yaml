@@ -1,4 +1,0 @@
-interface:
-  display_name: "State Consolidation"
-  short_description: "Give application state one clear owner and lifecycle"
-  default_prompt: "Use $state-consolidation. Consolidate conflicting state and stores while preserving persistence, cache isolation, and user interactions."

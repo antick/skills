@@ -1,8 +1,3 @@
----
-name: state-consolidation
-description: Consolidate duplicated or conflicting application state and stores. Use when fixing competing sources of truth, redundant effects, cache ownership, persistence, or state-library overlap.
----
-
 # State Consolidation
 
 Give each piece of state an explicit owner and lifecycle. Consolidation need not

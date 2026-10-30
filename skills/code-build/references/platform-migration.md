@@ -1,8 +1,3 @@
----
-name: platform-migration
-description: Migrate an application or feature between web, iOS, and Android while tracking behavior and data parity. Use for cross-platform ports, framework moves, shared-core extraction, or staged replacement of an existing client.
----
-
 # Platform Migration
 
 Move a defined product surface with an explicit parity and rollout contract.

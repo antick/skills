@@ -1,8 +1,3 @@
----
-name: sdk-consolidation
-description: Consolidate duplicated SDK clients and service wrappers while preserving provider behavior. Use for repeated client initialization, inconsistent retries, transport adapters, or scattered external-service calls.
----
-
 # SDK Consolidation
 
 Create a small shared integration boundary where real consumers need one. Do not

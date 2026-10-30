@@ -56,7 +56,7 @@ const details = {
   "code-build": {
     category: "From idea to working code",
     heading: "Understand first.\nThen build.",
-    description: "An implementation partner that reads the project, reuses what works, and picks the smallest solution that meets the whole request.",
+    description: "Build with the existing stack, including focused guides for design-system rules, shared components, localization, and platform migrations.",
     prompt: "$code-build Add search to this Astro site using its existing conventions.",
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",
@@ -72,10 +72,10 @@ const details = {
   "code-security": {
     category: "Security backed by evidence",
     heading: "Trace the risk.\nJustify the severity.",
-    description: "Audit application code, dependencies, GitHub Actions, and public-repository controls. Get a security report that separates confirmed vulnerabilities from hardening advice and unknowns.",
+    description: "Audit application code, dependencies, CI, and repository controls. When requested, apply verified security fixes and npm supply-chain hardening using focused guides.",
     prompt: "$code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.",
     steps: ["Map exposed inputs, assets, and trust boundaries", "Verify attack paths and calibrate their impact", "Report evidence, fixes, and coverage limitations"],
-    mode: "Read-only security report",
+    mode: "Read-only audit; fixes when requested",
   },
   "github-actions-security-audit": {
     category: "CI you can trust",
@@ -88,7 +88,7 @@ const details = {
   "code-refactor": {
     category: "Improve code with confidence",
     heading: "Use current guidance.\nProtect the behavior.",
-    description: "Find compatible improvements in current official docs, strengthen existing regression tests, and refactor in small verified steps. Ask before creating a missing test suite.",
+    description: "Consolidate auth, state, SDKs, routes, and errors; strengthen types; restructure workspaces; and improve measured performance with current docs and regression protection.",
     prompt: "$code-refactor Refactor this code using current official docs and compatible features. Strengthen existing tests first; ask before creating a missing suite.",
     steps: ["Check installed versions and current official guidance", "Protect affected behavior with regression tests", "Refactor incrementally and verify the result"],
     mode: "Implementation with regression tests",

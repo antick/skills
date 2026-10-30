@@ -1,8 +1,3 @@
----
-name: error-handling-standardization
-description: Standardize error contracts, propagation, user recovery, and logging across an application. Use for swallowed exceptions, inconsistent API errors, duplicate logging, unsafe retries, or fragmented error presentation.
----
-
 # Error Handling Standardization
 
 Make failures understandable and recoverable without losing their cause or

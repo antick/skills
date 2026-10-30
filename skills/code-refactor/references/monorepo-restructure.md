@@ -1,8 +1,3 @@
----
-name: monorepo-restructure
-description: Restructure monorepo applications and packages while preserving imports, builds, tests, and deployment artifacts. Use for package extraction, workspace moves, dependency-boundary cleanup, or task-graph restructuring.
----
-
 # Monorepo Restructure
 
 Move ownership and packaging deliberately. A successful source import in a warm

@@ -1,8 +1,3 @@
----
-name: routing-refactor
-description: Refactor web routing or mobile navigation while preserving URL and navigation contracts. Use for route ownership, nested layouts, guards, deep links, redirect cleanup, or navigation-library consolidation.
----
-
 # Routing Refactor
 
 Preserve the ways people and external systems reach a screen. A working internal

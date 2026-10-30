@@ -1,4 +1,0 @@
-interface:
-  display_name: "Internationalization and Localization"
-  short_description: "Wire locales, messages, formatting, and RTL behavior"
-  default_prompt: "Use $i18n-localization. Wire localization for the requested languages using shared formatting, safe fallbacks, and verified locale switching."

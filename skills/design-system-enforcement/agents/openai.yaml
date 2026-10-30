@@ -1,4 +1,0 @@
-interface:
-  display_name: "Design System Enforcement"
-  short_description: "Enforce shared design tokens and approved UI rules"
-  default_prompt: "Use $design-system-enforcement. Enforce the existing design system across this app, preserving intentional exceptions and verifying visual states."

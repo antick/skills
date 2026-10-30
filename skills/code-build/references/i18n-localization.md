@@ -1,8 +1,3 @@
----
-name: i18n-localization
-description: Wire internationalization and localization into existing applications. Use for message catalogs, locale negotiation, pluralization, formatting, RTL layouts, localized routes, or translation fallbacks.
----
-
 # Internationalization and Localization
 
 Separate language and locale behavior from application logic while preserving

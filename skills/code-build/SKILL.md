@@ -1,11 +1,23 @@
 ---
 name: code-build
-description: Build applications, add features, and fix bugs using the project's actual stack. Use for implementation requests, including new projects that need a stack selected, with the simplest safe solution that fully meets the request.
+description: Build applications, add features, and fix bugs using the project's actual stack. Includes focused workflows for design-system enforcement, component standardization, localization, and web/mobile platform migration when requested.
 ---
 
 # Code Build
 
 Understand the real flow first, then stop at the first solution that fully works.
+
+## Focused workflows
+
+Read only the guide that matches the requested work. These guides supplement
+the core workflow and preserve its scope and verification requirements.
+
+| Requested work | Guide |
+| --- | --- |
+| Design System Enforcement | [Workflow](references/design-system-enforcement.md) |
+| Component Library Standardization | [Workflow](references/component-library-standardization.md) |
+| Internationalization and Localization | [Workflow](references/i18n-localization.md) |
+| Platform Migration | [Workflow](references/platform-migration.md) |
 
 ## Identify the project
 

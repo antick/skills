@@ -1,4 +1,0 @@
-interface:
-  display_name: "Platform Migration"
-  short_description: "Migrate web and mobile flows with explicit parity checks"
-  default_prompt: "Use $platform-migration. Migrate the requested application flows to the target platform and track behavior, data, and device parity."

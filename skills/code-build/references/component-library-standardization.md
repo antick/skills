@@ -1,8 +1,3 @@
----
-name: component-library-standardization
-description: Standardize duplicated UI components and component APIs across applications or packages. Use when selecting canonical primitives, consolidating variants, migrating consumers, or packaging a shared component library.
----
-
 # Component Library Standardization
 
 Create consistent reusable component contracts based on real consumers. Follow

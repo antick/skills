@@ -1,6 +1,6 @@
 # Antick Skills
 
-Thirty-eight portable AI agent skills for engineering refactors, security and
+Twenty-three portable AI agent skills for engineering refactors, security and
 supply-chain hardening, tests and CI, accessible UI systems, platform and data
 migrations, documentation, releases, personal interviews, and clear communication.
 
@@ -16,11 +16,11 @@ for Codex and Claude Code.
 | Skill | Use it when you want to… |
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
-| [code-build](skills/code-build/SKILL.md) | Build a feature, fix a bug, or start an app using the simplest suitable solution for the actual stack. |
-| [code-security](skills/code-security/SKILL.md) | Audit application code, dependencies, GitHub Actions, and public-repository controls; report evidence-backed vulnerabilities with justified severity. |
+| [code-build](skills/code-build/SKILL.md) | Build features, standardize UI, wire localization, and migrate platforms. |
+| [code-security](skills/code-security/SKILL.md) | Audit security; remediate vulnerabilities and harden supply chains when requested. |
 | [database-audit](skills/database-audit/SKILL.md) | Review schemas, migrations, SQL and ORM queries, indexes, transactions, and database access controls; report evidence-backed findings without applying changes. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
-| [code-refactor](skills/code-refactor/SKILL.md) | Refactor using current official docs and compatible features; strengthen existing tests first, or ask approval to create a missing suite. |
+| [code-refactor](skills/code-refactor/SKILL.md) | Refactor shared flows, types, architecture, and performance with regression protection. |
 | [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness across code, infrastructure, and organizational controls; report findings, missing evidence, and remediation directly in chat. Read-only. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
 | [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
@@ -33,26 +33,20 @@ for Codex and Claude Code.
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts in chat; highlight protected resources and clean only items confirmed after the report. |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
 | [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
-| [auth-consolidation](skills/auth-consolidation/SKILL.md) | Unify auth and sessions without weakening access rules. |
-| [state-consolidation](skills/state-consolidation/SKILL.md) | Give application state one clear owner and lifecycle. |
-| [sdk-consolidation](skills/sdk-consolidation/SKILL.md) | Unify SDK clients while preserving service contracts. |
-| [npm-supply-chain-hardening](skills/npm-supply-chain-hardening/SKILL.md) | Harden dependency installs and npm publishing paths. |
-| [design-system-enforcement](skills/design-system-enforcement/SKILL.md) | Enforce shared design tokens and approved UI rules. |
-| [component-library-standardization](skills/component-library-standardization/SKILL.md) | Standardize reusable component APIs and consumers. |
-| [typescript-strictness](skills/typescript-strictness/SKILL.md) | Strengthen TypeScript checks without unsafe shortcuts. |
 | [test-suite-hardening](skills/test-suite-hardening/SKILL.md) | Fix flaky tests and strengthen behavior coverage. |
 | [ci-cd-triage](skills/ci-cd-triage/SKILL.md) | Diagnose and repair failing builds and pipelines. |
-| [routing-refactor](skills/routing-refactor/SKILL.md) | Refactor routes while preserving links and navigation. |
-| [performance-optimization](skills/performance-optimization/SKILL.md) | Optimize measured bottlenecks with repeatable evidence. |
 | [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers and fix them when requested. |
-| [security-remediation](skills/security-remediation/SKILL.md) | Fix confirmed vulnerabilities with regression evidence. |
-| [error-handling-standardization](skills/error-handling-standardization/SKILL.md) | Unify errors, recovery, retries, and safe diagnostics. |
-| [i18n-localization](skills/i18n-localization/SKILL.md) | Wire locales, messages, formatting, and RTL behavior. |
-| [platform-migration](skills/platform-migration/SKILL.md) | Migrate web and mobile flows with explicit parity checks. |
-| [documentation-generation](skills/documentation-generation/SKILL.md) | Write project docs from source and verified examples. |
-| [architecture-map](skills/architecture-map/SKILL.md) | Map architecture and create practical onboarding guides. |
-| [monorepo-restructure](skills/monorepo-restructure/SKILL.md) | Move workspace boundaries without breaking consumers. |
+| [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides. |
 | [interview](skills/interview/SKILL.md) | Learn personal context and save authorized memories. |
+
+`code-refactor` includes task-specific consolidation, strictness, workspace, and
+performance guides. `code-security` includes remediation and supply-chain guides.
+`documentation-generation` includes architecture mapping and contributor onboarding.
+
+If you installed an earlier version of this PR, reinstall the parent skill folders
+and preserve any custom edits before removing the superseded standalone folders.
+The workflow coverage map links each consolidated capability to its new guide;
+the installer does not automatically remove retired skill names.
 
 `code-build` includes focused guides for Astro, Expo/React Native, Electron,
 browser extensions, command-line tools, and Turborepo workspaces. Shared guidance
@@ -240,9 +234,9 @@ $simplify Write these instructions in ASD-STE100 Simplified Technical English. K
 ```
 
 Skills provide instructions to the agent. Its tools, permissions, and your
-project's instructions still determine what it can do. Review and audit skills
-report findings by default; implementation and hardening skills make the requested
-changes. `accessibility-audit` fixes findings only when fixes are requested.
+project's instructions still determine what it can do. Review and audit requests report findings by default; implementation requests
+authorize the relevant changes. `code-security` separates read-only audits from
+requested remediation and supply-chain hardening. `accessibility-audit` fixes findings only when fixes are requested.
 `interview` uses the host's supported memory system only with save authorization;
 installing it does not start an interview or save personal information. It never
 uses a source repository as the default destination for personal notes.

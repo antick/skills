@@ -1,4 +1,0 @@
-interface:
-  display_name: "Monorepo Restructure"
-  short_description: "Move workspace boundaries without breaking consumers"
-  default_prompt: "Use $monorepo-restructure. Restructure the requested workspace packages and verify imports, task ordering, cold builds, and deployment artifacts."

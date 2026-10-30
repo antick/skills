@@ -1,8 +1,3 @@
----
-name: design-system-enforcement
-description: Enforce an established design system across UI code. Use to replace token drift, unauthorized style variants, or repeated styling exceptions with shared rules and checks; not to invent a new visual brand.
----
-
 # Design System Enforcement
 
 Make approved visual and interaction rules easy to follow and hard to bypass.

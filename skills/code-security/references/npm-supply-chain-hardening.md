@@ -1,8 +1,3 @@
----
-name: npm-supply-chain-hardening
-description: Harden JavaScript dependency installation and npm publishing against supply-chain risks. Use for lifecycle script controls, registry trust, lockfile integrity, dependency policy, or publishing identity protections.
----
-
 # npm Supply Chain Hardening
 
 Reduce the executable trust placed in dependencies and release infrastructure

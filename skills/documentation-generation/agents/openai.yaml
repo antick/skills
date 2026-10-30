@@ -1,4 +1,4 @@
 interface:
   display_name: "Documentation Generation"
-  short_description: "Write project docs from source and verified examples"
-  default_prompt: "Use $documentation-generation. Generate accurate project documentation from the code and verify safe setup commands, examples, and links."
+  short_description: "Write docs, architecture maps, and onboarding guides"
+  default_prompt: "Use $documentation-generation to write source-backed documentation, architecture maps, and onboarding guides with verified examples."

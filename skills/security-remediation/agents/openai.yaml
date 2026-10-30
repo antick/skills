@@ -1,4 +1,0 @@
-interface:
-  display_name: "Security Remediation"
-  short_description: "Fix confirmed vulnerabilities with regression evidence"
-  default_prompt: "Use $security-remediation. Remediate confirmed security findings, preserve legitimate behavior, and report deployment or account actions still needed."

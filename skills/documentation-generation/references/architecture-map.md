@@ -1,8 +1,3 @@
----
-name: architecture-map
-description: Create a source-backed architecture map and onboarding guide for a codebase. Use to explain module ownership, request/data flows, external boundaries, and where a new contributor should make changes.
----
-
 # Architecture Map
 
 Help a contributor find the right code and understand its boundaries. Produce

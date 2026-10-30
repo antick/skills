@@ -1,4 +1,0 @@
-interface:
-  display_name: "Component Library Standardization"
-  short_description: "Standardize reusable component APIs and consumers"
-  default_prompt: "Use $component-library-standardization. Standardize duplicated components and migrate their consumers without breaking accessibility or public APIs."

@@ -1,12 +1,21 @@
 ---
 name: documentation-generation
-description: Generate or update source-backed project documentation, API guides, setup instructions, and operational runbooks. Use when documentation must reflect actual code and verified commands rather than a generic template.
+description: Generate or update source-backed documentation, API guides, runbooks, architecture maps, and contributor onboarding. Use when documentation must reflect actual code, traced flows, and verified setup commands.
 ---
 
 # Documentation Generation
 
 Write documentation readers can use and maintain. Separate source-derived facts,
 verified behavior, product intent, and unresolved assumptions.
+
+## Focused workflows
+
+Read only the guide that matches the requested work. These guides supplement
+the core workflow and preserve its scope and verification requirements.
+
+| Requested work | Guide |
+| --- | --- |
+| Architecture Map | [Workflow](references/architecture-map.md) |
 
 ## Choose the reader and source of truth
 

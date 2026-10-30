@@ -1,4 +1,0 @@
-interface:
-  display_name: "TypeScript Strictness"
-  short_description: "Strengthen TypeScript checks without unsafe shortcuts"
-  default_prompt: "Use $typescript-strictness. Enable stronger TypeScript checks and fix root causes without hiding errors behind casts or exclusions."

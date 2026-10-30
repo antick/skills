@@ -1,4 +1,0 @@
-interface:
-  display_name: "Error Handling Standardization"
-  short_description: "Unify errors, recovery, retries, and safe diagnostics"
-  default_prompt: "Use $error-handling-standardization. Standardize error handling across API, clients, and UI while preserving public contracts and useful causes."

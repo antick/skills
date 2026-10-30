@@ -1,4 +1,0 @@
-interface:
-  display_name: "Routing Refactor"
-  short_description: "Refactor routes while preserving links and navigation"
-  default_prompt: "Use $routing-refactor. Refactor routing while preserving direct links, guards, history, and deep-link behavior."

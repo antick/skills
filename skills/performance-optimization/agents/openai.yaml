@@ -1,4 +1,0 @@
-interface:
-  display_name: "Performance Optimization"
-  short_description: "Optimize measured bottlenecks with repeatable evidence"
-  default_prompt: "Use $performance-optimization. Profile the slow flow, fix the measured bottleneck, and report comparable before-and-after results."

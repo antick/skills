@@ -1,4 +1,4 @@
 interface:
   display_name: "Code Security"
-  short_description: "Audit code and repository security with evidence"
-  default_prompt: "Use $code-security to audit this repository, including GitHub Actions and public-repository exposure, and produce an evidence-based security report with justified severities."
+  short_description: "Audit security and apply fixes only when requested"
+  default_prompt: "Use $code-security to audit this repository and report findings. If I request remediation or supply-chain hardening, use the matching guide to implement and verify it."

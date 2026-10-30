@@ -1,8 +1,3 @@
----
-name: auth-consolidation
-description: Consolidate duplicated authentication, session, and authorization flows while preserving account isolation and access rules. Use when unifying login handlers, session providers, refresh logic, or permission checks.
----
-
 # Auth Consolidation
 
 Unify ownership of authentication without merging identities or weakening access.

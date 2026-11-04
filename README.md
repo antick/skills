@@ -7,106 +7,33 @@ audits, tests and CI, releases, documentation, workstation upkeep, and clear wri
 
 ## Install
 
-You need Node.js 24 and Git.
-
-### Every skill, for every agent on this machine
-
 ```sh
-npx github:antick/skills --skill '*' --global --copy --yes
+npx skills@latest add antick/skills --global
 ```
 
-The installer finds the agents you have installed by looking for their config
-folders (`~/.claude`, `~/.codex`, and so on) and installs every skill for each of
-them. If it finds none, it installs for Cursor, Claude Code, Codex, OpenCode, and Pi.
+A menu opens. Pick the skills you want and the agents to install them in.
+Restart your agents afterwards.
 
-Restart your agents (or open a new session) afterwards.
-
-### Pick skills and agents yourself
+## Update
 
 ```sh
-npx github:antick/skills
+npx skills@latest update --global
 ```
 
-This opens a menu. To skip it, name what you want:
+## Remove
 
 ```sh
-# two skills, for Codex and Claude Code only
-npx github:antick/skills --skill code-review --skill concise --agent codex --agent claude-code --global --copy --yes
-
-# one skill, into one project instead of your home folder
-npx github:antick/skills --skill code-build --agent codex --cwd /path/to/project --copy --yes
+npx skills@latest remove --global
 ```
 
-See every skill without installing anything: `npx github:antick/skills --list`.
+A menu opens. Pick the skills to remove. Use this to clear out skills that were
+renamed: `repo-disk-cleanup` (now `reclaim-dev-space`), `save-window-layout` (now
+`save-omarchy-window-layout`), and `update-ai-tools` or `manage-ai-tools` (now
+`ai-harness-setup`).
 
-### Using the `skills` CLI instead
-
-[skills.sh](https://skills.sh)'s `skills` CLI also works:
-
-```sh
-npx skills@latest add antick/skills --global --skill '*' -y
-```
-
-It finds your installed agents too. Don't add `--all`: in that CLI it means "every
-agent it knows" (60+), and a few of them (Eve, PromptScript) can't install globally,
-so you get dozens of errors. You may still see PromptScript errors without `--all`.
-They're harmless.
-
-### From a checkout
-
-```sh
-git clone https://github.com/antick/skills.git
-cd skills
-node scripts/install.mjs --skill '*' --global --copy --yes
-```
-
-Same installer, same options. This is the way to install changes you haven't pushed yet.
-
-### Options
-
-| Option | What it does |
-| --- | --- |
-| `--skill`, `-s <name>` | Install this skill. Repeat for more. `'*'` means all. |
-| `--agent`, `-a <id>` | Install for this agent. Repeat for more. `'*'` means all 18. Leave it out to use the agents found on this machine. |
-| `--global`, `-g` | Install into your home folder so every project gets the skills. |
-| `--cwd <dir>` | Install into this project instead. Defaults to the current folder. |
-| `--copy` | Copy files into each agent's folder instead of symlinking. |
-| `--yes`, `-y` | Don't ask questions. Required when not running in a terminal. |
-| `--all` | All skills, all 18 agents, no questions. |
-| `--list`, `-l` | Show the skills and stop. |
-
-Quote `'*'` so your shell doesn't expand it.
-
-### Where skills go
-
-Each skill is copied to `.agents/skills/<name>` (or `~/.agents/skills/<name>` with
-`--global`), then copied or linked into each agent's own folder, such as
-`~/.claude/skills` or `~/.codex/skills`. The full list of paths and detection
-folders is in [install-agents.json](scripts/install-agents.json).
-
-To install by hand, copy a whole folder from `skills/` into your agent's skills
-folder. Keep its `references/`, `stacks/`, and `agents/` subfolders.
-
-Supported agents (`--agent` value): Amp (`amp`), Antigravity (`antigravity`),
-Claude Code (`claude-code`), Cline (`cline`), Codex (`codex`), Continue
-(`continue`), Crush (`crush`), Cursor (`cursor`), Droid (`droid`), Gemini CLI
-(`gemini-cli`), GitHub Copilot (`github-copilot`), Goose (`goose`), Kilo Code
-(`kilo`), OpenCode (`opencode`), Pi (`pi`), Roo Code (`roo`), Windsurf
-(`windsurf`), Zed (`zed`).
-
-Installing replaces the whole folder of each selected skill, including any edits
-you made. If a copy fails, the old version is kept. The installer refuses to write
-outside the target project or your home folder.
-
-### Update or remove
-
-- **Update:** run your install command again.
-- **Remove:** delete the skill's folder from each agent's skills folder, and from
-  `.agents/skills` once no agent uses it. There is no uninstall command.
-- **Renamed skills:** the installer doesn't delete old names. After updating,
-  remove these if you have them: `repo-disk-cleanup` (now `reclaim-dev-space`),
-  `save-window-layout` (now `save-omarchy-window-layout`), and `update-ai-tools` or
-  `manage-ai-tools` (now `ai-harness-setup`).
+These commands use the [skills.sh](https://skills.sh) CLI. Avoid its `--all` flag
+with `--global`: it targets every agent the CLI knows, and some of them can't
+install globally, so you get dozens of errors.
 
 ## Skills
 
@@ -179,7 +106,7 @@ when you want them.
 
 ### Plugins and adapters
 
-The installer copies skill folders only. These are set up separately:
+Installing copies skill folders only. These are set up separately:
 
 - **Claude Code and Codex:** plugin manifests in `.claude-plugin/` and
   `.codex-plugin/`, including marketplace files. They're in the Git repo, not the
@@ -201,6 +128,9 @@ tests fail if any of them disagree.
 npm test
 npm pack --dry-run
 ```
+
+To try your local changes, install from the checkout with `node scripts/install.mjs`.
+It opens the same kind of menu; `--help` lists its options.
 
 The website lives in `website/`; see [website/README.md](website/README.md).
 

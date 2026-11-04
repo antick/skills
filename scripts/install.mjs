@@ -169,9 +169,8 @@ function printHelp() {
   printLogo();
   console.log(`${DIM}Install Antick Skills into coding agents${RESET}`);
   console.log();
-  console.log(`  ${DIM}$${RESET} ${TEXT}npx github:antick/skills${RESET}                                     ${DIM}Interactive wizard${RESET}`);
-  console.log(`  ${DIM}$${RESET} ${TEXT}npx github:antick/skills --skill '*' --global --copy --yes${RESET}   ${DIM}Everything, for detected agents${RESET}`);
-  console.log(`  ${DIM}$${RESET} ${TEXT}node scripts/install.mjs${RESET}                                     ${DIM}From a local checkout${RESET}`);
+  console.log(`  ${DIM}$${RESET} ${TEXT}npx github:antick/skills${RESET}       ${DIM}Interactive wizard${RESET}`);
+  console.log(`  ${DIM}$${RESET} ${TEXT}node scripts/install.mjs${RESET}      ${DIM}From a local checkout${RESET}`);
   console.log();
   console.log(`${BOLD}Options${RESET}`);
   console.log(`  --list, -l           List skills and stop`);

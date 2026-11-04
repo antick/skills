@@ -34,7 +34,8 @@
         "./skills/ci-cd-triage",
         "./skills/accessibility-audit",
         "./skills/documentation-generation",
-        "./skills/interview"
+        "./skills/interview",
+        "./skills/antick"
       ]
     }
   ]

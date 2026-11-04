@@ -149,6 +149,14 @@ const details = {
     steps: ["Use STE writing rules and approved word meanings", "Keep technical facts and code identifiers exact", "Review sentence length, terms, and technical accuracy"],
     mode: "Communication",
   },
+  antick: {
+    category: "Every skill in one place",
+    heading: "See the whole kit.\nPick the right tool.",
+    description: "List every Antick skill by area with its one-line description and whether it is installed, or describe a task and get the skill that fits.",
+    prompt: "$antick Show every Antick skill by area and mark which ones are installed.",
+    steps: ["Read the catalogue and check which skills this session can use", "Print one table per area with a ✓ or - status", "For a task, recommend the best match and how to start it"],
+    mode: "Read-only catalogue in chat",
+  },
 } as const;
 
 export const skills = catalogue.packs.flatMap((pack) => pack.skills).map((name) => {
@@ -164,10 +172,3 @@ export const skills = catalogue.packs.flatMap((pack) => pack.skills).map((name) 
 
 export type Skill = (typeof skills)[number];
 export const agents = agentCatalogue.agents.map(({ id, displayName }) => ({ id, displayName }));
-
-export function installCommand(skill: string, agent: string, scope: string) {
-  if (skill !== "all" && !skills.some((item) => item.name === skill)) throw new Error("Unknown skill");
-  if (!agents.some((item) => item.id === agent)) throw new Error("Unknown agent");
-  if (!["global", "project"].includes(scope)) throw new Error("Unknown installation scope");
-  return `node scripts/install.mjs --skill ${skill === "all" ? "'*'" : skill} --agent ${agent} ${scope === "global" ? "--global" : "--cwd /path/to/project"} --copy --yes`;
-}

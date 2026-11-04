@@ -1,6 +1,6 @@
 # Antick Skills
 
-23 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+24 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -27,6 +27,7 @@
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
 | `interview` | Learn personal context and save authorized memories |
+| `antick` | List Antick skills by area or recommend one for a task |
 
 ## Workflow coverage
 
@@ -59,3 +60,4 @@ the combinations below describe complementary workflows, not required dependenci
 | Onboarding/architecture map creation | [documentation-generation: architecture-map](skills/documentation-generation/references/architecture-map.md) |
 | Monorepo restructuring | [code-refactor: monorepo-restructure](skills/code-refactor/references/monorepo-restructure.md) |
 | Personal interview with memory | [interview](skills/interview/SKILL.md) |
+| Skill catalogue and routing | [antick](skills/antick/SKILL.md) |

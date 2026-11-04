@@ -22,7 +22,8 @@
     "ci-cd-triage": "Diagnose and repair failing builds and pipelines",
     "accessibility-audit": "Find accessibility barriers and fix them when requested",
     "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
-    "interview": "Learn personal context and save authorized memories"
+    "interview": "Learn personal context and save authorized memories",
+    "antick": "List Antick skills by area or recommend one for a task"
   },
   "packs": [
     {
@@ -51,7 +52,8 @@
         "ci-cd-triage",
         "accessibility-audit",
         "documentation-generation",
-        "interview"
+        "interview",
+        "antick"
       ]
     }
   ]

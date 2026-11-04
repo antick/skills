@@ -3,7 +3,8 @@ export const site = {
   url: "https://skills.potion.sh",
   repository: "https://github.com/antick/skills",
   description: "Focused skills for AI agents. Build thoughtfully, review carefully, upgrade dependencies, and make things make sense.",
-  cloneCommand: "git clone https://github.com/antick/skills.git\ncd skills",
+  installCommand: "npx skills@latest add antick/skills --global",
+  updateCommand: "npx skills@latest update --global",
 };
 
 export const faqs = [
@@ -13,7 +14,7 @@ export const faqs = [
   },
   {
     question: "Will this work with my coding agent?",
-    answer: "The installer includes directory mappings for 18 agents, including Codex, Claude Code, Cursor, OpenCode, and Pi. Hosts discover skills differently, so restart your agent after installing. You can also copy a complete skill folder into your agent’s supported skills directory.",
+    answer: "The installer works with Codex, Claude Code, Cursor, OpenCode, Pi, and dozens more, and lets you pick which ones to install for. Hosts discover skills differently, so restart your agent after installing. You can also copy a complete skill folder into your agent’s supported skills directory.",
   },
   {
     question: "Does code-build change my project’s stack?",
@@ -25,6 +26,6 @@ export const faqs = [
   },
   {
     question: "Do skills get extra permissions or send my code somewhere?",
-    answer: "These are instructions, not an agent service. The installer copies local files and has no telemetry. Your AI agent’s own tools, permissions, and data policies still apply. A skill does not grant additional access or make the agent infallible.",
+    answer: "These are instructions, not an agent service. The skills themselves send nothing anywhere. The skills.sh installer sends anonymous usage data; set DISABLE_TELEMETRY=1 to turn it off. Your AI agent’s own tools, permissions, and data policies still apply. A skill does not grant additional access or make the agent infallible.",
   },
 ];

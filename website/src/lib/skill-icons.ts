@@ -1,4 +1,4 @@
-import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, List, type LucideIcon } from "lucide-react";
 import type { Skill } from "./catalog";
 
 export const skillIcons = {
@@ -24,5 +24,6 @@ export const skillIcons = {
   "ci-cd-triage": RefreshCw,
   "accessibility-audit": ScanLine,
   "documentation-generation": AlignLeft,
-  "interview": MessageCircle
+  "interview": MessageCircle,
+  antick: List
 } satisfies Record<Skill["name"], LucideIcon>;

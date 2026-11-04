@@ -83,5 +83,5 @@ the combinations below describe complementary workflows, not required dependenci
 | Bring a branch up to date | [sync-branch](skills/sync-branch/SKILL.md) |
 | Commits, PR text, and issues | [commit-message](skills/commit-message/SKILL.md), [pr-description](skills/pr-description/SKILL.md), [create-issue](skills/create-issue/SKILL.md) |
 | Branch and spec cleanup audits | [branch-status](skills/branch-status/SKILL.md), [spec-status](skills/spec-status/SKILL.md) |
-| Skill authoring | [new-skill](skills/new-skill/SKILL.md) |
+| New skill creation | [new-skill](skills/new-skill/SKILL.md) |
 | Browser work in your own Chrome | [use-chrome](skills/use-chrome/SKILL.md) |

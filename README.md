@@ -21,6 +21,21 @@ Restart your agents afterwards.
 npx skills@latest update --global
 ```
 
+`update` refreshes only the skills you already installed, and only from the
+`main` branch on GitHub. Changes that are still on another branch or in an open
+pull request are not picked up. It also never installs skills that were added to
+the repository after your install. To get new skills, run the install command
+again and pick them in the menu:
+
+```sh
+npx skills@latest add antick/skills --global
+```
+
+To try a branch before it is merged, install from it with
+`npx skills@latest add antick/skills#<branch> --global`. Skills installed that
+way keep following that branch on `update`, so reinstall from `antick/skills`
+once it is merged.
+
 ## Remove
 
 ```sh

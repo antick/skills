@@ -45,7 +45,7 @@ for Codex and Claude Code.
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix permanent default Vercel and www redirects, clear DNS warnings, and verify every website. Reuse the existing Chrome session for Cloudflare when needed. |
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report all in-scope worktrees, Docker resources, extra test databases, and agent-created artifacts in chat; highlight protected resources and clean only items confirmed after the report. |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Explicitly save managed Omarchy/Hyprland workspaces, tiled window sizes, and the active workspace for restoration at login. |
-| [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Set up missing AI tools with confirmation and update existing tools using OS-appropriate methods; report every tool, verified version, skip/failure reason, and future update mechanism. |
+| [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Update existing AI tools by default using OS-appropriate methods; report missing tools as skipped, and install only on explicit request with confirmation. |
 | [test-suite-hardening](skills/test-suite-hardening/SKILL.md) | Fix flaky tests and strengthen behavior coverage. |
 | [ci-cd-triage](skills/ci-cd-triage/SKILL.md) | Diagnose and repair failing builds and pipelines. |
 | [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers and fix them when requested. |
@@ -93,14 +93,16 @@ These skills can be installed for every supported harness, but runtime
 requirements still apply: window capture requires the existing Omarchy/Hyprland
 Lua configuration and startup integration. `ai-harness-setup` detects the target
 OS, architecture, installed tools, and update ownership before acting. It prefers
-supported native updaters or signed package feeds, asks before installing missing
-tools and dependencies, and reports manual-update limitations and unsupported
-platforms. Installation of the skill alone does not run scripts or update tools.
+supported native updaters or signed package feeds. Bare invocation updates only;
+missing tools and dependencies are reported without installation prompts. Installing
+missing tools requires an explicit request and confirmation of the concrete plan.
+The report includes manual-update limitations and unsupported platforms. Installation of the skill alone does not run scripts or update tools.
 
 `ai-harness-setup` covers Pi, OMP, Codex CLI/Desktop, Claude Code CLI/Desktop,
-Orca CLI/Desktop, Peekaboo, Grok CLI and Grok Bot Desktop, Hermes CLI/Desktop,
+Orca CLI/Desktop, Peekaboo, Grok CLI and Grok Bot Desktop, OpenMausBot Desktop,
+Hermes CLI/Desktop,
 OpenCode CLI/Desktop, Node.js latest LTS, Deno, and Bun. Each run ends with a table
-for all 18 entries, including installed, updated, current, skipped, unsupported,
+for all 19 entries, including installed, updated, current, skipped, unsupported,
 blocked, failed, or staged outcomes. See its [tool registry](skills/ai-harness-setup/references/tools.md)
 for official sources and platform caveats. The owner's Omarchy exceptions remain
 in a separate profile; they do not override OS support or install confirmation.
@@ -110,7 +112,9 @@ The skill was renamed from `update-ai-tools` and `manage-ai-tools` to
 installed folders only after preserving any local customizations; the installer
 does not remove retired names.
 Invoke it as `$ai-harness-setup`, `/ai-harness-setup`, or Pi's
-`/skill:ai-harness-setup`, according to your host.
+`/skill:ai-harness-setup`, according to your host. To include installation, ask
+explicitly, for example `$ai-harness-setup also install missing tools`. Absent
+OpenMausBot is skipped even then unless you specifically ask to install it.
 
 The [catalogue](SKILLS.md) lists the current skills, with a
 [workflow coverage map](SKILLS.md#workflow-coverage) for the engineering and

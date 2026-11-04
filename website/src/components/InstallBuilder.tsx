@@ -24,7 +24,7 @@ export default function InstallBuilder() {
         <div className="terminal-bottom"><Check size={14} /><span>Restart your agent. You’re ready to go.</span></div>
       </div>
       <p className="install-note">{scope === "project" ? "Replace /path/to/project with your project’s directory. " : "Installs in your home directory. "}Reinstalling replaces selected skill folders, so back up any edits first.</p>
-      <a className="text-link" href={`${site.repository}#install-from-a-checkout`} target="_blank" rel="noreferrer">All installation options <ArrowUpRight size={16} /></a>
+      <a className="text-link" href={`${site.repository}#install`} target="_blank" rel="noreferrer">All installation options <ArrowUpRight size={16} /></a>
     </div>
   );
 }

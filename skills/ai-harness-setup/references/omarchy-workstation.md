@@ -4,8 +4,9 @@ Use only after detecting a matching Arch/Omarchy installation and inspecting its
 actual paths. This profile preserves local installation exceptions, not a global
 OS support matrix. Read [the tool registry](tools.md) and current upstream sources
 before choosing a route: package names, support, and channels have changed since
-the original Pi-only skill. The main skill's missing-install confirmation and
-all-tool report contract apply throughout.
+the original Pi-only skill. The main skill's update-only default, explicit
+installation request and confirmation rules, and all-tool report contract apply
+throughout.
 
 ## Managers, versions, and runtime changes
 

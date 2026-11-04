@@ -17,7 +17,7 @@
     "database-audit": "Audit database schemas, queries, migrations, and access with evidence",
     "reclaim-dev-space": "Report reclaimable dev resources in chat, protect important data, and clean confirmed items",
     "save-omarchy-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
-    "ai-harness-setup": "Set up missing AI tools with confirmation, update existing tools, and report OS-aware results",
+    "ai-harness-setup": "Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation",
     "test-suite-hardening": "Fix flaky tests and strengthen behavior coverage",
     "ci-cd-triage": "Diagnose and repair failing builds and pipelines",
     "accessibility-audit": "Find accessibility barriers and fix them when requested",

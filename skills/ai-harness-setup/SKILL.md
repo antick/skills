@@ -1,6 +1,6 @@
 ---
 name: ai-harness-setup
-description: Set up missing AI tools and JavaScript runtimes with user confirmation, update existing installations, and report every result using OS-appropriate installation and update methods. Use only when the user explicitly requests the ai-harness-setup skill.
+description: Update existing AI tools and JavaScript runtimes by default, report missing tools as skipped, and install missing tools only when explicitly requested and confirmed. Use only when the user explicitly requests the ai-harness-setup skill.
 disable-model-invocation: true
 compatibility: Local shell and network access on the target machine; desktop applications also require a supported graphical OS and architecture.
 ---
@@ -9,8 +9,12 @@ compatibility: Local shell and network access on the target machine; desktop app
 
 Use on an explicit request, including `$ai-harness-setup`, `/ai-harness-setup`, or
 Pi's `/skill:ai-harness-setup`. Reviewing or installing this skill does not
-authorize changing the machine. An invocation authorizes updating existing tools;
-installing a missing tool requires the user's confirmation of the concrete plan.
+authorize changing the machine. A bare invocation is **update-only**: update
+existing tools and report absent tools as `skipped — not installed (update-only)`
+without offering or asking to install them. Enter installation mode only when the
+user explicitly asks to install missing tools; then confirm the concrete plan
+before installing. A bare invocation or a general "manage/update everything"
+request never enables installation mode.
 
 ## Coverage
 
@@ -83,20 +87,24 @@ extracting and launching `AppRun` can disable it. Check install-directory
 writability, launcher target, signatures/checksums, and updater ownership. Keep
 existing exceptions only when required and disclose their manual update cost.
 
-## Confirm missing-tool setup, then act
+## Update by default; install only on explicit request
 
-For an update-only request, leave every absent tool uninstalled and report
-`skipped — not installed (update-only)` without asking to install it.
-OpenMausBot is update-only by default even during a general setup run: update an
-existing installation, but if absent, report
-`skipped — not installed (update-only by default)`. Include its official download
-link so the user can choose it later. Only an explicit request to install OpenMausBot brings it into
-the confirmation plan below; a blanket setup approval does not include it.
+In the default update-only mode, skip every absent tool, including runtimes and
+OpenMausBot, and keep it in the final report with its official installation link.
+If an existing tool's update requires a missing dependency or coupled product,
+report that update as `blocked` with the prerequisite; leave the missing item
+uninstalled and do not prompt to install it. Independent updates can continue.
 
-For missing tools eligible for setup, prepare a concise plan including their
-dependencies: tool/version, OS and architecture, official source, exact
-installation commands, destination,
-elevation, future update mechanism, and any required GUI steps. Identify coupled
+Only an explicit installation request, such as "also install missing tools" or
+"install Deno", enables a missing-tool confirmation plan. Limit that plan to the
+requested set. OpenMausBot additionally requires a request naming it: a blanket
+"install missing tools" request or setup approval leaves absent OpenMausBot
+skipped. Report its download link so the user can choose it later.
+
+In installation mode, prepare a concise plan for eligible missing tools and
+their dependencies: tool/version, OS and architecture, official source, exact
+installation commands, destination, elevation, future update mechanism, and any
+required GUI steps. Identify coupled
 installs: Orca CLI can require the desktop bundle; another desktop installer can
 also add its CLI/runtime. Include these effects in the plan. Download and inspect
 metadata/artifacts as useful, but do not execute an installer or change PATH,

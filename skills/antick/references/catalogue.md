@@ -40,7 +40,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
-| `ai-harness-setup` | Set up missing AI tools with confirmation, update existing tools, and report OS-aware results |
+| `ai-harness-setup` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 
 ## Writing & personal

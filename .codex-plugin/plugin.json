@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation and architecture maps; and conduct personal interviews with authorized memory persistence.",
+    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation and architecture maps; and conduct personal interviews with authorized memory persistence. List every Antick skill by area with its installed status, or find the one that fits a task.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
@@ -42,7 +42,8 @@
       "CI/CD Triage",
       "Accessibility Audit",
       "Documentation Generation",
-      "Interview"
+      "Interview",
+      "Skill catalogue"
     ],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
@@ -69,7 +70,8 @@
       "Use $code-refactor to consolidate auth, state, SDKs, routing, and errors with regression protection.",
       "Use $code-build to standardize components and design tokens or wire localization.",
       "Use $code-security to remediate confirmed vulnerabilities and harden dependency installation.",
-      "Use $documentation-generation to map this architecture and write an onboarding guide."
+      "Use $documentation-generation to map this architecture and write an onboarding guide.",
+      "Use $antick to list every Antick skill by area and show which are installed."
     ],
     "brandColor": "#7C3AED"
   }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Antick"
+  short_description: "List Antick skills or find the right one"
+  default_prompt: "Use $antick to list every Antick skill by area with its one-line description and installed status."

@@ -149,6 +149,14 @@ const details = {
     steps: ["Use STE writing rules and approved word meanings", "Keep technical facts and code identifiers exact", "Review sentence length, terms, and technical accuracy"],
     mode: "Communication",
   },
+  antick: {
+    category: "Every skill in one place",
+    heading: "See the whole kit.\nPick the right tool.",
+    description: "List every Antick skill by area with its one-line description and whether it is installed, or describe a task and get the skill that fits.",
+    prompt: "$antick Show every Antick skill by area and mark which ones are installed.",
+    steps: ["Read the catalogue and check which skills this session can use", "Print one table per area with a ✓ or - status", "For a task, recommend the best match and how to start it"],
+    mode: "Read-only catalogue in chat",
+  },
 } as const;
 
 export const skills = catalogue.packs.flatMap((pack) => pack.skills).map((name) => {

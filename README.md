@@ -1,6 +1,6 @@
 # Antick Skills
 
-Twenty-three portable AI agent skills for engineering refactors, security and
+Twenty-four portable AI agent skills for engineering refactors, security and
 supply-chain hardening, tests and CI, accessible UI systems, platform and data
 migrations, documentation, releases, personal interviews, and clear communication.
 
@@ -38,6 +38,7 @@ for Codex and Claude Code.
 | [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers and fix them when requested. |
 | [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides. |
 | [interview](skills/interview/SKILL.md) | Learn personal context and save authorized memories. |
+| [antick](skills/antick/SKILL.md) | List every Antick skill by area with its one-line description and installed status, or get a recommendation for a task. Read-only. |
 
 `code-refactor` includes task-specific consolidation, strictness, workspace, and
 performance guides. `code-security` includes remediation and supply-chain guides.
@@ -231,6 +232,8 @@ $private-desktop-release Set up private macOS releases for this app using its ex
 $concise Summarize what changed and what still needs checking.
 $make-sense Explain how this request reaches the database.
 $simplify Write these instructions in ASD-STE100 Simplified Technical English. Keep code identifiers exact.
+$antick
+$antick free up disk space taken by worktrees and node_modules
 ```
 
 Skills provide instructions to the agent. Its tools, permissions, and your

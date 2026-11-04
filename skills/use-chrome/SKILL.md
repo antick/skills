@@ -26,9 +26,12 @@ this skill for every browser step.
    `readlink /proc/<pid>/exe` is the stable binary (`/opt/google/chrome/chrome`),
    since Chrome Beta, Dev, and snap Chromium use the same process name. On
    macOS, read the arguments with `ps -o command= -p <pid>` and confirm the
-   path is inside `Google Chrome.app`. A Chromium process, another channel, or
-   a Chrome with another `--user-data-dir` does not count. If Chrome is not running, ask
-   the user to open it and wait. Do not start it yourself.
+   path is inside `Google Chrome.app`. On Windows, use PowerShell
+   `Get-CimInstance Win32_Process -Filter "Name='chrome.exe'"`, skip entries
+   whose `CommandLine` includes `--type=`, and confirm `ExecutablePath` ends in
+   `Google\Chrome\Application\chrome.exe`. A Chromium process, another
+   channel, or a Chrome with another `--user-data-dir` does not count. If Chrome
+   is not running, ask the user to open it and wait. Do not start it yourself.
 3. Check only that `DevToolsActivePort` exists in that directory. Chrome writes it
    while remote debugging is on. If it is missing, ask the user to open
    `chrome://inspect/#remote-debugging` in that Chrome and turn remote debugging
@@ -94,8 +97,9 @@ it and remove its temporary directory when the scenario ends. The main Chrome co
 
 ## Opening a URL without a debugger
 
-Running `google-chrome-stable <url>` on Linux or `open -a "Google Chrome" <url>`
-on macOS while the main Chrome is running hands the URL to that instance as a new
+Running `google-chrome-stable <url>` on Linux, `open -a "Google Chrome" <url>`
+on macOS, or `Start-Process chrome <url>` in PowerShell on Windows while the
+main Chrome is running hands the URL to that instance as a new
 tab. It opens no DevTools connection and shows no prompt. Use it only after step 2
 of **Find the main instance before connecting** confirms the main Chrome is
 running; otherwise the launcher would start Chrome. The tab opens in the

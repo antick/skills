@@ -53,9 +53,10 @@ no actionable findings, make no changes and say so.
 ## 3. Write the comments
 
 Keep each finding's number from the review, its severity, its section, and its
-Issue, Impact, and Solution. A Task finding uses
-`<number>. [SEVERITY] Task finding: Short title`; a Code health finding names
-its category. Keep a blank line between labels so each renders as
+Issue, Impact, and Solution. Bold the whole title line so it renders as a
+title, not a numbered list item. A Task finding uses
+`**<number>. [SEVERITY] Task finding: Short title**`; a Code health finding
+names its category. Keep a blank line between labels so each renders as
 its own paragraph:
 
 ```markdown

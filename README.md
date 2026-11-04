@@ -52,7 +52,7 @@ for Codex and Claude Code.
 | [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides. |
 | [interview](skills/interview/SKILL.md) | Learn personal context and save authorized memories. |
 | [new-skill](skills/new-skill/SKILL.md) | Create, rename, or update skills so they match the existing set and every catalogue, manifest, and adapter stays in sync. |
-| [use-chrome](skills/use-chrome/SKILL.md) | Have the agent work in your already-open Chrome over one long-lived connection, in background tabs, without launching new browsers or repeating the Allow prompt. |
+| [use-chrome](skills/use-chrome/SKILL.md) | Have the agent work in your already-open Chrome over one long-lived connection, in background tabs, with one Allow prompt per connection and no substitute browser. |
 
 `code-refactor` includes task-specific consolidation, strictness, workspace, and
 performance guides. `code-security` includes remediation and supply-chain guides.
@@ -84,6 +84,10 @@ before removal, then retained resources and actual space changes are verified.
 
 `reclaim-dev-space` replaces `repo-disk-cleanup`. Preserve any customized old
 installation before replacing it; the installer does not remove retired names.
+
+`dependency-upgrade-minor` and `dependency-upgrade-major` replace
+`upgrade-dependencies`. Preserve any customized old installation before removing
+it; the installer does not remove retired names.
 
 The window-layout skill was renamed from `save-window-layout` to
 `save-omarchy-window-layout`. When reinstalling, preserve local customizations
@@ -300,15 +304,21 @@ an adapter through host configuration, remove that configuration separately.
 
 Edit the canonical instructions in `skills/<name>/SKILL.md` and keep supporting
 guides beside them. When adding, renaming, or removing a skill, synchronize
-`SKILLS.md`, `packs.json`, the host manifests, and `pi-extension/commands.json`.
+`SKILLS.md`, `packs.json`, the host manifests, `pi-extension/commands.json`, and
+the website catalogue (`website/src/lib/catalog.ts` or
+`website/src/lib/engineering-catalog.ts`, plus `website/src/lib/skill-icons.ts`).
 Update this README when installation or user-facing behavior changes.
 
 Run the repository checks:
 
 ```sh
 npm test
+node --test website/tests/*.test.mjs
 npm pack --dry-run
 ```
+
+When the website's dependencies are installed, also run
+`npm run check --prefix website`; it is the only check that catches a missing icon.
 
 Tests cover catalogue consistency, skill metadata, installation into every
 configured harness directory, standalone skill resource integrity and local links,

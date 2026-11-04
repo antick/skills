@@ -149,7 +149,9 @@ Add or update an end-to-end test only when a user journey actually changed or th
 original reproduction steps are that journey; reuse existing journey coverage
 where it already covers the path. Copy, token, styling, and layout-only changes
 do not need a new end-to-end test. Finish focused checks before any expensive
-suite. Regenerate every derived artifact that CI compares with the source, such
+suite, such as end-to-end, browser, database-backed, or full-suite runs. Ask at
+most once before running one, and only when it matters for the result, unless
+the user already agreed; report it as unrun if declined. Regenerate every derived artifact that CI compares with the source, such
 as API specifications, schema snapshots, or generated inventories, with the
 project's own commands.
 

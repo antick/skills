@@ -49,10 +49,12 @@ Give each builder a self-contained task with:
 - an instruction to return the pull request URL, pushed head SHA, changed
   behavior, checks run with results, unrun checks, and open decisions;
 - an instruction to implement only and leave review to the coordinator;
-- an instruction to return any `code-build` approval request, such as a layout
-  sketch for a new screen, as an open decision instead of waiting for the user;
-- an instruction not to use the user's main Chrome. Browser checks that need
-  it are run by the coordinator, one at a time, with `use-chrome`.
+- an instruction to return any question for the user, from `code-build` or
+  `sync-branch`, such as a layout sketch for a new screen or a conflict where
+  both sides cannot be kept, as an open decision instead of waiting for the
+  user;
+- an instruction not to use the user's main Chrome, and to return any browser
+  check that needs it as unrun, with the steps to perform.
 
 When a builder returns an open decision, ask the user, then send the answer
 back to the same builder.
@@ -68,6 +70,11 @@ head SHA and findings. A builder's own "done" or "clean" claim, green CI, and
 passing tests do not establish a clean review. If the head changes during the
 review, review the new head before recording a verdict; a verdict applies only
 to the SHA actually reviewed.
+
+After `code-review`, run any user-Chrome checks the builder returned as unrun
+yourself with `use-chrome`, one at a time, within the user's consent for
+browser checks. Record the results, and treat a failed check as a finding for
+that pull request.
 
 ## 4. Post findings and return them to the builder
 

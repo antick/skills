@@ -18,7 +18,8 @@
 // parent's dependency; without that evidence it is UNCLASSIFIED.
 //
 // Statuses: REDUNDANT, NO_CONSUMERS, FLOOR_STILL_NEEDED, FORCES_ABOVE_RANGE,
-// DOWNGRADES_BELOW_RANGE, UNCLASSIFIED (not enough evidence; check by hand).
+// DOWNGRADES_BELOW_RANGE, CAPS_RANGE (holds consumers below versions they
+// accept), UNCLASSIFIED (not enough evidence; check by hand).
 //
 // <dir> must be a separate git worktree or clone, never this checkout.
 // Simulation edits pnpm-workspace.yaml or package.json and pnpm-lock.yaml
@@ -651,12 +652,15 @@ for (const file of new Set(lsFiles.split("\0").filter(Boolean))) {
   record(path.join(cwd, file), { importer, includeDev: true });
 }
 
-const lockedVersions = (name, text = lockfile) => {
-  const escaped = name.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
-  const re = new RegExp(`^  '?${escaped}@(\\d[^:(\\s']*)`, "gm");
-  return [...new Set([...text.matchAll(re)].map((m) => m[1]))]
-    .filter((v) => semver.valid(v))
-    .sort(semver.compare);
+// Installed versions of a package, from the lockfile's snapshots only, so the
+// lockfile's own patchedDependencies and overrides keys never count as installs.
+const lockedVersions = (name, index = lockIndex) => {
+  const versions = new Set();
+  for (const id of index.snapshots.keys()) {
+    const nv = parseSpec(id);
+    if (nv?.name === name && semver.valid(nv.version)) versions.add(nv.version);
+  }
+  return [...versions].sort(semver.compare);
 };
 
 // Versions the lockfile resolved for this consumer's dependency, or null.
@@ -671,7 +675,9 @@ const resolvedFor = (index, c) => {
 
 // "parent@range>child@range" -> { parent, parentRange, child, childRange }
 const splitSelector = (selector) => {
-  const parts = selector.split(/>(?!=)/);
+  // pnpm splits on a ">" that does not follow "@", a space, or "|", so
+  // "pkg@>4.0.0" is a range, not a parent selector.
+  const parts = selector.split(/(?<=[^ |@])>/);
   const child = splitAlias(parts.pop());
   const parent = parts.length ? splitAlias(parts.join(">")) : null;
   return {
@@ -681,6 +687,29 @@ const splitSelector = (selector) => {
     childRange: child.range,
     error: parts.length > 1 ? "selectors with more than one > are not analysed" : null,
   };
+};
+
+// True when the consumer accepts some version above everything the override
+// allows. Candidates come from both ranges' bounds and their next releases.
+const capsConsumer = (consumerRange, targetRange) => {
+  const candidates = new Set(["99999.0.0"]);
+  for (const r of [consumerRange, targetRange])
+    for (const set of new semver.Range(r).set)
+      for (const comparator of set) {
+        const v = comparator.semver?.version;
+        if (!v) continue;
+        candidates.add(v);
+        for (const step of ["patch", "minor", "major"]) {
+          const next = semver.inc(v, step);
+          if (next) candidates.add(next);
+        }
+      }
+  return [...candidates].some(
+    (v) =>
+      semver.valid(v) &&
+      semver.satisfies(v, consumerRange) &&
+      semver.gtr(v, targetRange),
+  );
 };
 
 const classify = (selector, value, source) => {
@@ -695,6 +724,7 @@ const classify = (selector, value, source) => {
     consumers: 0,
     belowTarget: [],
     downgrades: [],
+    caps: [],
     aboveRange: [],
     unanalysable: [],
     notes: [],
@@ -778,6 +808,9 @@ const classify = (selector, value, source) => {
   result.aboveRange = governed.filter(
     (c) => target && forced(c) && semver.gtr(target, c.range),
   );
+  // The override has an upper limit that excludes newer versions a consumer
+  // accepts (an exact pin, "<x", "~x"): a deliberate cap until proven otherwise.
+  result.caps = target ? governed.filter((c) => capsConsumer(c.range, targetRange)) : [];
 
   if (missing.length)
     result.notes.push(
@@ -791,6 +824,7 @@ const classify = (selector, value, source) => {
   if (parent && result.notes.length) return done("UNCLASSIFIED");
   if (result.downgrades.length) return done("DOWNGRADES_BELOW_RANGE");
   if (result.aboveRange.length) return done("FORCES_ABOVE_RANGE");
+  if (result.caps.length) return done("CAPS_RANGE");
   if (result.belowTarget.length) return done("FLOOR_STILL_NEEDED");
   return done("REDUNDANT");
 };
@@ -935,10 +969,10 @@ if (simulateDir) {
         continue;
       }
       const afterText = fs.readFileSync(files.lock, "utf8");
-      const after = lockedVersions(result.child, afterText);
+      const index = indexLockfile(afterText);
+      const after = lockedVersions(result.child, index);
       let underParent = "";
       if (result.parent) {
-        const index = indexLockfile(afterText);
         const versions = new Set();
         for (const [id, deps] of index.snapshots)
           if (parseSpec(id)?.name === result.parent)
@@ -991,6 +1025,8 @@ for (const r of results) {
     console.log(`    requires newer than override: ${describe(r.downgrades)}`);
   else if (r.aboveRange.length)
     console.log(`    declared range below override: ${describe(r.aboveRange)}`);
+  else if (r.caps.length)
+    console.log(`    held below versions they accept: ${describe(r.caps)}`);
   else if (r.belowTarget.length)
     console.log(
       `    ranges allowing older versions: ${describe(r.belowTarget)}`,

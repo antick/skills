@@ -96,7 +96,8 @@ Check this on every pull request review and re-review, using live data.
 
 1. **Map intent to code.** For every requirement, identify the implementing
    code and meaningful test evidence. A missing required behavior is a finding
-   even when the existing code is internally consistent.
+   even when the existing code is internally consistent, within the limits in
+   **Never findings**.
 2. **Trace the changed flow.** Follow each changed public entry point through
    same-module helpers and one level into changed cross-file callees. Inspect
    relevant callers, including unchanged ones the change can affect, and

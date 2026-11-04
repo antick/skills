@@ -72,7 +72,10 @@ clear convention exists, use:
 
 Keep the issue implementation-neutral unless a constraint is already decided.
 Add reproduction steps, evidence, links, or screenshots only when they clarify the
-work, and attach only files the user supplied or authorized. When refining an
+work, and attach only files the user supplied or authorized. `gh` cannot upload
+attachments to an issue; when a screenshot or file matters, say so and ask the
+user to attach it themselves or provide a hosted link. Never link local file
+paths. When refining an
 existing issue, keep its original content and add clarifications after it unless
 the user asks for a rewrite; fetch the current body immediately before editing so
 concurrent edits are not overwritten.

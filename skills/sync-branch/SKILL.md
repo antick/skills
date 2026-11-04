@@ -17,10 +17,11 @@ Do not merge or close the pull request itself.
    repository and branch with `gh pr view`. Never sync into `main`, the default
    branch, or another protected branch.
 2. Choose the source branch: `main` by default, or the branch the user names
-   when invoking this skill (for example "sync with develop"). If no branch was
-   named and `main` does not exist, or the pull request targets a base other
-   than `main`, ask which branch to merge instead of guessing; merging `main`
-   into a pull request based on another branch pollutes its diff.
+   when invoking this skill (for example "sync with develop"). When a branch
+   was named, use it without asking. When no branch was named, ask which branch
+   to merge if `main` does not exist or the pull request targets a base other
+   than `main`; merging `main` into a pull request based on another branch
+   pollutes its diff.
 3. Fetch the source branch and the target head from their verified remotes and
    record both SHAs.
 4. Work from the current remote head in a clean checkout. When the user's
@@ -73,6 +74,9 @@ and reconcile those commits, then repeat the affected checks; never overwrite
 another developer's work. Retry once after reconciling and report a repeated
 race instead of looping. Verify the pushed head contains both recorded heads
 and matches the remote.
+
+If you created a temporary worktree, remove it with `git worktree remove <path>`
+after pushing or aborting.
 
 ## Report
 

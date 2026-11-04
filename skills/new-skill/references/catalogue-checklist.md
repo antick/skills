@@ -36,7 +36,9 @@ order and style:
 | Website catalogue files | Presentation details (category, heading, description, prompt starting with `$<name> `, steps, mode) and an icon mapping |
 
 Keep the summary text identical wherever the repository repeats it, such as
-`packs.json`, `SKILLS.md`, and the command map.
+`packs.json`, `SKILLS.md`, and the command map. Avoid regular-expression
+characters such as `( ) ? + * [` in summaries; the installer test matches each
+summary as a pattern and fails on them.
 
 ## Checks
 

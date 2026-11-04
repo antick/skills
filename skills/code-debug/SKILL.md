@@ -45,10 +45,10 @@ Find out why something fails and report it. Do not implement the fix.
    problem never happened. A nearby error is not proof of cause.
 5. **Use a browser only when needed.** When reproducing the failure needs a
    browser, use the `use-chrome` skill. The read-only rule applies there too:
-   reproduce with read-only steps, or in a non-production environment with
-   synthetic data. When reproducing the failure needs an action that changes
-   data, such as submitting a form, saving, deleting, or purchasing, stop and
-   ask the user for permission first. Name the exact action, the environment,
+   reproduce with read-only steps. When reproducing the failure needs an action
+   that changes data, such as submitting a form, saving, deleting, or
+   purchasing, stop and ask the user for permission first, in every
+   environment, including staging with synthetic data. Name the exact action, the environment,
    and what it will change, and wait for a yes before doing it.
 6. **Test competing explanations.** Check each plausible cause against the code,
    existing tests, history, and runtime evidence. Run focused existing checks

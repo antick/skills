@@ -117,6 +117,11 @@ with `--save-exact`, for example
 `pnpm --filter <pkg> add --save-exact <name>@<version>` (`--save-dev` for dev
 dependencies). Update manifests and the lockfile together.
 
+When a dependency uses a pnpm catalog (`catalog:` or `catalog:<name>`), update
+the version in the catalog in `pnpm-workspace.yaml`, keep the `catalog:`
+reference in every manifest, and run `pnpm install`. Do not use `pnpm add` for
+it; that replaces the catalog reference in one package and splits the versions.
+
 1. **Tier 1, one commit.** Apply all Tier 1 updates together, then run the
    affected packages' lint, type checks, and unit tests. If an update fails,
    investigate: move it to Tier 2 and fix it there, or back it out and report it.

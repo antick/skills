@@ -47,7 +47,8 @@ override that forces a package older than its consumer requires.
    | `FLOOR_STILL_NEEDED` | Some consumer still accepts older versions. Keep unless no older version is vulnerable. |
    | `FORCES_ABOVE_RANGE` | The target is newer than a consumer allows, usually a security bump the parent has not adopted. Keep until the parent widens its range. |
    | `DOWNGRADES_BELOW_RANGE` | The target is older than a consumer requires. Either stale (raise or remove it) or a deliberate compatibility pin. Always investigate. |
-   | `UNCLASSIFIED` | The override value is not a semver range (alias, URL, or `link:`). Investigate by hand. |
+   | `CAPS_RANGE` | The override has an upper limit (an exact pin, `<x`, `~x`) that holds a consumer below newer versions it accepts, usually to avoid a broken release. Keep until you know why it was added. |
+   | `UNCLASSIFIED` | Not enough evidence: a value that is not a semver range, a consumer range the script cannot read, or a missing resolution. Investigate by hand. |
 
    It also reports each patched dependency (still in the lockfile? latest
    upstream version and publish date) and each audit waiver. For npm and Yarn,
@@ -55,7 +56,8 @@ override that forces a package older than its consumer requires.
    declared ranges of every consumer (`npm ls <name>`, `yarn why <name>`) and the
    locked versions.
 
-3. Find why each non-redundant entry exists before judging it. Read inline
+3. Find why every entry exists before judging it, including `REDUNDANT` ones;
+   a status only describes ranges, not intent. Read inline
    comments next to the entry, then trace the commit that added it:
 
    ```bash
@@ -90,7 +92,11 @@ worktree, refresh the lockfile only, and compare the lockfile and audit output.
 
 ## 3. Verify every proposed removal
 
-A clean audit is not enough. For each entry you recommend removing:
+A clean audit is not enough. Verify each entry you recommend removing in its own
+fresh scratch worktree, never in the user's checkout: create it as in step 2,
+remove the entry there, run the package manager's install to update the
+lockfile, run the checks below, then remove the worktree and its temporary
+directory.
 
 - Diff the lockfile after removal. List new or changed versions and their publish
   dates; each must be at least 48 hours old (or meet the repository's policy).

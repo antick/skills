@@ -30,7 +30,9 @@ Drastic upgrades include:
 Still ask before running data migrations against shared or production systems,
 deploying, publishing, pushing, or making a product-visible behavior change. Patch and
 minor updates that need no migration belong to `dependency-upgrade-minor`; do
-them here only when a group requires them.
+them here only when a group requires them. Packages that handle authentication,
+sessions, cryptography, sanitization, uploads, or audit behavior always belong
+here, including their patch and minor updates.
 
 ## 1. Understand the project
 
@@ -42,7 +44,12 @@ them here only when a group requires them.
   (`.node-version`, `.nvmrc`, `engines`, Dockerfiles, CI setup steps).
 - Identify the framework, module format, build tools, scripts, tests, and CI.
 - Note overrides, resolutions, and patches that constrain the upgrade. Do not
-  remove or loosen them here; report stale ones for `dependency-override-cleanup`.
+  remove or loosen them for other packages; report stale ones for
+  `dependency-override-cleanup`. For a package this skill is upgrading, update,
+  re-create, or remove its own patch or override as part of that group's
+  commit, and say why. pnpm fails install on a patch that no longer matches. If
+  that cannot be done safely, mark the package blocked and tell the user what
+  is needed.
 
 For reusable libraries, preserve appropriate `peerDependencies` ranges. Do not
 blindly replace peer ranges with exact versions.
@@ -98,6 +105,11 @@ For each group, write a short migration plan before installing:
 Update the manifests and the existing lockfile with the project's package
 manager. With pnpm, pass an exact version with `--save-exact`; a tag or range is
 otherwise saved as a caret range.
+
+When a dependency uses a pnpm catalog (`catalog:` or `catalog:<name>`), update
+the version in the catalog in `pnpm-workspace.yaml`, keep the `catalog:`
+reference in every manifest, and run `pnpm install`. Do not use `pnpm add` for
+it; that replaces the catalog reference in one package and splits the versions.
 
 Do not:
 

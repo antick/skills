@@ -31,7 +31,8 @@ renamed: `repo-disk-cleanup` (now `reclaim-dev-space`), `save-window-layout` (no
 `save-omarchy-window-layout`), and `update-ai-tools` or `manage-ai-tools` (now
 `ai-harness-setup`).
 
-These commands use the [skills.sh](https://skills.sh) CLI. Avoid its `--all` flag
+These commands use the [skills.sh](https://skills.sh) CLI. It sends anonymous usage
+data; set `DISABLE_TELEMETRY=1` to turn that off. Avoid its `--all` flag
 with `--global`: it targets every agent the CLI knows, and some of them can't
 install globally, so you get dozens of errors.
 

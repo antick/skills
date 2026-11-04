@@ -1,6 +1,6 @@
 # Antick Skills
 
-Twenty-three portable AI agent skills for engineering refactors, security and
+Thirty-eight portable AI agent skills for engineering refactors, security and
 supply-chain hardening, tests and CI, accessible UI systems, platform and data
 migrations, documentation, releases, personal interviews, and clear communication.
 
@@ -16,14 +16,27 @@ for Codex and Claude Code.
 | Skill | Use it when you want to… |
 | --- | --- |
 | [code-review](skills/code-review/SKILL.md) | Review local changes or a pull request against its requirements and report confirmed problems. Read-only by default. |
-| [code-build](skills/code-build/SKILL.md) | Build features, standardize UI, wire localization, and migrate platforms. |
+| [submit-review](skills/submit-review/SKILL.md) | Publish completed review findings as one review of inline PR comments: tag the author and request changes on others' PRs, or post untagged comments on your own, then mark the PR draft. |
+| [build-review-loop](skills/build-review-loop/SKILL.md) | Build several of your own issues in parallel with one builder and worktree each, then self-review every draft PR, post findings, and send fixes back until no actionable findings remain. |
+| [code-build](skills/code-build/SKILL.md) | Build features, fix bugs, standardize UI, wire localization, and migrate platforms; commit in meaningful steps and finish with a draft PR. |
+| [code-debug](skills/code-debug/SKILL.md) | Investigate a bug read-only and get the root cause, evidence, recommended fix, and the regression test that would catch it. |
+| [sync-branch](skills/sync-branch/SKILL.md) | Bring a pull request or branch up to date with `main`, or a branch you name, by merging, resolving conflicts while keeping both sides' behavior, verifying, and pushing. |
+| [commit-message](skills/commit-message/SKILL.md) | Get a concise commit message that follows the repository's convention, or Conventional Commits when it has none, grounded in the staged diff. |
+| [pr-description](skills/pr-description/SKILL.md) | Get a pull request title and description in everyday language that still carries the paths, behavior changes, and checks reviewers need. |
+| [create-issue](skills/create-issue/SKILL.md) | Create or refine a GitHub issue with gh that follows the repository's conventions, checks for duplicates, and is verified after saving. |
+| [branch-status](skills/branch-status/SKILL.md) | Count remote branches and list merged ones that are safe to delete, with merge evidence. Read-only. |
+| [spec-status](skills/spec-status/SKILL.md) | List unarchived OpenSpec changes whose implementation already reached the main branch. Read-only. |
 | [code-security](skills/code-security/SKILL.md) | Audit security; remediate vulnerabilities and harden supply chains when requested. |
 | [database-audit](skills/database-audit/SKILL.md) | Review schemas, migrations, SQL and ORM queries, indexes, transactions, and database access controls; report evidence-backed findings without applying changes. |
+| [performance-audit](skills/performance-audit/SKILL.md) | Find reads, jobs, polling, and scripts whose cost grows with table size, prove each on synthetic volume, and rank the fixes. Read-only. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions, CI settings, environments, and secrets across every public and private repo of an account; report per-repo findings with severity and fixes. Read-only. |
 | [code-refactor](skills/code-refactor/SKILL.md) | Refactor shared flows, types, architecture, and performance with regression protection. |
 | [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness across code, infrastructure, and organizational controls; report findings, missing evidence, and remediation directly in chat. Read-only. |
 | [code-audit](skills/code-audit/SKILL.md) | Find and rank unnecessary complexity across a repository, without applying changes. |
-| [upgrade-dependencies](skills/upgrade-dependencies/SKILL.md) | Upgrade package.json dependencies to stable releases at least 48 hours old, apply required migrations, and verify behavior. |
+| [dependency-upgrade-minor](skills/dependency-upgrade-minor/SKILL.md) | Scan patch and minor updates, sort them into safe and contained-change tiers, apply them when asked, and verify behavior. Majors are left for dependency-upgrade-major. |
+| [dependency-upgrade-major](skills/dependency-upgrade-major/SKILL.md) | Upgrade framework, runtime, toolchain, and other major versions with a migration plan, code and configuration changes, and full verification for each group. |
+| [dependency-audit](skills/dependency-audit/SKILL.md) | Find outdated, end-of-life, and vulnerable dependencies across packages, Docker images, GitHub Actions, and runtime pins, with recommended targets. Read-only. |
+| [dependency-override-cleanup](skills/dependency-override-cleanup/SKILL.md) | Find out why each override, resolution, patch, and audit waiver exists, prove which are stale, and remove them when asked. |
 | [concise](skills/concise/SKILL.md) | Get a brief answer that keeps the result, reason, and important caveats. |
 | [make-sense](skills/make-sense/SKILL.md) | Get a clear, natural explanation with as much detail as the subject needs. |
 | [simplify](skills/simplify/SKILL.md) | Apply ASD-STE100 to explanations, instructions, and reports while preserving technical accuracy and exact code identifiers. |
@@ -38,6 +51,8 @@ for Codex and Claude Code.
 | [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers and fix them when requested. |
 | [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides. |
 | [interview](skills/interview/SKILL.md) | Learn personal context and save authorized memories. |
+| [new-skill](skills/new-skill/SKILL.md) | Create, rename, or update skills so they match the existing set and every catalogue, manifest, and adapter stays in sync. |
+| [use-chrome](skills/use-chrome/SKILL.md) | Have the agent work in your already-open Chrome over one long-lived connection, in background tabs, without launching new browsers or repeating the Allow prompt. |
 
 `code-refactor` includes task-specific consolidation, strictness, workspace, and
 performance guides. `code-security` includes remediation and supply-chain guides.
@@ -225,7 +240,11 @@ $code-audit Find the largest safe simplifications in this repository.
 $code-security Audit this repository and its GitHub Actions; report confirmed vulnerabilities with justified severities.
 $database-audit Review my database schema, migrations, queries, and access controls; report findings without applying changes.
 $soc2-readiness Assess this project for SOC 2 Type II readiness and report findings and missing evidence directly in chat.
-$upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.
+$dependency-upgrade-minor Check which packages have patch or minor updates, apply the safe ones, and verify the project still works.
+$dependency-upgrade-major Upgrade the major versions in this project, apply the required migrations group by group, and verify the project still works.
+$code-debug Investigate this bug without changing code and report the root cause and fix.
+$build-review-loop Build these issues in parallel, self-review each draft PR, and fix until clean.
+$sync-branch Merge the latest main into this pull request, resolve conflicts, verify, and push.
 $public-desktop-release Set up, publish, and install a signed Apple Silicon release of this app through GitHub, with automatic updates and a separate dev app. Use my existing main Chrome session for account setup.
 $private-desktop-release Set up private macOS releases for this app using its existing stack.
 $concise Summarize what changed and what still needs checking.

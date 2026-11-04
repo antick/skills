@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Description"
+  short_description: "Write plain-language PR titles and descriptions"
+  default_prompt: "Use $pr-description to write a plain-language title and description for this pull request that keeps the technical details reviewers need."

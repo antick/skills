@@ -8,6 +8,8 @@ description: Review database schemas, migrations, SQL and ORM queries, indexes, 
 Find concrete risks to data correctness, query performance, and database security.
 Adapt to the actual engine, version, ORM, workload, and deployment model; do not
 impose a preferred schema style or assume every database behaves like PostgreSQL.
+For whether reads, jobs, or polling will slow down as tables grow, use
+`performance-audit`.
 
 ## Scope and operating boundaries
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Use Chrome"
+  short_description: "Reuse one connection to your main Chrome"
+  default_prompt: "Use $use-chrome to attach once to my already-running main Chrome and do this in background tabs over that single connection."

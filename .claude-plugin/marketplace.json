@@ -13,15 +13,28 @@
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
+        "./skills/submit-review",
+        "./skills/build-review-loop",
+        "./skills/code-build",
+        "./skills/code-debug",
+        "./skills/sync-branch",
+        "./skills/commit-message",
+        "./skills/pr-description",
+        "./skills/create-issue",
+        "./skills/branch-status",
+        "./skills/spec-status",
         "./skills/concise",
         "./skills/make-sense",
-        "./skills/code-build",
         "./skills/code-refactor",
         "./skills/code-audit",
         "./skills/code-security",
         "./skills/database-audit",
+        "./skills/performance-audit",
         "./skills/github-actions-security-audit",
-        "./skills/upgrade-dependencies",
+        "./skills/dependency-upgrade-minor",
+        "./skills/dependency-upgrade-major",
+        "./skills/dependency-audit",
+        "./skills/dependency-override-cleanup",
         "./skills/simplify",
         "./skills/private-desktop-release",
         "./skills/public-desktop-release",
@@ -34,7 +47,9 @@
         "./skills/ci-cd-triage",
         "./skills/accessibility-audit",
         "./skills/documentation-generation",
-        "./skills/interview"
+        "./skills/interview",
+        "./skills/new-skill",
+        "./skills/use-chrome"
       ]
     }
   ]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Upgrade (Minor)"
+  short_description: "Apply safe patch and minor dependency updates"
+  default_prompt: "Use $dependency-upgrade-minor to classify this project's patch and minor dependency updates, apply the safe and contained ones, and verify the result."

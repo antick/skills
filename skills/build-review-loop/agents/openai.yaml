@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Review Loop"
+  short_description: "Build issues in parallel, self-review, fix, and repeat"
+  default_prompt: "Use $build-review-loop to build these issues in parallel, self-review each draft pull request, post the findings, and repeat fixes until no actionable findings remain."

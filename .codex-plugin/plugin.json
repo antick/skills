@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation and architecture maps; and conduct personal interviews with authorized memory persistence.",
+    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade minor and major dependencies with migrations and verification, audit dependency freshness and stale overrides, find queries that slow down as data grows, investigate bugs read-only, build issues in meaningful commits with draft PRs, self-review and fix in a loop, sync branches, write commit messages, PR descriptions, and issues, audit merged branches and archivable specs, author new skills, reuse your main Chrome session, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and manage AI tools and JavaScript runtimes with OS-aware setup, confirmation for missing installs, verified updates, and a complete status report. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation and architecture maps; and conduct personal interviews with authorized memory persistence.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
@@ -42,7 +42,16 @@
       "CI/CD Triage",
       "Accessibility Audit",
       "Documentation Generation",
-      "Interview"
+      "Interview",
+      "Bug investigation",
+      "Build and self-review loops",
+      "Pull request reviews and branch sync",
+      "Commit messages, PR descriptions, and issues",
+      "Dependency audits and override cleanup",
+      "Performance audits",
+      "Branch and spec cleanup audits",
+      "Skill authoring",
+      "Main Chrome browser sessions"
     ],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
@@ -52,7 +61,10 @@
       "Refactor this code with current official docs and regression tests using the code-refactor skill.",
       "Audit this repository and its GitHub Actions with the code-security skill.",
       "Review schemas, queries, and migrations with the database-audit skill.",
-      "Update dependencies and apply required migrations with the upgrade-dependencies skill.",
+      "Apply safe patch and minor updates with the dependency-upgrade-minor skill.",
+      "Upgrade major versions with migrations using the dependency-upgrade-major skill.",
+      "Investigate this bug without changing code using the code-debug skill.",
+      "Build these issues, self-review each PR, and fix until clean with the build-review-loop skill.",
       "Explain this with the make-sense skill.",
       "Write explanations, instructions, and reports with the simplify skill.",
       "Set up private desktop distribution with the private-desktop-release skill.",

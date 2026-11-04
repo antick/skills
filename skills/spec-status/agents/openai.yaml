@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Status"
+  short_description: "List OpenSpec changes ready to archive"
+  default_prompt: "Use $spec-status to list unarchived OpenSpec changes whose implementation is already in the main branch, with pull request and commit evidence. Do not archive anything."

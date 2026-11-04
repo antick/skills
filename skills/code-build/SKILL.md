@@ -1,6 +1,6 @@
 ---
 name: code-build
-description: Build applications, add features, and fix bugs using the project's actual stack. Includes focused workflows for design-system enforcement, component standardization, localization, and web/mobile platform migration when requested.
+description: Build applications, add features, and fix bugs using the project's actual stack, then commit the work in meaningful commits and open a draft pull request. Includes focused workflows for design-system enforcement, component standardization, localization, and web/mobile platform migration when requested.
 ---
 
 # Code Build
@@ -18,6 +18,22 @@ the core workflow and preserve its scope and verification requirements.
 | Component Library Standardization | [Workflow](references/component-library-standardization.md) |
 | Internationalization and Localization | [Workflow](references/i18n-localization.md) |
 | Platform Migration | [Workflow](references/platform-migration.md) |
+
+## Establish the requirements
+
+When the user supplies an issue, ticket, or pull request, read that exact item
+and its relevant discussion with the available authenticated provider tools or
+CLI before editing. Extract the requirements, the original reproduction steps,
+and the acceptance criteria. For a task given directly in chat, use that request;
+do not require an issue. If a supplied issue cannot be read, say so and ask for
+the missing requirements instead of inventing them.
+
+For a bug, trace the original failure through the affected code before editing
+and fix its root cause. For an investigation-only request, follow the `code-debug`
+approach: report the cause and the proposed fix without changing code.
+
+Scope the change to the requirements. Do not expand a UI-only or backend-only task
+merely because this skill covers both.
 
 ## Identify the project
 
@@ -82,6 +98,11 @@ layers, then complete every requested behavior, error state, and edge case.
 Scale planning to the task; routine changes need no separate plan file or
 approval checkpoint. Use available agents only when delegation is authorized.
 
+Before writing UI code for a new screen, dialog, form, panel, or table action,
+name the existing screen whose pattern you are copying. When no existing screen
+fits, write a short layout sketch (entry point, overlays, and the actions shown
+in each state) and wait for the owner's approval before implementing it.
+
 Add authentication, storage, payments, state libraries, and deployment services
 only when the requested behavior needs them. Keep credentials on the appropriate
 server or platform boundary and document required configuration with placeholders.
@@ -121,6 +142,15 @@ Run the available tests and relevant lint, type, build, or packaging checks from
 the affected project. Exercise the changed behavior in the actual browser,
 runtime, simulator, or packaged application when available. Include a failure
 path where input validation, permissions, or external services affect the result.
+For browser checks in the user's own browser, use the `use-chrome` skill.
+
+Add or update an end-to-end test only when a user journey actually changed or the
+original reproduction steps are that journey; reuse existing journey coverage
+where it already covers the path. Copy, token, styling, and layout-only changes
+do not need a new end-to-end test. Finish focused checks before any expensive
+suite. Regenerate every derived artifact that CI compares with the source, such
+as API specifications, schema snapshots, or generated inventories, with the
+project's own commands.
 
 Check the final diff for unrelated changes and missing files. Report what works,
 which checks passed, and which runtime or external-service checks remain unrun.
@@ -130,5 +160,30 @@ by the change; distinguish existing failures from new ones.
 Keep preview, deployment, publication, and other external actions within the
 user's authorized scope. When a real service or device is unavailable, leave the
 implementation ready to verify and state the exact remaining step.
+
+## Commit and open a draft pull request
+
+Invoking this skill authorizes committing, pushing a feature branch, and opening
+a draft pull request. Do this at the end of every implementation. Skip or limit
+it only when the user says local-only, no commit, no push, or no pull request.
+
+1. Work on a feature or fix branch created from the latest fetched default
+   branch, unless the user names another base. Never commit directly to the
+   default branch or another long-lived branch such as `main` or `develop`.
+2. Commit as you complete each coherent piece of work, so the history shows
+   meaningful steps that can be reviewed or reverted separately: for example a
+   schema change, the service logic that uses it, and the UI that exposes it.
+   A small change can be one commit. Do not split one idea across commits or
+   bundle unrelated changes together. Write each message with the
+   `commit-message` skill and stage only the files for that step.
+3. Before pushing, run the focused checks above and regenerate derived artifacts.
+4. Push the branch and open a draft pull request against the step 1 base with the
+   `pr-description` skill. Link the verified issue. When updating an existing
+   pull request, keep its current draft or ready state. Open a ready-for-review
+   pull request only when the user asks for one.
+5. Do not merge, deploy, or change issue or project status unless asked.
+
+Report the draft pull request link, the commits, the checks run with their
+results, and any check that could not run.
 
 Match the user's requested explanation style. Simple code does not require an artificially short explanation.

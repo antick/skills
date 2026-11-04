@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Evidence-based, read-only review of local changes, commits, branches, or pull request links against their requirements. Reports severity-ranked Issue, Impact, and Solution findings in plain language, split into Task findings and Code health (code smells, coverage gaps, dead code, over-engineering, side effects), with merge status, verification gaps, and regression coverage.
+description: Evidence-based, read-only review of local changes, commits, branches, or pull request links against their requirements. Reports severity-ranked, continuously numbered Issue, Impact, and Solution findings in plain language, split into Task findings and Code health (code smells, coverage gaps, dead code, over-engineering, side effects), with merge status, verification gaps, and regression coverage.
 ---
 
 # Code Review

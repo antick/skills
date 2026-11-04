@@ -52,13 +52,14 @@ no actionable findings, make no changes and say so.
 
 ## 3. Write the comments
 
-Keep each finding's severity, its section, and its Issue, Impact, and Solution.
-A Task finding uses `[SEVERITY] Task finding: Short title`; a Code health
-finding names its category. Keep a blank line between labels so each renders as
+Keep each finding's number from the review, its severity, its section, and its
+Issue, Impact, and Solution. A Task finding uses
+`<number>. [SEVERITY] Task finding: Short title`; a Code health finding names
+its category. Keep a blank line between labels so each renders as
 its own paragraph:
 
 ```markdown
-@<author> **[SEVERITY] Code health · Dead code: Short title**
+@<author> **3. [SEVERITY] Code health · Dead code: Short title**
 
 **Issue:** What is wrong, with concrete evidence.
 
@@ -72,7 +73,8 @@ direct: short sentences, no filler, jargon explained once. Tighten padded or
 robotic phrasing before posting without changing a finding's meaning or
 evidence.
 
-The review body is short: the number of Task findings and the number in each
+Findings moved to the review body keep their numbers too. The review body is
+short: the number of Task findings and the number in each
 Code health category that has findings, plus any unanchored findings.
 
 ## 4. Submit in one review

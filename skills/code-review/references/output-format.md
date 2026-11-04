@@ -48,10 +48,17 @@ findings. Side effects covers behavior outside the requirements. Otherwise use
 the Code health heading that fits; use Task findings when none does.
 
 Within each section or heading, order findings `CRITICAL`, `HIGH`, `MEDIUM`,
-then `LOW`, using this block:
+then `LOW`. Number every finding in one continuous sequence across the whole
+review, in the order they appear: the first Task finding is 1, and numbering
+carries on through each Code health heading without restarting. For example,
+two Task findings are 1 and 2, a Code smell is 3, a Coverage gap is 4, and a
+Dead code finding is 5.
+Skip no numbers, and do not number `None found.` lines, Verification gaps, or
+Regression coverage. On a re-review, number the new review from 1 again. Use
+this block:
 
 ```markdown
-### [SEVERITY] Short title
+### 1. [SEVERITY] Short title
 
 **Location:** `path/to/file.ts:42`
 
@@ -62,7 +69,8 @@ then `LOW`, using this block:
 **Solution:** The smallest correct remediation.
 ```
 
-Under a Code health heading, use `####` for the finding title instead of `###`.
+Under a Code health heading, use `####` for the finding title instead of `###`,
+keeping the number, such as `#### 3. [MEDIUM] Short title`.
 Bold every label and keep a blank line between labels; Markdown merges adjacent
 lines into one paragraph. Before sending, check that each finding has all four
 bold labels on separate paragraphs.
@@ -76,7 +84,7 @@ Keep Verification gaps and Regression coverage to one short line per item. For
 a gap, say what was not checked and, when it is not obvious, why it matters.
 For coverage, name the behavior in plain words, then the test file that
 protects it with `passes`, `not run`, or `no test`. Point to a Coverage gaps
-finding instead of repeating it. Leave out commit SHAs, CI run IDs, and
+finding by its number instead of repeating it. Leave out commit SHAs, CI run IDs, and
 explanations of why a check is impossible unless the reader needs them to act.
 Do not claim that tests guarantee no future defects.
 
@@ -89,7 +97,7 @@ Do not claim that tests guarantee no future defects.
 ## Regression coverage
 
 - Autofill keeps every digit: `PhoneInput.test.tsx` (passes).
-- Pasting a number with a country code: no test (see Coverage gaps).
+- Pasting a number with a country code: no test (see finding 4).
 ```
 
 If there are no actionable findings, Task findings and every Code health

@@ -60,29 +60,12 @@ this skill for every browser step.
 5. Do not hand Chrome work to subagents or parallel workers; the coordinating
    agent runs main-Chrome steps itself, one at a time. Each new agent
    session costs another prompt.
-6. Record when the connection was approved.
 
-## Keep the connection alive
+## If the connection drops
 
-Remote-debugging sessions can expire; the user has observed them dropping after
-about two hours. Do not let the connection drop in the middle of work.
-
-- Track the connection's age from the moment the user allowed it. At about 100
-  minutes, at a safe point between steps, tell the user that the session is
-  being renewed and that one **Allow** prompt is coming, then renew it and
-  continue the task without waiting for a separate go-ahead:
-  - **Background helper:** open the new connection in the same helper, confirm
-    it works, then close the old one.
-  - **`chrome-devtools-mcp`:** it has no reconnect tool. Restart its server
-    through the harness when the harness allows that, then confirm the new
-    connection. When it cannot be restarted, tell the user the session will
-    need one reconnect when it drops, and handle the drop as below.
-  For a task likely to run past the limit, prefer the background helper so
-  renewal never interrupts the work.
-- If the connection drops unexpectedly, tell the user, reconnect once, and
-  continue. If the user declines the prompt or the reconnect fails, stop the
-  browser work and say so. Do not reconnect in a loop or fall back to another
-  browser.
+If the connection drops, tell the user, reconnect once, and continue. If the
+user declines the prompt or the reconnect fails, stop the browser work and say
+so. Do not reconnect in a loop or fall back to another browser.
 
 ## Work only in your own tabs
 

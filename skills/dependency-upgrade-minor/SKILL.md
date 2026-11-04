@@ -110,23 +110,25 @@ When unsure between tiers, pick the higher one and say why.
 
 ## 5. Apply (only when asked to update)
 
-Work through the groups one at a time, Tier 1 first, so each group can be
-reverted alone. For each group:
+Use exact versions for every updated registry dependency. Do not use caret,
+tilde, wildcard, or `latest` specs; keep `peerDependencies` ranges in reusable
+libraries. pnpm saves a tag or range as a caret range, so pass an exact version
+with `--save-exact`, for example
+`pnpm --filter <pkg> add --save-exact <name>@<version>` (`--save-dev` for dev
+dependencies). Update manifests and the lockfile together.
 
-1. Apply the update with exact versions. Do not use caret, tilde, wildcard, or
-   `latest` specs for updated registry dependencies; keep `peerDependencies`
-   ranges in reusable libraries. pnpm saves a tag or range as a caret range, so
-   pass an exact version with `--save-exact`, for example
-   `pnpm --filter <pkg> add --save-exact <name>@<version>` (`--save-dev` for dev
-   dependencies). Update manifests and the lockfile together.
-2. For a Tier 2 group, make the code changes and add focused tests.
-3. Run the affected packages' lint, type checks, and unit tests. If a Tier 1
-   update fails, investigate: reclassify it to Tier 2 and fix it, or back it out
-   and report it.
-4. Regenerate generated contracts, such as an API specification, when the update
-   changes an API surface.
-5. Commit the group, following the repository's commit convention
-   (`commit-message` when installed).
+1. **Tier 1, one commit.** Apply all Tier 1 updates together, then run the
+   affected packages' lint, type checks, and unit tests. If an update fails,
+   investigate: move it to Tier 2 and fix it there, or back it out and report it.
+   Commit the remaining Tier 1 updates as a single commit.
+2. **Tier 2, one commit per group.** Apply each group that needs code changes
+   on its own: update it, make the code changes, add focused tests, run the
+   affected checks, and commit it separately so it can be reviewed or reverted
+   alone.
+3. Regenerate generated contracts, such as an API specification, when an update
+   changes an API surface, and include them in the matching commit.
+
+Follow the repository's commit convention (`commit-message` when installed).
 
 After the last group, rerun the security audit at the project's threshold and
 confirm no new advisories.

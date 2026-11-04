@@ -123,9 +123,9 @@ export const engineeringDetails = {
   "use-chrome": {
     category: "Your browser, one approval",
     heading: "Use your Chrome.\nAllow it once.",
-    description: "Attach once to the Chrome you already use and keep that single connection for the whole task. Work in background tabs, renew the session before it expires, and open a second browser only for cross-testing.",
+    description: "Attach once to the Chrome you already use and keep that single connection for the whole task. Work in background tabs, close them when done, and open a second browser only for cross-testing.",
     prompt: "$use-chrome Use my already-open Chrome for this task over a single connection, in background tabs.",
-    steps: ["Find and verify the running main Chrome", "Connect once and work in background tabs", "Renew the session before it expires and close opened tabs"],
+    steps: ["Find and verify the running main Chrome", "Connect once and work in background tabs", "Close opened tabs when the task ends"],
     mode: "Browser connection; main Chrome only",
   },
   "performance-audit": {

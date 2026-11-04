@@ -106,7 +106,7 @@ const details = {
     heading: "Routine updates.\nNo surprises.",
     description: "Classify patch and minor updates as safe or needing contained code changes, apply them group by group with releases at least 48 hours old, and verify the project still works. Majors and drastic changes are flagged for the major workflow.",
     prompt: "$dependency-upgrade-minor Check which packages have patch or minor updates, apply the safe and contained ones, and verify the project still works.",
-    steps: ["Inventory updates and read every changelog", "Apply safe and contained tiers one group per commit", "Run checks and report deferred and major items"],
+    steps: ["Inventory updates and read every changelog", "Commit safe updates together and code changes separately", "Run checks and report deferred and major items"],
     mode: "Report on check; implementation on update",
   },
   "dependency-upgrade-major": {

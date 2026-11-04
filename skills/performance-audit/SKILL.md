@@ -69,17 +69,22 @@ hit, read the full query and every caller before calling it a finding.
   every run.
 
 Translate these patterns to the actual engine and ORM; verify engine-specific
-claims against official documentation.
+claims against official documentation. Some engines commit implicitly on
+statistics or schema commands (MySQL's `ANALYZE TABLE` does), so check that the
+rollback still holds there.
 
 ## 3. Prove each candidate
 
 1. Confirm the indexes (`pg_indexes`), policies (`pg_policies`), and grants the
-   query meets. An index-only or partial-index plan needs the query predicate to
-   imply the index predicate textually.
+   query meets. A partial index is used only when the planner can prove the
+   query predicate implies the index predicate.
 2. Load a realistic synthetic volume in a rolled-back transaction, `ANALYZE` the
    tables, then run the repository function as the application's runtime role
    with its tenant or session settings, and `EXPLAIN (ANALYZE, BUFFERS)` its
-   statements. Reuse an existing test helper that explains every statement when
+   statements. Application code usually opens its own pooled connection, which
+   cannot see uncommitted rows: run the function on the same transaction or
+   client by passing the transaction handle, or capture its SQL and run that
+   inside the transaction. Never commit the synthetic rows. Reuse an existing test helper that explains every statement when
    the repository has one.
 3. Keep distributions realistic: rare filter values as rare as in production,
    one-to-one relationships kept one-to-one. Skewed seeds change the plan. Rows
@@ -120,4 +125,5 @@ most severe first, with a blank line between labels:
 
 Finish with **Checked and fine** (with why each path is bounded), **Gaps**
 (volumes not tested, missing statistics such as `pg_stat_statements`,
-environments not checked), and a statement that the audit made no changes.
+environments not checked, and plan effects of uncommitted rows, such as an empty
+visibility map that makes index-only scans look worse than in production), and a statement that the audit made no changes.

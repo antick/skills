@@ -42,7 +42,10 @@ Find out why something fails and report it. Do not implement the fix.
    data, tokens, or query strings. Empty or truncated results do not prove the
    problem never happened. A nearby error is not proof of cause.
 5. **Use a browser only when needed.** When reproducing the failure needs a
-   browser, use the `use-chrome` skill.
+   browser, use the `use-chrome` skill. The read-only rule applies there too:
+   do not submit, save, delete, purchase, or otherwise change data. Reproduce
+   with read-only steps, or in a non-production environment with synthetic
+   data.
 6. **Test competing explanations.** Check each plausible cause against the code,
    existing tests, history, and runtime evidence. Run focused existing checks
    when useful. Keep going until one cause explains every observation or the

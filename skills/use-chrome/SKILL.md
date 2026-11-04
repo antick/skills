@@ -22,8 +22,12 @@ this skill for every browser step.
    skip helper processes whose arguments include `--type=`, and check that the
    browser process has no `--user-data-dir` or one equal to the default
    directory. On Linux, read its arguments from `/proc/<pid>/cmdline`, because
-   `pgrep -af` also matches the calling shell. A Chromium process or a Chrome
-   with another `--user-data-dir` does not count. If Chrome is not running, ask
+   `pgrep -af` also matches the calling shell, and confirm that
+   `readlink /proc/<pid>/exe` is the stable binary (`/opt/google/chrome/chrome`),
+   since Chrome Beta, Dev, and snap Chromium use the same process name. On
+   macOS, read the arguments with `ps -o command= -p <pid>` and confirm the
+   path is inside `Google Chrome.app`. A Chromium process, another channel, or
+   a Chrome with another `--user-data-dir` does not count. If Chrome is not running, ask
    the user to open it and wait. Do not start it yourself.
 3. Check only that `DevToolsActivePort` exists in that directory. Chrome writes it
    while remote debugging is on. If it is missing, ask the user to open
@@ -53,7 +57,8 @@ this skill for every browser step.
    that connection for every later step and follow-up.
 4. Do not connect per step or per command. A fresh script or CLI invocation opens
    its own DevTools socket and triggers the prompt again.
-5. Do not hand Chrome work to subagents or parallel workers. Each new agent
+5. Do not hand Chrome work to subagents or parallel workers; the coordinating
+   agent runs main-Chrome steps itself, one at a time. Each new agent
    session costs another prompt.
 6. Record when the connection was approved.
 
@@ -62,11 +67,18 @@ this skill for every browser step.
 Remote-debugging sessions can expire; the user has observed them dropping after
 about two hours. Do not let the connection drop in the middle of work.
 
-- Track the connection's age. Shortly before the limit, at a safe point between
-  steps, tell the user that the session is being renewed and that one **Allow**
-  prompt is coming. Then open the new connection through the same client,
-  confirm it works, release the old one, and continue the task without waiting
-  for a separate go-ahead.
+- Track the connection's age from the moment the user allowed it. At about 100
+  minutes, at a safe point between steps, tell the user that the session is
+  being renewed and that one **Allow** prompt is coming, then renew it and
+  continue the task without waiting for a separate go-ahead:
+  - **Background helper:** open the new connection in the same helper, confirm
+    it works, then close the old one.
+  - **`chrome-devtools-mcp`:** it has no reconnect tool. Restart its server
+    through the harness when the harness allows that, then confirm the new
+    connection. When it cannot be restarted, tell the user the session will
+    need one reconnect when it drops, and handle the drop as below.
+  For a task likely to run past the limit, prefer the background helper so
+  renewal never interrupts the work.
 - If the connection drops unexpectedly, tell the user, reconnect once, and
   continue. If the user declines the prompt or the reconnect fails, stop the
   browser work and say so. Do not reconnect in a loop or fall back to another
@@ -86,16 +98,16 @@ about two hours. Do not let the connection drop in the middle of work.
 
 ## A second browser for cross-testing
 
-Open another Chrome profile or instance only when all of these hold:
+Open a separate Chrome instance with its own temporary `--user-data-dir` only
+when all of these hold:
 
 - the main Chrome is already connected through this skill;
 - the scenario needs a separate session at the same time, such as testing two
   users, roles, or devices against each other;
 - you tell the user why it is needed before opening it.
 
-Keep that browser isolated in a temporary profile, never point it at the default
-user data directory, and close it and remove its temporary profile when the
-scenario ends. The main Chrome connection stays the primary browser.
+Never point it at the default user data directory or one of its profiles. Close
+it and remove its temporary directory when the scenario ends. The main Chrome connection stays the primary browser.
 
 ## Opening a URL without a debugger
 
@@ -103,8 +115,10 @@ Running `google-chrome-stable <url>` on Linux or `open -a "Google Chrome" <url>`
 on macOS while the main Chrome is running hands the URL to that instance as a new
 tab. It opens no DevTools connection and shows no prompt. Use it only after step 2
 of **Find the main instance before connecting** confirms the main Chrome is
-running; otherwise the launcher would start Chrome. If this task already holds a
-connection, open the tab on that connection instead.
+running; otherwise the launcher would start Chrome. The tab opens in the
+foreground and the agent cannot close it, so use this only to show the user a
+page they will handle themselves. If this task already holds a connection, open
+the tab on that connection instead.
 
 ## Other browsers
 

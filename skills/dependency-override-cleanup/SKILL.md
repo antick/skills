@@ -11,7 +11,7 @@ override that forces a package older than its consumer requires.
 
 | Package manager | Where the workarounds live |
 | --- | --- |
-| pnpm | `overrides`, `patchedDependencies`, and `auditConfig` ignores in `pnpm-workspace.yaml` or the root `package.json` `pnpm` field; patch files under `patches/` |
+| pnpm | `overrides`, `patchedDependencies`, and `auditConfig` ignores in `pnpm-workspace.yaml` (older pnpm versions also read the root `package.json` `pnpm` field); patch files under `patches/`. The bundled script supports lockfile version 9 |
 | npm | `overrides` in the root `package.json`; `patch-package` patches |
 | Yarn | `resolutions` in the root `package.json`; `.yarn/patches` and `patch:` protocol entries |
 
@@ -33,7 +33,8 @@ override that forces a package older than its consumer requires.
    root. `<this-skill>` below is the path of this skill's installed folder.
 
    ```bash
-   node <this-skill>/scripts/check-overrides.mjs > "$TMPDIR/override-audit.txt"
+   out="$(mktemp -d)"
+   node <this-skill>/scripts/check-overrides.mjs > "$out/override-audit.txt"
    ```
 
    It reads pnpm's resolved configuration, every installed package's declared
@@ -71,11 +72,13 @@ For candidates, or for a full sweep when requested, measure what removal would
 do in a scratch worktree, never in the user's checkout:
 
 ```bash
-scratch="$(mktemp -d)/override-sim"
+base="$(mktemp -d)"
+scratch="$base/override-sim"
 git worktree add --detach "$scratch" HEAD
 (cd "$scratch" && pnpm install --frozen-lockfile)
-node <this-skill>/scripts/check-overrides.mjs --simulate "$scratch" > "$TMPDIR/override-sim.txt"
+node <this-skill>/scripts/check-overrides.mjs --simulate "$scratch" > "$base/override-sim.txt"
 git worktree remove --force "$scratch"
+rm -rf "$base"
 ```
 
 For each override, the simulation removes it, re-resolves the lockfile, and
@@ -111,7 +114,9 @@ entry so later audits do not flag it again.
 - Patched dependency: removable when upstream publishes a fixing release that
   meets the release-age rule, or when the patched version leaves the graph.
   pnpm fails install on an unused patch, so remove the patch file and its
-  `patchedDependencies` entry together with the upgrade.
+  `patchedDependencies` entry together with the upgrade. During cleanup this
+  skill may make that in-range upgrade itself, following the release-age rule;
+  an upgrade to a new major goes to `dependency-upgrade-major`.
 - Audit waiver: removable when the advisory no longer matches any resolved
   version. Check by temporarily removing the ID in the scratch worktree and
   rerunning the audit. A waiver tied to a local patch stays until the version
@@ -121,11 +126,13 @@ entry so later audits do not flag it again.
 
 ## 5. Clean up (only when asked)
 
-After the report, remove the entries proven removable. Make each removal group
-(an override with its patch or waiver, or one package family) its own commit
-with the repository's commit convention (`commit-message` when installed). After
-each group, run a frozen install, the focused checks from step 3, and the audit.
-Back out and report any group that fails. Add an inline comment to every entry
+After the report, remove the entries proven removable, one group at a time (an
+override with its patch or waiver, or one package family). For each group:
+remove the entry, run the package manager's install to update the lockfile (the
+lockfile records overrides), then run a frozen install, the focused checks from
+step 3, and the audit. Commit the group with the repository's commit convention
+(`commit-message` when installed) only after those pass. Back out and report any
+group that fails. Add an inline comment to every entry
 that must stay, stating why and its removal condition.
 
 ## Output

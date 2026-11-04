@@ -9,9 +9,10 @@ description: Create or refine GitHub issues through the gh CLI, following the re
 
 - Draft, preview, review, and refinement requests stay read-only unless the user
   explicitly asks to create or update the issue on GitHub.
-- Set assignees, labels, milestones, issue types, parents, or project fields only
-  when the user asks for them or comparable recent issues show one clear
-  convention. There is no default assignee or project.
+- Set labels or an issue type when the user asks for them or comparable recent
+  issues show one clear convention. Set assignees, milestones, parents, or
+  project fields only when the user asks for them. There is no default assignee
+  or project.
 - Keep secrets, credentials, private environment details, personal data, and
   unnecessary personal information out of issues. Ask before publishing content
   you are unsure about.
@@ -79,8 +80,8 @@ concurrent edits are not overwritten.
 ## Create and configure
 
 1. Create the issue once with `gh issue create`, passing the repository, final
-   title, `--body-file <body-file>`, and only the requested or established
-   metadata.
+   title, `--body-file <body-file>`, and only the metadata allowed under
+   **Boundaries**.
 2. Capture the issue URL. When the user asked for project fields, add the issue
    to the project and set them with the IDs resolved in preflight.
 3. If creation returns an uncertain result, search for the exact title before

@@ -22,9 +22,12 @@ no actionable findings, make no changes and say so.
 
 1. Resolve the pull request from the request or an unambiguous pull request
    already established in the conversation. Read its author, state, draft flag,
-   current head SHA, and changed files with `gh pr view`.
+   current head SHA, and changed files with `gh pr view`. If the pull request
+   is closed or merged, stop and report that instead of posting.
 2. Read the authenticated user with `gh api user --jq .login`.
-3. Choose the mode:
+3. Choose the mode. An explicit self-review request, including one from
+   `build-review-loop`, selects self-review mode. Otherwise compare the pull
+   request author with the authenticated login:
    - **Someone else's pull request:** tag `@<author>` at the start of every
      comment and submit with `event: REQUEST_CHANGES`.
    - **The user's own pull request** (self-review, including from
@@ -80,7 +83,7 @@ interpolating text into shell code:
 ```json
 {
   "commit_id": "<verified head SHA>",
-  "event": "REQUEST_CHANGES",
+  "event": "<REQUEST_CHANGES or COMMENT, per the mode>",
   "body": "<counts and unanchored findings>",
   "comments": [
     { "path": "src/file.ts", "line": 42, "side": "RIGHT", "body": "<comment>" }
@@ -95,7 +98,9 @@ gh api repos/<owner>/<repo>/pulls/<number>/reviews --method POST --input review.
 Post every finding in this single review. Do not post ordinary conversation
 comments as a substitute for inline findings. If GitHub rejects a comment's
 anchor, fix the anchor or move that finding to the body and retry once; if the
-review still fails, report the exact error. Before any retry after an uncertain
+review still fails, report the exact error. If GitHub reports that you already
+have a pending review on this pull request, report it instead of retrying.
+Before any retry after an uncertain
 result, list the pull request's reviews to avoid a duplicate post.
 
 ## 5. Mark the pull request as draft

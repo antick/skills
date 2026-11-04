@@ -106,7 +106,7 @@ export const engineeringDetails = {
   },
   "spec-status": {
     category: "Close out finished specs",
-    heading: "Find finished specs.\nArchive with proof.",
+    heading: "Find finished specs.\nShow the proof.",
     description: "List unarchived OpenSpec changes whose implementation already reached the main branch, with pull request and commit evidence, and flag partial or reverted work.",
     prompt: "$spec-status List the OpenSpec changes that are ready to archive, with evidence.",
     steps: ["List active changes on each branch", "Prove each implementation reached main", "Report candidates and changes needing attention"],

@@ -48,7 +48,14 @@ Give each builder a self-contained task with:
 - the user's earlier consent or refusal for expensive checks;
 - an instruction to return the pull request URL, pushed head SHA, changed
   behavior, checks run with results, unrun checks, and open decisions;
-- an instruction to implement only and leave review to the coordinator.
+- an instruction to implement only and leave review to the coordinator;
+- an instruction to return any `code-build` approval request, such as a layout
+  sketch for a new screen, as an open decision instead of waiting for the user;
+- an instruction not to use the user's main Chrome. Browser checks that need
+  it are run by the coordinator, one at a time, with `use-chrome`.
+
+When a builder returns an open decision, ask the user, then send the answer
+back to the same builder.
 
 Start independent builders together and review finished pull requests while
 others are still building. Keep each builder's handle for later fixes.
@@ -70,7 +77,9 @@ the pull request kept as draft. Record the review link.
 
 Send the exact findings and link to that issue's existing builder, resuming it
 in the same worktree and branch to fix, test, commit, and push to the same pull
-request. Keep other builders on their own issues.
+request. For a merge-conflict or behind-base finding, tell the builder to bring
+the branch up to date with `sync-branch`, merging the pull request's base
+branch, then re-review. Keep other builders on their own issues.
 
 If a builder disputes a finding, check the evidence against the requirement
 and settle it on technical grounds. Ask the user when intended behavior is

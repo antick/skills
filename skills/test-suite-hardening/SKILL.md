@@ -14,8 +14,8 @@ When the task is writing or checking the tests for a specific fix or feature:
 
 1. Read the repository's testing guidance. Replay the original ticket steps or
    user journey in the cheapest test that actually exercises those steps. Do not
-   substitute an unrelated route, a planted cookie or fixture, or an assertion
-   against implementation source text.
+   substitute an unrelated route, planted state that skips the steps under
+   test, or an assertion against implementation source text.
 2. Show that the test fails for the original defect and passes with the fix.
    When that cannot be executed, identify the failing condition by inspection
    and say the evidence is inspected, not executed.
@@ -96,15 +96,18 @@ do not install a large toolchain just to produce a score.
    requires a reason, owner, and exit condition; it is unresolved work, not a fix.
 
 Preserve legitimate product behavior. Separate production bug fixes from test-only
-changes and show the regression failing before the fix. New infrastructure should
+changes and show the regression failing before the fix, or, when that cannot be
+executed, identify the failing condition by inspection. New infrastructure should
 fit the request and existing stack; state any missing environment instead of
 silently substituting mocks for required integration evidence.
 
 ## Verify and report
 
-Run focused tests, a bounded repeat for prior flakes, and the complete available
-suite under the relevant CI conditions. Check the meaningful regression now fails
-when reintroduced and passes with the correct implementation. Report behaviors
+Run focused tests, a bounded repeat for prior flakes, and, within the consent rule
+in **Prove a change**, the complete available suite under the relevant CI
+conditions. Check the meaningful regression now fails when reintroduced and passes
+with the correct implementation, or label that evidence as inspected when it
+cannot be executed. Report behaviors
 protected, root causes fixed, before/after evidence, remaining quarantines,
 runtime cost, and integration/device checks not run. A passing repeat does not
 prove a probabilistic failure can never recur.

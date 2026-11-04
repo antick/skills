@@ -56,7 +56,7 @@ const details = {
   "code-build": {
     category: "From idea to working code",
     heading: "Understand first.\nThen build.",
-    description: "Build with the existing stack, including focused guides for design-system rules, shared components, localization, and platform migrations.",
+    description: "Build with the existing stack, commit in meaningful steps, and finish with a draft pull request. Includes focused guides for design-system rules, shared components, localization, and platform migrations.",
     prompt: "$code-build Add search to this Astro site using its existing conventions.",
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",

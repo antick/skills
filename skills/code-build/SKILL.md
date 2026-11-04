@@ -101,13 +101,14 @@ approval checkpoint. Use available agents only when delegation is authorized.
 Before writing UI code for a new screen, dialog, form, panel, or table action,
 name the existing screen whose pattern you are copying. When no existing screen
 fits, write a short layout sketch (entry point, overlays, and the actions shown
-in each state) and wait for the owner's approval before implementing it.
+in each state) and wait for the user's approval before implementing it.
 
 Add authentication, storage, payments, state libraries, and deployment services
 only when the requested behavior needs them. Keep credentials on the appropriate
 server or platform boundary and document required configuration with placeholders.
-Use project migrations for schema changes and keep `openapi.json` synchronized
-when adding, changing, or removing API endpoints.
+Use project migrations for schema changes and keep the repository's API
+specification, such as an OpenAPI file, synchronized when adding, changing, or
+removing API endpoints.
 
 When adding or updating dependencies, verify compatibility and release dates
 from official registries. Choose the newest compatible stable release at least
@@ -164,11 +165,13 @@ implementation ready to verify and state the exact remaining step.
 ## Commit and open a draft pull request
 
 Invoking this skill authorizes committing, pushing a feature branch, and opening
-a draft pull request. Do this at the end of every implementation. Skip or limit
-it only when the user says local-only, no commit, no push, or no pull request.
+a draft pull request. Commit along the way as described below, and finish every
+implementation with a pushed branch and a draft pull request. Skip or limit this
+only when the user says local-only, no commit, no push, or no pull request.
 
 1. Work on a feature or fix branch created from the latest fetched default
-   branch, unless the user names another base. Never commit directly to the
+   branch, unless the user names another base. When updating an existing pull
+   request, including fix rounds, continue on its branch. Never commit directly to the
    default branch or another long-lived branch such as `main` or `develop`.
 2. Commit as you complete each coherent piece of work, so the history shows
    meaningful steps that can be reviewed or reverted separately: for example a

@@ -17,13 +17,18 @@ Do not merge or close the pull request itself.
    repository and branch with `gh pr view`. Never sync into `main`, the default
    branch, or another protected branch.
 2. Choose the source branch: `main` by default, or the branch the user names
-   when invoking this skill (for example "sync with develop"). If `main` does
-   not exist and no branch was named, ask instead of guessing.
+   when invoking this skill (for example "sync with develop"). If no branch was
+   named and `main` does not exist, or the pull request targets a base other
+   than `main`, ask which branch to merge instead of guessing; merging `main`
+   into a pull request based on another branch pollutes its diff.
 3. Fetch the source branch and the target head from their verified remotes and
    record both SHAs.
 4. Work from the current remote head in a clean checkout. When the user's
    checkout has uncommitted edits or unpublished commits, use a separate
-   worktree instead. Never reset, stash over, or discard the user's work.
+   detached worktree (`git worktree add --detach <path> <remote>/<branch>`),
+   because the branch is already checked out there, and push from it with
+   `git push <remote> HEAD:<branch>`. Never reset, stash over, or discard the
+   user's work.
 
 ## 2. Merge
 
@@ -55,7 +60,9 @@ not rebase, squash, cherry-pick, or force-push.
   the repository's consent rules for expensive suites, and report anything
   unrun.
 - Do not commit with failing required checks unless the same failure exists on
-  the source branch; report that as pre-existing.
+  the source branch; report that as pre-existing. When you stop without
+  committing, run `git merge --abort` so no checkout is left mid-merge, and
+  report what failed.
 - Write the merge commit message with `commit-message` when it is installed;
   otherwise follow the repository's commit convention.
 

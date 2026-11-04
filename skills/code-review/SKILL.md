@@ -83,7 +83,7 @@ Check this on every pull request review and re-review, using live data.
   with `git merge-tree --write-tree` on fetched refs; otherwise say the files
   could not be listed. Explain that it cannot merge and that the reviewed diff
   may change once conflicts are resolved. Recommend `sync-branch` followed by a
-  re-review.
+  re-review, naming the pull request's base branch when it is not `main`.
 - When it merges cleanly but is behind, check whether base commits since the
   merge base touch the same files, migrations, specifications, generated
   contracts such as API specs, or runtime callers the change depends on. Report

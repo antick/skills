@@ -22,8 +22,8 @@ presence alone does not authorize changes. Do not create accounts, buy domains,
 transfer domains, or change nameservers as part of this workflow.
 
 Prefer existing authenticated Vercel and DNS tools or CLI/API access. If browser
-access is needed, reuse the user's existing signed-in main Chrome session,
-especially for Cloudflare. Inspect available tabs/profiles first. If the tools
+access is needed, reuse the user's existing signed-in main Chrome session
+through the `use-chrome` skill, especially for Cloudflare. If the tools
 cannot access that session, report the specific access needed; do not launch a
 fresh login profile, restart Chrome, or create replacement credentials.
 

@@ -258,7 +258,11 @@ $simplify Write these instructions in ASD-STE100 Simplified Technical English. K
 
 Skills provide instructions to the agent. Its tools, permissions, and your
 project's instructions still determine what it can do. Review and audit requests report findings by default; implementation requests
-authorize the relevant changes. `code-security` separates read-only audits from
+authorize the relevant changes. `code-build` commits in meaningful steps, pushes a
+branch, and opens a draft pull request unless you ask for local-only work.
+`submit-review`, `sync-branch`, and `build-review-loop` post to GitHub or push
+branches as part of their request; `code-debug`, `branch-status`, `spec-status`,
+`dependency-audit`, and `performance-audit` only report. `code-security` separates read-only audits from
 requested remediation and supply-chain hardening. `accessibility-audit` fixes findings only when fixes are requested.
 `interview` uses the host's supported memory system only with save authorization;
 installing it does not start an interview or save personal information. It never

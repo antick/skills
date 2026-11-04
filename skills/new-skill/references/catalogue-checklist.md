@@ -47,8 +47,11 @@ npm test
 npm pack --dry-run
 ```
 
-When a website is present and its dependencies are installed, also run its
-tests and type checks. Then search for stale or missing entries:
+When a website is present, also run its catalogue tests, which work without
+installing its dependencies, for example `node --test website/tests/*.test.mjs`.
+Run its type checks (such as `npm run check --prefix website`) when its
+dependencies are installed, and otherwise report them as skipped; a missing
+icon mapping is caught only there. Then search for stale or missing entries:
 
 ```sh
 git grep -n '<old-or-new-name>'

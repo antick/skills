@@ -23,11 +23,12 @@ Drastic upgrades include:
 - engine bumps beyond the deployed runtime, and peer cascades across packages;
 - packages that affect authentication, sessions, cryptography, sanitization,
   uploads, or audit behavior;
+- replacing a deprecated or abandoned package with its successor;
 - upgrades that need data migrations, infrastructure changes, browser
   verification, or deployment ordering.
 
 Still ask before running data migrations against shared or production systems,
-deploying, publishing, or making a product-visible behavior change. Patch and
+deploying, publishing, pushing, or making a product-visible behavior change. Patch and
 minor updates that need no migration belong to `dependency-upgrade-minor`; do
 them here only when a group requires them.
 
@@ -59,9 +60,11 @@ failures remain. Never discard unrelated changes to get a clean baseline.
 Check the live registry for versions and publish times; do not rely on
 remembered versions.
 
-- Select the latest stable version published at least 48 hours ago. When the
-  newest release is younger, select the newest eligible one and report the
-  skipped release.
+- Select the latest stable version published at least 48 hours ago, or longer
+  when the repository sets a stricter release-age policy. When the newest
+  release is younger, select the newest eligible one and report the skipped
+  release. When an urgent security fix is younger than the minimum age, explain
+  the conflict and ask the user instead of overriding the policy.
 - Exclude prerelease, nightly, canary, alpha, beta, and release-candidate
   versions unless the project intentionally uses that channel.
 - Do not choose an older version merely to avoid migration work. If the latest
@@ -69,7 +72,8 @@ remembered versions.
   retained or selected.
 - Use exact versions for upgraded registry dependencies. Preserve workspace
   references, local paths, Git references, and aliases according to their
-  purpose.
+  purpose, and check aliased registry packages (`npm:<name>@<version>`) for an
+  eligible exact version.
 
 ## 4. Plan each group before changing it
 
@@ -100,7 +104,8 @@ Do not:
 - delete or regenerate the lockfile as a routine technique;
 - use force or `--legacy-peer-deps` to hide compatibility problems;
 - disable checks, weaken types, or skip tests to make the upgrade pass;
-- change a test expectation unless the new behavior is intended and documented;
+- change a test expectation unless the user confirmed the new behavior is
+  intended and it is documented;
 - add unexplained overrides or resolutions;
 - run unreviewed remote migration scripts, or refactor unrelated code.
 

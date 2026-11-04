@@ -13,11 +13,15 @@ behavior. Never claim an update cannot break anything; report what was verified.
 
 - "Check", "scan", or "what can be updated" means report only. "Update" or
   "upgrade" authorizes Tier 1 and Tier 2 changes inside the requested scope.
-- Stay within each package's current major. A major release, or any update
-  classified as drastic below, is reported with a short note and left for
-  `dependency-upgrade-major`.
+- Stay within each package's current major. For a `0.x` package, the current
+  minor counts as the major, so `0.3` to `0.4` is a major update. A major
+  release, or any update classified as drastic below, is reported with a short
+  note and left for `dependency-upgrade-major`.
 - Do not remove or loosen overrides, resolutions, or patches as a side effect.
-  Report entries that look stale for `dependency-override-cleanup`.
+  Leave packages controlled by an override, resolution, or patch at their
+  current version, and report them and any stale-looking entries for
+  `dependency-override-cleanup`.
+- Do not push, publish, or deploy unless the user asks.
 - Use the project's existing package manager and lockfile. Do not switch package
   managers, create a second lockfile, or delete and regenerate the lockfile.
 - Check Git status first and preserve existing user changes.
@@ -44,8 +48,9 @@ baseline.
 Use the package manager's machine-readable output, for example:
 
 ```bash
-pnpm outdated -r --format json > "$TMPDIR/outdated.json"   # nonzero exit means updates exist
-pnpm audit --json > "$TMPDIR/audit.json"
+out="$(mktemp -d)"
+pnpm outdated -r --format json > "$out/outdated.json"   # nonzero exit means updates exist
+pnpm audit --json > "$out/audit.json"
 ```
 
 Use the npm or Yarn equivalents when that is the project's manager. For each
@@ -53,11 +58,14 @@ package record the owning workspaces and dependency section, declared spec,
 locked version, newest version within the current major, newest overall, the
 publish date of each candidate, and whether it is direct or only transitive.
 Registry, network, or authentication failures are coverage gaps, not "up to date".
+Check overrides, resolutions, and patches for every candidate; a package they
+control is reported, not updated. Check aliased registry packages
+(`npm:<name>@<version>`) for an eligible exact version too.
 
-A deprecated package needs a replacement, not a version bump. Find the
-maintainer's recommended successor (for an `@types/*` package, the library often
-ships its own types now). Classify the switch like any other update; a
-replacement that changes APIs broadly goes to `dependency-upgrade-major`.
+A deprecated package needs a replacement, not a version bump. Handle only
+trivial removals here, such as dropping an `@types/*` package once the library
+ships its own types. Report any other replacement with the maintainer's
+recommended successor for `dependency-upgrade-major`.
 
 Group packages that must move together, such as a framework and its official
 plugins, a library and its types package, a test runner and its adapters, a
@@ -69,7 +77,10 @@ package.
 
 Check the live registry for versions and publish times; do not rely on
 remembered versions. Select the newest stable release within the current major
-that has been published for at least 48 hours. Exclude prerelease, nightly,
+that has been published for at least 48 hours, or longer when the repository
+sets a stricter release-age policy. When an urgent security fix is younger than
+the minimum age, explain the conflict and ask the user instead of overriding the
+policy. Exclude prerelease, nightly,
 canary, alpha, beta, and release-candidate versions unless the project already
 uses that channel. When the newest release is younger than 48 hours, select the
 newest eligible one and list the newer release as deferred with its publish date.
@@ -89,8 +100,9 @@ type changes.
   code change and focused tests; the total change must stay reviewable.
 - **Major or drastic.** A major version, framework or runtime platform change,
   ESM-only switch, engine bump beyond the deployed runtime, peer cascade across
-  several packages, change to authentication, sessions, cryptography,
-  sanitization, uploads, or audit behavior, anything needing data migrations or
+  several packages, any update to packages that handle authentication,
+  sessions, cryptography, sanitization, uploads, or audit behavior, a
+  non-trivial deprecated-package replacement, anything needing data migrations or
   deployment ordering, or breaking changes spread across many call sites or
   without test coverage. Report it and point to `dependency-upgrade-major`.
 
@@ -98,21 +110,26 @@ When unsure between tiers, pick the higher one and say why.
 
 ## 5. Apply (only when asked to update)
 
-1. Apply Tier 1 updates, preserving each entry's existing spec style. Use exact
-   versions where the project pins exactly. pnpm saves a tag or range as a caret
-   range, so pass an exact version with `--save-exact`, for example
+Work through the groups one at a time, Tier 1 first, so each group can be
+reverted alone. For each group:
+
+1. Apply the update with exact versions. Do not use caret, tilde, wildcard, or
+   `latest` specs for updated registry dependencies; keep `peerDependencies`
+   ranges in reusable libraries. pnpm saves a tag or range as a caret range, so
+   pass an exact version with `--save-exact`, for example
    `pnpm --filter <pkg> add --save-exact <name>@<version>` (`--save-dev` for dev
    dependencies). Update manifests and the lockfile together.
-2. Run the affected packages' lint, type checks, and unit tests. If a Tier 1
+2. For a Tier 2 group, make the code changes and add focused tests.
+3. Run the affected packages' lint, type checks, and unit tests. If a Tier 1
    update fails, investigate: reclassify it to Tier 2 and fix it, or back it out
    and report it.
-3. Apply each Tier 2 group with its code changes and focused tests.
-4. Make one commit per group so any group can be reverted alone, following the
-   repository's commit convention (`commit-message` when installed).
-5. Regenerate generated contracts, such as `openapi.json`, when an update changes
-   an API surface.
-6. Rerun the security audit at the project's threshold and confirm no new
-   advisories.
+4. Regenerate generated contracts, such as an API specification, when the update
+   changes an API surface.
+5. Commit the group, following the repository's commit convention
+   (`commit-message` when installed).
+
+After the last group, rerun the security audit at the project's threshold and
+confirm no new advisories.
 
 Never change a test expectation just to make an update pass. A changed behavior
 is a reason to move the update to `dependency-upgrade-major`. Do not use force,

@@ -46,9 +46,10 @@ installed. Remove or merge away a skill only when the user authorizes it.
   ordered steps, verification, and the output contract. Keep it to roughly the
   length of comparable skills; move long topic guides into `references/` and
   link them from `SKILL.md`.
-- **Output templates:** show required formats as fenced templates that render
-  correctly. Put bold labels on separate paragraphs with blank lines between
-  them.
+- **Output templates:** copy the template style of the closest existing skill,
+  such as a table, bold-label blocks, or bullet lists, and make sure it renders
+  correctly. When bold labels must appear as separate paragraphs, put blank
+  lines between them.
 - **Links:** link only to files inside the skill's own folder, with relative
   paths that exist. Refer to other skills by name in backticks, never by a path
   into another skill's folder; each skill must work when installed alone.

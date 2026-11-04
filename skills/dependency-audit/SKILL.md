@@ -21,8 +21,9 @@ known advisory does not prove safety.
   issues or pull requests. Use existing read-only tools and upstream metadata.
 - Never expose registry credentials, secret values, or private URLs containing
   tokens in commands, diagnostics, or reports.
-- When the user also wants upgrades, finish the inventory first. Package updates
-  then use `dependency-upgrade-minor` or `dependency-upgrade-major`; other sources
+- When the user also wants upgrades, finish the inventory first. JavaScript and
+  TypeScript package updates then use `dependency-upgrade-minor` or
+  `dependency-upgrade-major`; packages in other ecosystems and other sources
   such as images, actions, and runtime pins use `code-build`. An audit request
   alone does not authorize changes.
 
@@ -104,7 +105,8 @@ Do not assign security severity merely because a version is old.
 
 Use a concise table with dependency and source, declared and resolved versions,
 latest within range and latest overall, recommended target, the skill that would
-apply it (`dependency-upgrade-minor`, `dependency-upgrade-major`, or `code-build`),
+apply it (`dependency-upgrade-minor` or `dependency-upgrade-major` for
+JavaScript and TypeScript packages, `code-build` for everything else),
 and the reason. Use `unknown` or `not applicable` where appropriate. Include
 exact file locations and upstream evidence links; group duplicate consumers
 without hiding them.

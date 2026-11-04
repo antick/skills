@@ -42,9 +42,10 @@ what you checked or which files you loaded. When no issue is linked, say in one
 line under the merge status that the review used the description and
 discussion as its requirements source.
 
-Place each finding once. Security and sensitive-data defects and merge
-conflicts always go under Task findings. Otherwise use the Code health heading
-that fits; use Task findings when none does.
+Place each finding once. Security and sensitive-data defects, merge conflicts,
+and rollout or mixed-version problems in the required flow always go under Task
+findings. Side effects covers behavior outside the requirements. Otherwise use
+the Code health heading that fits; use Task findings when none does.
 
 Within each section or heading, order findings `CRITICAL`, `HIGH`, `MEDIUM`,
 then `LOW`, using this block:
@@ -91,5 +92,6 @@ Do not claim that tests guarantee no future defects.
 - Pasting a number with a country code: no test (see Coverage gaps).
 ```
 
-If there are no actionable findings, every section says `None found.` and the
-gaps still list anything important that was not verified.
+If there are no actionable findings, Task findings and every Code health
+heading say `None found.`; Verification gaps and Regression coverage still list
+their items.

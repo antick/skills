@@ -32,7 +32,7 @@ and response handling. Follow existing status codes and response shapes. Check
 resource ownership at the server boundary, not only in the UI. Preserve useful
 error reporting without exposing secrets or internal details.
 
-Synchronize `openapi.json` with changed endpoints, including request/response
+Synchronize the API specification, such as an OpenAPI file, with changed endpoints, including request/response
 schemas, errors, and authentication. Use the existing generator when present.
 Test a real handler path plus invalid input and denied access where applicable;
 mocked helper tests alone do not establish the HTTP contract.

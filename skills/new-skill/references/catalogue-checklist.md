@@ -33,6 +33,7 @@ order and style:
 | `.claude-plugin/marketplace.json` | `./skills/<name>` in the plugin's `skills` list |
 | `.codex-plugin/plugin.json` | Capabilities, long description, and default prompts when the skill adds a capability |
 | `pi-extension/commands.json` | `"<name>": "<summary>"` |
+| A router skill's catalogue, such as `skills/antick/references/catalogue.md` | A row `` | `<name>` | <summary> | `` in the fitting area, with the exact `packs.json` summary |
 | Website catalogue files | Presentation details (category, heading, description, prompt starting with `$<name> `, steps, mode) and an icon mapping |
 
 Keep the summary text identical wherever the repository repeats it, such as

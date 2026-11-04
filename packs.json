@@ -37,7 +37,8 @@
     "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
     "interview": "Learn personal context and save authorized memories",
     "new-skill": "Create or change skills that match the existing set and catalogues",
-    "use-chrome": "Reuse one connection to your main Chrome in background tabs"
+    "use-chrome": "Reuse one connection to your main Chrome in background tabs",
+    "antick": "List Antick skills by area or recommend one for a task"
   },
   "packs": [
     {
@@ -81,7 +82,8 @@
         "documentation-generation",
         "interview",
         "new-skill",
-        "use-chrome"
+        "use-chrome",
+        "antick"
       ]
     }
   ]

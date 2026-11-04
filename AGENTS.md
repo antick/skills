@@ -1,8 +1,9 @@
 # Agent Notes
 
 Treat `skills/*/SKILL.md` as the canonical skill set. Keep `packs.json`, `SKILLS.md`,
-the host plugin manifests, `pi-extension/commands.json`, and the website catalogue
-and icons in `website/src/lib/` synchronized with it.
+the host plugin manifests, `pi-extension/commands.json`,
+`skills/antick/references/catalogue.md`, and the website catalogue and icons in
+`website/src/lib/` synchronized with it.
 
 Run `npm test`, `node --test website/tests/*.test.mjs`, and `npm pack --dry-run`
 after catalogue changes.

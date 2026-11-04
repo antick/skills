@@ -68,6 +68,23 @@ test("catalogues contain exactly the skills on disk", async () => {
   assert.deepEqual(documented.sort(), skillNames);
 });
 
+test("antick catalogue lists every other skill once with its packs.json summary", async () => {
+  const [packs, catalogue] = await Promise.all([
+    readJson("packs.json"),
+    readFile(path.join(root, "skills/antick/references/catalogue.md"), "utf8"),
+  ]);
+  const rows = [...catalogue.matchAll(/^\| `([a-z][a-z0-9-]*)` \| (.+) \|$/gm)].map(
+    ([, name, summary]) => [name, summary],
+  );
+  const listed = rows.map(([name]) => name);
+
+  assert.deepEqual(listed.slice().sort(), skillNames.filter((name) => name !== "antick"));
+  assert.equal(new Set(listed).size, listed.length);
+  for (const [name, summary] of rows) {
+    assert.equal(summary, packs.summaries[name], `${name}: summary differs from packs.json`);
+  }
+});
+
 test("OpenCode registers each skill once", async () => {
   const hooks = await skillsPlugin();
   const config = {};

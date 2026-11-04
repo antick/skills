@@ -1,4 +1,4 @@
-import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, GitBranch, GitMerge, GitPullRequest, Bug, Globe, FileText, Gauge, Package, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, GitBranch, GitMerge, GitPullRequest, Bug, Globe, FileText, Gauge, Package, List, type LucideIcon } from "lucide-react";
 import type { Skill } from "./catalog";
 
 export const skillIcons = {
@@ -39,5 +39,6 @@ export const skillIcons = {
   "use-chrome": Globe,
   "performance-audit": Gauge,
   "dependency-audit": ScanLine,
-  "dependency-override-cleanup": Scissors
+  "dependency-override-cleanup": Scissors,
+  antick: List
 } satisfies Record<Skill["name"], LucideIcon>;

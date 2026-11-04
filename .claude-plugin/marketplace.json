@@ -49,7 +49,8 @@
         "./skills/documentation-generation",
         "./skills/interview",
         "./skills/new-skill",
-        "./skills/use-chrome"
+        "./skills/use-chrome",
+        "./skills/antick"
       ]
     }
   ]

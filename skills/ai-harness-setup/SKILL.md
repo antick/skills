@@ -14,14 +14,14 @@ installing a missing tool requires the user's confirmation of the concrete plan.
 
 ## Coverage
 
-Unless the user narrows the scope, inventory and report all 18 entries in
+Unless the user narrows the scope, inventory and report all 19 entries in
 [the tool registry](references/tools.md), keeping CLI and desktop rows separate:
 
 - Pi and OMP (Oh My Pi).
 - Codex CLI and Codex Desktop (including the current official desktop product
   that provides Codex); Claude Code CLI and Claude Desktop with Claude Code.
 - Orca CLI and Orca Desktop; Peekaboo (also spelled "peekaaboo" in requests).
-- Grok CLI (Grok Build) and Grok Bot Desktop.
+- Grok CLI (Grok Build) and Grok Bot Desktop; OpenMausBot Desktop (MausBot).
 - Hermes CLI and Hermes Desktop; OpenCode CLI and OpenCode Desktop.
 - Node.js **latest LTS**, Deno stable, and Bun stable.
 
@@ -85,8 +85,17 @@ existing exceptions only when required and disclose their manual update cost.
 
 ## Confirm missing-tool setup, then act
 
-Prepare a concise plan for **all missing tools and dependencies**: tool/version,
-OS and architecture, official source, exact installation commands, destination,
+For an update-only request, leave every absent tool uninstalled and report
+`skipped — not installed (update-only)` without asking to install it.
+OpenMausBot is update-only by default even during a general setup run: update an
+existing installation, but if absent, report
+`skipped — not installed (update-only by default)`. Include its official download
+link so the user can choose it later. Only an explicit request to install OpenMausBot brings it into
+the confirmation plan below; a blanket setup approval does not include it.
+
+For missing tools eligible for setup, prepare a concise plan including their
+dependencies: tool/version, OS and architecture, official source, exact
+installation commands, destination,
 elevation, future update mechanism, and any required GUI steps. Identify coupled
 installs: Orca CLI can require the desktop bundle; another desktop installer can
 also add its CLI/runtime. Include these effects in the plan. Download and inspect
@@ -132,7 +141,7 @@ running app still uses the old code, report the installed version and required
 restart separately. A working CLI is not proof that its desktop app was installed.
 
 Always end with the detected OS/architecture/environment and a Markdown table
-covering all 18 default entries, even after partial failures or refusals. For an
+covering all 19 default entries, even after partial failures or refusals. For an
 explicitly narrowed request, keep other default rows as `skipped — out of scope`.
 Include any extra tools/dependencies actually considered as additional rows.
 
@@ -144,8 +153,9 @@ Use only these statuses and report totals by status:
 - `installed`: newly added and verified. Mention unfinished sign-in/GUI setup.
 - `updated`: an existing installation changed and the new version was verified.
 - `already current`: verified against the applicable channel; no update needed.
-- `skipped`: declined, awaiting confirmation, out of scope, or intentionally pinned;
-  state which. Do not label a pinned older version current.
+- `skipped`: declined, awaiting confirmation, out of scope, intentionally pinned, or
+  not installed under update-only policy; state which. Do not label a pinned
+  older version current.
 - `unsupported`: official support/artifacts exclude this OS, architecture, or
   required desktop environment. Cite the upstream evidence and specific reason.
 - `blocked`: installation/update cannot proceed because of privilege, network,
@@ -155,6 +165,11 @@ Use only these statuses and report totals by status:
   and resulting state. Do not claim a partial install succeeded.
 - `staged`: verified artifact/update is prepared but activation/replacement is
   deferred. State what remains; it is not installed or updated yet.
+
+For every absent tool, retain its row with `Before: not installed`, the reason
+it was skipped or otherwise unavailable, platform eligibility, and an official
+installation/download link as a next step. This lets the user decide what to add
+later; reporting an option does not authorize installing it.
 
 Use `not installed`, `unknown`, and `not checked` honestly in version cells. Link
 the official evidence for unsupported decisions and non-obvious installation

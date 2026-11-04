@@ -1,6 +1,6 @@
 # Antick Skills
 
-Thirty-eight portable AI agent skills for engineering refactors, security and
+38 portable AI agent skills for engineering refactors, security and
 supply-chain hardening, tests and CI, accessible UI systems, platform and data
 migrations, documentation, releases, personal interviews, and clear communication.
 

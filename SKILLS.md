@@ -1,6 +1,6 @@
 # Antick Skills
 
-39 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+40 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -42,6 +42,7 @@
 | `interview` | Learn personal context and save authorized memories |
 | `new-skill` | Create or change skills that match the existing set and catalogues |
 | `use-chrome` | Reuse one connection to your main Chrome in background tabs |
+| `update-skills` | Update installed skills and report new or removed ones |
 | `antick` | List Antick skills by area or recommend one for a task |
 
 ## Workflow coverage
@@ -85,5 +86,6 @@ the combinations below describe complementary workflows, not required dependenci
 | Commits, PR text, and issues | [commit-message](skills/commit-message/SKILL.md), [pr-description](skills/pr-description/SKILL.md), [create-issue](skills/create-issue/SKILL.md) |
 | Branch and spec cleanup audits | [branch-status](skills/branch-status/SKILL.md), [spec-status](skills/spec-status/SKILL.md) |
 | New skill creation | [new-skill](skills/new-skill/SKILL.md) |
+| Update installed skills | [update-skills](skills/update-skills/SKILL.md) |
 | Browser work in your own Chrome | [use-chrome](skills/use-chrome/SKILL.md) |
 | Skill catalogue and routing | [antick](skills/antick/SKILL.md) |

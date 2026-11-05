@@ -37,6 +37,7 @@ export const skillIcons = {
   "spec-status": FileText,
   "new-skill": Code2,
   "use-chrome": Globe,
+  "update-skills": RefreshCw,
   "performance-audit": Gauge,
   "dependency-audit": ScanLine,
   "dependency-override-cleanup": Scissors,

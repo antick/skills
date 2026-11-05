@@ -128,6 +128,14 @@ export const engineeringDetails = {
     steps: ["Find and verify the running main Chrome", "Connect once and work in background tabs", "Close opened tabs when the task ends"],
     mode: "Browser connection; main Chrome only",
   },
+  "update-skills": {
+    category: "Keep your skills current",
+    heading: "Update your skills.\nSee what changed.",
+    description: "Run the skills CLI update for your installed skills, then report what changed, which new skills you have not installed, which were removed upstream, and which still follow a branch.",
+    prompt: "$update-skills Update my globally installed skills and tell me what changed.",
+    steps: ["Record installed skills and their sources", "Run the update and list new and removed skills", "Install or remove only what you confirm"],
+    mode: "Updates installed skills; asks before adding or removing",
+  },
   "performance-audit": {
     category: "Fast today, fast at scale",
     heading: "Find what grows.\nFix it before it's slow.",

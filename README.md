@@ -1,6 +1,6 @@
 # Antick Skills
 
-39 skills for AI coding agents: building, debugging, code review and pull
+40 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -35,6 +35,10 @@ To try a branch before it is merged, install from it with
 `npx skills@latest add antick/skills#<branch> --global`. Skills installed that
 way keep following that branch on `update`, so reinstall from `antick/skills`
 once it is merged.
+
+Or ask your agent with `$update-skills`. It runs the update, lists skills added
+or removed upstream and skills that follow a branch, and asks before it installs
+or removes anything.
 
 ## Remove
 
@@ -96,6 +100,7 @@ install globally, so you get dozens of errors.
 | [interview](skills/interview/SKILL.md) | Get to know you and save only what you approve to memory |
 | [new-skill](skills/new-skill/SKILL.md) | Create or change skills that match the existing set and every catalogue |
 | [use-chrome](skills/use-chrome/SKILL.md) | Work in your already-open Chrome in background tabs, with one Allow prompt per connection and no substitute browser |
+| [update-skills](skills/update-skills/SKILL.md) | Update your installed skills, then list new skills to add and removed skills to delete |
 
 [SKILLS.md](SKILLS.md) maps common tasks to the skill and guide that covers them.
 Each skill's `SKILL.md` is the source of truth for what it does.

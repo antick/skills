@@ -67,6 +67,7 @@ is listed.
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 | `use-chrome` | Reuse one connection to your main Chrome in background tabs |
 | `new-skill` | Create or change skills that match the existing set and catalogues |
+| `update-skills` | Update installed skills and report new or removed ones |
 
 ## Writing & personal
 

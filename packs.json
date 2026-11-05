@@ -38,6 +38,7 @@
     "interview": "Learn personal context and save authorized memories",
     "new-skill": "Create or change skills that match the existing set and catalogues",
     "use-chrome": "Reuse one connection to your main Chrome in background tabs",
+    "update-skills": "Update installed skills and report new or removed ones",
     "antick": "List Antick skills by area or recommend one for a task"
   },
   "packs": [
@@ -83,6 +84,7 @@
         "interview",
         "new-skill",
         "use-chrome",
+        "update-skills",
         "antick"
       ]
     }

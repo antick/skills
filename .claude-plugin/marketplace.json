@@ -50,6 +50,7 @@
         "./skills/interview",
         "./skills/new-skill",
         "./skills/use-chrome",
+        "./skills/update-skills",
         "./skills/antick"
       ]
     }

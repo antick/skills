@@ -1,6 +1,6 @@
 # Antick Skills
 
-24 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+25 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -26,6 +26,7 @@
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
+| `html-wiki` | Generate and refresh a source-backed codebase wiki in one offline HTML file |
 | `interview` | Learn personal context and save authorized memories |
 | `antick` | List Antick skills by area or recommend one for a task |
 
@@ -36,6 +37,7 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Single-file codebase wiki | [html-wiki](skills/html-wiki/SKILL.md), with offline navigation, source citations, and incremental refresh |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |
 | Architecture cleanup | [code-audit](skills/code-audit/SKILL.md) for findings; [code-refactor](skills/code-refactor/SKILL.md) for implementation |
 | Auth flow consolidation | [code-refactor: auth-consolidation](skills/code-refactor/references/auth-consolidation.md) |

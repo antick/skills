@@ -34,6 +34,7 @@
         "./skills/ci-cd-triage",
         "./skills/accessibility-audit",
         "./skills/documentation-generation",
+        "./skills/html-wiki",
         "./skills/interview",
         "./skills/antick"
       ]

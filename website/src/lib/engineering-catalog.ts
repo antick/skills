@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "html-wiki": {
+    category: "HTML Wiki",
+    heading: "Understand the code.\nKeep one file.",
+    description: "Generate or refresh a source-backed repository guide as one offline HTML file with architecture diagrams, source citations, search, and embedded refresh metadata.",
+    prompt: "$html-wiki Generate a source-backed codebase wiki in docs/codebase-wiki.html with offline search, inline diagrams, citations, and refresh metadata.",
+    steps: ["Map source evidence and trace important flows", "Build one navigable, self-contained HTML guide", "Verify links, offline dependencies, and refresh metadata"],
+    mode: "Single-file documentation",
+  },
   "test-suite-hardening": {
     category: "Test Suite Hardening",
     heading: "Test Suite Hardening",

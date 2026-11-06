@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>WIKI_TITLE</title>
+<style>
+:root { color-scheme: light; --bg: #faf9f6; --panel: #fff; --ink: #202c33; --muted: #53636d; --line: #c9d2d6; --accent: #005d66; }
+:root[data-theme="dark"] { color-scheme: dark; --bg: #141d23; --panel: #1d2a32; --ink: #ebf1f4; --muted: #b5c4cc; --line: #52636d; --accent: #86ddd6; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 1rem/1.65 system-ui, sans-serif; }
+a { color: var(--accent); text-underline-offset: .2em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.skip { position: absolute; top: -5rem; left: 1rem; background: var(--panel); padding: .5rem; z-index: 2; }
+.skip:focus { top: 1rem; }
+.layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); max-width: 100rem; margin: auto; }
+aside { position: sticky; top: 0; height: 100dvh; overflow-y: auto; padding: 2rem 1.5rem; border-right: 1px solid var(--line); }
+main { min-width: 0; padding: 3rem clamp(1.25rem, 5vw, 5rem); max-width: 75rem; }
+header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -.04em; margin: .5rem 0 1.5rem; }
+h2 { font-size: 1.75rem; line-height: 1.25; }
+h3 { font-size: 1.15rem; }
+.eyebrow { text-transform: uppercase; font-size: .75rem; letter-spacing: .12em; color: var(--muted); }
+.muted, figcaption { color: var(--muted); }
+p, li, td { overflow-wrap: anywhere; }
+section { padding: 1.5rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+nav ul { list-style: none; padding: 0; }
+nav a { display: block; padding: .4rem 0; }
+button, input { font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: .35rem; padding: .45rem .65rem; }
+button { cursor: pointer; }
+input { width: 100%; margin: .5rem 0; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+pre, .table-scroll { overflow-x: auto; max-width: 100%; }
+pre { padding: 1rem; background: var(--panel); border: 1px solid var(--line); border-radius: .5rem; }
+code { font-family: ui-monospace, monospace; font-size: .9em; overflow-wrap: anywhere; }
+pre code { overflow-wrap: normal; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .6rem; border-bottom: 1px solid var(--line); }
+figure { margin: 1.5rem 0; }
+.diagram-scroll { overflow-x: auto; }
+.diagram-scroll svg { min-width: 37.5rem; }
+svg { max-width: 100%; height: auto; color: var(--ink); }
+svg text { fill: currentColor; font: 16px system-ui, sans-serif; }
+svg rect { fill: var(--panel); stroke: var(--accent); }
+svg path { stroke: var(--accent); }
+[hidden] { display: none !important; }
+@media (max-width: 48rem) {
+  .layout { display: block; }
+  aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 1.25rem; }
+  nav ul { display: flex; gap: 1rem; flex-wrap: wrap; }
+}
+@media print {
+  :root, :root[data-theme="dark"] { --bg: #fff; --panel: #fff; --ink: #000; --muted: #333; --line: #aaa; --accent: #000; }
+  .layout { display: block; }
+  aside, .skip, #no-results { display: none !important; }
+  main { padding: 0; max-width: none; }
+  section[hidden] { display: block !important; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  pre code { overflow-wrap: anywhere; }
+  figure { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to guide</a>
+<div class="layout">
+<aside aria-label="Guide tools">
+  <p class="eyebrow">Repository field guide</p>
+  <div id="enhancements" hidden>
+    <label for="wiki-search">Search this guide</label>
+    <input id="wiki-search" type="search" placeholder="Module, flow, or concept" aria-controls="content">
+    <div class="controls">
+      <button id="wiki-reset" type="button">Clear search</button>
+      <button id="wiki-theme" type="button" aria-pressed="false">Dark theme</button>
+    </div>
+    <p id="wiki-status" class="muted" role="status" aria-live="polite"></p>
+  </div>
+  <nav aria-label="Guide sections" data-wiki-nav>
+    <ul><li><a href="#overview">Overview</a></li></ul>
+  </nav>
+</aside>
+<main id="content" tabindex="-1">
+<header>
+  <p class="eyebrow">WIKI_REPOSITORY</p>
+  <h1>WIKI_TITLE</h1>
+  <p>WIKI_SUMMARY</p>
+  <p class="muted">WIKI_FRESHNESS</p>
+</header>
+<p id="no-results" hidden>No matching sections. Try a different term or clear search.</p>
+<section id="overview" data-wiki-section>
+  <h2>Overview</h2>
+  <p>WIKI_OVERVIEW</p>
+  <figure>
+    <div class="diagram-scroll" role="region" aria-label="System diagram" tabindex="0">
+    <svg viewBox="0 0 600 120" role="img" aria-labelledby="system-title system-desc">
+      <title id="system-title">WIKI_DIAGRAM_TITLE</title>
+      <desc id="system-desc">WIKI_DIAGRAM_DESCRIPTION</desc>
+      <rect x="10" y="25" width="200" height="60" rx="8" />
+      <text x="110" y="62" text-anchor="middle">WIKI_INPUT</text>
+      <path d="M210 55 H385 M375 48 L385 55 L375 62" fill="none" stroke-width="2" />
+      <rect x="390" y="25" width="200" height="60" rx="8" />
+      <text x="490" y="62" text-anchor="middle">WIKI_OUTPUT</text>
+    </svg>
+    </div>
+    <figcaption>WIKI_DIAGRAM_CAPTION</figcaption>
+  </figure>
+  <p>WIKI_EVIDENCE</p>
+</section>
+<footer><p class="muted">WIKI_UPDATE_NOTE</p></footer>
+</main>
+</div>
+<script id="wiki-metadata" type="application/json">
+{
+  "version": 1,
+  "source_commit": null,
+  "generated_at": "WIKI_TIMESTAMP",
+  "working_tree": "unknown",
+  "scope": {"audience": "internal", "depth": "standard", "included": ["WIKI_SCOPE"], "excluded": []},
+  "sections": {"overview": ["WIKI_SOURCE_PATH"]}
+}
+</script>
+<script>
+(() => {
+  const sections = [...document.querySelectorAll('[data-wiki-section]')];
+  const links = [...document.querySelectorAll('[data-wiki-nav] a')];
+  const search = document.getElementById('wiki-search');
+  const status = document.getElementById('wiki-status');
+  const empty = document.getElementById('no-results');
+  const searchable = sections.map(section => section.textContent.toLocaleLowerCase());
+  function filter() {
+    const words = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    let count = 0;
+    sections.forEach((section, index) => {
+      section.hidden = !words.every(word => searchable[index].includes(word));
+      if (!section.hidden) count++;
+    });
+    status.textContent = `${count} of ${sections.length} sections shown`;
+    empty.hidden = count !== 0;
+  }
+  search.addEventListener('input', filter);
+  document.getElementById('wiki-reset').addEventListener('click', () => {
+    search.value = ''; filter(); search.focus();
+  });
+  function revealHash() {
+    let target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch { return; }
+    const section = target?.closest('[data-wiki-section]');
+    if (section?.hidden) { search.value = ''; filter(); target.scrollIntoView(); }
+  }
+  links.forEach(link => link.addEventListener('click', () => { search.value = ''; filter(); }));
+  window.addEventListener('hashchange', revealHash);
+  const theme = document.getElementById('wiki-theme');
+  theme.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    theme.setAttribute('aria-pressed', String(dark));
+    theme.textContent = dark ? 'Light theme' : 'Dark theme';
+  });
+  document.getElementById('enhancements').hidden = false;
+  filter(); revealHash();
+})();
+</script>
+</body>
+</html>

@@ -17,6 +17,7 @@ is listed.
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
+| `html-wiki` | Generate and refresh a source-backed codebase wiki in one offline HTML file |
 
 ## Security & compliance
 

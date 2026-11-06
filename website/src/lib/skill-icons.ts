@@ -7,6 +7,7 @@ export const skillIcons = {
   "vercel-domain-cleanup": ArrowUpRight,
   "github-actions-security-audit": ShieldCheck,
   "code-review": ScanLine,
+  "skill-review": ScanLine,
   "code-build": Code2,
   "code-refactor": RefreshCw,
   "code-audit": Scissors,

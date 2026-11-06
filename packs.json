@@ -39,7 +39,8 @@
     "new-skill": "Create or change skills that match the existing set and catalogues",
     "use-chrome": "Reuse one connection to your main Chrome in background tabs",
     "update-skills": "Update installed skills and report new or removed ones",
-    "antick": "List Antick skills by area or recommend one for a task"
+    "antick": "List Antick skills by area or recommend one for a task",
+    "skill-review": "Review skills and agent instructions for conflicts, approval gates, and incomplete work"
   },
   "packs": [
     {
@@ -47,6 +48,7 @@
       "description": "Available skills",
       "skills": [
         "code-review",
+        "skill-review",
         "submit-review",
         "build-review-loop",
         "code-build",

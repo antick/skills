@@ -13,6 +13,7 @@
       "version": "0.3.1",
       "skills": [
         "./skills/code-review",
+        "./skills/skill-review",
         "./skills/submit-review",
         "./skills/build-review-loop",
         "./skills/code-build",

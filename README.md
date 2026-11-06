@@ -1,6 +1,6 @@
 # Antick Skills
 
-40 skills for AI coding agents: building, debugging, code review and pull
+41 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -62,6 +62,7 @@ install globally, so you get dozens of errors.
 | Skill | What it does |
 | --- | --- |
 | [antick](skills/antick/SKILL.md) | List every Antick skill by area with installed status, or recommend one for a task |
+| [skill-review](skills/skill-review/SKILL.md) | Review skills and agent instructions for conflicts and redundant confirmations. Propose edits before changes. |
 | [code-review](skills/code-review/SKILL.md) | Review changes or a PR against its requirements; numbered task and code health findings. Read-only. |
 | [submit-review](skills/submit-review/SKILL.md) | Post review findings as inline PR comments and mark the PR draft |
 | [build-review-loop](skills/build-review-loop/SKILL.md) | Build your issues in parallel, self-review each PR, and fix until clean |

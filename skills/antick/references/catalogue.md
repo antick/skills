@@ -69,6 +69,12 @@ is listed.
 | `new-skill` | Create or change skills that match the existing set and catalogues |
 | `update-skills` | Update installed skills and report new or removed ones |
 
+## Agent instructions
+
+| Skill | What it does |
+| --- | --- |
+| `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
+
 ## Writing & personal
 
 | Skill | What it does |

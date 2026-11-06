@@ -1,10 +1,11 @@
 # Antick Skills
 
-40 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+41 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
 | `code-review` | Review code and PRs against requirements; report task findings and code health |
+| `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
 | `submit-review` | Post review findings as inline PR comments and mark the PR draft |
 | `build-review-loop` | Build your issues in parallel, self-review each PR, and fix until clean |
 | `code-build` | Build features in meaningful commits and open a draft PR |
@@ -89,3 +90,4 @@ the combinations below describe complementary workflows, not required dependenci
 | Update installed skills | [update-skills](skills/update-skills/SKILL.md) |
 | Browser work in your own Chrome | [use-chrome](skills/use-chrome/SKILL.md) |
 | Skill catalogue and routing | [antick](skills/antick/SKILL.md) |
+| Skill and agent instruction review | [skill-review](skills/skill-review/SKILL.md) |

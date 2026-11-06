@@ -98,6 +98,10 @@ layers, then complete every requested behavior, error state, and edge case.
 Scale planning to the task; routine changes need no separate plan file or
 approval checkpoint. Use available agents only when delegation is authorized.
 
+For every UI task, including visual fixes to existing screens, read and apply
+[UI design guidance](references/ui-design.md) before editing. It supplements
+the matching focused workflow; backend-only work does not need it.
+
 Before writing UI code for a new screen, dialog, form, panel, or table action,
 name the existing screen whose pattern you are copying. When no existing screen
 fits, write a short layout sketch (entry point, overlays, and the actions shown

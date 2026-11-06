@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "electron-app": {
+    category: "Native Electron apps",
+    heading: "Build for the desktop.\nMake it feel native.",
+    description: "Build and improve Electron apps with secure process boundaries, native macOS behavior, deliberate text selection, and packaged-runtime verification.",
+    prompt: "$electron-app Build this Electron app with native desktop behavior, secure IPC, and deliberate text selection.",
+    steps: ["Map the app and process boundaries", "Build native interactions and intentional selection", "Verify desktop journeys and packaged behavior"],
+    mode: "Electron implementation and native desktop polish",
+  },
   "deep-wiki-html": {
     category: "Deep Wiki HTML",
     heading: "Understand the code.\nKeep one file.",

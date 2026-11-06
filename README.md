@@ -1,6 +1,6 @@
 # Antick Skills
 
-42 skills for AI coding agents: building, debugging, code review and pull
+43 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -48,8 +48,8 @@ npx skills@latest remove --global
 
 A menu opens. Pick the skills to remove. Use this to clear out skills that were
 renamed: `repo-disk-cleanup` (now `reclaim-dev-space`), `save-window-layout` (now
-`save-omarchy-window-layout`), `update-ai-tools` or `manage-ai-tools` (now
-`ai-harness-setup`), and `upgrade-dependencies` (now `dependency-upgrade-minor`
+`save-omarchy-window-layout`), `update-ai-tools`, `manage-ai-tools`, or
+`ai-harness-setup` (now `ai-tools-update`), and `upgrade-dependencies` (now `dependency-upgrade-minor`
 and `dependency-upgrade-major`).
 
 These commands use the [skills.sh](https://skills.sh) CLI. It sends anonymous usage
@@ -67,6 +67,7 @@ install globally, so you get dozens of errors.
 | [submit-review](skills/submit-review/SKILL.md) | Post review findings as inline PR comments and mark the PR draft |
 | [build-review-loop](skills/build-review-loop/SKILL.md) | Build your issues in parallel, self-review each PR, and fix until clean |
 | [code-build](skills/code-build/SKILL.md) | Build features and fixes in meaningful commits and finish with a draft PR |
+| [electron-app](skills/electron-app/SKILL.md) | Build secure Electron apps with native behavior and deliberate text selection |
 | [code-debug](skills/code-debug/SKILL.md) | Find a bug's root cause, evidence, and fix without changing code. Read-only. |
 | [sync-branch](skills/sync-branch/SKILL.md) | Merge the latest `main`, or a branch you name, into a PR and resolve conflicts |
 | [commit-message](skills/commit-message/SKILL.md) | Write short commit messages in the repository's convention |
@@ -94,7 +95,7 @@ install globally, so you get dozens of errors.
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up signed private macOS releases, licensed updates, and device controls |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix Vercel and www redirects and DNS warnings, then verify every site |
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report disk used by worktrees, Docker, test databases, and agent leftovers; delete only what you confirm |
-| [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
+| [ai-tools-update](skills/ai-tools-update/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Save Omarchy/Hyprland window layout for restoring at login |
 | [concise](skills/concise/SKILL.md) | Short answers that keep the important parts |
 | [make-sense](skills/make-sense/SKILL.md) | Clear, plain explanations with as much detail as needed |
@@ -109,10 +110,10 @@ Each skill's `SKILL.md` is the source of truth for what it does.
 
 A few behave differently from the rest:
 
-- **`ai-harness-setup`, `save-omarchy-window-layout`, and `update-skills`** run
-  only when you call them by name. `ai-harness-setup` only updates by default; say
+- **`ai-tools-update`, `save-omarchy-window-layout`, and `update-skills`** run
+  only when you call them by name. `ai-tools-update` only updates by default; say
   "also install missing tools" to install. Its
-  [tool list](skills/ai-harness-setup/references/tools.md) covers 19 tools and
+  [tool list](skills/ai-tools-update/references/tools.md) covers 21 entries and
   runtimes. `save-omarchy-window-layout` needs an existing Omarchy/Hyprland setup.
   `update-skills` asks before it installs or removes any skill.
 - **`reclaim-dev-space`** shows its findings in chat first and deletes nothing
@@ -139,6 +140,7 @@ Add your request after the name:
 ```text
 $code-review Review my uncommitted changes.
 $code-build Add search to this Astro site.
+$electron-app Build an Electron app with native desktop behavior.
 $reclaim-dev-space Find what's eating my disk.
 $code-debug Find out why login fails after a password reset.
 $build-review-loop Build issues 12 and 14, self-review each PR, and fix until clean.

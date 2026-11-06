@@ -29,7 +29,7 @@
   "soc2-readiness": "Assess SOC 2 readiness and report evidence-backed gaps in chat",
   "reclaim-dev-space": "Report reclaimable dev resources in chat, protect important data, and clean confirmed items",
   "save-omarchy-window-layout": "Save Omarchy workspaces, tiled window sizes, and login restoration layout",
-  "ai-harness-setup": "Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation",
+  "ai-tools-update": "Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation",
   "test-suite-hardening": "Fix flaky tests, strengthen coverage, and prove changes with real regressions",
   "ci-cd-triage": "Diagnose and repair failing builds and pipelines",
   "accessibility-audit": "Find accessibility barriers and fix them when requested",
@@ -40,5 +40,6 @@
   "update-skills": "Update installed skills and report new or removed ones",
   "antick": "List Antick skills by area or recommend one for a task",
   "deep-wiki-html": "Automatically create or refresh one offline HTML codebase wiki and link to it",
-  "skill-review": "Review skills and agent instructions for conflicts, approval gates, and incomplete work"
+  "skill-review": "Review skills and agent instructions for conflicts, approval gates, and incomplete work",
+  "electron-app": "Build secure Electron apps with native behavior and deliberate text selection"
 }

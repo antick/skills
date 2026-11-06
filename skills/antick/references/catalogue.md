@@ -9,6 +9,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `code-build` | Build features in meaningful commits and open a draft PR |
+| `electron-app` | Build secure Electron apps with native behavior and deliberate text selection |
 | `code-debug` | Find a bug's root cause without changing code |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
@@ -64,7 +65,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
-| `ai-harness-setup` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
+| `ai-tools-update` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 | `use-chrome` | Reuse one connection to your main Chrome in background tabs |
 | `new-skill` | Create or change skills that match the existing set and catalogues |

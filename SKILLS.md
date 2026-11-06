@@ -1,6 +1,6 @@
 # Antick Skills
 
-42 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+43 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -9,6 +9,7 @@
 | `submit-review` | Post review findings as inline PR comments and mark the PR draft |
 | `build-review-loop` | Build your issues in parallel, self-review each PR, and fix until clean |
 | `code-build` | Build features in meaningful commits and open a draft PR |
+| `electron-app` | Build secure Electron apps with native behavior and deliberate text selection |
 | `code-debug` | Find a bug's root cause without changing code |
 | `sync-branch` | Merge the latest main or a named branch into a PR and resolve conflicts |
 | `commit-message` | Write short commit messages in the repository's convention |
@@ -35,7 +36,7 @@
 | `soc2-readiness` | Assess SOC 2 readiness and report evidence-backed gaps in chat |
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
-| `ai-harness-setup` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
+| `ai-tools-update` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `test-suite-hardening` | Fix flaky tests, strengthen coverage, and prove changes with real regressions |
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
@@ -93,3 +94,4 @@ the combinations below describe complementary workflows, not required dependenci
 | Browser work in your own Chrome | [use-chrome](skills/use-chrome/SKILL.md) |
 | Skill catalogue and routing | [antick](skills/antick/SKILL.md) |
 | Skill and agent instruction review | [skill-review](skills/skill-review/SKILL.md) |
+| Electron development and native desktop polish | [electron-app](skills/electron-app/SKILL.md) |

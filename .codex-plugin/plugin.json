@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade minor and major dependencies with migrations and verification, audit dependency freshness and stale overrides, find queries that slow down as data grows, investigate bugs read-only, build issues in meaningful commits with draft PRs, self-review and fix in a loop, sync branches, write commit messages, PR descriptions, and issues, audit merged branches and archivable specs, create new skills, update installed skills and report new or removed ones, reuse your main Chrome session, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and update existing AI tools and JavaScript runtimes by default with OS-aware verification and a complete status report, skipping missing tools unless installation is explicitly requested and confirmed. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation, architecture maps, and searchable single-file HTML wikis; and conduct personal interviews with authorized memory persistence. List every Antick skill by area with its installed status, or find the one that fits a task. Review skills and agent instructions for conflicts, redundant approval gates, and incomplete execution; propose edits while preserving explicit approval boundaries.",
+    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade minor and major dependencies with migrations and verification, audit dependency freshness and stale overrides, find queries that slow down as data grows, investigate bugs read-only, build issues in meaningful commits with draft PRs, self-review and fix in a loop, sync branches, write commit messages, PR descriptions, and issues, audit merged branches and archivable specs, create new skills, update installed skills and report new or removed ones, reuse your main Chrome session, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and update existing AI tools and JavaScript runtimes by default with OS-aware verification and a complete status report, skipping missing tools unless installation is explicitly requested and confirmed. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation, architecture maps, and searchable single-file HTML wikis; and conduct personal interviews with authorized memory persistence. List every Antick skill by area with its installed status, or find the one that fits a task. Review skills and agent instructions for conflicts, redundant approval gates, and incomplete execution; propose edits while preserving explicit approval boundaries. Build secure Electron apps with native desktop interactions, deliberate text selection, and packaged-runtime verification.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
@@ -55,7 +55,8 @@
       "New skill creation",
       "Main Chrome browser sessions",
       "Installed skill updates",
-      "Skill catalogue"
+      "Skill catalogue",
+      "Native Electron app development"
     ],
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
@@ -77,7 +78,7 @@
       "Fix production redirects and DNS warnings with the vercel-domain-cleanup skill.",
       "Report dev-space cleanup candidates and protected resources in chat with reclaim-dev-space, then wait for my confirmation.",
       "Save my Omarchy window layout with the save-omarchy-window-layout skill.",
-      "Update existing AI tools and report missing tools as skipped with the ai-harness-setup skill.",
+      "Update existing AI tools and report missing tools as skipped with the ai-tools-update skill.",
       "Use $test-suite-hardening. Harden this test suite against flakes, weak assertions, and missing critical behavior coverage.",
       "Use $ci-cd-triage. Diagnose this failing pipeline, fix the root cause, and distinguish local verification from hosted results.",
       "Use $accessibility-audit. Audit and fix accessibility barriers in the main user journeys; report manual and automated coverage separately.",
@@ -89,7 +90,8 @@
       "Use $documentation-generation to map this architecture and write an onboarding guide.",
       "Use $update-skills to update my installed skills and list new and removed ones.",
       "Use $antick to list every Antick skill by area and show which are installed.",
-      "Use $deep-wiki-html to automatically create or update this repository's HTML wiki and open the result with a clickable viewing link."
+      "Use $deep-wiki-html to automatically create or update this repository's HTML wiki and open the result with a clickable viewing link.",
+      "Use $electron-app to build an Electron app with native desktop behavior and secure process boundaries."
     ],
     "brandColor": "#7C3AED"
   }

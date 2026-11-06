@@ -3,9 +3,9 @@ export const engineeringDetails = {
   "deep-wiki-html": {
     category: "Deep Wiki HTML",
     heading: "Understand the code.\nKeep one file.",
-    description: "Generate or refresh a source-backed repository guide as one offline HTML file with architecture diagrams, source citations, search, and embedded refresh metadata.",
-    prompt: "$deep-wiki-html Generate a source-backed codebase wiki in docs/codebase-wiki.html with offline search, inline diagrams, citations, and refresh metadata.",
-    steps: ["Map source evidence and trace important flows", "Build one navigable, self-contained HTML guide", "Verify links, offline dependencies, and refresh metadata"],
+    description: "Automatically find and refresh an existing codebase wiki or create one offline HTML file, then return a clickable viewing link. Includes architecture diagrams, source citations, and search.",
+    prompt: "$deep-wiki-html Keep this repository's HTML wiki current and open the result.",
+    steps: ["Find the existing wiki or choose the default destination", "Create or refresh it against the current source", "Verify the guide and return a clickable viewing link"],
     mode: "Single-file documentation",
   },
   "test-suite-hardening": {

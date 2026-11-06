@@ -1,6 +1,6 @@
 ---
 name: deep-wiki-html
-description: Generate or refresh a source-backed codebase wiki as one self-contained HTML file. Use for browsable repository guides with architecture diagrams, source citations, search, and onboarding flows, including incremental updates to an existing HTML wiki.
+description: Create or automatically refresh a source-backed codebase wiki as one self-contained HTML file and return a clickable link to view it. Use for browsable repository guides with architecture diagrams, source citations, search, and onboarding flows.
 ---
 
 # Deep Wiki HTML
@@ -10,7 +10,29 @@ one HTML file containing the prose, navigation, diagrams, styles, search logic,
 and refresh metadata. Use the current coding agent; no hosted service, API key,
 build step, or network connection is required to read the result.
 
-## Establish coverage
+## Resolve create or refresh automatically
+
+Running `$deep-wiki-html` alone is sufficient. On every invocation, resolve the
+repository and choose the output without requiring a mode, path, or remembered
+refresh prompt:
+
+1. Use an explicit destination when supplied. Otherwise reuse
+   `docs/codebase-wiki.html` if it exists.
+2. If the default is absent, look for an existing completed wiki HTML in the
+   repository. Identify it by its embedded `wiki-metadata`, not its filename.
+   Exclude dependencies, generated output, installed skill assets, and unfilled
+   templates. Reuse a single unambiguous match; ask which to use only when several
+   remain. If none exists, create `docs/codebase-wiki.html`.
+3. An existing destination always takes [the refresh procedure](references/refresh.md).
+   Read its metadata and content before editing; retain its audience, depth,
+   scope, manual additions, styling, and stable section IDs unless changed by
+   the request. Survey again when its baseline cannot be used.
+4. For a new guide, establish coverage and build the evidence map below. For a
+   refresh, apply those same evidence and authoring rules to the affected areas.
+   When nothing needs changing, validate the existing guide and still return
+   its viewing link. Complete verification and delivery for either outcome.
+
+## Establish coverage for a new guide
 
 Read repository instructions and existing documentation, then inspect manifests,
 entry points, package boundaries, configuration, representative tests, and CI.
@@ -24,19 +46,6 @@ system and its main flows; a full guide also covers modules, contracts, failure
 paths, and practical change guides. Respect an explicit outline. Record included
 areas and omissions so partial inspection never reads as exhaustive coverage.
 Ask only when a missing choice prevents useful work.
-
-If the destination exists, read [the refresh procedure](references/refresh.md)
-before editing. Preserve manual additions and stable section IDs.
-
-For an existing guide, invoke the same skill with its path:
-
-```text
-Use $deep-wiki-html to refresh docs/codebase-wiki.html against the current source.
-```
-
-Refresh runs on invocation, not automatically when the repository changes.
-For an active repository, use the cadence and automation guidance in
-[the refresh procedure](references/refresh.md#keeping-an-active-repository-current).
 
 ## Build an evidence map
 
@@ -54,7 +63,9 @@ than generating empty categories or a file-by-file paraphrase.
 
 ## Author the file
 
-Start from [the HTML shell](assets/wiki.html). Replace its `WIKI_*` markers,
+For a new guide, start from [the HTML shell](assets/wiki.html). For an existing
+guide, patch it in place instead of replacing it with the shell.
+Replace any `WIKI_*` markers,
 example section, and metadata with real content; the shell itself is not a wiki.
 Keep every section in static semantic HTML so reading, anchor navigation, and
 printing work with JavaScript disabled. The inline script adds section search,
@@ -107,6 +118,17 @@ When browser automation is available, open the file locally with networking
 blocked and check search/reset, hash navigation, keyboard controls, narrow layout,
 print, and absence of console errors. Report any browser checks unavailable.
 
-Deliver the HTML path, coverage, inspected revision and working-tree state,
-verification results, and remaining gaps. Keep the final artifact to one HTML
-file; do not produce Markdown wiki pages, sidecar indexes, or a server.
+Finish every successful run with a prominent **Open codebase wiki** Markdown
+link, including runs where the guide was already current. Use the host's
+browser-viewable HTML artifact or preview link when available; open it through
+the host's supported browser action so the reader can see the result immediately.
+For a local-only host, provide its native clickable absolute-path file link
+(wrap paths containing spaces in angle brackets) and use the platform's browser
+opener when available. If that host opens file links in an editor rather than a
+browser, say so and identify the actual viewing route; do not invent a preview
+URL or claim it was opened. Never deploy or upload the guide to make a link.
+
+Briefly report whether the wiki was created, updated, or already current, its
+coverage, inspected revision and working-tree state, verification, and gaps.
+Keep the final artifact to one HTML file; do not produce Markdown wiki pages,
+sidecar indexes, or start a server just to supply a link.

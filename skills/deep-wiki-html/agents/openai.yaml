@@ -1,4 +1,4 @@
 interface:
   display_name: "Deep Wiki HTML"
   short_description: "Build a source-backed wiki in one offline HTML file"
-  default_prompt: "Use $deep-wiki-html to generate or refresh a source-backed codebase guide as one self-contained HTML file with diagrams, search, citations, and refresh metadata."
+  default_prompt: "Use $deep-wiki-html to create or update this repository's HTML wiki automatically and open the result with a clickable viewing link."

@@ -26,7 +26,7 @@
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
-| `deep-wiki-html` | Generate and refresh a source-backed codebase wiki in one offline HTML file |
+| `deep-wiki-html` | Automatically create or refresh one offline HTML codebase wiki and link to it |
 | `interview` | Learn personal context and save authorized memories |
 | `antick` | List Antick skills by area or recommend one for a task |
 

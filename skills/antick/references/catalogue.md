@@ -43,6 +43,12 @@ is listed.
 | `ai-harness-setup` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 
+## Agent instructions
+
+| Skill | What it does |
+| --- | --- |
+| `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
+
 ## Writing & personal
 
 | Skill | What it does |

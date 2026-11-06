@@ -1,9 +1,10 @@
 # Antick Skills
 
-24 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+25 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
+| `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
 | `code-review` | Review code and PRs for requirements, risk, and complexity |
 | `concise` | Answer briefly without losing important meaning |
 | `make-sense` | Explain clearly without forcing brevity |
@@ -61,3 +62,4 @@ the combinations below describe complementary workflows, not required dependenci
 | Monorepo restructuring | [code-refactor: monorepo-restructure](skills/code-refactor/references/monorepo-restructure.md) |
 | Personal interview with memory | [interview](skills/interview/SKILL.md) |
 | Skill catalogue and routing | [antick](skills/antick/SKILL.md) |
+| Skill and agent instruction review | [skill-review](skills/skill-review/SKILL.md) |

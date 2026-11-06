@@ -23,7 +23,8 @@
     "accessibility-audit": "Find accessibility barriers and fix them when requested",
     "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
     "interview": "Learn personal context and save authorized memories",
-    "antick": "List Antick skills by area or recommend one for a task"
+    "antick": "List Antick skills by area or recommend one for a task",
+    "skill-review": "Review skills and agent instructions for conflicts, approval gates, and incomplete work"
   },
   "packs": [
     {
@@ -31,6 +32,7 @@
       "description": "Available skills",
       "skills": [
         "code-review",
+        "skill-review",
         "concise",
         "make-sense",
         "code-build",

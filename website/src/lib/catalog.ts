@@ -45,6 +45,14 @@ const details = {
     steps: ["List every project, domain, and current redirect", "Fix redirects and reconcile provider DNS recommendations", "Verify DNS, HTTPS, paths, queries, and rendered websites"],
     mode: "Domain and DNS repair",
   },
+  "skill-review": {
+    category: "Instructions that support the work",
+    heading: "Find the conflict.\nClarify the boundary.",
+    description: "Review skills, AGENTS.md, and CLAUDE.md for unclear instructions, overlapping workflows, redundant confirmations, and incomplete execution. Propose precise edits while preserving explicit approval requirements.",
+    prompt: "$skill-review Review my skills and AGENTS.md files for conflicting instructions and unnecessary confirmation gates. Propose edits before changing files and flag any expansion of authority.",
+    steps: ["Read the instructions and establish their scope and precedence", "Trace realistic requests through autonomy, approval, and completion rules", "Report prioritized findings with exact edits and their effect on authority"],
+    mode: "Review first; edits when authorized",
+  },
   "code-review": {
     category: "A second pair of eyes",
     heading: "Find the issue.\nShow the evidence.",

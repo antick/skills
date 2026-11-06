@@ -86,6 +86,7 @@ reset, result counts, and theme switching. Retain its `data-wiki-section`,
   not a commit link claiming it contains those lines.
 - Inline CSS, JavaScript, SVG, and any needed images as data URLs. Use system
   fonts. No CDN, fetch, iframe, adjacent file, stylesheet, or runtime renderer.
+  Use classic inline scripts; the validator rejects module scripts and imports.
   External source/documentation hyperlinks are fine; reading the wiki is offline.
 - Escape code and repository strings as text, including HTML metacharacters.
   Put JSON in the inert `wiki-metadata` script using a JSON serializer and escape

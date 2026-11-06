@@ -4,7 +4,7 @@ import { spawnSync } from "node:child_process";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skill = path.join(root, "skills/deep-wiki-html");
@@ -76,6 +76,55 @@ test("validator rejects remote and adjacent runtime dependencies", async (contex
     assert.equal(result.status, 1, dependency);
     assert.match(result.stderr, /ERROR:/);
   }
+});
+
+test("validator rejects module scripts with static imports", async (context) => {
+  for (const module of [
+    'import "https://example.invalid/wiki.js";',
+    'import { search } from "./search.js";',
+    'export { search } from "https://example.invalid/search.js";',
+  ]) {
+    const html = complete.replace("</body>", `<script type="module">${module}</script></body>`);
+    const result = await check(context, html);
+    assert.equal(result.status, 1, module);
+    assert.match(result.stderr, /module scripts/);
+  }
+});
+
+const chromium = [process.env.CHROME_BIN, "chromium", "chromium-browser", "google-chrome"]
+  .filter(Boolean).find(command => spawnSync(command, ["--version"]).status === 0);
+
+test("inline navigation reveals a filtered section when its hash is already selected", {
+  skip: chromium ? false : "Chromium is not installed; set CHROME_BIN to run browser regressions",
+}, async (context) => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "wiki-navigation-"));
+  context.after(() => rm(directory, { recursive: true, force: true }));
+  const filename = path.join(directory, "wiki.html");
+  const html = complete
+    .replace('<h2>Overview</h2>', '<h2>Overview</h2><a id="inline-details" href="#details"><span>Read details</span></a>')
+    .replace('<footer>', '<section id="details" data-wiki-section><h2>Details</h2><p>Unrelated content</p></section><footer>')
+    .replace('</ul>', '<li><a href="#details">Details</a></li></ul>')
+    .replace('"sections": {"overview": ["src/main.js"]}', '"sections": {"overview": ["src/main.js"], "details": ["src/details.js"]}')
+    .replace('</body>', `<script>
+      window.addEventListener('load', () => {
+        const search = document.getElementById('wiki-search');
+        search.value = 'Overview';
+        search.dispatchEvent(new Event('input', { bubbles: true }));
+        const details = document.getElementById('details');
+        const wasHidden = details.hidden;
+        document.querySelector('#inline-details span').click();
+        document.body.dataset.navigationResult =
+          wasHidden && !details.hidden && search.value === '' ? 'pass' : 'fail';
+      });
+    </script></body>`);
+  await writeFile(filename, html);
+  const result = spawnSync(chromium, [
+    "--headless", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
+    `--user-data-dir=${path.join(directory, "profile")}`, "--dump-dom",
+    `${pathToFileURL(filename).href}#details`,
+  ], { encoding: "utf8", timeout: 30000, maxBuffer: 2 * 1024 * 1024 });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(result.stdout.match(/data-navigation-result="([^"]*)"/)?.[1], "pass");
 });
 
 test("metadata failures produce actionable errors without a traceback", async (context) => {

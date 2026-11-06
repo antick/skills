@@ -81,6 +81,8 @@ class WikiParser(HTMLParser):
         if tag == "svg" and (not attrs.get("viewbox") or not attrs.get("aria-labelledby")):
             self.errors.append("SVG needs viewBox and aria-labelledby")
         if tag in {"script", "style"}:
+            if tag == "script" and (attrs.get("type") or "").strip().lower() == "module":
+                self.errors.append("module scripts are unsupported; use classic inline scripts")
             self.raw_tag, self.raw = tag, []
             self.is_metadata = identity == "wiki-metadata"
             if self.is_metadata and attrs.get("type") != "application/json":

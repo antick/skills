@@ -123,7 +123,7 @@ svg path { stroke: var(--accent); }
 <script>
 (() => {
   const sections = [...document.querySelectorAll('[data-wiki-section]')];
-  const links = [...document.querySelectorAll('[data-wiki-nav] a')];
+  const links = [...document.querySelectorAll('a[href^="#"]')];
   const search = document.getElementById('wiki-search');
   const status = document.getElementById('wiki-status');
   const empty = document.getElementById('no-results');

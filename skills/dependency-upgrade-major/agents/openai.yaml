@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Upgrade (Major)"
+  short_description: "Upgrade major versions with migrations and verification"
+  default_prompt: "Use $dependency-upgrade-major to upgrade this project's major and other drastic dependency versions, plan and apply the required migrations group by group, and verify the result."

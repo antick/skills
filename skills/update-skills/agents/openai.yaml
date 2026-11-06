@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Skills"
+  short_description: "Update installed skills and report new or removed ones"
+  default_prompt: "Use $update-skills to update my globally installed skills and tell me what changed, what is new upstream, and what was removed."

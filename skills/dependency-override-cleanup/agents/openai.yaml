@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Override Cleanup"
+  short_description: "Find and remove stale overrides, patches, and waivers"
+  default_prompt: "Use $dependency-override-cleanup to report which dependency overrides, resolutions, patches, and audit waivers are stale or removable, with evidence, without changing files."

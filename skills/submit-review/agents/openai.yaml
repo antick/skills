@@ -1,0 +1,4 @@
+interface:
+  display_name: "Submit Review"
+  short_description: "Post review findings as inline PR comments"
+  default_prompt: "Use $submit-review to publish the completed review findings on this pull request as inline comments and mark it as draft."

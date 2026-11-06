@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Branch"
+  short_description: "Merge the latest main into a branch and resolve conflicts"
+  default_prompt: "Use $sync-branch to merge the latest main branch into this pull request, resolve conflicts, verify, and push."

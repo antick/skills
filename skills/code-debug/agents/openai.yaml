@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Debug"
+  short_description: "Find a bug's root cause without changing code"
+  default_prompt: "Use $code-debug to investigate this bug without changing code and report the root cause, evidence, recommended fix, regression test, and remaining gaps."

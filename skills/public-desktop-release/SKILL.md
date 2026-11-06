@@ -37,8 +37,8 @@ skill invocation or planning request does not authorize publication. Finish
 independent work and prepare a concrete result before asking for genuinely missing
 approval. Never treat sample prompts in this file as current authorization.
 
-When account work needs a browser, use the user's **existing main Chrome session**,
-not a new profile or separate login browser. If it is inaccessible, explain the
+When account work needs a browser, use the user's **existing main Chrome session**
+through the `use-chrome` skill, not a new profile or separate login browser. If it is inaccessible, explain the
 specific connection or login needed; continue independent work. Let the user
 complete login, MFA, purchases, or legal agreements. Use available private secret
 entry or secure local tooling; never request secrets in chat or print them.

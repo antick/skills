@@ -1,4 +1,4 @@
 interface:
   display_name: "Code Build"
-  short_description: "Build features, shared UI, localization, and migrations"
-  default_prompt: "Use $code-build to implement the requested feature, UI standardization, localization, or platform migration with the matching guide."
+  short_description: "Build features in meaningful commits and open a draft PR"
+  default_prompt: "Use $code-build to implement the requested feature, fix, UI standardization, localization, or platform migration with the matching guide, commit it in meaningful steps, and open a draft pull request."

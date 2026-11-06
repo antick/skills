@@ -1,0 +1,4 @@
+interface:
+  display_name: "Branch Status"
+  short_description: "Count branches and list merged ones safe to delete"
+  default_prompt: "Use $branch-status to count this repository's remote branches and list merged branches that are safe to delete, with merge evidence. Do not delete anything."

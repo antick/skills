@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Issue"
+  short_description: "File GitHub issues that match repo conventions"
+  default_prompt: "Use $create-issue to create a GitHub issue for this request with gh, following the repository's current issue conventions and checking for duplicates first."

@@ -1,10 +1,12 @@
 # Agent Notes
 
 Treat `skills/*/SKILL.md` as the canonical skill set. Keep `packs.json`, `SKILLS.md`,
-the host plugin manifests, `pi-extension/commands.json`, and
-`skills/antick/references/catalogue.md` synchronized with it.
+the host plugin manifests, `pi-extension/commands.json`,
+`skills/antick/references/catalogue.md`, and the website catalogue and icons in
+`website/src/lib/` synchronized with it.
 
-Run `npm test` and `npm pack --dry-run` after catalogue changes.
+Run `npm test`, `node --test website/tests/*.test.mjs`, and `npm pack --dry-run`
+after catalogue changes.
 
 After completing and verifying a task that changes files, stage only the changes
 made for that task and create a local Conventional Commit with a type prefix such

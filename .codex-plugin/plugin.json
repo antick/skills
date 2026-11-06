@@ -77,7 +77,7 @@
       "Fix production redirects and DNS warnings with the vercel-domain-cleanup skill.",
       "Report dev-space cleanup candidates and protected resources in chat with reclaim-dev-space, then wait for my confirmation.",
       "Save my Omarchy window layout with the save-omarchy-window-layout skill.",
-      "Update existing AI tools and report missing tools as skipped with the ai-harness-setup skill.",
+      "Update existing AI tools and report missing tools as skipped with the ai-tools-update skill.",
       "Use $test-suite-hardening. Harden this test suite against flakes, weak assertions, and missing critical behavior coverage.",
       "Use $ci-cd-triage. Diagnose this failing pipeline, fix the root cause, and distinguish local verification from hosted results.",
       "Use $accessibility-audit. Audit and fix accessibility barriers in the main user journeys; report manual and automated coverage separately.",

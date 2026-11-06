@@ -21,12 +21,12 @@ const details = {
     steps: ["Check the existing Omarchy layout integration", "Capture managed windows and back up configuration", "Reload Hyprland and check configuration errors"],
     mode: "Explicit invocation; Omarchy/Hyprland",
   },
-  "ai-harness-setup": {
+  "ai-tools-update": {
     category: "Set up the tools. Keep them current.",
     heading: "Build your toolkit.\nKeep it ready.",
-    description: "Manage 18 AI tools and JavaScript runtimes with OS-aware installation and updates. Confirm missing installs, preserve supported update mechanisms, and report every result, skip, or failure.",
-    prompt: "$ai-harness-setup Check all tools for this OS, update existing installations, ask before installing missing tools, and report versions, results, and future update methods.",
-    steps: ["Detect the OS, architecture, installations, and update routes", "Confirm missing installs and update existing tools", "Report all 18 tools, verified versions, skips, and blockers"],
+    description: "Update installed AI tools and JavaScript runtimes across 21 entries, including OpenMausBot CLI, server, and Desktop. Skip missing tools by default; install only when explicitly requested and confirmed.",
+    prompt: "$ai-tools-update Check all tools for this OS, update existing installations, skip missing tools without installation prompts, and report versions, results, and future update methods.",
+    steps: ["Detect the OS, architecture, installations, and update routes", "Update existing tools; confirm installs only when requested", "Report all 21 entries, verified versions, skips, and blockers"],
     mode: "Explicit invocation; local workstation",
   },
   "soc2-readiness": {

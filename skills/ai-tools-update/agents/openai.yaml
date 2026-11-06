@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Tools Update"
+  short_description: "Update AI tools by default and report missing tools"
+  default_prompt: "Use $ai-tools-update to update existing tools only, skip missing tools without installation prompts, and report all supported tools including skipped entries and future update methods."
+policy:
+  allow_implicit_invocation: false

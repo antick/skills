@@ -19,11 +19,12 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and update existing AI tools and JavaScript runtimes by default with OS-aware verification and a complete status report, skipping missing tools unless installation is explicitly requested and confirmed. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation, architecture maps, and searchable single-file HTML wikis; and conduct personal interviews with authorized memory persistence. List every Antick skill by area with its installed status, or find the one that fits a task.",
+    "longDescription": "Review code with evidence, audit database schemas and queries, audit code and repository security, assess SOC 2 readiness with reports in chat, remove unnecessary complexity, refactor with current official docs and regression tests, upgrade dependencies with migrations and verification, and communicate clearly at the requested level of detail. Set up signed public GitHub releases with automatic updates and separate development apps, or private releases with licensed updates and device administration. Fix Vercel production and www redirects, reconcile DNS, and verify websites. Report worktrees, Docker resources, extra test databases, and agent-created artifacts directly in chat, reclaim only confirmed items while highlighting protected resources, save Omarchy window layouts, and update existing AI tools and JavaScript runtimes by default with OS-aware verification and a complete status report, skipping missing tools unless installation is explicitly requested and confirmed. Consolidate auth, state, SDKs, routing, errors, and workspaces; harden tests, TypeScript, npm supply chains, and CI; standardize design systems and component libraries; verify accessibility, performance, localization, and platform parity; generate documentation, architecture maps, and searchable single-file HTML wikis; and conduct personal interviews with authorized memory persistence. List every Antick skill by area with its installed status, or find the one that fits a task. Review skills and agent instructions for conflicts, redundant approval gates, and incomplete execution; propose edits while preserving explicit approval boundaries.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
       "Code review",
+      "Skill and agent instruction review",
       "Security audits",
       "Database audits",
       "SOC 2 readiness",
@@ -49,6 +50,7 @@
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
+      "Use $skill-review to review my skills and AGENTS.md files for conflicting instructions and unnecessary confirmation gates. Propose edits before changing files.",
       "Assess this project with the soc2-readiness skill and report findings in chat.",
       "Implement this with the code-build skill.",
       "Refactor this code with current official docs and regression tests using the code-refactor skill.",

@@ -23,5 +23,6 @@
   "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
   "interview": "Learn personal context and save authorized memories",
   "antick": "List Antick skills by area or recommend one for a task",
-  "deep-wiki-html": "Automatically create or refresh one offline HTML codebase wiki and link to it"
+  "deep-wiki-html": "Automatically create or refresh one offline HTML codebase wiki and link to it",
+  "skill-review": "Review skills and agent instructions for conflicts, approval gates, and incomplete work"
 }

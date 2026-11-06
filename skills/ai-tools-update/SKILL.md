@@ -1,14 +1,14 @@
 ---
-name: ai-harness-setup
-description: Update existing AI tools and JavaScript runtimes by default, report missing tools as skipped, and install missing tools only when explicitly requested and confirmed. Use only when the user explicitly requests the ai-harness-setup skill.
+name: ai-tools-update
+description: Update existing AI tools and JavaScript runtimes by default, report missing tools as skipped, and install missing tools only when explicitly requested and confirmed. Use only when the user explicitly requests the ai-tools-update skill.
 disable-model-invocation: true
 compatibility: Local shell and network access on the target machine; desktop applications also require a supported graphical OS and architecture.
 ---
 
-# AI harness setup
+# AI tools update
 
-Use on an explicit request, including `$ai-harness-setup`, `/ai-harness-setup`, or
-Pi's `/skill:ai-harness-setup`. Reviewing or installing this skill does not
+Use on an explicit request, including `$ai-tools-update`, `/ai-tools-update`, or
+Pi's `/skill:ai-tools-update`. Reviewing or installing this skill does not
 authorize changing the machine. A bare invocation is **update-only**: update
 existing tools and report absent tools as `skipped — not installed (update-only)`
 without offering or asking to install them. Enter installation mode only when the
@@ -18,14 +18,16 @@ request never enables installation mode.
 
 ## Coverage
 
-Unless the user narrows the scope, inventory and report all 19 entries in
-[the tool registry](references/tools.md), keeping CLI and desktop rows separate:
+Unless the user narrows the scope, inventory and report all 21 entries in
+[the tool registry](references/tools.md), keeping CLI, server, and desktop rows separate:
 
 - Pi and OMP (Oh My Pi).
 - Codex CLI and Codex Desktop (including the current official desktop product
   that provides Codex); Claude Code CLI and Claude Desktop with Claude Code.
 - Orca CLI and Orca Desktop; Peekaboo (also spelled "peekaaboo" in requests).
-- Grok CLI (Grok Build) and Grok Bot Desktop; OpenMausBot Desktop (MausBot).
+- Grok CLI (Grok Build) and Grok Bot Desktop.
+- OpenMausBot CLI, OpenMausBot Server (including headless deployments), and
+  OpenMausBot Desktop (MausBot).
 - Hermes CLI and Hermes Desktop; OpenCode CLI and OpenCode Desktop.
 - Node.js **latest LTS**, Deno stable, and Bun stable.
 
@@ -38,6 +40,10 @@ For the owner's Arch/Omarchy workstation, also read
 [the workstation profile](references/omarchy-workstation.md). Apply its paths only
 when they match the actual installation. The confirmation rules and reporting
 contract here take precedence over examples in that profile.
+
+For every OpenMausBot inventory or update, read
+[the CLI/server guide](references/openmausbot.md). Detect its CLI and server
+independently of Desktop, including on SSH/headless targets.
 
 ## Detect the actual target
 
@@ -149,7 +155,7 @@ running app still uses the old code, report the installed version and required
 restart separately. A working CLI is not proof that its desktop app was installed.
 
 Always end with the detected OS/architecture/environment and a Markdown table
-covering all 19 default entries, even after partial failures or refusals. For an
+covering all 21 default entries, even after partial failures or refusals. For an
 explicitly narrowed request, keep other default rows as `skipped — out of scope`.
 Include any extra tools/dependencies actually considered as additional rows.
 

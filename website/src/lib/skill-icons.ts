@@ -19,7 +19,7 @@ export const skillIcons = {
   "private-desktop-release": ShieldCheck,
   "reclaim-dev-space": HardDrive,
   "save-omarchy-window-layout": PanelsTopLeft,
-  "ai-harness-setup": RefreshCw,
+  "ai-tools-update": RefreshCw,
   "test-suite-hardening": ScanLine,
   "ci-cd-triage": RefreshCw,
   "accessibility-audit": ScanLine,

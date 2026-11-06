@@ -48,8 +48,8 @@ npx skills@latest remove --global
 
 A menu opens. Pick the skills to remove. Use this to clear out skills that were
 renamed: `repo-disk-cleanup` (now `reclaim-dev-space`), `save-window-layout` (now
-`save-omarchy-window-layout`), `update-ai-tools` or `manage-ai-tools` (now
-`ai-harness-setup`), and `upgrade-dependencies` (now `dependency-upgrade-minor`
+`save-omarchy-window-layout`), `update-ai-tools`, `manage-ai-tools`, or
+`ai-harness-setup` (now `ai-tools-update`), and `upgrade-dependencies` (now `dependency-upgrade-minor`
 and `dependency-upgrade-major`).
 
 These commands use the [skills.sh](https://skills.sh) CLI. It sends anonymous usage
@@ -94,7 +94,7 @@ install globally, so you get dozens of errors.
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up signed private macOS releases, licensed updates, and device controls |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix Vercel and www redirects and DNS warnings, then verify every site |
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report disk used by worktrees, Docker, test databases, and agent leftovers; delete only what you confirm |
-| [ai-harness-setup](skills/ai-harness-setup/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
+| [ai-tools-update](skills/ai-tools-update/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Save Omarchy/Hyprland window layout for restoring at login |
 | [concise](skills/concise/SKILL.md) | Short answers that keep the important parts |
 | [make-sense](skills/make-sense/SKILL.md) | Clear, plain explanations with as much detail as needed |
@@ -109,10 +109,10 @@ Each skill's `SKILL.md` is the source of truth for what it does.
 
 A few behave differently from the rest:
 
-- **`ai-harness-setup`, `save-omarchy-window-layout`, and `update-skills`** run
-  only when you call them by name. `ai-harness-setup` only updates by default; say
+- **`ai-tools-update`, `save-omarchy-window-layout`, and `update-skills`** run
+  only when you call them by name. `ai-tools-update` only updates by default; say
   "also install missing tools" to install. Its
-  [tool list](skills/ai-harness-setup/references/tools.md) covers 19 tools and
+  [tool list](skills/ai-tools-update/references/tools.md) covers 21 entries and
   runtimes. `save-omarchy-window-layout` needs an existing Omarchy/Hyprland setup.
   `update-skills` asks before it installs or removes any skill.
 - **`reclaim-dev-space`** shows its findings in chat first and deletes nothing

@@ -7,7 +7,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const skill = path.join(root, "skills/html-wiki");
+const skill = path.join(root, "skills/deep-wiki-html");
 const template = await readFile(path.join(skill, "assets/wiki.html"), "utf8");
 const complete = template.replace(/WIKI_[A-Z_]+/g, (marker) => ({
   WIKI_TITLE: "Example repository",
@@ -16,7 +16,7 @@ const complete = template.replace(/WIKI_[A-Z_]+/g, (marker) => ({
 }[marker] ?? "Inspected example"));
 
 async function check(context, html) {
-  const directory = await mkdtemp(path.join(os.tmpdir(), "html-wiki-test-"));
+  const directory = await mkdtemp(path.join(os.tmpdir(), "deep-wiki-html-test-"));
   context.after(() => rm(directory, { recursive: true, force: true }));
   const filename = path.join(directory, "wiki.html");
   await writeFile(filename, html);

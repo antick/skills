@@ -24,7 +24,7 @@
     "documentation-generation": "Write source-backed docs, architecture maps, and onboarding guides",
     "interview": "Learn personal context and save authorized memories",
     "antick": "List Antick skills by area or recommend one for a task",
-    "html-wiki": "Generate and refresh a source-backed codebase wiki in one offline HTML file"
+    "deep-wiki-html": "Generate and refresh a source-backed codebase wiki in one offline HTML file"
   },
   "packs": [
     {
@@ -53,7 +53,7 @@
         "ci-cd-triage",
         "accessibility-audit",
         "documentation-generation",
-        "html-wiki",
+        "deep-wiki-html",
         "interview",
         "antick"
       ]

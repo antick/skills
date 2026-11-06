@@ -1,4 +1,0 @@
-interface:
-  display_name: "HTML Wiki"
-  short_description: "Build a source-backed wiki in one offline HTML file"
-  default_prompt: "Use $html-wiki to generate or refresh a source-backed codebase guide as one self-contained HTML file with diagrams, search, citations, and refresh metadata."

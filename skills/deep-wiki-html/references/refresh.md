@@ -42,3 +42,23 @@ verification. Ignore the output HTML when deciding whether inspected sources
 are dirty. Document the changed areas and remaining gaps in a short visible
 update note. A refreshed file remains the sole deliverable; its own embedded
 metadata is sufficient to start the next refresh.
+
+## Keeping an active repository current
+
+Keep the HTML in version control so documentation changes can be reviewed with
+source changes. Refresh after changes to behavior, public interfaces, setup,
+configuration, or system structure; an unrelated cosmetic change need not
+regenerate the guide. If inspection finds nothing relevant to update, leave
+the file unchanged and report that result to avoid timestamp-only churn.
+
+For frequent development, a scheduled agent run against the default branch can
+refresh daily or weekly and propose a documentation PR only when content changes.
+A post-merge workflow can instead invoke an already configured coding agent for
+faster updates. Both require separate automation setup and agent access; the
+static HTML and validator do not run an agent themselves. Configure either only
+when requested. Exclude wiki-only changes from the trigger to avoid update loops.
+
+Every automated run must use the same evidence, preservation, and verification
+rules as a manual refresh. Keep one writer per output file to avoid concurrent
+updates overwriting each other. The visible revision and date describe the last
+verified snapshot, not a promise that the guide always matches the latest code.

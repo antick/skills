@@ -24,7 +24,7 @@ export const skillIcons = {
   "ci-cd-triage": RefreshCw,
   "accessibility-audit": ScanLine,
   "documentation-generation": AlignLeft,
-  "html-wiki": PanelsTopLeft,
+  "deep-wiki-html": PanelsTopLeft,
   "interview": MessageCircle,
   antick: List
 } satisfies Record<Skill["name"], LucideIcon>;

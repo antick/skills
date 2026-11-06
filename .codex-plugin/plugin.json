@@ -42,7 +42,7 @@
       "CI/CD Triage",
       "Accessibility Audit",
       "Documentation Generation",
-      "Single-file HTML Wiki",
+      "Deep Wiki HTML",
       "Interview",
       "Skill catalogue"
     ],
@@ -73,7 +73,7 @@
       "Use $code-security to remediate confirmed vulnerabilities and harden dependency installation.",
       "Use $documentation-generation to map this architecture and write an onboarding guide.",
       "Use $antick to list every Antick skill by area and show which are installed.",
-      "Use $html-wiki to generate or refresh a source-backed codebase wiki in one self-contained HTML file with diagrams, search, and citations."
+      "Use $deep-wiki-html to generate or refresh a source-backed codebase wiki in one self-contained HTML file with diagrams, search, and citations."
     ],
     "brandColor": "#7C3AED"
   }

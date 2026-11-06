@@ -1,9 +1,9 @@
 ---
-name: html-wiki
+name: deep-wiki-html
 description: Generate or refresh a source-backed codebase wiki as one self-contained HTML file. Use for browsable repository guides with architecture diagrams, source citations, search, and onboarding flows, including incremental updates to an existing HTML wiki.
 ---
 
-# HTML Wiki
+# Deep Wiki HTML
 
 Turn inspected source code into a guide that opens directly from disk. Deliver
 one HTML file containing the prose, navigation, diagrams, styles, search logic,
@@ -27,6 +27,16 @@ Ask only when a missing choice prevents useful work.
 
 If the destination exists, read [the refresh procedure](references/refresh.md)
 before editing. Preserve manual additions and stable section IDs.
+
+For an existing guide, invoke the same skill with its path:
+
+```text
+Use $deep-wiki-html to refresh docs/codebase-wiki.html against the current source.
+```
+
+Refresh runs on invocation, not automatically when the repository changes.
+For an active repository, use the cadence and automation guidance in
+[the refresh procedure](references/refresh.md#keeping-an-active-repository-current).
 
 ## Build an evidence map
 

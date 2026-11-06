@@ -1,6 +1,6 @@
 # Antick Skills
 
-24 skills for AI coding agents: code review, refactoring, security and database
+25 skills for AI coding agents: code review, refactoring, security and database
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
 [Website](https://skills.potion.sh) · [Install](#install) · [All skills](SKILLS.md)
@@ -41,6 +41,7 @@ install globally, so you get dozens of errors.
 | Skill | What it does |
 | --- | --- |
 | [antick](skills/antick/SKILL.md) | List every Antick skill by area with installed status, or recommend one for a task |
+| [skill-review](skills/skill-review/SKILL.md) | Review skills and agent instructions for conflicts and redundant confirmations. Propose edits before changes. |
 | [code-review](skills/code-review/SKILL.md) | Review changes or a PR against its requirements. Read-only. |
 | [code-build](skills/code-build/SKILL.md) | Build features, standardize UI, wire localization, and migrate platforms |
 | [code-refactor](skills/code-refactor/SKILL.md) | Refactor auth, state, SDKs, routing, types, and performance with regression tests |

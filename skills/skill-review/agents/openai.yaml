@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Review"
+  short_description: "Review skills and agent instructions for conflicts"
+  default_prompt: "Use $skill-review to review my skills and AGENTS.md files for unclear or conflicting instructions, redundant confirmations, and incomplete work. Propose edits before changing files and flag any expansion of authority."

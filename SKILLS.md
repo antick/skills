@@ -1,6 +1,6 @@
 # Antick Skills
 
-41 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+42 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -40,6 +40,7 @@
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
+| `deep-wiki-html` | Automatically create or refresh one offline HTML codebase wiki and link to it |
 | `interview` | Learn personal context and save authorized memories |
 | `new-skill` | Create or change skills that match the existing set and catalogues |
 | `use-chrome` | Reuse one connection to your main Chrome in background tabs |
@@ -53,6 +54,7 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Single-file codebase wiki | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, and incremental refresh |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |
 | Architecture cleanup | [code-audit](skills/code-audit/SKILL.md) for findings; [code-refactor](skills/code-refactor/SKILL.md) for implementation |
 | Auth flow consolidation | [code-refactor: auth-consolidation](skills/code-refactor/references/auth-consolidation.md) |

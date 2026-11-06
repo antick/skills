@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "deep-wiki-html": {
+    category: "Deep Wiki HTML",
+    heading: "Understand the code.\nKeep one file.",
+    description: "Automatically find and refresh an existing codebase wiki or create one offline HTML file, then return a clickable viewing link. Includes architecture diagrams, source citations, and search.",
+    prompt: "$deep-wiki-html Keep this repository's HTML wiki current and open the result.",
+    steps: ["Find the existing wiki or choose the default destination", "Create or refresh it against the current source", "Verify the guide and return a clickable viewing link"],
+    mode: "Single-file documentation",
+  },
   "test-suite-hardening": {
     category: "Test Suite Hardening",
     heading: "Test Suite Hardening",

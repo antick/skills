@@ -24,6 +24,7 @@ export const skillIcons = {
   "ci-cd-triage": RefreshCw,
   "accessibility-audit": ScanLine,
   "documentation-generation": AlignLeft,
+  "deep-wiki-html": PanelsTopLeft,
   "interview": MessageCircle,
   "dependency-upgrade-minor": RefreshCw,
   "dependency-upgrade-major": Package,

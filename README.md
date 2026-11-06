@@ -1,6 +1,6 @@
 # Antick Skills
 
-42 skills for AI coding agents: building, debugging, code review and pull
+43 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -67,6 +67,7 @@ install globally, so you get dozens of errors.
 | [submit-review](skills/submit-review/SKILL.md) | Post review findings as inline PR comments and mark the PR draft |
 | [build-review-loop](skills/build-review-loop/SKILL.md) | Build your issues in parallel, self-review each PR, and fix until clean |
 | [code-build](skills/code-build/SKILL.md) | Build features and fixes in meaningful commits and finish with a draft PR |
+| [electron-app](skills/electron-app/SKILL.md) | Build secure Electron apps with native behavior and deliberate text selection |
 | [code-debug](skills/code-debug/SKILL.md) | Find a bug's root cause, evidence, and fix without changing code. Read-only. |
 | [sync-branch](skills/sync-branch/SKILL.md) | Merge the latest `main`, or a branch you name, into a PR and resolve conflicts |
 | [commit-message](skills/commit-message/SKILL.md) | Write short commit messages in the repository's convention |
@@ -139,6 +140,7 @@ Add your request after the name:
 ```text
 $code-review Review my uncommitted changes.
 $code-build Add search to this Astro site.
+$electron-app Build an Electron app with native desktop behavior.
 $reclaim-dev-space Find what's eating my disk.
 $code-debug Find out why login fails after a password reset.
 $build-review-loop Build issues 12 and 14, self-review each PR, and fix until clean.

@@ -17,6 +17,7 @@
         "./skills/submit-review",
         "./skills/build-review-loop",
         "./skills/code-build",
+        "./skills/electron-app",
         "./skills/code-debug",
         "./skills/sync-branch",
         "./skills/commit-message",

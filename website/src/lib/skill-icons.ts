@@ -9,6 +9,7 @@ export const skillIcons = {
   "code-review": ScanLine,
   "skill-review": ScanLine,
   "code-build": Code2,
+  "electron-app": PanelsTopLeft,
   "code-refactor": RefreshCw,
   "code-audit": Scissors,
   "code-security": ShieldCheck,

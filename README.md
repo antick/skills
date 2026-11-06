@@ -107,11 +107,12 @@ Each skill's `SKILL.md` is the source of truth for what it does.
 
 A few behave differently from the rest:
 
-- **`ai-harness-setup` and `save-omarchy-window-layout`** run only when you call them
-  by name. `ai-harness-setup` only updates by default; say "also install missing
-  tools" to install. Its [tool list](skills/ai-harness-setup/references/tools.md)
-  covers 19 tools and runtimes. `save-omarchy-window-layout` needs an existing
-  Omarchy/Hyprland setup.
+- **`ai-harness-setup`, `save-omarchy-window-layout`, and `update-skills`** run
+  only when you call them by name. `ai-harness-setup` only updates by default; say
+  "also install missing tools" to install. Its
+  [tool list](skills/ai-harness-setup/references/tools.md) covers 19 tools and
+  runtimes. `save-omarchy-window-layout` needs an existing Omarchy/Hyprland setup.
+  `update-skills` asks before it installs or removes any skill.
 - **`reclaim-dev-space`** shows its findings in chat first and deletes nothing
   until you pick items from that report.
 - **`interview`** saves to memory only what you approve, and never to the repository.

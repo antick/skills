@@ -1,4 +1,4 @@
-import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, List, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Database, Code2, ShieldCheck, ScanLine, Scissors, MessageCircle, AlignLeft, RefreshCw, HardDrive, PanelsTopLeft, GitBranch, GitMerge, GitPullRequest, Bug, Globe, FileText, Gauge, Package, List, type LucideIcon } from "lucide-react";
 import type { Skill } from "./catalog";
 
 export const skillIcons = {
@@ -14,7 +14,6 @@ export const skillIcons = {
   "code-security": ShieldCheck,
   concise: AlignLeft,
   "make-sense": MessageCircle,
-  "upgrade-dependencies": RefreshCw,
   simplify: AlignLeft,
   "public-desktop-release": ShieldCheck,
   "private-desktop-release": ShieldCheck,
@@ -27,5 +26,22 @@ export const skillIcons = {
   "documentation-generation": AlignLeft,
   "deep-wiki-html": PanelsTopLeft,
   "interview": MessageCircle,
+  "dependency-upgrade-minor": RefreshCw,
+  "dependency-upgrade-major": Package,
+  "code-debug": Bug,
+  "submit-review": GitPullRequest,
+  "build-review-loop": RefreshCw,
+  "sync-branch": GitMerge,
+  "commit-message": GitBranch,
+  "pr-description": GitPullRequest,
+  "create-issue": FileText,
+  "branch-status": GitBranch,
+  "spec-status": FileText,
+  "new-skill": Code2,
+  "use-chrome": Globe,
+  "update-skills": RefreshCw,
+  "performance-audit": Gauge,
+  "dependency-audit": ScanLine,
+  "dependency-override-cleanup": Scissors,
   antick: List
 } satisfies Record<Skill["name"], LucideIcon>;

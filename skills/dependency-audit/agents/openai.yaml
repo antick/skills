@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Audit"
+  short_description: "Audit dependency freshness, support, and advisories"
+  default_prompt: "Use $dependency-audit to report outdated, unsupported, and vulnerable dependencies across packages, Docker images, GitHub Actions, and runtime pins, with recommended targets, without changing files."

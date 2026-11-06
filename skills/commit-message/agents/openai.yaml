@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Message"
+  short_description: "Write short commit messages in the repo's convention"
+  default_prompt: "Use $commit-message to draft a concise commit message for the staged changes that follows this repository's convention."

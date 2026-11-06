@@ -8,16 +8,39 @@ is listed.
 
 | Skill | What it does |
 | --- | --- |
-| `code-review` | Review code and PRs for requirements, risk, and complexity |
-| `code-build` | Build features, standardize UI, wire localization, and migrate platforms |
+| `code-build` | Build features in meaningful commits and open a draft PR |
+| `code-debug` | Find a bug's root cause without changing code |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
-| `upgrade-dependencies` | Upgrade dependencies, apply migrations, and verify behavior |
-| `test-suite-hardening` | Fix flaky tests and strengthen behavior coverage |
+| `performance-audit` | Find queries, jobs, and polling that slow down as data grows |
+| `test-suite-hardening` | Fix flaky tests, strengthen coverage, and prove changes with real regressions |
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
 | `deep-wiki-html` | Automatically create or refresh one offline HTML codebase wiki and link to it |
+
+## Reviews & pull requests
+
+| Skill | What it does |
+| --- | --- |
+| `code-review` | Review code and PRs against requirements; report task findings and code health |
+| `submit-review` | Post review findings as inline PR comments and mark the PR draft |
+| `build-review-loop` | Build your issues in parallel, self-review each PR, and fix until clean |
+| `sync-branch` | Merge the latest main or a named branch into a PR and resolve conflicts |
+| `commit-message` | Write short commit messages in the repository's convention |
+| `pr-description` | Write plain-language PR titles and descriptions with technical detail |
+| `create-issue` | File GitHub issues that match repo conventions, without duplicates |
+| `branch-status` | Count branches and list merged ones that are safe to delete |
+| `spec-status` | List OpenSpec changes whose implementation already reached main |
+
+## Dependencies
+
+| Skill | What it does |
+| --- | --- |
+| `dependency-upgrade-minor` | Apply safe patch and minor updates and verify behavior |
+| `dependency-upgrade-major` | Upgrade major versions with planned migrations and full verification |
+| `dependency-audit` | Audit dependency freshness, support status, and advisories across all sources |
+| `dependency-override-cleanup` | Find and remove stale overrides, resolutions, patches, and audit waivers |
 
 ## Security & compliance
 
@@ -43,6 +66,9 @@ is listed.
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
 | `ai-harness-setup` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
+| `use-chrome` | Reuse one connection to your main Chrome in background tabs |
+| `new-skill` | Create or change skills that match the existing set and catalogues |
+| `update-skills` | Update installed skills and report new or removed ones |
 
 ## Agent instructions
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Performance Audit"
+  short_description: "Find queries and jobs that slow down as data grows"
+  default_prompt: "Use $performance-audit to find reads, jobs, polling, and scripts whose cost grows with data size, prove them on synthetic volume in a disposable database, and report ranked fixes without changing files."

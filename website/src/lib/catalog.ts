@@ -64,7 +64,7 @@ const details = {
   "code-build": {
     category: "From idea to working code",
     heading: "Understand first.\nThen build.",
-    description: "Build with the existing stack, including focused guides for design-system rules, shared components, localization, and platform migrations.",
+    description: "Build with the existing stack, commit in meaningful steps, and finish with a draft pull request. Includes focused guides for design-system rules, shared components, localization, and platform migrations.",
     prompt: "$code-build Add search to this Astro site using its existing conventions.",
     steps: ["Identify the actual stack and existing patterns", "Build the complete behavior, including failure states", "Run the relevant checks and explain what was verified"],
     mode: "Implementation",
@@ -109,12 +109,20 @@ const details = {
     steps: ["Inspect the architecture and actual consumers", "Find duplication and unnecessary layers", "Rank concrete simplifications by their value"],
     mode: "Reports without changing files",
   },
-  "upgrade-dependencies": {
+  "dependency-upgrade-minor": {
     category: "Keep your project current",
-    heading: "Update the packages.\nKeep things working.",
-    description: "Upgrade to stable releases at least 48 hours old, apply required code and configuration migrations, and check that the project still works. Clear evidence of what passed and what needs more checking.",
-    prompt: "$upgrade-dependencies Update dependencies, apply required migrations, and verify the project still works.",
-    steps: ["Check release age and package compatibility", "Upgrade together and apply required migrations", "Run tests, build, and verify affected behavior"],
+    heading: "Routine updates.\nNo surprises.",
+    description: "Classify patch and minor updates as safe or needing contained code changes, apply them group by group with releases at least 48 hours old, and verify the project still works. Majors and drastic changes are flagged for the major workflow.",
+    prompt: "$dependency-upgrade-minor Check which packages have patch or minor updates, apply the safe and contained ones, and verify the project still works.",
+    steps: ["Inventory updates and read every changelog", "Commit safe updates together and code changes separately", "Run checks and report deferred and major items"],
+    mode: "Report on check; implementation on update",
+  },
+  "dependency-upgrade-major": {
+    category: "Big upgrades, done properly",
+    heading: "Plan the migration.\nShip the major.",
+    description: "Upgrade major and drastic dependencies one group at a time: plan from release notes and migration guides, apply code and configuration migrations, and verify with tests, builds, and real browser checks.",
+    prompt: "$dependency-upgrade-major Upgrade the major versions in this project, apply the required migrations group by group, and verify the project still works.",
+    steps: ["Plan each group from release notes and guides", "Upgrade and migrate one group per commit", "Verify tests, build, browser flows, and rollback"],
     mode: "Implementation",
   },
   "public-desktop-release": {

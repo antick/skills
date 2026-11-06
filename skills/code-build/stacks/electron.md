@@ -3,6 +3,10 @@
 Use for Electron applications. Identify the main process, renderer, preload,
 development runner, and packager before touching a feature.
 
+For native desktop implementation and polish, use `electron-app` when available.
+It covers selection behavior, macOS conventions, secure bridges, and desktop
+acceptance checks. This guide remains the generic build and packaging entry point.
+
 ## Stack decisions
 
 Assign each operation to the process with the required authority. UI interaction

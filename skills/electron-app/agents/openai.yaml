@@ -1,0 +1,4 @@
+interface:
+  display_name: "Electron App"
+  short_description: "Build secure Electron apps that feel native"
+  default_prompt: "Use $electron-app to build this Electron app with native desktop behavior, deliberate text selection, secure IPC, and packaged-runtime checks."

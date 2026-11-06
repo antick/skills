@@ -9,6 +9,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `code-build` | Build features in meaningful commits and open a draft PR |
+| `electron-app` | Build secure Electron apps with native behavior and deliberate text selection |
 | `code-debug` | Find a bug's root cause without changing code |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |

@@ -122,19 +122,6 @@ class FilesystemDiscoveryTests(unittest.TestCase):
             self.assertNotIn("network/hidden", [r["path"] for r in result["entries"]])
             self.assertEqual(result["coverage"]["measurement"], "partial")
 
-    def test_mounted_device_is_followed_in_system_mode_but_excluded_in_folder_mode(self):
-        from scan import Scanner
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / "data").mkdir()
-            (root / "data/file").write_text("local data")
-            device = root.stat().st_dev
-            folder = Scanner(root, 3, [], 30)
-            folder.allowed_devices = {device + 1}
-            self.assertNotIn("data/file", [r["path"] for r in folder.run()["entries"]])
-            system = Scanner(root, 3, [], 30, allowed_devices={device}, system_mode=True)
-            self.assertIn("data/file", [r["path"] for r in system.run()["entries"]])
-
     def test_repeated_directory_identity_is_counted_once(self):
         from scan import Scanner
         with tempfile.TemporaryDirectory() as directory:

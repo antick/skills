@@ -52,6 +52,10 @@ containing filesystem; nested mounts and symlink targets remain outside scope.
 System-wide process and Docker queries are disabled. `--path` with `--docker`
 is rejected before any scan or history write. The containing filesystem's disk
 availability is context, not a measurement of unrelated folders.
+Folder mode reads the OS mount table only to locate nested mount points within
+the selected path. It blocks those points even when a bind mount shares the
+same filesystem device, without querying other mounts' storage. If mount
+boundaries cannot be read, the folder audit stops before writing history.
 
 The scanner visits each subtree once using directory descriptors and metadata
 calls. It reads no file contents and follows no directory symlinks. System mode
@@ -60,6 +64,9 @@ bind mounts and macOS aliases; file inodes deduplicate hardlinks. User-facing
 root directories are visited before the macOS physical Data-volume mirror, so
 saved detail remains useful. It excludes its own history subtree. Exact `--exclude`
 subtrees are part of the comparison scope; they are not zero-sized cleanup wins.
+Excluded object identities are resolved before traversal so another alias cannot
+be visited first. Linux mount roots also identify aliases of descendants inside
+an excluded subtree. Neither operation reads the excluded files' contents.
 The `--depth` setting limits saved detail, not sizing traversal. Default depth
 three covers top-level system categories and user-home entries; deeper cache
 detail needs a higher depth or a separate folder-scoped run. Changing depth
@@ -81,7 +88,10 @@ become visible after such a gap are `newly_observed`, not necessarily newly
 created. Filesystem device changes are `filesystem_changed`, without a byte
 delta. Contents of unmounted devices are `not_observed`; mounting existing data
 does not establish file creation or disk growth. Aggregate comparisons remain
-unknown where changed filesystem boundaries affect their totals. `metadata_changed` means file metadata changed, not that contents were
+unknown where changed filesystem boundaries affect their totals. Changed mount
+paths also keep their contents uncertain when the same device remains mounted
+elsewhere. Linux mount roots distinguish rebinding a path to another directory
+on the same device. `metadata_changed` means file metadata changed, not that contents were
 read or compared. Disk availability is a host-wide observation, not proof that
 an audit or cleanup reclaimed that amount.
 

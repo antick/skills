@@ -32,7 +32,14 @@ def validate(snapshot):
     return snapshot
 
 
-def observed_absence(path, entries, reference, devices):
+def observed_absence(path, entries, reference, devices, changed_boundaries):
+    ancestor = path
+    while True:
+        if ancestor in changed_boundaries:
+            return False
+        if ancestor == ".":
+            break
+        ancestor = str(PurePosixPath(ancestor).parent)
     device = reference.get(path, {}).get("filesystem_device")
     if device is not None and device not in devices:
         return False
@@ -63,7 +70,7 @@ def mount_boundaries(snapshot):
     for row in snapshot.get("filesystems", {}).get("mounts", []):
         try:
             relative = PurePosixPath(row["path"]).relative_to(root).as_posix()
-            result[relative] = (row.get("device"), row.get("filesystem"))
+            result[relative] = (row.get("device"), row.get("filesystem"), row.get("filesystem_root"))
         except ValueError:
             pass
     return result
@@ -105,9 +112,9 @@ def compare(previous, current):
     for path in sorted(before.keys() | after.keys()):
         old, new = before.get(path), after.get(path)
         if old is None:
-            change = "added" if observed_absence(path, before, after, old_devices) else "newly_observed"
+            change = "added" if observed_absence(path, before, after, old_devices, changed_boundaries) else "newly_observed"
         elif new is None:
-            change = "removed" if observed_absence(path, after, before, new_devices) else "not_observed"
+            change = "removed" if observed_absence(path, after, before, new_devices, changed_boundaries) else "not_observed"
         elif old.get("measurement") == "excluded" and new.get("measurement") == "excluded":
             continue
         elif old.get("measurement") != "complete" or new.get("measurement") != "complete":

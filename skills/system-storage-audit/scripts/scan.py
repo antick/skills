@@ -1,7 +1,7 @@
 """Single-pass POSIX metadata scan; never opens file contents or follows links."""
 import hashlib
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import stat
 import sys
 import time
@@ -14,7 +14,7 @@ DIRECTORY_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
 
 class Scanner:
     def __init__(self, root, depth, exclusions, timeout, allowed_devices=None,
-                 blocked_mounts=None, system_mode=False):
+                 blocked_mounts=None, system_mode=False, mounts=None):
         self.root = Path(root)
         self.depth = depth
         self.exclusions = set(exclusions)
@@ -31,6 +31,54 @@ class Scanner:
         self.blocked_mounts = blocked_mounts or {}
         self.system_mode = system_mode
         self.seen_directories = {}
+        self.excluded_identities = {}
+        self.mounts = mounts or []
+        self.excluded_mounts = {}
+
+    def register_mount_aliases(self, path, metadata):
+        views = [view for view in self.mounts
+                 if view.get("device") == metadata.st_dev and "filesystem_root" in view]
+        parents = [view for view in views if (self.root / path).is_relative_to(Path(view["path"]))]
+        if not parents:
+            return
+        parent = max(parents, key=lambda view: len(Path(view["path"]).parts))
+        relative = (self.root / path).relative_to(Path(parent["path"]))
+        source = PurePosixPath(parent["filesystem_root"]) / relative.as_posix()
+        for view in views:
+            if not PurePosixPath(view["filesystem_root"]).is_relative_to(source):
+                continue
+            try:
+                alias = Path(view["path"]).relative_to(self.root)
+                if alias.parts:
+                    self.excluded_mounts[alias.as_posix()] = path
+            except ValueError:
+                pass
+
+    def register_exclusions(self, root_fd):
+        # Resolve identities before walking so an earlier alias cannot bypass exclusion.
+        for path in sorted(self.exclusions):
+            fd = os.dup(root_fd)
+            try:
+                parts = Path(path).parts
+                for index, part in enumerate(parts):
+                    if "/".join(parts[:index + 1]) in self.blocked_mounts:
+                        break
+                    metadata = os.stat(part, dir_fd=fd, follow_symlinks=False)
+                    if metadata.st_dev not in self.allowed_devices:
+                        break
+                    if index == len(parts) - 1:
+                        self.excluded_identities[(metadata.st_dev, metadata.st_ino)] = path
+                        self.register_mount_aliases(path, metadata)
+                    else:
+                        child_fd = os.open(part, DIRECTORY_FLAGS, dir_fd=fd)
+                        os.close(fd)
+                        fd = child_fd
+            except FileNotFoundError:
+                continue
+            except OSError as error:
+                raise ValueError(f"Cannot establish exclusion boundary for {path!r}: {error}") from error
+            finally:
+                os.close(fd)
 
     def error(self, path, reason):
         self.error_count += 1
@@ -66,14 +114,17 @@ class Scanner:
         return metadata.st_blocks * BLOCK_BYTES
 
     def visit(self, parent_fd, name, path, level):
-        if path in self.blocked_mounts:
-            self.error(path, self.blocked_mounts[path])
+        excluded_by = self.excluded_mounts.get(path)
+        if path in self.blocked_mounts or excluded_by is not None:
+            reason = "Alias of excluded subtree: " + excluded_by if excluded_by is not None else self.blocked_mounts[path]
+            if excluded_by is None:
+                self.error(path, reason)
             if level <= self.depth:
                 self.entries.append({"id": "P-" + hashlib.sha256(os.fsencode(path)).hexdigest()[:16],
-                                     "path": path, "kind": "directory", "measurement": "excluded",
-                                     "allocated_bytes": None, "listing_complete": False,
-                                     "exclusion": self.blocked_mounts[path]})
-            return 0, False
+                                     "path": path, "kind": "unknown", "measurement": "excluded",
+                                     "allocated_bytes": 0 if excluded_by is not None else None,
+                                     "listing_complete": False, "exclusion": reason})
+            return 0, excluded_by is not None
         try:
             metadata = os.stat(name, dir_fd=parent_fd, follow_symlinks=False)
         except OSError as error:
@@ -88,8 +139,10 @@ class Scanner:
                 "symlink" if stat.S_ISLNK(metadata.st_mode) else
                 "file" if stat.S_ISREG(metadata.st_mode) else "special")
         row = self.record(path, metadata, kind, level)
-        if path in self.exclusions:
+        excluded_by = self.excluded_identities.get((metadata.st_dev, metadata.st_ino))
+        if path in self.exclusions or excluded_by is not None:
             row["measurement"] = "excluded"
+            row["excluded_by"] = excluded_by or path
             return 0, True
         if metadata.st_dev not in self.allowed_devices:
             row["measurement"] = "excluded"
@@ -160,6 +213,7 @@ class Scanner:
         fd = os.open(self.root, DIRECTORY_FLAGS)
         try:
             metadata = os.fstat(fd)
+            self.register_exclusions(fd)
             self.seen_directories[(metadata.st_dev, metadata.st_ino)] = "."
             row = self.record(".", metadata, "directory", 0)
             self.directory(fd, ".", 0, row, self.allocation(metadata))

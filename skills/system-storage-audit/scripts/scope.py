@@ -21,7 +21,8 @@ def parse_linux_mounts(text):
         if not separator or len(fields) < 5 or not tail:
             raise ValueError("Unrecognized Linux mount-table entry")
         path = re.sub(r"\\([0-7]{3})", lambda match: chr(int(match[1], 8)), fields[4])
-        row = {"path": path, "filesystem": tail[0]}
+        filesystem_root = re.sub(r"\\([0-7]{3})", lambda match: chr(int(match[1], 8)), fields[3])
+        row = {"path": path, "filesystem": tail[0], "filesystem_root": filesystem_root}
         local = tail[0] in LOCAL_FILESYSTEMS or path == "/" and tail[0] in ROOT_ONLY_FILESYSTEMS
         (included if local else excluded).append(row)
     return included, excluded
@@ -52,25 +53,51 @@ def exclude_disk_images(included, excluded, images):
     return retained, skipped
 
 
+def read_mount_table():
+    if platform.system() == "Linux":
+        included, excluded = parse_linux_mounts(LINUX_MOUNT_TABLE.read_text())
+    elif platform.system() == "Darwin":
+        result = subprocess.run(["/sbin/mount"], capture_output=True, text=True,
+                                check=True, timeout=MOUNT_TIMEOUT)
+        included, excluded = parse_macos_mounts(result.stdout)
+    else:
+        raise ValueError("Mount discovery supports macOS and Linux")
+    if not included and not excluded:
+        raise ValueError("Mount discovery returned no filesystems")
+    return included, excluded
+
+
+def folder_mount_boundaries(root, requested_path):
+    try:
+        included, excluded = read_mount_table()
+    except (OSError, ValueError, subprocess.SubprocessError) as error:
+        raise ValueError(f"Cannot determine folder mount boundaries; audit not started: {error}") from error
+    nested = []
+    roots = (root, requested_path.expanduser().absolute())
+    for row in included + excluded:
+        for spelling in roots:
+            try:
+                relative = Path(row["path"]).relative_to(spelling)
+            except ValueError:
+                continue
+            if relative.parts:
+                nested.append({**row, "path": str(root / relative),
+                               "reason": "Nested mount is outside the selected folder scope"})
+            break
+    return {"status": "complete", "boundary_only": True, "mounts": [], "excluded": nested, "errors": []}
+
+
 def discover_local_filesystems():
     errors = []
     try:
-        if platform.system() == "Linux":
-            included, excluded = parse_linux_mounts(LINUX_MOUNT_TABLE.read_text())
-        elif platform.system() == "Darwin":
-            result = subprocess.run(["/sbin/mount"], capture_output=True, text=True,
-                                    check=True, timeout=MOUNT_TIMEOUT)
-            included, excluded = parse_macos_mounts(result.stdout)
+        included, excluded = read_mount_table()
+        if platform.system() == "Darwin":
             try:
                 images = subprocess.run(["/usr/bin/hdiutil", "info", "-plist"], capture_output=True,
                                         check=True, timeout=MOUNT_TIMEOUT)
                 included, excluded = exclude_disk_images(included, excluded, plistlib.loads(images.stdout))
             except (OSError, ValueError, subprocess.SubprocessError) as error:
                 errors.append({"path": str(SYSTEM_ROOT), "reason": "Disk-image discovery unavailable: " + str(error)})
-        else:
-            raise ValueError("System discovery supports macOS and Linux")
-        if not included and not excluded:
-            raise ValueError("Mount discovery returned no filesystems")
         disks = {}
         for row in included:
             try:
@@ -95,7 +122,7 @@ def select_scope(requested_path):
     if not root.is_dir():
         raise ValueError("Audit root must be a directory")
     filesystems = (discover_local_filesystems() if mode == "system" else
-                   {"status": "not_requested", "mounts": [], "excluded": [], "errors": []})
+                   folder_mount_boundaries(root, requested_path))
     devices = {root.stat().st_dev}
     devices.update(row["device"] for row in filesystems["mounts"] if "device" in row)
     blocked = {}

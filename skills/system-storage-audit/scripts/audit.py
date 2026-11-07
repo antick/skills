@@ -79,7 +79,7 @@ def run(args):
         started = timestamp()
         scanned = Scanner(root, args.depth, exclusions, args.timeout,
                           allowed_devices=devices, blocked_mounts=blocked_mounts,
-                          system_mode=mode == "system").run()
+                          system_mode=mode == "system", mounts=filesystems["mounts"]).run()
         if mode == "system" and filesystems["status"] != "complete":
             scanned["coverage"]["measurement"] = "partial"
             next(row for row in scanned["entries"] if row["path"] == ".")["measurement"] = "partial"

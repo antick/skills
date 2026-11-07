@@ -19,6 +19,7 @@ export const skillIcons = {
   "public-desktop-release": ShieldCheck,
   "private-desktop-release": ShieldCheck,
   "reclaim-dev-space": HardDrive,
+  "system-storage-audit": HardDrive,
   "save-omarchy-window-layout": PanelsTopLeft,
   "ai-tools-update": RefreshCw,
   "test-suite-hardening": ScanLine,

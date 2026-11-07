@@ -5,6 +5,14 @@ import { engineeringDetails } from "./engineering-catalog.ts";
 
 const details = {
   ...engineeringDetails,
+  "system-storage-audit": {
+    category: "Know what uses your storage",
+    heading: "Audit the system.\nFocus on one folder.",
+    description: "Audit accessible local system storage by default, or only a folder you specify. Bundled metadata scripts save private snapshots, compare matching scopes, and report cleanup choices without removing files.",
+    prompt: "$system-storage-audit Audit local system storage, or only the folder I specify, compare with the previous matching run, and report cleanup choices without deleting anything.",
+    steps: ["Select system storage or one named folder and scan metadata", "Save a private snapshot and compare the same scope", "Explain protected data, coverage gaps, and cleanup choices"],
+    mode: "Metadata audit with private history; no cleanup",
+  },
   "reclaim-dev-space": {
     category: "Room for the next build",
     heading: "See what can go.\nKeep what matters.",

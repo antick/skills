@@ -43,6 +43,7 @@
         "./skills/vercel-domain-cleanup",
         "./skills/soc2-readiness",
         "./skills/reclaim-dev-space",
+        "./skills/system-storage-audit",
         "./skills/save-omarchy-window-layout",
         "./skills/ai-tools-update",
         "./skills/test-suite-hardening",

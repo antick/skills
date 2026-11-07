@@ -5,12 +5,12 @@ import { engineeringDetails } from "./engineering-catalog.ts";
 
 const details = {
   ...engineeringDetails,
-  "home-folder-audit": {
-    category: "Know what lives at home",
-    heading: "Explain the clutter.\nSee what changed.",
-    description: "Audit home folders and hidden app data with bundled metadata-only scripts. Save private snapshots, compare each run with its previous matching audit, and report cleanup choices without removing files.",
-    prompt: "$home-folder-audit Analyse my home folder, explain hidden folders, compare with the previous run, and report cleanup choices for my review without deleting anything.",
-    steps: ["Scan metadata once and save a private snapshot", "Compare with the previous matching run and flag coverage gaps", "Explain protected data and specific cleanup choices in chat"],
+  "system-storage-audit": {
+    category: "Know what uses your storage",
+    heading: "Audit the system.\nFocus on one folder.",
+    description: "Audit accessible local system storage by default, or only a folder you specify. Bundled metadata scripts save private snapshots, compare matching scopes, and report cleanup choices without removing files.",
+    prompt: "$system-storage-audit Audit local system storage, or only the folder I specify, compare with the previous matching run, and report cleanup choices without deleting anything.",
+    steps: ["Select system storage or one named folder and scan metadata", "Save a private snapshot and compare the same scope", "Explain protected data, coverage gaps, and cleanup choices"],
     mode: "Metadata audit with private history; no cleanup",
   },
   "reclaim-dev-space": {

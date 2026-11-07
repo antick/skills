@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 
 SCHEMA_VERSION = 1
-POLICY_VERSION = 1
+POLICY_VERSION = 2
 DEFAULT_DEPTH = 3
 MAX_DEPTH = 8
 DEFAULT_TIMEOUT = 600
@@ -13,7 +13,26 @@ PROGRESS_SECONDS = 10
 BLOCK_BYTES = 512
 PRIVATE_DIRECTORY_MODE = 0o700
 PRIVATE_FILE_MODE = 0o600
-STATE_COMPONENTS = ("antick", "home-folder-audit")
+STATE_COMPONENTS = ("antick", "system-storage-audit")
+SYSTEM_ROOT = Path(os.path.abspath(os.sep))
+LOCAL_FILESYSTEMS = frozenset({
+    "apfs", "hfs", "hfsplus", "ext2", "ext3", "ext4", "xfs", "btrfs", "zfs",
+    "f2fs", "ufs", "jfs", "reiserfs", "vfat", "msdos", "exfat", "ntfs", "ntfs3",
+    "squashfs", "erofs", "iso9660", "udf",
+})
+ROOT_ONLY_FILESYSTEMS = frozenset({"overlay"})
+SYSTEM_SCAN_ORDER = ("Users", "home", "Applications", "Library", "private", "var", "usr", "opt", "System")
+SYSTEM_PATH_HINTS = {
+    "System": ("protected", "Operating-system files and services"),
+    "Applications": ("protected", "Installed applications"),
+    "bin": ("protected", "System executables"),
+    "sbin": ("protected", "System administration executables"),
+    "usr": ("protected", "Installed system software and shared resources"),
+    "etc": ("protected", "System and service configuration"),
+    "var": ("protected", "Service state, databases, logs, and system data"),
+    "private": ("protected", "macOS service state and system data"),
+    "boot": ("protected", "Boot files"),
+}
 
 # Hints are explanations, never deletion decisions or executable cleanup rules.
 PATH_HINTS = {
@@ -55,8 +74,13 @@ def default_state_dir():
 
 
 def hint(path):
+    if path.split("/", 1)[0] in SYSTEM_PATH_HINTS:
+        return SYSTEM_PATH_HINTS[path.split("/", 1)[0]]
+    parts = path.split("/")
     matches = [(prefix, value) for prefix, value in PATH_HINTS.items()
-               if path == prefix or path.startswith(prefix + "/")]
+               if any("/".join(parts[index:]) == prefix or
+                      "/".join(parts[index:]).startswith(prefix + "/")
+                      for index in range(len(parts)))]
     if matches:
         return max(matches, key=lambda pair: len(pair[0]))[1]
     return "review", "Ownership and ongoing need require review; names alone do not establish safety"

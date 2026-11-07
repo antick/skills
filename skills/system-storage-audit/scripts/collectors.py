@@ -36,7 +36,7 @@ def processes(root):
         output = command(["ps", "-axo", "comm="])
         names = Counter()
         for value in output.splitlines():
-            if value.startswith(str(root) + "/"):
+            if value.startswith(str(root).rstrip("/") + "/"):
                 names[value] += 1
             elif value.startswith("/Applications/") and ".app/" in value:
                 names[value.split(".app/", 1)[0] + ".app"] += 1

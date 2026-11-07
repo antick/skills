@@ -29,8 +29,16 @@ def summary(snapshot, limit):
         if "items" in value:
             collectors[key]["items"] = dict(list(value["items"].items())[:limit])
             collectors[key]["items_omitted"] = max(0, len(value["items"]) - limit)
-    return {"root": snapshot["scope"]["root"], "captured_at": snapshot["captured_at"],
+    filesystems = snapshot.get("filesystems", {})
+    bounded_filesystems = {key: value[:limit] if isinstance(value, list) else value
+                           for key, value in filesystems.items()}
+    for key, value in filesystems.items():
+        if isinstance(value, list):
+            bounded_filesystems[key + "_omitted"] = max(0, len(value) - limit)
+    return {"root": snapshot["scope"]["root"], "mode": snapshot["scope"].get("mode", "folder"),
+            "captured_at": snapshot["captured_at"], "filesystems": bounded_filesystems,
             "finished_at": snapshot["finished_at"], "disk": snapshot["disk"],
+            "disk_context": "Containing filesystem only; other discovered volumes are listed separately. Shared pools cannot be summed.",
             "coverage": snapshot["coverage"], "top_level_counts": dict(counts),
             "root_measurement": next(row for row in snapshot["entries"] if row["path"] == "."),
             "largest_top_level_entries": largest, "top_level_entries_omitted": max(0, len(top) - limit),

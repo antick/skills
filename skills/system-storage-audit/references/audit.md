@@ -2,13 +2,13 @@
 
 ## Saved state
 
-The script stores history beneath `$XDG_STATE_HOME/antick/home-folder-audit`, or
-`~/.local/state/antick/home-folder-audit` when that variable is unset. Override
+The script stores history beneath `$XDG_STATE_HOME/antick/system-storage-audit`, or
+`~/.local/state/antick/system-storage-audit` when that variable is unset. Override
 with `--state-dir PATH`. This metadata history is an intentional part of this
 skill, unlike the report-only `reclaim-dev-space` workflow.
 
 Each scope has its own directory, selected from the machine name, user ID,
-canonical root and filesystem identity, schema/policy version, detail depth,
+system or folder mode, canonical root and filesystem identity, schema/policy version, detail depth,
 exclusions, and Docker option. It contains immutable `*.snapshot.json` and
 `*.comparison.json` files, a `latest.json` pointer, and a persistent `.lock` file.
 The directory has mode `0700`; new state files have mode `0600`. History is never
@@ -29,18 +29,41 @@ To compare any two compatible saved snapshots without scanning or writing:
 python3 -B "<skill-dir>/scripts/audit.py" compare BEFORE.snapshot.json AFTER.snapshot.json
 ```
 
-Different roots, hosts, or scan profiles are rejected. Never seed this format
+Different roots, hosts, system/folder modes, or scan profiles are rejected. Never seed this format
 from conversational estimates or pretend an older manual report is a complete
 script-generated baseline.
 
 ## Measurement boundaries
 
+The default scope starts at `/` in the current machine's mount namespace.
+System mode discovers mounted local filesystems from Linux mountinfo or macOS
+mount metadata. It includes the separate macOS Data volume, blocks network and
+virtual filesystems, and reports unsupported filesystem types as exclusions.
+Mounted macOS disk images and nested Linux container overlays are excluded to
+avoid counting their contents again alongside host backing files. An overlay
+root is supported inside a container, covering that container's mount namespace
+rather than the physical host.
+Each included filesystem carries its own availability figures. Do not sum APFS
+volumes that share a storage pool. Unknown mount discovery makes the result
+partial; it is never represented as complete system coverage.
+
+`--path PATH` selects folder mode. It scans only that canonical folder on its
+containing filesystem; nested mounts and symlink targets remain outside scope.
+System-wide process and Docker queries are disabled. `--path` with `--docker`
+is rejected before any scan or history write. The containing filesystem's disk
+availability is context, not a measurement of unrelated folders.
+
 The scanner visits each subtree once using directory descriptors and metadata
-calls. It reads no file contents, follows no directory symlinks, and stays on
-the root filesystem. It excludes its own history subtree. Exact `--exclude`
+calls. It reads no file contents and follows no directory symlinks. System mode
+crosses only discovered local filesystem devices. Directory identities deduplicate
+bind mounts and macOS aliases; file inodes deduplicate hardlinks. User-facing
+root directories are visited before the macOS physical Data-volume mirror, so
+saved detail remains useful. It excludes its own history subtree. Exact `--exclude`
 subtrees are part of the comparison scope; they are not zero-sized cleanup wins.
 The `--depth` setting limits saved detail, not sizing traversal. Default depth
-three covers common package caches and application folders. The timeout is soft:
+three covers top-level system categories and user-home entries; deeper cache
+detail needs a higher depth or a separate folder-scoped run. Changing depth
+starts a separate comparison profile. The timeout is soft:
 an individual operating-system metadata call or directory listing can exceed it.
 
 Allocated bytes use filesystem block counts. Hardlinked file inodes are counted
@@ -55,7 +78,10 @@ Both entries must have complete sizes before a byte delta is calculated.
 `measurement_unknown` has no numerical delta. Missing descendants of an
 unreadable or unscanned directory are `not_observed`, not `removed`. Paths that
 become visible after such a gap are `newly_observed`, not necessarily newly
-created. `metadata_changed` means file metadata changed, not that contents were
+created. Filesystem device changes are `filesystem_changed`, without a byte
+delta. Contents of unmounted devices are `not_observed`; mounting existing data
+does not establish file creation or disk growth. Aggregate comparisons remain
+unknown where changed filesystem boundaries affect their totals. `metadata_changed` means file metadata changed, not that contents were
 read or compared. Disk availability is a host-wide observation, not proof that
 an audit or cleanup reclaimed that amount.
 
@@ -72,7 +98,7 @@ ignored files, detached/local-only commits, locks, and live tasks before proposi
 removal. A broken Git reference is a review/recovery item. The filesystem scan
 does not perform an exhaustive Git-state or logical-database audit.
 
-`--docker` saves containers, image tags, volumes, networks, container mounts, and
+In system mode, `--docker` saves containers, image tags, volumes, networks, container mounts, and
 daemon space summaries using projected fields. Full environment-bearing inspect
 output is never collected. Failed/unavailable inventories and changed contexts
 have unknown resource deltas. Builder-specific cache records, volume byte sizes,

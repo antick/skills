@@ -6,7 +6,7 @@ import sys
 import unittest
 from unittest.mock import patch
 
-from home_folder_audit_test import AuditFixture, SCRIPT
+from storage_audit_test import AuditFixture, SCRIPT
 
 sys.path.insert(0, str(SCRIPT.parent))
 

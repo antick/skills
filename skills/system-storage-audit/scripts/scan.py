@@ -6,14 +6,15 @@ import stat
 import sys
 import time
 
-from config import BLOCK_BYTES, MAX_ERRORS, PROGRESS_SECONDS, hint
+from config import BLOCK_BYTES, MAX_ERRORS, PROGRESS_SECONDS, SYSTEM_SCAN_ORDER, hint
 
 
 DIRECTORY_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
 
 
 class Scanner:
-    def __init__(self, root, depth, exclusions, timeout):
+    def __init__(self, root, depth, exclusions, timeout, allowed_devices=None,
+                 blocked_mounts=None, system_mode=False):
         self.root = Path(root)
         self.depth = depth
         self.exclusions = set(exclusions)
@@ -26,6 +27,10 @@ class Scanner:
         self.files_seen = 0
         self.directories_seen = 0
         self.device = self.root.stat().st_dev
+        self.allowed_devices = set(allowed_devices or {self.device})
+        self.blocked_mounts = blocked_mounts or {}
+        self.system_mode = system_mode
+        self.seen_directories = {}
 
     def error(self, path, reason):
         self.error_count += 1
@@ -42,6 +47,7 @@ class Scanner:
             "id": "P-" + hashlib.sha256(os.fsencode(path)).hexdigest()[:16],
             "path": path, "kind": kind, "allocated_bytes": 0,
             "measurement": "unknown", "listing_complete": False,
+            "filesystem_device": metadata.st_dev,
             "modified_ns": metadata.st_mtime_ns, "mode": stat.S_IMODE(metadata.st_mode),
         }
         if kind != "directory":
@@ -60,6 +66,14 @@ class Scanner:
         return metadata.st_blocks * BLOCK_BYTES
 
     def visit(self, parent_fd, name, path, level):
+        if path in self.blocked_mounts:
+            self.error(path, self.blocked_mounts[path])
+            if level <= self.depth:
+                self.entries.append({"id": "P-" + hashlib.sha256(os.fsencode(path)).hexdigest()[:16],
+                                     "path": path, "kind": "directory", "measurement": "excluded",
+                                     "allocated_bytes": None, "listing_complete": False,
+                                     "exclusion": self.blocked_mounts[path]})
+            return 0, False
         try:
             metadata = os.stat(name, dir_fd=parent_fd, follow_symlinks=False)
         except OSError as error:
@@ -77,10 +91,11 @@ class Scanner:
         if path in self.exclusions:
             row["measurement"] = "excluded"
             return 0, True
-        if metadata.st_dev != self.device:
+        if metadata.st_dev not in self.allowed_devices:
             row["measurement"] = "excluded"
-            row["exclusion"] = "different filesystem"
-            return 0, True
+            row["exclusion"] = "filesystem outside the selected scope"
+            self.error(path, row["exclusion"])
+            return 0, False
         if self.expired():
             self.error(path, "scan timeout; size not measured")
             return 0, False
@@ -102,6 +117,11 @@ class Scanner:
                 opened = os.fstat(fd)
                 if (opened.st_dev, opened.st_ino) != (metadata.st_dev, metadata.st_ino):
                     raise OSError("directory identity changed during scan")
+                identity = (opened.st_dev, opened.st_ino)
+                if identity in self.seen_directories:
+                    row.update(measurement="excluded", alias_of=self.seen_directories[identity])
+                    return 0, True
+                self.seen_directories[identity] = path
                 return self.directory(fd, path, level, row, total)
             finally:
                 os.close(fd)
@@ -116,6 +136,9 @@ class Scanner:
         try:
             with os.scandir(fd) as iterator:
                 names = sorted(entry.name for entry in iterator)
+            if level == 0 and self.system_mode:
+                order = {name: index for index, name in enumerate(SYSTEM_SCAN_ORDER)}
+                names.sort(key=lambda name: (order.get(name, len(order)), name))
             row["listing_complete"] = True
         except OSError as error:
             self.error(path, str(error))
@@ -137,10 +160,11 @@ class Scanner:
         fd = os.open(self.root, DIRECTORY_FLAGS)
         try:
             metadata = os.fstat(fd)
+            self.seen_directories[(metadata.st_dev, metadata.st_ino)] = "."
             row = self.record(".", metadata, "directory", 0)
             self.directory(fd, ".", 0, row, self.allocation(metadata))
             if not row["listing_complete"]:
-                raise ValueError("Home root could not be listed; previous baseline retained")
+                raise ValueError("Audit root could not be listed; previous baseline retained")
         finally:
             os.close(fd)
         return {"entries": self.entries, "errors": self.errors,

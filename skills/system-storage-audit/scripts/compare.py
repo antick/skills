@@ -32,38 +32,89 @@ def validate(snapshot):
     return snapshot
 
 
-def observed_absence(path, entries):
+def observed_absence(path, entries, reference, devices):
+    device = reference.get(path, {}).get("filesystem_device")
+    if device is not None and device not in devices:
+        return False
     parent = str(PurePosixPath(path).parent)
     while True:
         if parent in entries:
             row = entries[parent]
+            old_device = reference.get(parent, {}).get("filesystem_device")
+            if old_device is not None and row.get("filesystem_device") != old_device:
+                return False
             return row.get("kind") == "directory" and row.get("listing_complete") is True
         if parent == ".":
             return False
         parent = str(PurePosixPath(parent).parent)
 
 
+def devices_in(snapshot):
+    devices = {row["filesystem_device"] for row in snapshot["entries"]
+               if "filesystem_device" in row and row.get("measurement") in {"complete", "partial"}}
+    devices.update(row["device"] for row in snapshot.get("filesystems", {}).get("mounts", [])
+                   if "device" in row)
+    return devices
+
+
+def mount_boundaries(snapshot):
+    root = PurePosixPath(snapshot["scope"]["root"])
+    result = {}
+    for row in snapshot.get("filesystems", {}).get("mounts", []):
+        try:
+            relative = PurePosixPath(row["path"]).relative_to(root).as_posix()
+            result[relative] = (row.get("device"), row.get("filesystem"))
+        except ValueError:
+            pass
+    return result
+
+
 def compare(previous, current):
     validate(current)
     if previous is None:
-        return {"status": "first_run", "reason": "No previous snapshot for this machine, home, and scan scope",
+        return {"status": "first_run", "reason": "No previous snapshot for this machine, root, and scan scope",
                 "previous_run_id": None, "current_run_id": current["run_id"],
                 "change_counts": {}, "changes": []}
     validate(previous)
     if previous["scope"] != current["scope"]:
-        raise ValueError("Snapshot scope differs; compare the same machine, home, and scan profile")
+        raise ValueError("Snapshot scope differs; compare the same machine, root, mode, and scan profile")
     before = {row["path"]: row for row in previous["entries"]}
     after = {row["path"]: row for row in current["entries"]}
+    old_devices, new_devices = devices_in(previous), devices_in(current)
+    changed_boundaries = set()
+    old_mounts, new_mounts = mount_boundaries(previous), mount_boundaries(current)
+    changed_boundaries.update(path for path in old_mounts.keys() | new_mounts.keys()
+                              if old_mounts.get(path) != new_mounts.get(path))
+    for path in before.keys() | after.keys():
+        old, new = before.get(path, {}), after.get(path, {})
+        if (old.get("filesystem_device") is not None and new.get("filesystem_device") is not None
+                and old["filesystem_device"] != new["filesystem_device"]):
+            changed_boundaries.add(path)
+        elif ((old.get("filesystem_device") is not None and old["filesystem_device"] not in new_devices)
+              or (new.get("filesystem_device") is not None and new["filesystem_device"] not in old_devices)):
+            changed_boundaries.add(path)
+    uncertain_totals = set()
+    for path in changed_boundaries:
+        parent = str(PurePosixPath(path).parent)
+        while True:
+            uncertain_totals.add(parent)
+            if parent == ".":
+                break
+            parent = str(PurePosixPath(parent).parent)
     changes = []
     for path in sorted(before.keys() | after.keys()):
         old, new = before.get(path), after.get(path)
         if old is None:
-            change = "added" if observed_absence(path, before) else "newly_observed"
+            change = "added" if observed_absence(path, before, after, old_devices) else "newly_observed"
         elif new is None:
-            change = "removed" if observed_absence(path, after) else "not_observed"
+            change = "removed" if observed_absence(path, after, before, new_devices) else "not_observed"
         elif old.get("measurement") == "excluded" and new.get("measurement") == "excluded":
             continue
         elif old.get("measurement") != "complete" or new.get("measurement") != "complete":
+            change = "measurement_unknown"
+        elif path in changed_boundaries:
+            change = "filesystem_changed"
+        elif path in uncertain_totals and new.get("kind") == "directory":
             change = "measurement_unknown"
         elif old.get("kind") != new.get("kind"):
             change = "type_changed"
@@ -77,7 +128,8 @@ def compare(previous, current):
             change = "metadata_changed"
         else:
             continue
-        measured = old and new and old.get("measurement") == new.get("measurement") == "complete"
+        measured = (old and new and old.get("measurement") == new.get("measurement") == "complete"
+                    and change not in {"filesystem_changed", "measurement_unknown"})
         changes.append({"id": (new or old)["id"], "path": path, "change": change,
                         "before_bytes": old.get("allocated_bytes") if old else None,
                         "after_bytes": new.get("allocated_bytes") if new else None,

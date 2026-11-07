@@ -1,0 +1,4 @@
+interface:
+  display_name: "System Storage Audit"
+  short_description: "Audit system storage or one folder across runs"
+  default_prompt: "Use $system-storage-audit to audit local system storage, or only the folder I specify, compare with the previous matching run, and report cleanup choices without deleting anything."

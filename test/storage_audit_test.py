@@ -1,4 +1,4 @@
-"""Exercise the shipped CLI on small local homes, never the real home folder."""
+"""Exercise the shipped CLI on temporary folders, never the real system root."""
 import json
 import os
 from pathlib import Path
@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "skills/home-folder-audit/scripts/audit.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "skills/system-storage-audit/scripts/audit.py"
 
 
 class AuditFixture(unittest.TestCase):
@@ -32,14 +32,14 @@ class AuditFixture(unittest.TestCase):
         return result
 
     def run_audit(self, *args, success=True):
-        return self.command("run", "--home", self.home, "--state-dir", self.state,
+        return self.command("run", "--path", self.home, "--state-dir", self.state,
                             *args, success=success)
 
     def snapshot(self, result):
         return json.loads(Path(result["snapshot_path"]).read_text())
 
 
-class HomeAuditTests(AuditFixture):
+class StorageAuditTests(AuditFixture):
     def test_first_run_is_baseline_and_next_run_compares_without_overwriting_it(self):
         (self.home / ".cache").mkdir()
         (self.home / ".cache/a").write_bytes(b"a" * 4096)
@@ -63,6 +63,7 @@ class HomeAuditTests(AuditFixture):
         (self.home / "remove/a").write_text("a")
         first = self.run_audit()
         before = {r["path"]: r for r in self.snapshot(first)["entries"]}
+        self.assertEqual(before["keep"]["filesystem_device"], (self.home / "keep").stat().st_dev)
         (self.home / "remove/a").unlink()
         (self.home / "remove").rmdir()
         second = self.run_audit()

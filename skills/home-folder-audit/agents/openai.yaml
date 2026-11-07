@@ -1,4 +1,0 @@
-interface:
-  display_name: "Home Folder Audit"
-  short_description: "Audit home clutter and compare saved runs"
-  default_prompt: "Use $home-folder-audit to analyse my home folder, explain hidden folders, compare with the previous run, and report cleanup choices for my review without deleting anything."

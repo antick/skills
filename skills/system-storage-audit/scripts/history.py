@@ -21,9 +21,9 @@ def timestamp():
     return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
-def make_scope(root, depth, exclusions, docker):
+def make_scope(root, depth, exclusions, docker, mode="folder"):
     metadata = root.stat()
-    return {"root": str(root), "host": platform.node(), "uid": os.getuid(),
+    return {"root": str(root), "mode": mode, "host": platform.node(), "uid": os.getuid(),
             "root_device": metadata.st_dev, "root_inode": metadata.st_ino,
             "depth": depth, "exclusions": sorted(exclusions), "docker": docker,
             "policy_version": POLICY_VERSION, "schema_version": SCHEMA_VERSION}

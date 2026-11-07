@@ -5,6 +5,14 @@ import { engineeringDetails } from "./engineering-catalog.ts";
 
 const details = {
   ...engineeringDetails,
+  "home-folder-audit": {
+    category: "Know what lives at home",
+    heading: "Explain the clutter.\nSee what changed.",
+    description: "Audit home folders and hidden app data with bundled metadata-only scripts. Save private snapshots, compare each run with its previous matching audit, and report cleanup choices without removing files.",
+    prompt: "$home-folder-audit Analyse my home folder, explain hidden folders, compare with the previous run, and report cleanup choices for my review without deleting anything.",
+    steps: ["Scan metadata once and save a private snapshot", "Compare with the previous matching run and flag coverage gaps", "Explain protected data and specific cleanup choices in chat"],
+    mode: "Metadata audit with private history; no cleanup",
+  },
   "reclaim-dev-space": {
     category: "Room for the next build",
     heading: "See what can go.\nKeep what matters.",

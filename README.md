@@ -1,6 +1,6 @@
 # Antick Skills
 
-43 skills for AI coding agents: building, debugging, code review and pull
+44 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -95,6 +95,7 @@ install globally, so you get dozens of errors.
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up signed private macOS releases, licensed updates, and device controls |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix Vercel and www redirects and DNS warnings, then verify every site |
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report disk used by worktrees, Docker, test databases, and agent leftovers; delete only what you confirm |
+| [home-folder-audit](skills/home-folder-audit/SKILL.md) | Audit home-folder clutter and compare private snapshots across runs |
 | [ai-tools-update](skills/ai-tools-update/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
 | [save-omarchy-window-layout](skills/save-omarchy-window-layout/SKILL.md) | Save Omarchy/Hyprland window layout for restoring at login |
 | [concise](skills/concise/SKILL.md) | Short answers that keep the important parts |
@@ -118,6 +119,9 @@ A few behave differently from the rest:
   `update-skills` asks before it installs or removes any skill.
 - **`reclaim-dev-space`** shows its findings in chat first and deletes nothing
   until you pick items from that report.
+- **`home-folder-audit`** saves private metadata snapshots and compares each audit
+  with the previous comparable run. The first run establishes a baseline. It
+  reports home-folder and dot-folder clutter without performing cleanup.
 - **`interview`** saves to memory only what you approve, and never to the repository.
 - **`code-build`** commits in meaningful steps, pushes a branch, and opens a draft
   PR unless you ask for local-only work. **`submit-review`**, **`sync-branch`**, and

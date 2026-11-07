@@ -1,6 +1,6 @@
 # Antick Skills
 
-43 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+44 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -35,6 +35,7 @@
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
 | `soc2-readiness` | Assess SOC 2 readiness and report evidence-backed gaps in chat |
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
+| `home-folder-audit` | Audit home-folder clutter and compare private snapshots across runs |
 | `save-omarchy-window-layout` | Save Omarchy workspaces, tiled window sizes, and login restoration layout |
 | `ai-tools-update` | Update existing AI tools by default, report missing tools as skipped, and install only on explicit request with confirmation |
 | `test-suite-hardening` | Fix flaky tests, strengthen coverage, and prove changes with real regressions |
@@ -55,6 +56,7 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Home-folder clutter and repeat storage audits | [home-folder-audit](skills/home-folder-audit/SKILL.md), with private snapshots and automatic comparison; cleanup remains separately confirmed |
 | Single-file codebase wiki | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, and incremental refresh |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |
 | Architecture cleanup | [code-audit](skills/code-audit/SKILL.md) for findings; [code-refactor](skills/code-refactor/SKILL.md) for implementation |

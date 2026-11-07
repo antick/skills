@@ -216,6 +216,29 @@ class MountComparisonTests(unittest.TestCase):
         self.assertEqual(changes["diskA/old-file"]["change"], "not_observed")
         self.assertEqual(changes["diskA/new-file"]["change"], "newly_observed")
 
+    def test_rebound_mount_keeps_matching_descendants_unknown_without_hiding_sibling_growth(self):
+        from compare import compare
+        for size in (0, 4096, 12288):
+            with self.subTest(size=size):
+                before, after = self.views(["diskA"]), self.views(["diskA"])
+                for saved, source in ((before, "/old-source"), (after, "/new-source")):
+                    saved["filesystems"]["mounts"][1]["filesystem_root"] = source
+                    saved["entries"].extend([
+                        {**row("diskA/shared"), "filesystem_device": 2},
+                        {**row("diskA/shared/file", kind="file"), "filesystem_device": 2},
+                        {**row("diskAB", kind="file"), "filesystem_device": 1},
+                    ])
+                for entry in after["entries"]:
+                    if entry["path"].startswith("diskA/"):
+                        entry["allocated_bytes"] = size
+                after["entries"][-1]["allocated_bytes"] += 8192
+                changes = {entry["path"]: entry for entry in compare(before, after)["changes"]}
+                for path in ("diskA/retained", "diskA/shared", "diskA/shared/file"):
+                    self.assertEqual(changes[path]["change"], "measurement_unknown")
+                    self.assertIsNone(changes[path]["delta_bytes"])
+                self.assertEqual(changes["diskAB"]["change"], "grew")
+                self.assertEqual(changes["diskAB"]["delta_bytes"], 8192)
+
 
 if __name__ == "__main__":
     unittest.main()

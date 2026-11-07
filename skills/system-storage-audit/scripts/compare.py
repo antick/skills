@@ -32,14 +32,19 @@ def validate(snapshot):
     return snapshot
 
 
-def observed_absence(path, entries, reference, devices, changed_boundaries):
+def boundary_changed(path, changed_boundaries):
     ancestor = path
     while True:
         if ancestor in changed_boundaries:
-            return False
+            return True
         if ancestor == ".":
-            break
+            return False
         ancestor = str(PurePosixPath(ancestor).parent)
+
+
+def observed_absence(path, entries, reference, devices, changed_boundaries):
+    if boundary_changed(path, changed_boundaries):
+        return False
     device = reference.get(path, {}).get("filesystem_device")
     if device is not None and device not in devices:
         return False
@@ -121,6 +126,8 @@ def compare(previous, current):
             change = "measurement_unknown"
         elif path in changed_boundaries:
             change = "filesystem_changed"
+        elif boundary_changed(path, changed_boundaries):
+            change = "measurement_unknown"
         elif path in uncertain_totals and new.get("kind") == "directory":
             change = "measurement_unknown"
         elif old.get("kind") != new.get("kind"):

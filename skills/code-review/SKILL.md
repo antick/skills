@@ -107,6 +107,8 @@ Check this on every pull request review and re-review, using live data.
    boundaries, sensitive-data exposure, resource and error handling,
    concurrency, performance, compatibility, tests, documentation, and
    accessibility where relevant. Use [references/checklist.md](references/checklist.md).
+   When the change touches React or React Native code, also apply
+   [references/react-effect-cleanup.md](references/react-effect-cleanup.md).
 4. **Check code health.** Apply every category in
    [references/code-health.md](references/code-health.md), including
    unnecessary complexity, to every change.

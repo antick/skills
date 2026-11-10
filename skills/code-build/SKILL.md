@@ -102,6 +102,11 @@ For every UI task, including visual fixes to existing screens, read and apply
 [UI design guidance](references/ui-design.md) before editing. It supplements
 the matching focused workflow; backend-only work does not need it.
 
+For React or React Native code that adds or changes effects, custom hooks,
+listeners, timers, subscriptions, or requests, read and apply
+[React effect cleanup](references/react-effect-cleanup.md) so every started
+resource is released on unmount.
+
 Before writing UI code for a new screen, dialog, form, panel, or table action,
 name the existing screen whose pattern you are copying. When no existing screen
 fits, write a short layout sketch (entry point, overlays, and the actions shown

@@ -46,7 +46,9 @@ useEffect(() => {
 ```
 
 Aborting also prevents an older, slower response from overwriting newer state
-when dependencies change. When the project uses a data library, prefer its
+when dependencies change. When a call cannot be cancelled, such as an SDK
+method without a `signal`, set a local `ignore = true` in the cleanup and skip
+the state update when it is set. When the project uses a data library, prefer its
 cancellation support, such as forwarding the `signal` that TanStack Query passes
 to `queryFn`, over a hand-written effect.
 

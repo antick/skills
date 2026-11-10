@@ -16,6 +16,7 @@ cleanup releases it on unmount or dependency change:
 | `setInterval` / `setTimeout` | `clearInterval` / `clearTimeout` with the stored ID |
 | `requestAnimationFrame` | `cancelAnimationFrame` |
 | Subscriptions such as Firebase `onSnapshot`, stores, or emitters | Call the returned unsubscribe function |
+| React Native `AppState`, `Keyboard`, `Dimensions`, or `Linking` listeners | Call `.remove()` on the returned subscription |
 | `WebSocket`, `EventSource`, `BroadcastChannel` | `close()` |
 | `ResizeObserver`, `IntersectionObserver`, `MutationObserver` | `disconnect()` |
 | `fetch` or another cancellable request | `AbortController.abort()`, with `AbortError` ignored in the catch |
@@ -30,8 +31,9 @@ Also report:
   after dependencies change.
 - An abort that surfaces as a user-visible error because the catch does not
   ignore `AbortError`.
-- Cleanup relying on the absence of React's old "state update on unmounted
-  component" warning. React 18 and later removed it, so silence is not evidence.
+- An `isMounted` ref or `ignore` flag that only suppresses `setState` while the
+  timer, subscription, or listener keeps running. An `ignore` flag is
+  acceptable only for a request that cannot be cancelled.
 
 ## Severity and evidence
 

@@ -18,6 +18,7 @@ reference that registered them.
 | `setInterval` / `setTimeout` | `clearInterval` / `clearTimeout` with the stored ID |
 | `requestAnimationFrame` | `cancelAnimationFrame` with the stored ID |
 | Subscriptions such as Firebase `onSnapshot`, stores, or emitters | Call the returned unsubscribe function |
+| React Native `AppState`, `Keyboard`, `Dimensions`, or `Linking` listeners | Call `.remove()` on the returned subscription |
 | `WebSocket`, `EventSource`, `BroadcastChannel` | `close()` |
 | `ResizeObserver`, `IntersectionObserver`, `MutationObserver` | `disconnect()` |
 | `fetch` or another cancellable request | `AbortController.abort()` |
@@ -65,7 +66,9 @@ to `queryFn`, over a hand-written effect.
 
 Keep React `StrictMode` enabled in development. It mounts, unmounts, and mounts
 again, so missing cleanup appears as duplicated listeners, timers, or requests.
-Mount and unmount the changed component several times. Confirm in browser
-DevTools that event listener counts and pending network requests return to
-baseline. Where the project's test tools support it, add a test that unmounts
-the component and asserts the resource was released.
+Mount and unmount the changed component several times. On the web, confirm in
+browser DevTools that event listener counts and pending network requests return
+to baseline. On React Native, confirm in the simulator logs or React DevTools
+profiler that handlers, timers, and requests stop after unmount. Where the
+project's test tools support it, add a test that unmounts the component and
+asserts the resource was released.

@@ -49,6 +49,7 @@ is listed.
 | --- | --- |
 | `code-security` | Audit security; remediate vulnerabilities and harden supply chains when requested |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
+| `github-actions-lock` | Set up and maintain GitHub Actions lockfiles with CI verification |
 | `database-audit` | Audit database schemas, queries, migrations, and access with evidence |
 | `soc2-readiness` | Assess SOC 2 readiness and report evidence-backed gaps in chat |
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Actions Lock"
+  short_description: "Set up and maintain verified workflow lockfiles"
+  default_prompt: "Use $github-actions-lock to onboard this repository to actions.lock, add CI verification, and report coverage limits."

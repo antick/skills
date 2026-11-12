@@ -107,8 +107,9 @@ substantiated observations. An empty vulnerability list is a valid result.
   authority. Rate the verified consequence; do not assume production access.
 - The same trigger only assigns a label using safely handled metadata and
   does not consume contributor code: no code-execution finding from the trigger.
-- A workflow uses an action tag: normally a pinning recommendation, not evidence
-  of a compromised action or automatic High severity.
+- A workflow uses an action tag: check verified lockfile coverage first. Without
+  coverage, normally a pinning recommendation, not evidence of a compromised
+  action or automatic High severity.
 - An API lookup returned 403: the setting is unverified, not disabled.
 - A scanner finds a vulnerable package version: confirm the advisory match,
   then investigate runtime or build exposure before claiming the advertised exploit.

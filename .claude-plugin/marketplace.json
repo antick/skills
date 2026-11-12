@@ -41,6 +41,7 @@
         "./skills/private-desktop-release",
         "./skills/public-desktop-release",
         "./skills/vercel-domain-cleanup",
+        "./skills/setup-vercel-analytics",
         "./skills/soc2-readiness",
         "./skills/reclaim-dev-space",
         "./skills/system-storage-audit",

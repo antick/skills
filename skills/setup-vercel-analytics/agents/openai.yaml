@@ -1,0 +1,4 @@
+interface:
+  display_name: "Setup Vercel Analytics"
+  short_description: "Add Web Analytics and explain dashboard activation"
+  default_prompt: "Use $setup-vercel-analytics to add Vercel Web Analytics to this app, verify the integration, and remind me to enable it in the Vercel dashboard if needed."

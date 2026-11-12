@@ -1,6 +1,6 @@
 # Antick Skills
 
-44 skills for AI coding agents: building, debugging, code review and pull
+45 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -94,6 +94,7 @@ install globally, so you get dozens of errors.
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Ship signed Apple Silicon apps through GitHub Releases with auto-updates and a separate dev app |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up signed private macOS releases, licensed updates, and device controls |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix Vercel and www redirects and DNS warnings, then verify every site |
+| [setup-vercel-analytics](skills/setup-vercel-analytics/SKILL.md) | Set up Vercel Web Analytics, verify integration, and remind about dashboard activation |
 | [reclaim-dev-space](skills/reclaim-dev-space/SKILL.md) | Report disk used by worktrees, Docker, test databases, and agent leftovers; delete only what you confirm |
 | [system-storage-audit](skills/system-storage-audit/SKILL.md) | Audit system storage or a chosen folder and compare private snapshots |
 | [ai-tools-update](skills/ai-tools-update/SKILL.md) | Update installed AI tools and runtimes; install missing ones only when you ask |
@@ -145,6 +146,7 @@ Add your request after the name:
 ```text
 $code-review Review my uncommitted changes.
 $code-build Add search to this Astro site.
+$setup-vercel-analytics Add Web Analytics to this app and remind me about Vercel dashboard activation.
 $electron-app Build an Electron app with native desktop behavior.
 $reclaim-dev-space Find what's eating my disk.
 $code-debug Find out why login fails after a password reset.

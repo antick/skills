@@ -1,6 +1,6 @@
 # Antick Skills
 
-44 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+45 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -33,6 +33,7 @@
 | `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
+| `setup-vercel-analytics` | Set up Vercel Web Analytics, verify integration, and remind about dashboard activation |
 | `soc2-readiness` | Assess SOC 2 readiness and report evidence-backed gaps in chat |
 | `reclaim-dev-space` | Report reclaimable dev resources in chat, protect important data, and clean confirmed items |
 | `system-storage-audit` | Audit system storage or a chosen folder and compare private snapshots |
@@ -56,6 +57,7 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Vercel Web Analytics setup | [setup-vercel-analytics](skills/setup-vercel-analytics/SKILL.md), with framework detection, integration checks, and a dashboard activation reminder |
 | System storage and folder-scoped repeat audits | [system-storage-audit](skills/system-storage-audit/SKILL.md), with private snapshots and automatic comparison; cleanup remains separately confirmed |
 | Single-file codebase wiki | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, and incremental refresh |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |

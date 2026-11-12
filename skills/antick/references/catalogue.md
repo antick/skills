@@ -59,6 +59,7 @@ is listed.
 | `private-desktop-release` | Set up signed private desktop releases, licensed updates, and device controls |
 | `public-desktop-release` | Set up signed public GitHub releases, automatic updates, and a separate dev app |
 | `vercel-domain-cleanup` | Fix permanent Vercel and www redirects, DNS warnings, and verify websites |
+| `setup-vercel-analytics` | Set up Vercel Web Analytics, verify integration, and remind about dashboard activation |
 
 ## Workstation
 

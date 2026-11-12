@@ -5,6 +5,7 @@ export const skillIcons = {
   "database-audit": Database,
   "soc2-readiness": ShieldCheck,
   "vercel-domain-cleanup": ArrowUpRight,
+  "setup-vercel-analytics": Gauge,
   "github-actions-security-audit": ShieldCheck,
   "code-review": ScanLine,
   "skill-review": ScanLine,

@@ -45,6 +45,14 @@ const details = {
     steps: ["Establish scope, criteria, and evidence access", "Inspect technical and organizational controls", "Report prioritized gaps, evidence requests, and verification steps"],
     mode: "Read-only readiness report in chat",
   },
+  "setup-vercel-analytics": {
+    category: "Understand your visitors",
+    heading: "Add Web Analytics.\nComplete the setup.",
+    description: "Add Vercel Web Analytics using your app's framework and package manager. Verify the integration without duplicate tracking and get a reminder and link for dashboard activation.",
+    prompt: "$setup-vercel-analytics Add Vercel Web Analytics to this app, verify the integration, and remind me to enable it in the Vercel dashboard if needed.",
+    steps: ["Detect the framework, layouts, and existing tracking", "Integrate once and run the app's checks", "Link dashboard activation and report deployment and data status"],
+    mode: "Code integration with dashboard reminder",
+  },
   "vercel-domain-cleanup": {
     category: "Every address reaches home",
     heading: "Fix the redirects.\nClear the DNS warnings.",

@@ -1,6 +1,6 @@
 # Antick Skills
 
-45 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+46 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -25,6 +25,7 @@
 | `database-audit` | Audit database schemas, queries, migrations, and access with evidence |
 | `performance-audit` | Find queries, jobs, and polling that slow down as data grows |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
+| `github-actions-lock` | Set up and maintain GitHub Actions lockfiles with CI verification |
 | `dependency-upgrade-minor` | Apply safe patch and minor updates and verify behavior |
 | `dependency-upgrade-major` | Upgrade major versions with planned migrations and full verification |
 | `dependency-audit` | Audit dependency freshness, support status, and advisories across all sources |
@@ -70,6 +71,7 @@ the combinations below describe complementary workflows, not required dependenci
 | Component library standardization | [code-build: component-library-standardization](skills/code-build/references/component-library-standardization.md) |
 | TypeScript strictness fixes | [code-refactor: typescript-strictness](skills/code-refactor/references/typescript-strictness.md) |
 | Test suite hardening | [test-suite-hardening](skills/test-suite-hardening/SKILL.md) |
+| GitHub Actions lockfile setup and maintenance | [github-actions-lock](skills/github-actions-lock/SKILL.md) |
 | CI/CD pipeline triage | [ci-cd-triage](skills/ci-cd-triage/SKILL.md) |
 | Routine dependency updates | [dependency-upgrade-minor](skills/dependency-upgrade-minor/SKILL.md) |
 | Dependency upgrade migrations | [dependency-upgrade-major](skills/dependency-upgrade-major/SKILL.md) |

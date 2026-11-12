@@ -19,13 +19,14 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Practical skills for building, reviewing, debugging, and maintaining software. Covers security, dependencies, testing, releases, documentation, Vercel setup, workstation upkeep, and clear communication.",
+    "longDescription": "Practical skills for building, reviewing, debugging, and maintaining software. Covers security, GitHub Actions lockfiles, dependencies, testing, releases, documentation, Vercel setup, workstation upkeep, and clear communication.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
       "Code review",
       "Skill and agent instruction review",
       "Security audits",
+      "GitHub Actions lockfile setup and verification",
       "Database audits",
       "SOC 2 readiness",
       "Code simplification",
@@ -68,6 +69,7 @@
       "Implement this with the code-build skill.",
       "Refactor this code with current official docs and regression tests using the code-refactor skill.",
       "Audit this repository and its GitHub Actions with the code-security skill.",
+      "Use $github-actions-lock to set up actions.lock, add CI verification, and report coverage limits.",
       "Review schemas, queries, and migrations with the database-audit skill.",
       "Apply safe patch and minor updates with the dependency-upgrade-minor skill.",
       "Upgrade major versions with migrations using the dependency-upgrade-major skill.",

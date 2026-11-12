@@ -61,11 +61,13 @@ gh api "repos/$OWNER/$R/git/trees/$B?recursive=1" \
   --jq '.tree[]|select(.type=="blob")|.path|select(test("^\\.github/actions/|(^|/)CODEOWNERS$|dependabot\\.ya?ml$|action\\.ya?ml$"))'
 ```
 
-Fetch all workflows, composite actions under `.github/actions/`, local actions
+Fetch all YAML workflows and `.github/workflows/actions.lock` when present,
+composite actions under `.github/actions/`, local actions
 referenced as `uses: ./...`, reusable workflows referenced with `uses:` at job
 level, `.github/dependabot.yml`, and `CODEOWNERS` (root, `.github/`, `docs/`).
-Save them under `raw/<repo>/` so tools can run offline. Files whose names start
-with a dot are easy to miss in `ls`; use `ls -a`.
+Save them under `raw/<repo>/` so tools can run offline. Keep `actions.lock`
+beside its workflows in the temporary `.github/workflows/` layout. Files whose
+names start with a dot are easy to miss in `ls`; use `ls -a`.
 
 Also record which workflows are disabled:
 
@@ -110,7 +112,16 @@ actionlint -no-color raw/$R/wf/*.yml   # pass files directly; outside a git chec
 - `GH_TOKEN` enables zizmor's online audits (impostor commits, known
   vulnerable actions, stale refs).
 - `--persona=auditor` shows everything; you calibrate severity yourself.
-- Then grep for what tools miss:
+- Use a zizmor release with lockfile support (v1.32.0 or newer) when a
+  lockfile is present.
+- In a temporary default-branch checkout, use an installed
+  `gh actions-lock --verify` for read-only online validation; never generate or
+  relock during an audit. Fetch referenced manifests and preserve repository
+  metadata needed by the verifier. If access, tooling, or a complete checkout is
+  unavailable, report lockfile validity as unverified. File presence alone does
+  not establish coverage.
+- Then search for what tools miss. Tag matches are candidates: check their
+  per-workflow lockfile coverage before reporting them as unpinned.
 
 ```bash
 rg -n 'pull_request_target|workflow_run|issue_comment|github-script' raw/*/wf
@@ -135,10 +146,20 @@ For each third-party action, check upstream health:
    `contents: read`, writes granted per job only where used (`contents: write`
    to publish, `id-token: write` only for OIDC, `pages`/`attestations` only
    where used). No `write-all`.
-4. **Action pinning.** Every `uses:` pinned to a full 40-char SHA with a
-   matching `# vX.Y.Z` comment, including first-party `actions/*`. No archived
-   or abandoned actions. `persist-credentials: false` on checkout unless a
-   later step pushes with that token.
+4. **Action pinning and lockfiles.** Remote action references, including
+   first-party `actions/*`, use either full commit SHA pins with matching
+   version comments or verified `.github/workflows/actions.lock` coverage for
+   that workflow. A tag covered by a valid lockfile is not an unpinned-action
+   finding. Check workflow onboarding, dependency entries, locked commits and
+   repository identities, CI verification, and update-bot maintenance. External
+   reusable-workflow calls still need full SHA pins; their action dependencies
+   use the source repository's lockfile. Inspect local `./` action dependencies
+   separately; they are outside lockfile coverage. Container images need digest
+   pins. No archived or abandoned actions. `persist-credentials: false` on
+   checkout unless a later step pushes with that token.
+   Follow current [GitHub lockfile guidance](https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles).
+   If setup or maintenance is requested later, `github-actions-lock` handles
+   that work; this audit remains read-only.
 5. **Secrets exposure.** Secrets not reachable from fork PRs; not echoed; not
    in job-level `env` when one step needs them; not present while dependency
    install scripts run (install first, then materialize keys); deploy and
@@ -173,15 +194,19 @@ For each third-party action, check upstream health:
     `github.actor` and update type), OIDC trust policies scoped to repo and
     ref or environment, fork PR approval set to "all external contributors" on
     public repos with costly runners, allowed-actions list and "require SHA
-    pinning" turned on, a Dependabot `github-actions` entry to keep pins fresh,
-    dead secrets removed.
+    pinning" evaluated against effective locked commits for onboarded workflows,
+    lockfile enforcement where supported, and a Dependabot `github-actions`
+    entry or equivalent Renovate setup to keep pins fresh. Check allowed-action
+    lists against locked SHAs rather than assuming tag entries still match.
+    Dependabot maintains existing lockfile entries but does not onboard new
+    workflows. Dead secrets removed.
 
 ## Step 6: Rate severity
 
 | Severity | Meaning |
 | --- | --- |
 | Critical | Exploitable now by an outsider (fork PR, issue, comment) to run code with write access or read deploy, signing or cloud secrets. |
-| High | One upstream compromise or a routine event puts production, signing or write credentials in reach (mutable third-party ref in a secrets job, production secret beside dependency install scripts, write token given to an unmaintained action). |
+| High | One upstream compromise or a routine event puts production, signing or write credentials in reach (mutable, uncovered third-party ref in a secrets job, production secret beside dependency install scripts, write token given to an unmaintained action). |
 | Medium | Needs one more failure such as a stolen maintainer credential or a branch push, or weakens a key control (repo-level deploy secrets, no tag protection on signed releases, write-by-default token). |
 | Low | Hardening and hygiene (persisted read-only token, missing explicit `permissions` with a read default, cache restore in release jobs, dead secrets, unpinned service images). |
 
@@ -206,6 +231,7 @@ Severity rubric. Skipped repos (archived, forks) and why.
 ## PUBLIC REPOS
 ### <repo>
 Workflows: <files> or "no workflows"
+Lockfile: covered workflows, verification result, uncovered dependencies, update bot
 Also: dependabot.yml, CODEOWNERS, composite actions
 Settings: default token, approve PRs, allowed actions, SHA pinning, fork
 approval, branch protection or rulesets, environments (rules, secret names),

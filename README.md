@@ -1,6 +1,6 @@
 # Antick Skills
 
-45 skills for AI coding agents: building, debugging, code review and pull
+46 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -81,6 +81,7 @@ install globally, so you get dozens of errors.
 | [database-audit](skills/database-audit/SKILL.md) | Audit schemas, migrations, queries, indexes, and access. Read-only. |
 | [performance-audit](skills/performance-audit/SKILL.md) | Find queries, jobs, and polling that slow down as data grows. Read-only. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions and CI security across every repo of an account. Read-only. |
+| [github-actions-lock](skills/github-actions-lock/SKILL.md) | Set up and maintain GitHub Actions lockfiles with CI verification |
 | [soc2-readiness](skills/soc2-readiness/SKILL.md) | Assess SOC 2 readiness and report gaps and missing evidence in chat. Read-only. |
 | [dependency-upgrade-minor](skills/dependency-upgrade-minor/SKILL.md) | Apply safe patch and minor updates, pinned exactly, and verify |
 | [dependency-upgrade-major](skills/dependency-upgrade-major/SKILL.md) | Upgrade major versions with planned migrations and full verification |

@@ -16,9 +16,16 @@ for workflow controls:
 - Determine effective token permissions and secret availability per job,
   including inherited settings. Omitted YAML permissions do not alone prove
   write access. Inspect checkout credential persistence and later commands.
-- Check third-party actions and reusable workflows for full commit pinning,
-  executable downloads for integrity checks, and containers for immutable
-  references. Pinning alone does not establish that code is trustworthy.
+- Check remote actions for full commit pinning or verified workflow lockfile
+  coverage, including transitive actions. A tag in an onboarded workflow with
+  valid `.github/workflows/actions.lock` coverage is pinned. File presence alone
+  is insufficient: verify onboarding, entries, source identities, and upkeep.
+  External reusable-workflow calls still need full SHA pins; inspect their
+  dependencies in the source repository and local workspace actions separately.
+  Use read-only verification; report unavailable verification as a coverage gap.
+  Check executable downloads for integrity and containers for immutable digests.
+  Pinning alone does not establish that code is trustworthy. See GitHub's
+  [lockfile guidance](https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles).
 - Inspect self-hosted runner reachability from untrusted jobs, isolation,
   persistence, and access to internal networks or credentials.
 

@@ -33,6 +33,7 @@
         "./skills/database-audit",
         "./skills/performance-audit",
         "./skills/github-actions-security-audit",
+        "./skills/github-actions-lock",
         "./skills/dependency-upgrade-minor",
         "./skills/dependency-upgrade-major",
         "./skills/dependency-audit",

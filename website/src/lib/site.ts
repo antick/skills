@@ -1,6 +1,5 @@
 export const site = {
   name: "Antick Skills",
-  url: "https://skills.potion.sh",
   repository: "https://github.com/antick/skills",
   description: "Focused skills for AI agents. Build thoughtfully, review carefully, upgrade dependencies, and make things make sense.",
   installCommand: "npx skills@latest add antick/skills --global",

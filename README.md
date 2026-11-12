@@ -4,7 +4,7 @@
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
-[Website](https://skills.potion.sh) · [Install](#install) · [All skills](SKILLS.md)
+[Install](#install) · [All skills](SKILLS.md)
 
 ## Install
 

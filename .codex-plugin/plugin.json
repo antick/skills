@@ -96,7 +96,7 @@
       "Use $documentation-generation to map this architecture and write an onboarding guide.",
       "Use $update-skills to update my installed skills and list new and removed ones.",
       "Use $antick to list every Antick skill by area and show which are installed.",
-      "Use $deep-wiki-html to automatically create or update this repository's HTML wiki and open the result with a clickable viewing link.",
+      "Use $deep-wiki-html to create or refresh an offline HTML wiki, document explainer, or architecture map, export architecture JSON when requested, and return viewing links.",
       "Use $electron-app to build an Electron app with native desktop behavior and secure process boundaries."
     ],
     "brandColor": "#7C3AED"

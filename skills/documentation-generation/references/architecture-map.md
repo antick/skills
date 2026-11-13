@@ -15,6 +15,11 @@ authorization, domain behavior, persistence, queues/events, and external service
 Inspect actual callers and configuration to verify edges. Label runtime assumptions
 and unavailable infrastructure; do not infer ownership solely from directory names.
 
+For a requested offline HTML architecture map or HTML plus JSON, use
+`deep-wiki-html` and its architecture model workflow. It embeds one source-backed
+model in the HTML and exports the same JSON when requested. Keep the evidence
+and coverage limits above; an output format does not establish exhaustive coverage.
+
 ## Build a navigable guide
 
 Include only views that help the reader:

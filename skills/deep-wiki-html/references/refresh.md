@@ -40,8 +40,12 @@ older pinned citations only when deliberately labelled as historical evidence.
 Update source mappings, revision, timestamp, and working-tree state only after
 verification. Ignore the output HTML when deciding whether inspected sources
 are dirty. Document the changed areas and remaining gaps in a short visible
-update note. A refreshed file remains the sole deliverable; its own embedded
-metadata is sufficient to start the next refresh.
+update note. The HTML's embedded metadata remains sufficient to start the next refresh.
+For architecture models, refresh the embedded model and affected explanations
+from the same evidence. If a JSON export was requested or an existing companion
+export is recorded in metadata, regenerate it from that model and verify equality.
+Preserve stable model IDs and manual annotations; explain conflicts rather than
+silently overwriting them. Exclude both outputs from source-change detection.
 
 ## Keeping an active repository current
 

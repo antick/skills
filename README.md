@@ -91,7 +91,7 @@ install globally, so you get dozens of errors.
 | [ci-cd-triage](skills/ci-cd-triage/SKILL.md) | Diagnose and repair failing builds and pipelines |
 | [accessibility-audit](skills/accessibility-audit/SKILL.md) | Find accessibility barriers; fix them when asked |
 | [documentation-generation](skills/documentation-generation/SKILL.md) | Write source-backed docs, architecture maps, and onboarding guides |
-| [deep-wiki-html](skills/deep-wiki-html/SKILL.md) | Automatically create or refresh one offline HTML wiki and return a viewing link |
+| [deep-wiki-html](skills/deep-wiki-html/SKILL.md) | Create or refresh offline HTML wikis, document explainers, and architecture maps with optional JSON |
 | [public-desktop-release](skills/public-desktop-release/SKILL.md) | Ship signed Apple Silicon apps through GitHub Releases with auto-updates and a separate dev app |
 | [private-desktop-release](skills/private-desktop-release/SKILL.md) | Set up signed private macOS releases, licensed updates, and device controls |
 | [vercel-domain-cleanup](skills/vercel-domain-cleanup/SKILL.md) | Fix Vercel and www redirects and DNS warnings, then verify every site |

@@ -18,7 +18,7 @@ is listed.
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
-| `deep-wiki-html` | Automatically create or refresh one offline HTML codebase wiki and link to it |
+| `deep-wiki-html` | Create or refresh offline HTML wikis, document explainers, and architecture maps with optional JSON |
 
 ## Reviews & pull requests
 

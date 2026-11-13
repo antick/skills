@@ -17,6 +17,7 @@ export const skillIcons = {
   "code-audit": Scissors,
   "code-hardening": ScanLine,
   "code-security": ShieldCheck,
+  "app-pentest": ShieldCheck,
   concise: AlignLeft,
   "make-sense": MessageCircle,
   simplify: AlignLeft,

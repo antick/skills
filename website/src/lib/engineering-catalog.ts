@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "app-pentest": {
+    category: "Prove what an attacker can do",
+    heading: "Test this app.\nReproduce the exploit.",
+    description: "Penetration-test the app in the current repository using source access and active testing. Reproduce vulnerabilities with controlled proofs, distinguish findings from suspicions, and retest fixes when requested.",
+    prompt: "$app-pentest Penetration-test the app in this repository. Use the established test target, reproduce exploitable vulnerabilities, and report evidence, concrete fixes, and coverage.",
+    steps: ["Infer the current app, stack, and test target", "Test reachable attack paths and reproduce findings", "Report evidence and coverage, and retest requested fixes"],
+    mode: "Active app testing; fixes and PRs when requested",
+  },
   "code-hardening": {
     category: "Check every hardening item",
     heading: "Run all 20 checks.\nShow the evidence.",

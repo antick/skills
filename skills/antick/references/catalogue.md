@@ -50,6 +50,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `code-security` | Audit security; remediate vulnerabilities and harden supply chains when requested |
+| `app-pentest` | Penetration-test the current app and reproduce exploitable vulnerabilities |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
 | `github-actions-lock` | Set up and maintain GitHub Actions lockfiles with CI verification |
 | `database-audit` | Audit database schemas, queries, migrations, and access with evidence |

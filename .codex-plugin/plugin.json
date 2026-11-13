@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Antick Skills",
     "shortDescription": "Simple code and clear communication",
-    "longDescription": "Practical skills for building, reviewing, debugging, and maintaining software. Covers a 20-check codebase hardening audit, security, GitHub Actions lockfiles, dependencies, testing, releases, documentation, Vercel setup, workstation upkeep, and clear communication.",
+    "longDescription": "Practical skills for building, reviewing, debugging, and maintaining software. Covers a 20-check codebase hardening audit, application penetration testing, security, GitHub Actions lockfiles, dependencies, testing, releases, documentation, Vercel setup, workstation upkeep, and clear communication.",
     "developerName": "Pankaj",
     "category": "Developer Tools",
     "capabilities": [
@@ -27,6 +27,7 @@
       "Implementation plan review",
       "Skill and agent instruction review",
       "Security audits",
+      "Application penetration testing and exploit reproduction",
       "GitHub Actions lockfile setup and verification",
       "Database audits",
       "SOC 2 readiness",
@@ -72,6 +73,7 @@
       "Implement this with the code-build skill.",
       "Refactor this code with current official docs and regression tests using the code-refactor skill.",
       "Audit this repository and its GitHub Actions with the code-security skill.",
+      "Use $app-pentest to penetration-test the app in this repository, reproduce exploitable vulnerabilities, and report evidence, fixes, and coverage.",
       "Use $code-hardening to run all 20 hardening checks on this repository and branch as a read-only dry run, with findings and coverage for every check.",
       "Use $github-actions-lock to set up actions.lock, add CI verification, and report coverage limits.",
       "Review schemas, queries, and migrations with the database-audit skill.",

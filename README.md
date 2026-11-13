@@ -1,6 +1,6 @@
 # Antick Skills
 
-48 skills for AI coding agents: building, debugging, code review and pull
+49 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -80,6 +80,7 @@ install globally, so you get dozens of errors.
 | [code-audit](skills/code-audit/SKILL.md) | Rank the biggest safe simplifications in a repository. Read-only. |
 | [code-hardening](skills/code-hardening/SKILL.md) | Run all 20 codebase hardening checks with evidence and explicit coverage |
 | [code-security](skills/code-security/SKILL.md) | Audit security; fix vulnerabilities and harden supply chains when asked |
+| [app-pentest](skills/app-pentest/SKILL.md) | Penetration-test the current app and reproduce exploitable vulnerabilities |
 | [database-audit](skills/database-audit/SKILL.md) | Audit schemas, migrations, queries, indexes, and access. Read-only. |
 | [performance-audit](skills/performance-audit/SKILL.md) | Find queries, jobs, and polling that slow down as data grows. Read-only. |
 | [github-actions-security-audit](skills/github-actions-security-audit/SKILL.md) | Audit GitHub Actions and CI security across every repo of an account. Read-only. |
@@ -133,6 +134,8 @@ A few behave differently from the rest:
   **`build-review-loop`** post to GitHub or push branches as part of their job.
 - **`code-debug`** never changes code, and asks before any browser action that
   changes data.
+- **`app-pentest`** actively tests the current app and reproduces vulnerabilities
+  on the established test target. Application fixes and PRs are separate requests.
 
 ## Use a skill
 
@@ -153,6 +156,7 @@ $setup-vercel-analytics Add Web Analytics to this app and remind me about Vercel
 $electron-app Build an Electron app with native desktop behavior.
 $reclaim-dev-space Find what's eating my disk.
 $code-debug Find out why login fails after a password reset.
+$app-pentest Penetration-test this app and report reproducible vulnerabilities.
 $build-review-loop Build issues 12 and 14, self-review each PR, and fix until clean.
 $antick
 $antick free up disk space taken by worktrees and node_modules

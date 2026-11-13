@@ -15,6 +15,7 @@ export const skillIcons = {
   "electron-app": PanelsTopLeft,
   "code-refactor": RefreshCw,
   "code-audit": Scissors,
+  "code-hardening": ScanLine,
   "code-security": ShieldCheck,
   concise: AlignLeft,
   "make-sense": MessageCircle,

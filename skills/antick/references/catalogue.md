@@ -13,6 +13,7 @@ is listed.
 | `code-debug` | Find a bug's root cause without changing code |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
+| `code-hardening` | Run all 20 codebase hardening checks with evidence and explicit coverage |
 | `performance-audit` | Find queries, jobs, and polling that slow down as data grows |
 | `test-suite-hardening` | Fix flaky tests, strengthen coverage, and prove changes with real regressions |
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |

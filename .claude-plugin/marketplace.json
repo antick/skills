@@ -30,6 +30,7 @@
         "./skills/make-sense",
         "./skills/code-refactor",
         "./skills/code-audit",
+        "./skills/code-hardening",
         "./skills/code-security",
         "./skills/database-audit",
         "./skills/performance-audit",

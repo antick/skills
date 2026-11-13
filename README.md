@@ -1,6 +1,6 @@
 # Antick Skills
 
-47 skills for AI coding agents: building, debugging, code review and pull
+48 skills for AI coding agents: building, debugging, code review and pull
 requests, refactoring, dependency upgrades, security, database and performance
 audits, tests and CI, releases, documentation, workstation upkeep, and clear writing.
 
@@ -78,6 +78,7 @@ install globally, so you get dozens of errors.
 | [spec-status](skills/spec-status/SKILL.md) | List OpenSpec changes whose implementation already reached `main`. Read-only. |
 | [code-refactor](skills/code-refactor/SKILL.md) | Refactor auth, state, SDKs, routing, types, and performance with regression tests |
 | [code-audit](skills/code-audit/SKILL.md) | Rank the biggest safe simplifications in a repository. Read-only. |
+| [code-hardening](skills/code-hardening/SKILL.md) | Run all 20 codebase hardening checks with evidence and explicit coverage |
 | [code-security](skills/code-security/SKILL.md) | Audit security; fix vulnerabilities and harden supply chains when asked |
 | [database-audit](skills/database-audit/SKILL.md) | Audit schemas, migrations, queries, indexes, and access. Read-only. |
 | [performance-audit](skills/performance-audit/SKILL.md) | Find queries, jobs, and polling that slow down as data grows. Read-only. |

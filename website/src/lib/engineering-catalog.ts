@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "code-hardening": {
+    category: "Check every hardening item",
+    heading: "Run all 20 checks.\nShow the evidence.",
+    description: "Audit duplication, secrets, error handling, APIs, money, dates, and database access with a fixed 20-check workflow. Start with a read-only dry run and distinguish confirmed findings from incomplete or inapplicable checks.",
+    prompt: "$code-hardening Audit this repository and branch with all 20 hardening checks in order. Start with a read-only dry run and report findings, proposed fixes, and coverage for every check.",
+    steps: ["Establish the repository, branch, and delivery mode", "Work through all 20 checks and validate each candidate", "Report evidence, fix status, and coverage for every check"],
+    mode: "Read-only dry run; fixes and PRs when authorized",
+  },
   "plan-review": {
     category: "Check the strategy before execution",
     heading: "Challenge the plan.\nResolve the gaps.",

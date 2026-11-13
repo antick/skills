@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Hardening"
+  short_description: "Run all 20 codebase hardening checks with evidence"
+  default_prompt: "Use $code-hardening to audit this repository and branch with all 20 checks in order. Start with a read-only dry run, confirm the delivery mode if unclear, and report evidence, proposed fixes, and coverage for every check."

@@ -13,6 +13,7 @@ is listed.
 | `code-debug` | Find a bug's root cause without changing code |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
+| `code-hardening` | Run all 20 codebase hardening checks with evidence and explicit coverage |
 | `performance-audit` | Find queries, jobs, and polling that slow down as data grows |
 | `test-suite-hardening` | Fix flaky tests, strengthen coverage, and prove changes with real regressions |
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
@@ -49,6 +50,7 @@ is listed.
 | Skill | What it does |
 | --- | --- |
 | `code-security` | Audit security; remediate vulnerabilities and harden supply chains when requested |
+| `app-pentest` | Penetration-test the current app and reproduce exploitable vulnerabilities |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
 | `github-actions-lock` | Set up and maintain GitHub Actions lockfiles with CI verification |
 | `database-audit` | Audit database schemas, queries, migrations, and access with evidence |

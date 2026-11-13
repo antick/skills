@@ -1,6 +1,6 @@
 ---
 name: code-security
-description: Audit repository security across application code, dependencies, secrets, CI, and releases. Use for security reports or requested vulnerability remediation and npm supply-chain hardening. Audits are read-only by default; apply fixes only when requested.
+description: Audit repository security across application code, dependencies, secrets, CI, and releases. Use for security reports or requested vulnerability remediation and npm supply-chain hardening. Audits are read-only by default; apply fixes only when requested. Active penetration testing of a running app uses app-pentest.
 ---
 
 # Code Security

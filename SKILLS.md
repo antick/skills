@@ -1,6 +1,6 @@
 # Antick Skills
 
-47 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+49 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
@@ -22,7 +22,9 @@
 | `make-sense` | Explain clearly without forcing brevity |
 | `code-refactor` | Refactor shared flows, types, architecture, and performance with regression protection |
 | `code-audit` | Rank repository-wide opportunities to remove complexity |
+| `code-hardening` | Run all 20 codebase hardening checks with evidence and explicit coverage |
 | `code-security` | Audit security; remediate vulnerabilities and harden supply chains when requested |
+| `app-pentest` | Penetration-test the current app and reproduce exploitable vulnerabilities |
 | `database-audit` | Audit database schemas, queries, migrations, and access with evidence |
 | `performance-audit` | Find queries, jobs, and polling that slow down as data grows |
 | `github-actions-security-audit` | Audit GitHub Actions and CI security across every repo of an account |
@@ -65,6 +67,8 @@ the combinations below describe complementary workflows, not required dependenci
 | HTML explainers and architecture maps | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, document explainers, incremental refresh, and optional architecture JSON |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |
 | Architecture cleanup | [code-audit](skills/code-audit/SKILL.md) for findings; [code-refactor](skills/code-refactor/SKILL.md) for implementation |
+| Repeatable 20-check codebase hardening | [code-hardening](skills/code-hardening/SKILL.md), with a read-only dry run, evidence, and coverage for every check |
+| Active application penetration testing | [app-pentest](skills/app-pentest/SKILL.md), with current-repo context, controlled exploit reproduction, and fix retesting |
 | Auth flow consolidation | [code-refactor: auth-consolidation](skills/code-refactor/references/auth-consolidation.md) |
 | State management consolidation | [code-refactor: state-consolidation](skills/code-refactor/references/state-consolidation.md) |
 | SDK wrapper consolidation | [code-refactor: sdk-consolidation](skills/code-refactor/references/sdk-consolidation.md) |

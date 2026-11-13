@@ -125,6 +125,10 @@ two days old, pin exact versions, and update the existing lockfile with the
 project's package manager. Preserve unrelated dependency versions. If release
 metadata is unavailable, report the limitation instead of guessing.
 
+For changes involving stored user data, authentication, concurrent mutations,
+background jobs, email, file storage, service health, or cross-device state, read
+[production safety](references/production-safety.md) and apply the relevant sections.
+
 ## Ladder
 
 1. Confirm the requested behavior needs to exist.

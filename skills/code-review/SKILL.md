@@ -57,6 +57,11 @@ the available authenticated provider tools or CLI.
    merge-base-to-head diff. Before finishing, confirm that the head SHA has not
    changed.
 
+When the change is governed by an existing OpenSpec change, include its
+applicable requirements and scenarios in the expected-behavior checklist. Apply
+the existing finding bar: report missing behavior only within the change’s
+claimed scope, not missing OpenSpec paperwork.
+
 If some context is inaccessible, state exactly what could not be read and
 continue only as far as the available evidence allows.
 

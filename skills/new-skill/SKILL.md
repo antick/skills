@@ -78,6 +78,12 @@ packaging commands. Fix every reported problem; do not weaken a test to pass.
 Search the changed files for stale names, placeholder text, and links that
 leave the skill folder.
 
+For a behavior-changing instruction, check a representative triggering request,
+a nearby request that should not trigger it, and any affected permission or
+stopping boundary. Reuse existing evaluation tooling when available. Distinguish
+actual execution results from a written walkthrough; do not claim behavioral
+validation from catalogue checks alone.
+
 ## Report
 
 List the skill files created, changed, or removed; each catalogue, manifest,

@@ -49,6 +49,12 @@ contracts, side effects, error handling, and meaningful assertions. Keep fixes o
 intentional behavior changes separate from cleanup. Do not replace removed
 ceremony with a larger speculative abstraction.
 
+For a confirmed unused direct dependency, remove its declaration using the
+project’s package manager and update the existing lockfile. Check related
+configuration and scripts, preserve unrelated versions, and verify affected
+consumers. Let the package manager resolve transitive changes; do not manually
+delete transitive lockfile entries. Report checks that could not run.
+
 Run relevant lint, type, and build checks plus the main skill's final test and
 repository-required checks. Compare against the baseline and inspect the final
 diff for lost behavior, weakened coverage, and unrelated changes.

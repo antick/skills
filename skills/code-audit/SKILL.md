@@ -31,6 +31,12 @@ Scan the repository for complexity that can be removed without losing required b
    that explain constraints or intent; show why a comment is obsolete.
 6. Rank confirmed findings by the largest safe reduction in maintenance cost.
 
+Before recommending a package as unused, check source imports, CLI commands,
+package scripts, configuration, framework plugins, runtime discovery, peer
+requirements, and workspace consumers. A dependency-analysis tool provides
+candidates, not proof. Report the owning manifest and evidence; leave uncertain
+packages out of the confirmed removal list.
+
 For architecture cleanup, trace dependency direction, cycles, shared ownership,
 and runtime entry points before recommending a boundary change. Distinguish
 intentional platform or trust boundaries from duplicated business behavior.

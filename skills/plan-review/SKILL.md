@@ -28,6 +28,11 @@ alter the environment. Propose required experiments with their expected evidence
 when they exceed the authorized scope. Existing explicit authorization remains
 valid, but a plan-only review does not itself start implementation.
 
+When the supplied plan belongs to an existing OpenSpec change, check it against
+the applicable requirements and scenarios, and identify contradictions between
+the proposal, design, and tasks. Treat unresolved contradictions as explicit
+gaps rather than silently choosing an interpretation.
+
 ## Check the strategy
 
 Scale the depth to the change. For each applicable area:

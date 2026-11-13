@@ -28,6 +28,11 @@ or "dashboard" describe requirements, not mandatory dependencies.
 | Mobile application | Expo/React Native when selected | Native capabilities require platform configuration or modules |
 | CLI or script | The chosen runtime's standard library | Command or interaction complexity exceeds its built-in facilities |
 
+When selecting tools for a new interactive web application with no established
+stack or explicit conflicting requirement, prefer Tailwind CSS and shadcn/ui
+where compatible. Preserve existing styling and component systems. Do not
+introduce a framework solely to use this preference.
+
 If several options fit, use stated preferences, deployment support, and maintenance
 cost to choose. Explain the choice briefly. Clarify an unresolved constraint when
 the alternatives would produce materially different products; otherwise proceed.

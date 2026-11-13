@@ -45,6 +45,12 @@ facts; tests and old prose may describe intent rather than reality.
 - Explanations: connect the relevant modules and decisions with source links.
   Do not invent historical rationale; label inferred reasons or omit them.
 
+Reuse the project’s established domain terms and existing decision records.
+Explain unfamiliar terms where needed. Record a decision’s rationale only when
+supported by the user or repository evidence; do not invent history, rename
+established concepts, or create glossary and decision files unless the requested
+documentation needs them.
+
 Use shared terminology and existing date/format conventions. Prefer short runnable
 examples over copied implementation. Keep generated reference material separate
 from human-maintained explanation, and preserve user-authored sections when

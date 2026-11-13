@@ -24,6 +24,7 @@
     "category": "Developer Tools",
     "capabilities": [
       "Code review",
+      "Implementation plan review",
       "Skill and agent instruction review",
       "Security audits",
       "GitHub Actions lockfile setup and verification",
@@ -64,6 +65,7 @@
     "websiteURL": "https://github.com/antick/skills",
     "defaultPrompt": [
       "Review these changes with the code-review skill.",
+      "Use $plan-review to check and revise this plan against requirements and evidence without starting implementation.",
       "Use $skill-review to review my skills and AGENTS.md files for conflicting instructions and unnecessary confirmation gates. Propose edits before changing files.",
       "Assess this project with the soc2-readiness skill and report findings in chat.",
       "Implement this with the code-build skill.",

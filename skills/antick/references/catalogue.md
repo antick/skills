@@ -24,6 +24,7 @@ is listed.
 
 | Skill | What it does |
 | --- | --- |
+| `plan-review` | Review and revise plans against requirements and evidence before execution |
 | `code-review` | Review code and PRs against requirements; report task findings and code health |
 | `submit-review` | Post review findings as inline PR comments and mark the PR draft |
 | `build-review-loop` | Build your issues in parallel, self-review each PR, and fix until clean |

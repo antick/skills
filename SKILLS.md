@@ -1,9 +1,10 @@
 # Antick Skills
 
-46 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+47 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
+| `plan-review` | Review and revise plans against requirements and evidence before execution |
 | `code-review` | Review code and PRs against requirements; report task findings and code health |
 | `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
 | `submit-review` | Post review findings as inline PR comments and mark the PR draft |
@@ -58,6 +59,7 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Implementation plan verification | [plan-review](skills/plan-review/SKILL.md), with evidence checks, whole-plan rechecks, readiness, and explicit stopping rules |
 | Vercel Web Analytics setup | [setup-vercel-analytics](skills/setup-vercel-analytics/SKILL.md), with framework detection, integration checks, and a dashboard activation reminder |
 | System storage and folder-scoped repeat audits | [system-storage-audit](skills/system-storage-audit/SKILL.md), with private snapshots and automatic comparison; cleanup remains separately confirmed |
 | HTML explainers and architecture maps | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, document explainers, incremental refresh, and optional architecture JSON |

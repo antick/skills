@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Review"
+  short_description: "Check plans against requirements and evidence"
+  default_prompt: "Use $plan-review to challenge and revise this plan against its requirements and available evidence. Resolve concrete gaps, recheck the whole plan, and report readiness, remaining assumptions, and blockers without starting implementation."

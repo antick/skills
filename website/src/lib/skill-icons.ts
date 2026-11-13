@@ -8,6 +8,7 @@ export const skillIcons = {
   "setup-vercel-analytics": Gauge,
   "github-actions-security-audit": ShieldCheck,
   "github-actions-lock": ShieldCheck,
+  "plan-review": ScanLine,
   "code-review": ScanLine,
   "skill-review": ScanLine,
   "code-build": Code2,

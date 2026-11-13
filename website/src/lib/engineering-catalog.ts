@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "plan-review": {
+    category: "Check the strategy before execution",
+    heading: "Challenge the plan.\nResolve the gaps.",
+    description: "Review and revise a plan against requirements, code, and available evidence. Check failure paths, dependencies, and verification, then report readiness and unresolved decisions without starting implementation.",
+    prompt: "$plan-review Check this plan against requirements and available evidence, revise concrete gaps, and report readiness without starting implementation.",
+    steps: ["Read the plan, requirements, and supporting evidence", "Correct concrete gaps and recheck the complete plan", "Report readiness, assumptions, and remaining blockers"],
+    mode: "Plan review and revision; no implementation",
+  },
   "electron-app": {
     category: "Native Electron apps",
     heading: "Build for the desktop.\nMake it feel native.",

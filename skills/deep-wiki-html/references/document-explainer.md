@@ -6,6 +6,12 @@ the source says; it does not establish that its claims are true or implemented.
 
 ## Resolve the source and destination
 
+For an existing explainer, recover the source identity from `document_sources`
+when the request does not supply it again. Use its recorded locator to retrieve
+the document; a logical section identity alone is not a filesystem path. If the
+source cannot be retrieved, request the missing material and preserve the
+existing output. Do not substitute repository code or a Git survey for it.
+
 Read the complete relevant document with the available file or connected-source
 tools. If it cannot be accessed, request the missing material and state the limit;
 do not infer the content from a title or URL. For a large or partially readable

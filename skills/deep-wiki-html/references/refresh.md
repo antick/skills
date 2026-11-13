@@ -1,5 +1,12 @@
 # Refresh an HTML wiki
 
+This Git-based procedure applies to codebase wikis and architecture maps. If the
+existing metadata has `kind: "document-explainer"`, use
+[document explainer](document-explainer.md) instead. For an embedded architecture
+model, also apply [architecture model](architecture-model.md), including its
+validator and any recorded JSON export. Resolve the artifact type before a
+missing Git baseline causes a repository survey.
+
 Read the existing file's visible content and `wiki-metadata` JSON. Reuse audience,
 depth, scope, section IDs, and custom styling unless the user changes them. Treat
 unrecognized metadata as a migration requiring a source survey, not as permission

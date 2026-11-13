@@ -12,6 +12,7 @@
       "description": "Portable skills for engineering refactors, security and supply-chain hardening, tests and CI, accessible UI systems, platform and data migrations, documentation, releases, personal interviews, and clear communication.",
       "version": "0.3.1",
       "skills": [
+        "./skills/plan-review",
         "./skills/code-review",
         "./skills/skill-review",
         "./skills/submit-review",

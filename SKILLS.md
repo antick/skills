@@ -1,9 +1,10 @@
 # Antick Skills
 
-46 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
+47 skills. Canonical behavior lives in `skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 | --- | --- |
+| `plan-review` | Review and revise plans against requirements and evidence before execution |
 | `code-review` | Review code and PRs against requirements; report task findings and code health |
 | `skill-review` | Review skills and agent instructions for conflicts, approval gates, and incomplete work |
 | `submit-review` | Post review findings as inline PR comments and mark the PR draft |
@@ -44,7 +45,7 @@
 | `ci-cd-triage` | Diagnose and repair failing builds and pipelines |
 | `accessibility-audit` | Find accessibility barriers and fix them when requested |
 | `documentation-generation` | Write source-backed docs, architecture maps, and onboarding guides |
-| `deep-wiki-html` | Automatically create or refresh one offline HTML codebase wiki and link to it |
+| `deep-wiki-html` | Create or refresh offline HTML wikis, document explainers, and architecture maps with optional JSON |
 | `interview` | Learn personal context and save authorized memories |
 | `new-skill` | Create or change skills that match the existing set and catalogues |
 | `use-chrome` | Reuse one connection to your main Chrome in background tabs |
@@ -58,9 +59,10 @@ the combinations below describe complementary workflows, not required dependenci
 
 | Requested capability | Skill or workflow |
 | --- | --- |
+| Implementation plan verification | [plan-review](skills/plan-review/SKILL.md), with evidence checks, whole-plan rechecks, readiness, and explicit stopping rules |
 | Vercel Web Analytics setup | [setup-vercel-analytics](skills/setup-vercel-analytics/SKILL.md), with framework detection, integration checks, and a dashboard activation reminder |
 | System storage and folder-scoped repeat audits | [system-storage-audit](skills/system-storage-audit/SKILL.md), with private snapshots and automatic comparison; cleanup remains separately confirmed |
-| Single-file codebase wiki | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, and incremental refresh |
+| HTML explainers and architecture maps | [deep-wiki-html](skills/deep-wiki-html/SKILL.md), with offline navigation, source citations, document explainers, incremental refresh, and optional architecture JSON |
 | Complex refactors | [code-refactor](skills/code-refactor/SKILL.md), including its architecture migration guide |
 | Architecture cleanup | [code-audit](skills/code-audit/SKILL.md) for findings; [code-refactor](skills/code-refactor/SKILL.md) for implementation |
 | Auth flow consolidation | [code-refactor: auth-consolidation](skills/code-refactor/references/auth-consolidation.md) |

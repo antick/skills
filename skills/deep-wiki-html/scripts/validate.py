@@ -29,6 +29,7 @@ class WikiParser(HTMLParser):
         self.raw_tag = None
         self.raw = []
         self.is_metadata = False
+        self.is_json = False
         self.metadata = []
         self.nav_depth = 0
 
@@ -85,6 +86,7 @@ class WikiParser(HTMLParser):
                 self.errors.append("module scripts are unsupported; use classic inline scripts")
             self.raw_tag, self.raw = tag, []
             self.is_metadata = identity == "wiki-metadata"
+            self.is_json = attrs.get("type") == "application/json"
             if self.is_metadata and attrs.get("type") != "application/json":
                 self.errors.append("wiki-metadata must be inert application/json")
 
@@ -105,7 +107,7 @@ class WikiParser(HTMLParser):
                 self.check_css(content)
             elif self.is_metadata:
                 self.metadata.append(content)
-            elif re.search(r"\b(fetch|XMLHttpRequest|WebSocket|EventSource|importScripts)\b|\bimport\s*\(", content):
+            elif not self.is_json and re.search(r"\b(fetch|XMLHttpRequest|WebSocket|EventSource|importScripts)\b|\bimport\s*\(", content):
                 self.errors.append("script contains a network-loading API")
             self.raw_tag = None
 

@@ -21,6 +21,12 @@ proof, and an obvious next action; working applications need scanability,
 appropriate density, and efficient tasks; reading surfaces need comprehension
 and wayfinding. A product can contain all three.
 
+For a new user-facing application, establish the primary journeys, screen
+layouts, and relevant states before substantial API implementation. Check API
+and data feasibility early where it could invalidate the design. Follow the
+existing layout approval rule; do not add another approval checkpoint.
+Backend-only projects and focused fixes follow their requested scope.
+
 ## Make hierarchy follow the task
 
 Before implementation, name what leads, what supports it, which information
@@ -57,6 +63,12 @@ from the audience, content, and supplied references. Explore alternatives when
 the direction is genuinely open. Routine additions inherit the existing system;
 they do not need a new concept exercise. Judge aesthetic choices by their fit
 and effect on users, rather than a universal list of forbidden styles.
+
+For a new application interface, provide light, dark, and system theme choices
+unless the user or product requirements specify otherwise. Reuse shared theme
+tokens, preserve an explicit user choice, and verify contrast and system-preference
+changes. Existing products retain their established theme scope
+unless a theme change is requested.
 
 ## Verify the rendered result
 

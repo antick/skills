@@ -2,6 +2,11 @@
 
 Apply only the sections relevant to the change. Empty sections are valid.
 
+When changed behavior involves stored user data, authentication, concurrent
+mutations, background jobs, email, file storage, service health, or cross-device
+state, also read [production safety](production-safety.md). Apply the same
+finding bar and scope limits as the main skill.
+
 ## Requirements and correctness
 
 - Every stated requirement and acceptance criterion is implemented.

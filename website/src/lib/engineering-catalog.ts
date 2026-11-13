@@ -1,5 +1,13 @@
 // Workflow-specific presentation data; names and summaries remain in packs.json.
 export const engineeringDetails = {
+  "plan-review": {
+    category: "Check the strategy before execution",
+    heading: "Challenge the plan.\nResolve the gaps.",
+    description: "Review and revise a plan against requirements, code, and available evidence. Check failure paths, dependencies, and verification, then report readiness and unresolved decisions without starting implementation.",
+    prompt: "$plan-review Check this plan against requirements and available evidence, revise concrete gaps, and report readiness without starting implementation.",
+    steps: ["Read the plan, requirements, and supporting evidence", "Correct concrete gaps and recheck the complete plan", "Report readiness, assumptions, and remaining blockers"],
+    mode: "Plan review and revision; no implementation",
+  },
   "electron-app": {
     category: "Native Electron apps",
     heading: "Build for the desktop.\nMake it feel native.",
@@ -10,11 +18,11 @@ export const engineeringDetails = {
   },
   "deep-wiki-html": {
     category: "Deep Wiki HTML",
-    heading: "Understand the code.\nKeep one file.",
-    description: "Automatically find and refresh an existing codebase wiki or create one offline HTML file, then return a clickable viewing link. Includes architecture diagrams, source citations, and search.",
-    prompt: "$deep-wiki-html Keep this repository's HTML wiki current and open the result.",
-    steps: ["Find the existing wiki or choose the default destination", "Create or refresh it against the current source", "Verify the guide and return a clickable viewing link"],
-    mode: "Single-file documentation",
+    heading: "Explain the document.\nMap the architecture.",
+    description: "Create or refresh an offline HTML codebase wiki, visual document explainer, or source-backed architecture map with optional matching JSON export. Includes source citations, search, and coverage limits.",
+    prompt: "$deep-wiki-html Create or refresh an offline HTML explainer or architecture map and export architecture JSON when requested.",
+    steps: ["Choose document or code sources and inspect coverage", "Create or refresh the offline guide and requested architecture model", "Verify citations, optional JSON equality, and viewing links"],
+    mode: "Offline HTML explanations and architecture models",
   },
   "test-suite-hardening": {
     category: "Test Suite Hardening",

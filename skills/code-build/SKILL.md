@@ -28,6 +28,12 @@ and the acceptance criteria. For a task given directly in chat, use that request
 do not require an issue. If a supplied issue cannot be read, say so and ask for
 the missing requirements instead of inventing them.
 
+When the task is governed by an existing OpenSpec change, read its applicable
+proposal, requirements, scenarios, design, and tasks before editing. Map the
+requested behavior to those artifacts. Follow the repository’s existing commands
+for required updates; do not introduce OpenSpec or create specification files
+solely because this skill mentions it.
+
 For a bug, trace the original failure through the affected code before editing
 and fix its root cause. For an investigation-only request, follow the `code-debug`
 approach: report the cause and the proposed fix without changing code.
@@ -125,6 +131,17 @@ two days old, pin exact versions, and update the existing lockfile with the
 project's package manager. Preserve unrelated dependency versions. If release
 metadata is unavailable, report the limitation instead of guessing.
 
+For changes involving stored user data, authentication, concurrent mutations,
+background jobs, email, file storage, service health, or cross-device state, read
+[production safety](references/production-safety.md) and apply the relevant sections.
+
+Before adding an unfamiliar dependency, verify its exact package identity
+against the upstream project and registry. Inspect its purpose, license
+compatibility, dependency footprint, lifecycle scripts, and available provenance
+information before installation. Popularity or provenance alone does not
+establish safety. Report material uncertainty rather than installing a guessed
+package name.
+
 ## Ladder
 
 1. Confirm the requested behavior needs to exist.
@@ -172,6 +189,11 @@ by the change; distinguish existing failures from new ones.
 Keep preview, deployment, publication, and other external actions within the
 user's authorized scope. When a real service or device is unavailable, leave the
 implementation ready to verify and state the exact remaining step.
+
+When continuing from an existing plan or review, account for its unresolved
+requirements and findings in the final report. State which were addressed, which
+remain, and what verification supports the result. Reuse the existing PR
+description or conversation; do not create a separate handoff document.
 
 ## Commit and open a draft pull request
 

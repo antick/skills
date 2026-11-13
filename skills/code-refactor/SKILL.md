@@ -16,6 +16,7 @@ the core workflow and preserve its scope and verification requirements.
 
 | Requested work | Guide |
 | --- | --- |
+| Repository Cleanup | [Workflow](references/repository-cleanup.md) |
 | Auth Consolidation | [Workflow](references/auth-consolidation.md) |
 | State Consolidation | [Workflow](references/state-consolidation.md) |
 | SDK Consolidation | [Workflow](references/sdk-consolidation.md) |
@@ -42,10 +43,16 @@ Do not hide failures by skipping tests or weakening checks.
 
 ## 2. Research current official guidance
 
-Fetch the latest official documentation, release notes, and migration guides for
-the frameworks and libraries involved, using available browsing or documentation
-tools. Also check documentation for the installed version. Do this for each task;
-do not treat remembered API details or a cached skill example as current research.
+For modernization, API replacement, or cleanup that depends on framework or
+library semantics, fetch the relevant official documentation, release notes, and
+migration guides using available browsing or documentation tools. Check the
+installed version as well as any proposed replacement. Do not treat remembered
+API details or a cached skill example as current research.
+
+Repository-proven removal of unused code, obsolete comments, or duplicate helpers
+needs no unrelated framework research. Use caller, contract, and coverage evidence
+from the cleanup workflow; research any uncertain framework behavior before
+relying on it.
 
 For each useful candidate, identify:
 
@@ -64,15 +71,20 @@ If current official sources cannot be accessed, disclose the gap. Continue only
 with changes justified by verifiable installed-version documentation or source;
 defer recommendations that depend on unverified newer features.
 
-For React, start with [versions](https://react.dev/versions), the applicable API
-references, and release/upgrade guides. Inspect effects, derived state, component
+When researching React changes, start with [versions](https://react.dev/versions),
+the applicable API references, and release/upgrade guides. Inspect effects, derived state, component
 boundaries, and data flow. Consider newer hooks, form APIs, or compiler support only
 where the documented prerequisites and behavior fit the app. Do not assume compiler
 optimization is enabled or remove memoization solely because a newer React exists.
 
 ## 3. Establish regression protection before refactoring
 
-Suggest specific tests for the behavior at risk, then follow this decision:
+For repository cleanup, first apply the evidence and regression rules in
+[repository cleanup](references/repository-cleanup.md). Proven unused code or
+comment removal needs no new test solely to mirror the deletion. Existing tests
+may suffice when they already protect every affected contract; identify those
+cases and run them. For behavior-affecting refactors or coverage gaps, suggest
+specific tests for the behavior at risk, then follow this decision:
 
 | Project state | Action |
 | --- | --- |
@@ -88,8 +100,9 @@ If approval is declined or unanswered, provide findings and a plan; leave the
 unprotected production changes unapplied. Honor explicit suite approval already
 given in the conversation.
 
-For an existing or approved suite, write characterization tests that pass against
-the original implementation. Cover observable contracts, important edge cases,
+When additional coverage is needed in an existing or approved suite, write
+characterization tests that pass against the original implementation. Cover
+observable contracts, important edge cases,
 errors, and affected integrations. For UI changes, include interactions, state
 transitions, async success/failure, and cleanup or accessibility where relevant.
 A snapshot or coverage percentage alone does not establish protection. Avoid tests
@@ -102,7 +115,7 @@ dependent refactor and report the blocker.
 
 ## 4. Refactor in small verified steps
 
-Briefly explain selected changes, their source-backed benefit, and the tests that
+Briefly explain selected changes, their evidence-backed benefit, and the tests that
 protect them. Preserve public APIs, UI behavior, data formats, side effects, and
 error handling unless the user requested a change.
 

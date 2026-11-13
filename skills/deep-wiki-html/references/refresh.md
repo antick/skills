@@ -1,5 +1,12 @@
 # Refresh an HTML wiki
 
+This Git-based procedure applies to codebase wikis and architecture maps. If the
+existing metadata has `kind: "document-explainer"`, use
+[document explainer](document-explainer.md) instead. For an embedded architecture
+model, also apply [architecture model](architecture-model.md), including its
+validator and any recorded JSON export. Resolve the artifact type before a
+missing Git baseline causes a repository survey.
+
 Read the existing file's visible content and `wiki-metadata` JSON. Reuse audience,
 depth, scope, section IDs, and custom styling unless the user changes them. Treat
 unrecognized metadata as a migration requiring a source survey, not as permission
@@ -40,8 +47,12 @@ older pinned citations only when deliberately labelled as historical evidence.
 Update source mappings, revision, timestamp, and working-tree state only after
 verification. Ignore the output HTML when deciding whether inspected sources
 are dirty. Document the changed areas and remaining gaps in a short visible
-update note. A refreshed file remains the sole deliverable; its own embedded
-metadata is sufficient to start the next refresh.
+update note. The HTML's embedded metadata remains sufficient to start the next refresh.
+For architecture models, refresh the embedded model and affected explanations
+from the same evidence. If a JSON export was requested or an existing companion
+export is recorded in metadata, regenerate it from that model and verify equality.
+Preserve stable model IDs and manual annotations; explain conflicts rather than
+silently overwriting them. Exclude both outputs from source-change detection.
 
 ## Keeping an active repository current
 

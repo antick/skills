@@ -21,10 +21,19 @@ understands it on the first read, as a teammate explaining the problem would.
 
 ## Layout
 
-For a pull request, open with a one-line **Merge status**: mergeable,
-conflicting, or unknown, and how many commits the head is behind its base. For
-local changes, open with one line naming the reviewed scope. Then use these
-sections in this order:
+For a pull request, start the review with this header. Fill in the full URL,
+merge status, behind count, and base branch from the live pull request. Keep
+the blank line so the two labels render as separate paragraphs. Add any
+base-freshness detail to the merge status line.
+
+```markdown
+**PR:** <full pull request URL>
+
+**Merge status:** <Mergeable | Conflicting | Unknown>, <N> commits behind `<base>`.
+```
+
+For local changes, open with one line naming the reviewed scope. Then use
+these sections in this order:
 
 1. `## Task findings`: whether the change does what its requirements ask, and
    does it safely. This covers missing or wrong required behavior, security and

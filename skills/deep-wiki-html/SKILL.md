@@ -78,6 +78,14 @@ paths, and practical change guides. Respect an explicit outline. Record included
 areas and omissions so partial inspection never reads as exhaustive coverage.
 Ask only when a missing choice prevents useful work.
 
+For a full guide without an explicit outline, check each onboarding area:
+services and features with their connections; end-to-end data flow;
+environments, deployment, and CI/CD; the API surface; authentication and
+authorization; and team conventions such as workflow, testing, and code style.
+Cover each area the repository supports with evidence. List an area without
+evidence in `scope.excluded` and in the guide's visible coverage note instead
+of writing an empty or speculative section.
+
 ## Build an evidence map
 
 Trace the important user or developer journeys from their trigger through the
